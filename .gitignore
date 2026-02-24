@@ -1,6 +1,6 @@
 *.out
 .DS_Store
-
+*venv*
 # C extensions
 *.so
 

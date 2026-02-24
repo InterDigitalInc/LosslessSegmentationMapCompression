@@ -1,5 +1,5 @@
 #pragma once
-#include "arithmetic_codec.h"
+#include "../thirdparty/arithmetic_codec.h"
 
 extern Arithmetic_Codec acodec;
 extern Adaptive_Data_Model aColor;
@@ -393,9 +393,9 @@ extern Adaptive_Bit_Model aChainType;
 
 extern int chain_mode;
 
-extern int* codedMap;
-extern int* encCodedMap;
-extern unsigned char* encImg;
+extern int *codedMap;
+extern int *encCodedMap;
+extern unsigned char *encImg;
 extern int first_color;
 extern int edge_num;
 extern int inner_num;
@@ -428,7 +428,3 @@ void save_3OT();
 void restore_3OT();
 void save_MSC();
 void restore_MSC();
-
-
-
-
