@@ -1,5 +1,5 @@
 #pragma once
-#include "../thirdparty/arithmetic_codec.h"
+#include "../third_party/arithmetic_codec.h"
 
 extern Arithmetic_Codec acodec;
 extern Adaptive_Data_Model aColor;

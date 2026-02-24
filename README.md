@@ -95,7 +95,7 @@ From the repository root (for Makefile build):
 ```text
 source/
   commonlib/
-  thirdparty/
+  third_party/
   encoder/
   decoder/
 Makefile

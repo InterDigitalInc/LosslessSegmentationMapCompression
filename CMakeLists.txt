@@ -10,7 +10,7 @@ set(COMMON_SOURCES
     source/commonlib/coding_unit.cpp
     source/commonlib/global_arithmetic.cpp
     source/commonlib/utility.cpp
-    source/thirdparty/arithmetic_codec.cpp
+    source/third_party/arithmetic_codec.cpp
 )
 
 add_library(commonlib STATIC ${COMMON_SOURCES})
@@ -18,7 +18,7 @@ target_include_directories(
     commonlib
     PUBLIC
       source/commonlib
-      source/thirdparty
+      source/third_party
 )
 
 add_executable(
@@ -31,7 +31,7 @@ target_include_directories(
     encoder
     PRIVATE
       source/commonlib
-      source/thirdparty
+      source/third_party
       source/encoder
 )
 
@@ -45,6 +45,6 @@ target_include_directories(
     decoder
     PRIVATE
       source/commonlib
-      source/thirdparty
+      source/third_party
       source/decoder
 )
