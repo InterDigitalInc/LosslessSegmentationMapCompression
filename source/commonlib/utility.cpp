@@ -1,5 +1,7 @@
 #include "utility.h"
 #include "CodingUnit.h"
+#include <cstdio>
+#include <cstring>
 #include <iostream>
 using namespace std;
 
@@ -220,7 +222,7 @@ void encGolomb(int absV, int mode, int k) // 0: 0+  1:-0+  2:-+
     else if (absV < 0)
       absV = -absV * 2 - 1;
   }
-  int stopLoop = 0; // 一阶指数哥伦布
+  int stopLoop = 0;
   do {
     if (absV >= (1 << k)) {
       acodec.encode(1, aGolomb);
@@ -249,7 +251,7 @@ float GolombBits(int absV, int mode, int k) // 0: 0+  1:-0+  2:-+
     else if (absV < 0)
       absV = -absV * 2 - 1;
   }
-  int stopLoop = 0; // 一阶指数哥伦布
+  int stopLoop = 0;
   do {
     if (absV >= (1 << k)) {
       rate += 1;
@@ -307,8 +309,10 @@ int readByArithmetic(Arithmetic_Codec *acd, Adaptive_Bit_Model *bit, int num) {
 }
 
 void write2bin(unsigned char *p, int size, char *file_name) {
-  FILE *fid;
-  fopen_s(&fid, file_name, "wb");
+  FILE *fid = openFile(file_name, "wb");
+  if (fid == nullptr) {
+    return;
+  }
   fwrite(p, sizeof(unsigned char), size, fid);
   fclose(fid);
 }
@@ -6143,4 +6147,30 @@ float getBits_3OT(CodingUnit *CU) {
     adapt_position_3OT(&x, &y, edge[i]);
   }
   return rate;
+}
+
+// portable helpers to process input arguments
+void copyArg(char *dst, size_t dstSize, const char *src) {
+  if (dst == nullptr || src == nullptr || dstSize == 0) {
+    return;
+  }
+
+  std::strncpy(dst, src, dstSize - 1);
+  dst[dstSize - 1] = '\0';
+}
+
+bool parseIntArg(const char *src, int *value) {
+  if (src == nullptr || value == nullptr) {
+    return false;
+  }
+
+  return std::sscanf(src, "%d", value) == 1;
+}
+
+FILE *openFile(const char *path, const char *mode) {
+  if (path == nullptr || mode == nullptr) {
+    return nullptr;
+  }
+
+  return std::fopen(path, mode);
 }

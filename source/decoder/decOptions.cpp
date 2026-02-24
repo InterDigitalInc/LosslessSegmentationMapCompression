@@ -1,4 +1,5 @@
 #include "decOptions.h"
+#include <cstring>
 #include <iostream>
 using namespace std;
 
@@ -17,11 +18,11 @@ int readOptions(int argc, char *argv[], char *filein, char *fileout) {
         break;
       case 'i':
         i++;
-        strcpy_s(filein, strlen(argv[i]) + 1, argv[i]);
+        copyArg(filein, NAME_LENGTH, argv[i]);
         break;
       case 'o':
         i++;
-        strcpy_s(fileout, strlen(argv[i]) + 1, argv[i]);
+        copyArg(fileout, NAME_LENGTH, argv[i]);
         break;
       default:
         cout << "unsupport commands exist" << endl;

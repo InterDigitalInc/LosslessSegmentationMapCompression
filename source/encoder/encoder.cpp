@@ -238,8 +238,11 @@ int main(int argc, char **argv) {
   int size;
   int real_size;
   int skip_size;
-  FILE *pFile;
-  fopen_s(&pFile, filein, "rb");
+  FILE *pFile = openFile(filein, "rb");
+  if (pFile == nullptr) {
+    cout << "failed to open input file: " << filein << endl;
+    return -1;
+  }
   size = getFSize(pFile);
   if (type == 400) {
     real_size = rows * cols * frameNum;

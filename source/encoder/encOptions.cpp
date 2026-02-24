@@ -1,4 +1,5 @@
 #include "encOptions.h"
+#include <cstring>
 #include <iostream>
 using namespace std;
 
@@ -19,7 +20,7 @@ int readOptions(int argc, char *argv[], char *filein, char *fileout, int *rows,
         break;
       case 'i':
         i++;
-        strcpy_s(filein, strlen(argv[i]) + 1, argv[i]);
+        copyArg(filein, NAME_LENGTH, argv[i]);
         if (filein[strlen(argv[i]) - 1] != 'v' ||
             filein[strlen(argv[i]) - 2] != 'u' ||
             filein[strlen(argv[i]) - 3] != 'y' ||
@@ -30,22 +31,22 @@ int readOptions(int argc, char *argv[], char *filein, char *fileout, int *rows,
         break;
       case 'o':
         i++;
-        strcpy_s(fileout, strlen(argv[i]) + 1, argv[i]);
+        copyArg(fileout, NAME_LENGTH, argv[i]);
         break;
       case 'r':
-        sscanf_s(argv[++i], "%d", rows);
+        parseIntArg(argv[++i], rows);
         break;
       case 'c':
-        sscanf_s(argv[++i], "%d", cols);
+        parseIntArg(argv[++i], cols);
         break;
       case 'f':
-        sscanf_s(argv[++i], "%d", frameNum);
+        parseIntArg(argv[++i], frameNum);
         break;
       case 's':
-        sscanf_s(argv[++i], "%d", skip);
+        parseIntArg(argv[++i], skip);
         break;
       case 't':
-        sscanf_s(argv[++i], "%d", type);
+        parseIntArg(argv[++i], type);
         break;
       default:
         cout << "unsupport command exist" << endl;

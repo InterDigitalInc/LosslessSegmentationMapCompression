@@ -1,6 +1,8 @@
 #pragma once
 #include "CodingUnit.h"
 #include "global_arithmetic.h"
+#include <cstddef>
+#include <cstdio>
 
 void advancedExpand(unsigned char *img, int height, int width, int color1,
                     int color2_y, int color2_x);
@@ -44,3 +46,8 @@ void get_forbidden_3OT(int x, int y, int pic_w, int pic_h, int pre_direction,
 int get_dec_MSC(int index, int direction);
 float getBits_MSC(CodingUnit *CU);
 float getBits_3OT(CodingUnit *CU);
+
+// portable helpers to process input arguments
+void copyArg(char *dst, size_t dstSize, const char *src);
+bool parseIntArg(const char *src, int *value);
+FILE *openFile(const char *path, const char *mode);

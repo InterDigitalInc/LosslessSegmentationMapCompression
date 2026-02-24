@@ -2525,7 +2525,11 @@ int main(int argc, char **argv) {
   readOptions(argc, argv, filein, fileout);
   FILE *pFile;
   int size;
-  fopen_s(&pFile, filein, "rb");
+  pFile = openFile(filein, "rb");
+  if (pFile == nullptr) {
+    cout << "failed to open input file: " << filein << endl;
+    return -1;
+  }
   size = getFSize(pFile);
   unsigned char *buffer = new unsigned char[size];
   fread(buffer, 1, size, pFile);
