@@ -1,4 +1,4 @@
-#include "../../source/commonlib/CodingUnit.h"
+#include "../../source/commonlib/coding_unit.h"
 #include "../../source/commonlib/global_arithmetic.h"
 #include "../../source/commonlib/utility.h"
 #include "encOptions.h"
