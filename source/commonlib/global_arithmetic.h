@@ -1,3 +1,7 @@
+// Copyright (c) 2026, InterDigital
+// All rights reserved.
+// See LICENSE under the root folder.
+
 #pragma once
 #include "../third_party/arithmetic_codec.h"
 

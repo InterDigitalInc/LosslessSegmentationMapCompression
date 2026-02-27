@@ -1,15 +1,24 @@
+/* Copyright (c) 2026, InterDigital
+ * All rights reserved.
+ * See LICENSE under the root folder.
+ */
+
 #include "encOptions.h"
 #include <cstring>
 #include <iostream>
 using namespace std;
 
 int readOptions(int argc, char *argv[], char *filein, char *fileout, int *rows,
-                int *cols, int *frameNum, int *skip, int *type) {
+                int *cols, int *frameNum, int *skip, int *type)
+{
   int i;
   // get input para
-  for (i = 1; i < argc; i++) {
-    if (argv[i][0] == '-') {
-      switch (argv[i][1]) {
+  for (i = 1; i < argc; i++)
+  {
+    if (argv[i][0] == '-')
+    {
+      switch (argv[i][1])
+      {
       case 'h':
         cout
             << " There are 9 kinds of commands.\n -h(help information) -i(input file which only support .yuv now) -o(output file) -r(row number of the graph) -c(col number of the graph) \
@@ -24,7 +33,8 @@ int readOptions(int argc, char *argv[], char *filein, char *fileout, int *rows,
         if (filein[strlen(argv[i]) - 1] != 'v' ||
             filein[strlen(argv[i]) - 2] != 'u' ||
             filein[strlen(argv[i]) - 3] != 'y' ||
-            filein[strlen(argv[i]) - 4] != '.') {
+            filein[strlen(argv[i]) - 4] != '.')
+        {
           cout << "only support .yuv now" << endl;
           return -1;
         }

@@ -1,3 +1,7 @@
+// Copyright (c) 2026, InterDigital
+// All rights reserved.
+// See LICENSE under the root folder.
+
 #include "coding_unit.h"
 #include "global_arithmetic.h"
 #include "utility.h"
@@ -11,7 +15,8 @@ CodingUnit::CodingUnit(void) {}
 
 CodingUnit::~CodingUnit() {}
 
-void CodingUnit::destroyObject() {
+void CodingUnit::destroyObject()
+{
   if (Edge_MSC)
     delete[] Edge_MSC;
   if (Overlap_MSC)
@@ -25,8 +30,10 @@ void CodingUnit::destroyObject() {
   this->next = NULL;
 }
 
-bool isPrefix(int dir_long, int dir_short) {
-  switch (dir_long) {
+bool isPrefix(int dir_long, int dir_short)
+{
+  switch (dir_long)
+  {
   case 8:
     if (dir_short == 0)
       return true;
@@ -145,7 +152,8 @@ bool isPrefix(int dir_long, int dir_short) {
 
 void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
                                    int loc_row, int loc_col, int index,
-                                   bool paint) {
+                                   bool paint)
+{
   location_row = loc_row;
   location_col = loc_col;
   pic_width = w;
@@ -155,7 +163,8 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
   colorValue = pImg[location_row * pic_width + location_col];
   object_index = index;
   next = NULL;
-  if (paint) {
+  if (paint)
+  {
     for (int k = 0; k < pic_height * pic_width; k++)
       encCodedMap[k] = 255;
   }
@@ -164,23 +173,32 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
   bool boundary = false;
 
   int direction;
-  if (location_col == 0) {
+  if (location_col == 0)
+  {
     direction = 0;
     y -= 1;
     boundary = true;
-  } else if (location_row == pic_height - 1) {
+  }
+  else if (location_row == pic_height - 1)
+  {
     direction = 2;
     x -= 1;
     boundary = true;
-  } else if (location_col == pic_width - 1) {
+  }
+  else if (location_col == pic_width - 1)
+  {
     direction = 4;
     y += 1;
     boundary = true;
-  } else if (location_row == 0) {
+  }
+  else if (location_row == 0)
+  {
     direction = 6;
     x += 1;
     boundary = true;
-  } else {
+  }
+  else
+  {
     direction = 2;
     x -= 1;
   }
@@ -189,7 +207,8 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
   if (paint)
     encCodedMap[initial_y * pic_width + initial_x] = -1;
 
-  while (1) {
+  while (1)
+  {
     x = x_run;
     y = y_run;
     if ((x == 0 && direction == 4) || (x == 0 && direction == 5) ||
@@ -206,18 +225,22 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
     direction = (direction + 5) % 8;
     bool find = false;
     while (x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-           y_run < pic_height) {
+           y_run < pic_height)
+    {
       direction = (direction + 1) % 8;
-      switch (direction) {
+      switch (direction)
+      {
       case 0:
         x_run = x + 1;
         y_run = y;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 0;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 0;
           find = true;
         }
@@ -226,11 +249,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x + 1;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 1;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[y_run * pic_width + x_run - 1] == object_index)
             break;
           edgeline[edgeLength++] = 1;
@@ -241,11 +266,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 2;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 2;
           find = true;
         }
@@ -254,11 +281,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x - 1;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 3;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[(y_run + 1) * pic_width + x_run] == object_index)
             break;
           edgeline[edgeLength++] = 3;
@@ -269,11 +298,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x - 1;
         y_run = y;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 4;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 4;
           find = true;
         }
@@ -282,11 +313,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x - 1;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 5;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[y_run * pic_width + x_run + 1] == object_index)
             break;
           edgeline[edgeLength++] = 5;
@@ -297,11 +330,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 6;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 6;
           find = true;
         }
@@ -310,11 +345,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         x_run = x + 1;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 7;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[(y_run - 1) * pic_width + x_run] == object_index)
             break;
           edgeline[edgeLength++] = 7;
@@ -322,7 +359,8 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
         }
         break;
       }
-      if (find) {
+      if (find)
+      {
         if (paint)
           encCodedMap[y_run * pic_width + x_run] = -1;
         break;
@@ -333,20 +371,27 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
   int cc_num = 0;
   y = initial_y;
   x = initial_x;
-  for (int i = 0; i < edgeLength; i++) {
-    if (edgeLength - i > 2) {
+  for (int i = 0; i < edgeLength; i++)
+  {
+    if (edgeLength - i > 2)
+    {
       edgeline[j] =
           get_MSC(edgeline[i], edgeline[i + 1], edgeline[i + 2], &cc_num);
       i += cc_num - 1;
-    } else if (edgeLength - i == 2) {
+    }
+    else if (edgeLength - i == 2)
+    {
       edgeline[j] = get_MSC(edgeline[i], edgeline[i + 1], -1, &cc_num);
       i += cc_num - 1;
-    } else {
+    }
+    else
+    {
       edgeline[j] = get_MSC(edgeline[i], -1, -1, &cc_num);
       i += cc_num - 1;
     }
     j++;
-    switch (edgeline[j - 1]) {
+    switch (edgeline[j - 1])
+    {
     case 0:
       x += 1;
       break;
@@ -523,8 +568,10 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
   else
     direction = 2;
 
-  for (int i = 0; i < j; i++) {
-    if (Available_val[encImg[initial_y * pic_width + initial_x]]) {
+  for (int i = 0; i < j; i++)
+  {
+    if (Available_val[encImg[initial_y * pic_width + initial_x]])
+    {
       Overlap_MSC[i] += 1;
 
       F8[0] = -1;
@@ -532,25 +579,30 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
       F8[2] = -1;
       y_run = initial_y;
       x_run = initial_x;
-      for (int k = 0; k < 3; k++) {
+      for (int k = 0; k < 3; k++)
+      {
         x = x_run;
         y = y_run;
         direction = (direction + 5) % 8;
         int end_direction = direction;
         bool find = false;
         while (x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-               y_run < pic_height) {
+               y_run < pic_height)
+        {
           direction = (direction + 1) % 8;
-          switch (direction) {
+          switch (direction)
+          {
           case 0:
             x_run = x + 1;
             y_run = y;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 0;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 0;
               find = true;
             }
@@ -559,11 +611,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x + 1;
             y_run = y - 1;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 1;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 1;
               find = true;
             }
@@ -572,11 +626,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x;
             y_run = y - 1;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 2;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 2;
               find = true;
             }
@@ -585,11 +641,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x - 1;
             y_run = y - 1;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 3;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 3;
               find = true;
             }
@@ -598,11 +656,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x - 1;
             y_run = y;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 4;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 4;
               find = true;
             }
@@ -611,11 +671,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x - 1;
             y_run = y + 1;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 5;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 5;
               find = true;
             }
@@ -624,11 +686,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x;
             y_run = y + 1;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 6;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 6;
               find = true;
             }
@@ -637,11 +701,13 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
             x_run = x + 1;
             y_run = y + 1;
             if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-                  y_run < pic_height)) {
+                  y_run < pic_height))
+            {
               F8[k] = 7;
               break;
             }
-            if (Available_val[encImg[y_run * pic_width + x_run]]) {
+            if (Available_val[encImg[y_run * pic_width + x_run]])
+            {
               F8[k] = 7;
               find = true;
             }
@@ -661,7 +727,8 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
           isPrefix(MSC_ava, Edge_MSC[i + 1]))
         Overlap_MSC[i] += 1;
     }
-    switch (Edge_MSC[i + 1]) {
+    switch (Edge_MSC[i + 1])
+    {
     case 0:
       initial_x += 1;
       direction = 0;
@@ -841,7 +908,8 @@ void CodingUnit::create_object_MSC(unsigned char *pImg, int h, int w,
 }
 
 void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
-                                   int loc_row, int loc_col, int index) {
+                                   int loc_row, int loc_col, int index)
+{
   location_row = loc_row;
   location_col = loc_col;
   pic_width = w;
@@ -859,23 +927,32 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
   bool boundary = false;
 
   int direction;
-  if (location_col == 0) {
+  if (location_col == 0)
+  {
     direction = 0;
     y -= 1;
     boundary = true;
-  } else if (location_row == pic_height - 1) {
+  }
+  else if (location_row == pic_height - 1)
+  {
     direction = 2;
     x -= 1;
     boundary = true;
-  } else if (location_col == pic_width - 1) {
+  }
+  else if (location_col == pic_width - 1)
+  {
     direction = 4;
     y += 1;
     boundary = true;
-  } else if (location_row == 0) {
+  }
+  else if (location_row == 0)
+  {
     direction = 6;
     x += 1;
     boundary = true;
-  } else {
+  }
+  else
+  {
     direction = 2;
     x -= 1;
   }
@@ -883,7 +960,8 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
   int x_run = x, y_run = y;
   encCodedMap[initial_y * pic_width + initial_x] = -1;
 
-  while (1) {
+  while (1)
+  {
     x = x_run;
     y = y_run;
     if ((x == 0 && direction == 4) || (x == 0 && direction == 5) ||
@@ -900,18 +978,22 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
     direction = (direction + 5) % 8;
     bool find = false;
     while (x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-           y_run < pic_height) {
+           y_run < pic_height)
+    {
       direction = (direction + 1) % 8;
-      switch (direction) {
+      switch (direction)
+      {
       case 0:
         x_run = x + 1;
         y_run = y;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 0;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 0;
           find = true;
         }
@@ -920,11 +1002,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x + 1;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 1;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[y_run * pic_width + x_run - 1] == object_index)
             break;
           edgeline[edgeLength++] = 1;
@@ -935,11 +1019,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 2;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 2;
           find = true;
         }
@@ -948,11 +1034,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x - 1;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 3;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[(y_run + 1) * pic_width + x_run] == object_index)
             break;
           edgeline[edgeLength++] = 3;
@@ -963,11 +1051,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x - 1;
         y_run = y;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 4;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 4;
           find = true;
         }
@@ -976,11 +1066,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x - 1;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 5;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[y_run * pic_width + x_run + 1] == object_index)
             break;
           edgeline[edgeLength++] = 5;
@@ -991,11 +1083,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 6;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           edgeline[edgeLength++] = 6;
           find = true;
         }
@@ -1004,11 +1098,13 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         x_run = x + 1;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           edgeline[edgeLength++] = 7;
           break;
         }
-        if (codedMap[y_run * pic_width + x_run] != object_index) {
+        if (codedMap[y_run * pic_width + x_run] != object_index)
+        {
           if (codedMap[(y_run - 1) * pic_width + x_run] == object_index)
             break;
           edgeline[edgeLength++] = 7;
@@ -1016,7 +1112,8 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
         }
         break;
       }
-      if (find) {
+      if (find)
+      {
         encCodedMap[y_run * pic_width + x_run] = -1;
         break;
       }
@@ -1027,91 +1124,133 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
       end_x = location_col;
   int edgeline_3OT[256 * 256];
   int edgeLength_3OT = 0;
-  if (location_col == 0) {
+  if (location_col == 0)
+  {
     start_x++;
-    if (edgeline[0] == 2) {
+    if (edgeline[0] == 2)
+    {
       start_y -= 2;
       edgeline_3OT[edgeLength_3OT++] = 1;
       edgeline_3OT[edgeLength_3OT++] = 1;
-    } else if (edgeline[0] == 1) {
+    }
+    else if (edgeline[0] == 1)
+    {
       start_y -= 1;
       edgeline_3OT[edgeLength_3OT++] = 1;
-      if (start_y > 0) {
+      if (start_y > 0)
+      {
         start_x += 1;
         edgeline_3OT[edgeLength_3OT++] = 0;
       }
-    } else if (edgeline[0] == 0) {
+    }
+    else if (edgeline[0] == 0)
+    {
       start_x += 1;
       edgeline_3OT[edgeLength_3OT++] = 0;
-    } else if (edgeline[0] == 7) {
+    }
+    else if (edgeline[0] == 7)
+    {
       start_y += 1;
       edgeline_3OT[edgeLength_3OT++] = 3;
     }
-  } else if (location_row == pic_height - 1) {
-    if (edgeline[0] == 4) {
+  }
+  else if (location_row == pic_height - 1)
+  {
+    if (edgeline[0] == 4)
+    {
       start_x -= 2;
       edgeline_3OT[edgeLength_3OT++] = 2;
       edgeline_3OT[edgeLength_3OT++] = 2;
-    } else if (edgeline[0] == 3) {
+    }
+    else if (edgeline[0] == 3)
+    {
       start_x -= 1;
       edgeline_3OT[edgeLength_3OT++] = 2;
-      if (start_x > 0) {
+      if (start_x > 0)
+      {
         start_y -= 1;
         edgeline_3OT[edgeLength_3OT++] = 1;
       }
-    } else if (edgeline[0] == 2) {
+    }
+    else if (edgeline[0] == 2)
+    {
       start_y -= 1;
       edgeline_3OT[edgeLength_3OT++] = 1;
-    } else if (edgeline[0] == 1) {
+    }
+    else if (edgeline[0] == 1)
+    {
       start_x += 1;
       edgeline_3OT[edgeLength_3OT++] = 0;
     }
-  } else if (location_col == pic_width - 1) {
+  }
+  else if (location_col == pic_width - 1)
+  {
     start_y++;
-    if (edgeline[0] == 6) {
+    if (edgeline[0] == 6)
+    {
       start_y += 2;
       edgeline_3OT[edgeLength_3OT++] = 3;
       edgeline_3OT[edgeLength_3OT++] = 3;
-    } else if (edgeline[0] == 5) {
+    }
+    else if (edgeline[0] == 5)
+    {
       start_y += 1;
       edgeline_3OT[edgeLength_3OT++] = 3;
-      if (start_y < pic_height) {
+      if (start_y < pic_height)
+      {
         start_x -= 1;
         edgeline_3OT[edgeLength_3OT++] = 2;
       }
-    } else if (edgeline[0] == 4) {
+    }
+    else if (edgeline[0] == 4)
+    {
       start_x -= 1;
       edgeline_3OT[edgeLength_3OT++] = 2;
-    } else if (edgeline[0] == 3) {
+    }
+    else if (edgeline[0] == 3)
+    {
       start_y -= 1;
       edgeline_3OT[edgeLength_3OT++] = 1;
     }
-  } else if (location_row == 0) {
+  }
+  else if (location_row == 0)
+  {
     start_x++;
     start_y++;
-    if (edgeline[0] == 0) {
+    if (edgeline[0] == 0)
+    {
       start_x += 2;
       edgeline_3OT[edgeLength_3OT++] = 0;
       edgeline_3OT[edgeLength_3OT++] = 0;
-    } else if (edgeline[0] == 7) {
+    }
+    else if (edgeline[0] == 7)
+    {
       start_x += 1;
       edgeline_3OT[edgeLength_3OT++] = 0;
-      if (start_x < pic_width) {
+      if (start_x < pic_width)
+      {
         start_y += 1;
         edgeline_3OT[edgeLength_3OT++] = 3;
       }
-    } else if (edgeline[0] == 6) {
+    }
+    else if (edgeline[0] == 6)
+    {
       start_y += 1;
       edgeline_3OT[edgeLength_3OT++] = 3;
-    } else if (edgeline[0] == 5) {
+    }
+    else if (edgeline[0] == 5)
+    {
       start_x -= 1;
       edgeline_3OT[edgeLength_3OT++] = 2;
     }
-  } else {
+  }
+  else
+  {
     start_x++;
   }
 
-  for (int i = 0; i < edgeLength - 1; i++) {
+  for (int i = 0; i < edgeLength - 1; i++)
+  {
     get_3OT(edgeline[i], edgeline[i + 1], edgeline_3OT, &edgeLength_3OT,
             &start_x, &start_y, end_x, end_y, pic_width, pic_height, boundary);
   }
@@ -1135,36 +1274,49 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
   start_x = location_col;
   initial_y = location_row;
   initial_x = location_col;
-  if (location_col == 0) {
+  if (location_col == 0)
+  {
     start_x++;
     direction = 0;
     initial_y--;
-  } else if (location_row == pic_height - 1) {
+  }
+  else if (location_row == pic_height - 1)
+  {
     direction = 1;
     initial_x--;
-  } else if (location_col == pic_width - 1) {
+  }
+  else if (location_col == pic_width - 1)
+  {
     start_y++;
     direction = 2;
     initial_y++;
-  } else if (location_row == 0) {
+  }
+  else if (location_row == 0)
+  {
     start_x++;
     start_y++;
     direction = 3;
     initial_x++;
-  } else {
+  }
+  else
+  {
     start_x++;
     direction = 0;
     initial_y--;
   }
 
   bool first = true;
-  if (Available_val[encImg[initial_y * pic_width + initial_x]]) {
+  if (Available_val[encImg[initial_y * pic_width + initial_x]])
+  {
     Overlap_3OT[0] = 2;
-  } else
+  }
+  else
     Overlap_3OT[0] = 0;
 
-  for (int i = 0; i < edgeLength_3OT; i++) {
-    switch (Edge_3OT[i + 1]) {
+  for (int i = 0; i < edgeLength_3OT; i++)
+  {
+    switch (Edge_3OT[i + 1])
+    {
     case 0:
       start_x++;
       initial_y = start_y - 1;
@@ -1187,15 +1339,19 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
       break;
     }
 
-    if (Available_val[encImg[initial_y * pic_width + initial_x]]) {
+    if (Available_val[encImg[initial_y * pic_width + initial_x]])
+    {
       Overlap_3OT[i + 1] = 2;
     }
   }
-  for (int i = 0; i < edgeLength_3OT + 1; i++) {
-    if (Overlap_3OT[i] == 2 && first) {
+  for (int i = 0; i < edgeLength_3OT + 1; i++)
+  {
+    if (Overlap_3OT[i] == 2 && first)
+    {
       Overlap_3OT[i] = 1;
       first = false;
-    } else if (Overlap_3OT[i] == 0)
+    }
+    else if (Overlap_3OT[i] == 0)
       first = true;
   }
 
@@ -1203,7 +1359,8 @@ void CodingUnit::create_object_3OT(unsigned char *pImg, int h, int w,
                   colorValue);
 }
 
-int get_edge_position(int loc_row, int loc_col, int h, int w) {
+int get_edge_position(int loc_row, int loc_col, int h, int w)
+{
   if (loc_col == 0)
     return loc_row;
   else if (loc_row == h - 1)
@@ -1214,17 +1371,21 @@ int get_edge_position(int loc_row, int loc_col, int h, int w) {
     return h - 1 + w - 1 + h - 1 + w - 1 - loc_col;
 }
 
-void CodingUnit::enObjectEdge(int loc_row, int loc_col) {
+void CodingUnit::enObjectEdge(int loc_row, int loc_col)
+{
   acodec.encode(colorValue, aColor);
 
   int old_val, new_val;
   if (location_row == 0 || location_row == pic_height - 1 ||
-      location_col == 0 || location_col == pic_width - 1) {
+      location_col == 0 || location_col == pic_width - 1)
+  {
     old_val = get_edge_position(loc_row, loc_col, pic_height, pic_width);
     new_val =
         get_edge_position(location_row, location_col, pic_height, pic_width);
     encGolomb(new_val - old_val - 1, 0, position_K);
-  } else {
+  }
+  else
+  {
     old_val = loc_row * (pic_width - 2) + loc_col - 1;
     if (object_index == 2 + edge_num)
       old_val = pic_width - 2 - 1;
@@ -1235,7 +1396,8 @@ void CodingUnit::enObjectEdge(int loc_row, int loc_col) {
   position_A += new_val - old_val - 1;
   position_N += 1;
   position_K = getBitSize(position_A / (2 * position_N));
-  if (position_N >= 8) {
+  if (position_N >= 8)
+  {
     position_N /= 2;
     position_A /= 2;
   }
@@ -1244,7 +1406,8 @@ void CodingUnit::enObjectEdge(int loc_row, int loc_col) {
     encodeEdgeLength_MSC(this, true);
   else if (chain_mode == 1)
     encodeEdgeLength_3OT(this);
-  else if (chain_mode == 2) {
+  else if (chain_mode == 2)
+  {
     acodec.encode(chainType, aChainType);
     if (chainType == 0)
       encodeEdgeLength_MSC(this, true);
@@ -1256,15 +1419,19 @@ void CodingUnit::enObjectEdge(int loc_row, int loc_col) {
     this->next->enObjectEdge(location_row, location_col);
 }
 
-void CodingUnit::selectChainMode() {
+void CodingUnit::selectChainMode()
+{
   float bits_MSC = getBits_MSC(this);
   float bits_3OT = getBits_3OT(this);
 
-  if (bits_MSC <= bits_3OT) {
+  if (bits_MSC <= bits_3OT)
+  {
     chainType = 0;
     restore_3OT();
     save_MSC();
-  } else {
+  }
+  else
+  {
     chainType = 1;
     restore_MSC();
     save_3OT();
@@ -1274,7 +1441,8 @@ void CodingUnit::selectChainMode() {
     this->next->selectChainMode();
 }
 
-void CodingUnit::setFlag() {
+void CodingUnit::setFlag()
+{
   if (chainType == 0)
     encodeEdgeLength_MSC(this, false);
   if (this->next)

@@ -1,9 +1,14 @@
+// Copyright (c) 2026, InterDigital
+// All rights reserved.
+// See LICENSE under the root folder.
+
 #pragma once
 #include "global_arithmetic.h"
 #include <iostream>
 using namespace std;
 
-class CodingUnit {
+class CodingUnit
+{
 public:
   CodingUnit();
   ~CodingUnit();

@@ -1,3 +1,7 @@
+// Copyright (c) 2026, InterDigital
+// All rights reserved.
+// See LICENSE under the root folder.
+
 #include "utility.h"
 #include "coding_unit.h"
 #include <cstdio>
@@ -6,45 +10,58 @@
 using namespace std;
 
 void advancedExpand(unsigned char *img, int height, int width, int color1,
-                    int color2_y, int color2_x) {
+                    int color2_y, int color2_x)
+{
   unsigned short indexStack[10000];
   int color2 = img[color2_y * width + color2_x];
   bool reachLeft = false;
   bool reachRight = false;
   int p = 0;
-  while (color2_y >= 0 && img[color2_y * width + color2_x] == color2) {
+  while (color2_y >= 0 && img[color2_y * width + color2_x] == color2)
+  {
     color2_y--;
   }
   indexStack[p++] = color2_y + 1;
   indexStack[p++] = color2_x;
-  while (p > 0) {
+  while (p > 0)
+  {
     color2_x = indexStack[--p];
     color2_y = indexStack[--p];
-    while (color2_y >= 0 && img[color2_y * width + color2_x] == color2) {
+    while (color2_y >= 0 && img[color2_y * width + color2_x] == color2)
+    {
       color2_y--;
     }
     color2_y++;
     reachLeft = false;
     reachRight = false;
-    for (int y = color2_y; y < height; y++) {
+    for (int y = color2_y; y < height; y++)
+    {
       if (img[y * width + color2_x] != color2)
         break;
       img[y * width + color2_x] = color1;
-      if (color2_x > 0) {
-        if (!reachLeft && img[y * width + color2_x - 1] == color2) {
+      if (color2_x > 0)
+      {
+        if (!reachLeft && img[y * width + color2_x - 1] == color2)
+        {
           reachLeft = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x - 1;
-        } else if (reachLeft && img[y * width + color2_x - 1] != color2) {
+        }
+        else if (reachLeft && img[y * width + color2_x - 1] != color2)
+        {
           reachLeft = false;
         }
       }
-      if (color2_x < width - 1) {
-        if (!reachRight && img[y * width + color2_x + 1] == color2) {
+      if (color2_x < width - 1)
+      {
+        if (!reachRight && img[y * width + color2_x + 1] == color2)
+        {
           reachRight = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x + 1;
-        } else if (reachRight && img[y * width + color2_x + 1] != color2) {
+        }
+        else if (reachRight && img[y * width + color2_x + 1] != color2)
+        {
           reachRight = false;
         }
       }
@@ -53,48 +70,61 @@ void advancedExpand(unsigned char *img, int height, int width, int color1,
 }
 
 void objectExpand(unsigned char *img, int height, int width, int color2_y,
-                  int color2_x, int color) {
+                  int color2_x, int color)
+{
   unsigned short indexStack[10000];
   int color2 = img[color2_y * width + color2_x];
   bool reachLeft = false;
   bool reachRight = false;
   int p = 0;
-  while (color2_y >= 0 && img[color2_y * width + color2_x] == color2) {
+  while (color2_y >= 0 && img[color2_y * width + color2_x] == color2)
+  {
     color2_y--;
   }
   indexStack[p++] = color2_y + 1;
   indexStack[p++] = color2_x;
-  while (p > 0) {
+  while (p > 0)
+  {
     color2_x = indexStack[--p];
     color2_y = indexStack[--p];
     while (color2_y >= 0 && img[color2_y * width + color2_x] == color2 &&
-           !codedMap[color2_y * width + color2_x]) {
+           !codedMap[color2_y * width + color2_x])
+    {
       color2_y--;
     }
     color2_y++;
     reachLeft = false;
     reachRight = false;
-    for (int y = color2_y; y < height; y++) {
+    for (int y = color2_y; y < height; y++)
+    {
       if (img[y * width + color2_x] != color2 || codedMap[y * width + color2_x])
         break;
       codedMap[y * width + color2_x] = color;
-      if (color2_x > 0) {
+      if (color2_x > 0)
+      {
         if (!reachLeft && img[y * width + color2_x - 1] == color2 &&
-            !codedMap[y * width + color2_x - 1]) {
+            !codedMap[y * width + color2_x - 1])
+        {
           reachLeft = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x - 1;
-        } else if (reachLeft && img[y * width + color2_x - 1] != color2) {
+        }
+        else if (reachLeft && img[y * width + color2_x - 1] != color2)
+        {
           reachLeft = false;
         }
       }
-      if (color2_x < width - 1) {
+      if (color2_x < width - 1)
+      {
         if (!reachRight && img[y * width + color2_x + 1] == color2 &&
-            !codedMap[y * width + color2_x + 1]) {
+            !codedMap[y * width + color2_x + 1])
+        {
           reachRight = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x + 1;
-        } else if (reachRight && img[y * width + color2_x + 1] != color2) {
+        }
+        else if (reachRight && img[y * width + color2_x + 1] != color2)
+        {
           reachRight = false;
         }
       }
@@ -103,46 +133,59 @@ void objectExpand(unsigned char *img, int height, int width, int color2_y,
 }
 
 void decObjectExpand(unsigned char *img, int height, int width, int color2_y,
-                     int color2_x, int color) {
+                     int color2_x, int color)
+{
   unsigned short indexStack[10000];
   int color2 = codedMap[color2_y * width + color2_x];
   bool reachLeft = false;
   bool reachRight = false;
   int p = 0;
-  while (color2_y >= 0 && codedMap[color2_y * width + color2_x] == color2) {
+  while (color2_y >= 0 && codedMap[color2_y * width + color2_x] == color2)
+  {
     color2_y--;
   }
   indexStack[p++] = color2_y + 1;
   indexStack[p++] = color2_x;
-  while (p > 0) {
+  while (p > 0)
+  {
     color2_x = indexStack[--p];
     color2_y = indexStack[--p];
-    while (color2_y >= 0 && codedMap[color2_y * width + color2_x] == color2) {
+    while (color2_y >= 0 && codedMap[color2_y * width + color2_x] == color2)
+    {
       color2_y--;
     }
     color2_y++;
     reachLeft = false;
     reachRight = false;
-    for (int y = color2_y; y < height; y++) {
+    for (int y = color2_y; y < height; y++)
+    {
       if (codedMap[y * width + color2_x] != color2)
         break;
       img[y * width + color2_x] = color;
       codedMap[y * width + color2_x] = color;
-      if (color2_x > 0) {
-        if (!reachLeft && codedMap[y * width + color2_x - 1] == color2) {
+      if (color2_x > 0)
+      {
+        if (!reachLeft && codedMap[y * width + color2_x - 1] == color2)
+        {
           reachLeft = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x - 1;
-        } else if (reachLeft && codedMap[y * width + color2_x - 1] != color2) {
+        }
+        else if (reachLeft && codedMap[y * width + color2_x - 1] != color2)
+        {
           reachLeft = false;
         }
       }
-      if (color2_x < width - 1) {
-        if (!reachRight && codedMap[y * width + color2_x + 1] == color2) {
+      if (color2_x < width - 1)
+      {
+        if (!reachRight && codedMap[y * width + color2_x + 1] == color2)
+        {
           reachRight = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x + 1;
-        } else if (reachRight && codedMap[y * width + color2_x + 1] != color2) {
+        }
+        else if (reachRight && codedMap[y * width + color2_x + 1] != color2)
+        {
           reachRight = false;
         }
       }
@@ -151,49 +194,62 @@ void decObjectExpand(unsigned char *img, int height, int width, int color2_y,
 }
 
 void encObjectExpand(unsigned char *img, int height, int width, int color2_y,
-                     int color2_x, int color) {
+                     int color2_x, int color)
+{
   unsigned short indexStack[10000];
   int color2 = encCodedMap[color2_y * width + color2_x];
   bool reachLeft = false;
   bool reachRight = false;
   int p = 0;
-  while (color2_y >= 0 && encCodedMap[color2_y * width + color2_x] == color2) {
+  while (color2_y >= 0 && encCodedMap[color2_y * width + color2_x] == color2)
+  {
     color2_y--;
   }
   indexStack[p++] = color2_y + 1;
   indexStack[p++] = color2_x;
-  while (p > 0) {
+  while (p > 0)
+  {
     color2_x = indexStack[--p];
     color2_y = indexStack[--p];
     while (color2_y >= 0 &&
-           encCodedMap[color2_y * width + color2_x] == color2) {
+           encCodedMap[color2_y * width + color2_x] == color2)
+    {
       color2_y--;
     }
     color2_y++;
     reachLeft = false;
     reachRight = false;
-    for (int y = color2_y; y < height; y++) {
+    for (int y = color2_y; y < height; y++)
+    {
       if (encCodedMap[y * width + color2_x] != color2)
         break;
       img[y * width + color2_x] = color;
       encCodedMap[y * width + color2_x] = color;
-      if (color2_x > 0) {
-        if (!reachLeft && encCodedMap[y * width + color2_x - 1] == color2) {
+      if (color2_x > 0)
+      {
+        if (!reachLeft && encCodedMap[y * width + color2_x - 1] == color2)
+        {
           reachLeft = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x - 1;
-        } else if (reachLeft &&
-                   encCodedMap[y * width + color2_x - 1] != color2) {
+        }
+        else if (reachLeft &&
+                 encCodedMap[y * width + color2_x - 1] != color2)
+        {
           reachLeft = false;
         }
       }
-      if (color2_x < width - 1) {
-        if (!reachRight && encCodedMap[y * width + color2_x + 1] == color2) {
+      if (color2_x < width - 1)
+      {
+        if (!reachRight && encCodedMap[y * width + color2_x + 1] == color2)
+        {
           reachRight = true;
           indexStack[p++] = y;
           indexStack[p++] = color2_x + 1;
-        } else if (reachRight &&
-                   encCodedMap[y * width + color2_x + 1] != color2) {
+        }
+        else if (reachRight &&
+                 encCodedMap[y * width + color2_x + 1] != color2)
+        {
           reachRight = false;
         }
       }
@@ -201,8 +257,10 @@ void encObjectExpand(unsigned char *img, int height, int width, int color2_y,
   }
 }
 
-int getBitSize(int num) {
-  for (int i = 24; i >= 0; i--) {
+int getBitSize(int num)
+{
+  for (int i = 24; i >= 0; i--)
+  {
     if (((num - 1) >> i) & 1)
       return i + 1;
   }
@@ -211,24 +269,31 @@ int getBitSize(int num) {
 
 void encGolomb(int absV, int mode, int k) // 0: 0+  1:-0+  2:-+
 {
-  if (mode == 1) {
+  if (mode == 1)
+  {
     if (absV > 0)
       absV = (absV - 1) * 2 + 1;
     else if (absV < 0)
       absV = -absV * 2;
-  } else if (mode == 2) {
+  }
+  else if (mode == 2)
+  {
     if (absV > 0)
       absV = (absV - 1) * 2;
     else if (absV < 0)
       absV = -absV * 2 - 1;
   }
   int stopLoop = 0;
-  do {
-    if (absV >= (1 << k)) {
+  do
+  {
+    if (absV >= (1 << k))
+    {
       acodec.encode(1, aGolomb);
       absV = absV - (1 << k);
       k++;
-    } else {
+    }
+    else
+    {
       acodec.encode(0, aGolomb);
       while (k--)
         acodec.encode(((absV >> k) & 1), aGolomb);
@@ -240,24 +305,31 @@ void encGolomb(int absV, int mode, int k) // 0: 0+  1:-0+  2:-+
 float GolombBits(int absV, int mode, int k) // 0: 0+  1:-0+  2:-+
 {
   float rate = 0;
-  if (mode == 1) {
+  if (mode == 1)
+  {
     if (absV > 0)
       absV = (absV - 1) * 2 + 1;
     else if (absV < 0)
       absV = -absV * 2;
-  } else if (mode == 2) {
+  }
+  else if (mode == 2)
+  {
     if (absV > 0)
       absV = (absV - 1) * 2;
     else if (absV < 0)
       absV = -absV * 2 - 1;
   }
   int stopLoop = 0;
-  do {
-    if (absV >= (1 << k)) {
+  do
+  {
+    if (absV >= (1 << k))
+    {
       rate += 1;
       absV = absV - (1 << k);
       k++;
-    } else {
+    }
+    else
+    {
       rate += 1;
       while (k--)
         rate += 1;
@@ -267,23 +339,29 @@ float GolombBits(int absV, int mode, int k) // 0: 0+  1:-0+  2:-+
   return rate;
 }
 
-int decGolomb(int mode, int k) {
+int decGolomb(int mode, int k)
+{
   int absV1 = 0;
   int absV2 = 0;
-  while (acodec.decode(aGolomb)) {
+  while (acodec.decode(aGolomb))
+  {
     absV1 += (1 << k);
     k++;
   }
-  for (int i = 0; i < k; i++) {
+  for (int i = 0; i < k; i++)
+  {
     absV2 = 2 * absV2 + acodec.decode(aGolomb);
   }
   int absV = absV1 + absV2;
-  if (mode == 1) {
+  if (mode == 1)
+  {
     if (absV % 2 == 0)
       absV = -absV / 2;
     else
       absV = (absV + 1) / 2;
-  } else if (mode == 2) {
+  }
+  else if (mode == 2)
+  {
     if (absV % 2 == 0)
       absV = absV / 2;
     else
@@ -293,31 +371,38 @@ int decGolomb(int mode, int k) {
 }
 
 void writeByArithmetic(Arithmetic_Codec *ace, Adaptive_Bit_Model *bit,
-                       int output, int num) {
-  for (int i = num; i > 0; i--) {
+                       int output, int num)
+{
+  for (int i = num; i > 0; i--)
+  {
     int outBit = (output >> (i - 1)) & 1;
     ace->encode(outBit, *bit);
   }
 }
 
-int readByArithmetic(Arithmetic_Codec *acd, Adaptive_Bit_Model *bit, int num) {
+int readByArithmetic(Arithmetic_Codec *acd, Adaptive_Bit_Model *bit, int num)
+{
   int output = 0;
-  for (int i = 0; i < num; i++) {
+  for (int i = 0; i < num; i++)
+  {
     output = (output << 1) + acd->decode(*bit);
   }
   return output;
 }
 
-void write2bin(unsigned char *p, int size, char *file_name) {
+void write2bin(unsigned char *p, int size, char *file_name)
+{
   FILE *fid = openFile(file_name, "wb");
-  if (fid == nullptr) {
+  if (fid == nullptr)
+  {
     return;
   }
   fwrite(p, sizeof(unsigned char), size, fid);
   fclose(fid);
 }
 
-int getFSize(FILE *pFile) {
+int getFSize(FILE *pFile)
+{
   int size;
   fseek(pFile, 0, SEEK_END);
   size = ftell(pFile);
@@ -325,113 +410,185 @@ int getFSize(FILE *pFile) {
   return size;
 }
 
-int get_MSC(int direction1, int direction2, int direction3, int *num) {
-  if (direction1 == 0 && direction2 == 0 && direction3 == 0) {
+int get_MSC(int direction1, int direction2, int direction3, int *num)
+{
+  if (direction1 == 0 && direction2 == 0 && direction3 == 0)
+  {
     *num = 3;
     return 24;
-  } else if (direction1 == 1 && direction2 == 0 && direction3 == 0) {
+  }
+  else if (direction1 == 1 && direction2 == 0 && direction3 == 0)
+  {
     *num = 3;
     return 25;
-  } else if (direction1 == 2 && direction2 == 2 && direction3 == 1) {
+  }
+  else if (direction1 == 2 && direction2 == 2 && direction3 == 1)
+  {
     *num = 3;
     return 26;
-  } else if (direction1 == 2 && direction2 == 2 && direction3 == 2) {
+  }
+  else if (direction1 == 2 && direction2 == 2 && direction3 == 2)
+  {
     *num = 3;
     return 27;
-  } else if (direction1 == 3 && direction2 == 2 && direction3 == 2) {
+  }
+  else if (direction1 == 3 && direction2 == 2 && direction3 == 2)
+  {
     *num = 3;
     return 28;
-  } else if (direction1 == 4 && direction2 == 4 && direction3 == 3) {
+  }
+  else if (direction1 == 4 && direction2 == 4 && direction3 == 3)
+  {
     *num = 3;
     return 29;
-  } else if (direction1 == 4 && direction2 == 4 && direction3 == 4) {
+  }
+  else if (direction1 == 4 && direction2 == 4 && direction3 == 4)
+  {
     *num = 3;
     return 30;
-  } else if (direction1 == 5 && direction2 == 4 && direction3 == 4) {
+  }
+  else if (direction1 == 5 && direction2 == 4 && direction3 == 4)
+  {
     *num = 3;
     return 31;
-  } else if (direction1 == 6 && direction2 == 6 && direction3 == 5) {
+  }
+  else if (direction1 == 6 && direction2 == 6 && direction3 == 5)
+  {
     *num = 3;
     return 32;
-  } else if (direction1 == 6 && direction2 == 6 && direction3 == 6) {
+  }
+  else if (direction1 == 6 && direction2 == 6 && direction3 == 6)
+  {
     *num = 3;
     return 33;
-  } else if (direction1 == 7 && direction2 == 6 && direction3 == 6) {
+  }
+  else if (direction1 == 7 && direction2 == 6 && direction3 == 6)
+  {
     *num = 3;
     return 34;
-  } else if (direction1 == 0 && direction2 == 0 && direction3 == 7) {
+  }
+  else if (direction1 == 0 && direction2 == 0 && direction3 == 7)
+  {
     *num = 3;
     return 35;
-  } else if (direction1 == 0 && direction2 == 0) {
+  }
+  else if (direction1 == 0 && direction2 == 0)
+  {
     *num = 2;
     return 8;
-  } else if (direction1 == 1 && direction2 == 0) {
+  }
+  else if (direction1 == 1 && direction2 == 0)
+  {
     *num = 2;
     return 9;
-  } else if (direction1 == 1 && direction2 == 1) {
+  }
+  else if (direction1 == 1 && direction2 == 1)
+  {
     *num = 2;
     return 10;
-  } else if (direction1 == 2 && direction2 == 1) {
+  }
+  else if (direction1 == 2 && direction2 == 1)
+  {
     *num = 2;
     return 11;
-  } else if (direction1 == 2 && direction2 == 2) {
+  }
+  else if (direction1 == 2 && direction2 == 2)
+  {
     *num = 2;
     return 12;
-  } else if (direction1 == 3 && direction2 == 2) {
+  }
+  else if (direction1 == 3 && direction2 == 2)
+  {
     *num = 2;
     return 13;
-  } else if (direction1 == 3 && direction2 == 3) {
+  }
+  else if (direction1 == 3 && direction2 == 3)
+  {
     *num = 2;
     return 14;
-  } else if (direction1 == 4 && direction2 == 3) {
+  }
+  else if (direction1 == 4 && direction2 == 3)
+  {
     *num = 2;
     return 15;
-  } else if (direction1 == 4 && direction2 == 4) {
+  }
+  else if (direction1 == 4 && direction2 == 4)
+  {
     *num = 2;
     return 16;
-  } else if (direction1 == 5 && direction2 == 4) {
+  }
+  else if (direction1 == 5 && direction2 == 4)
+  {
     *num = 2;
     return 17;
-  } else if (direction1 == 5 && direction2 == 5) {
+  }
+  else if (direction1 == 5 && direction2 == 5)
+  {
     *num = 2;
     return 18;
-  } else if (direction1 == 6 && direction2 == 5) {
+  }
+  else if (direction1 == 6 && direction2 == 5)
+  {
     *num = 2;
     return 19;
-  } else if (direction1 == 6 && direction2 == 6) {
+  }
+  else if (direction1 == 6 && direction2 == 6)
+  {
     *num = 2;
     return 20;
-  } else if (direction1 == 7 && direction2 == 6) {
+  }
+  else if (direction1 == 7 && direction2 == 6)
+  {
     *num = 2;
     return 21;
-  } else if (direction1 == 7 && direction2 == 7) {
+  }
+  else if (direction1 == 7 && direction2 == 7)
+  {
     *num = 2;
     return 22;
-  } else if (direction1 == 0 && direction2 == 7) {
+  }
+  else if (direction1 == 0 && direction2 == 7)
+  {
     *num = 2;
     return 23;
-  } else if (direction1 == 0) {
+  }
+  else if (direction1 == 0)
+  {
     *num = 1;
     return 0;
-  } else if (direction1 == 1) {
+  }
+  else if (direction1 == 1)
+  {
     *num = 1;
     return 1;
-  } else if (direction1 == 2) {
+  }
+  else if (direction1 == 2)
+  {
     *num = 1;
     return 2;
-  } else if (direction1 == 3) {
+  }
+  else if (direction1 == 3)
+  {
     *num = 1;
     return 3;
-  } else if (direction1 == 4) {
+  }
+  else if (direction1 == 4)
+  {
     *num = 1;
     return 4;
-  } else if (direction1 == 5) {
+  }
+  else if (direction1 == 5)
+  {
     *num = 1;
     return 5;
-  } else if (direction1 == 6) {
+  }
+  else if (direction1 == 6)
+  {
     *num = 1;
     return 6;
-  } else if (direction1 == 7) {
+  }
+  else if (direction1 == 7)
+  {
     *num = 1;
     return 7;
   }
@@ -439,11 +596,14 @@ int get_MSC(int direction1, int direction2, int direction3, int *num) {
 
 int get_3OT(int direction1, int direction2, int *direction_list, int *num,
             int *start_x, int *start_y, int end_x, int end_y, int pic_width,
-            int pic_height, bool boundary) {
+            int pic_height, bool boundary)
+{
   if (!boundary && ((*start_x) == end_x && (*start_y) == end_y))
     return 0;
-  if (direction1 == 0 || direction1 == 1) {
-    switch (direction2) {
+  if (direction1 == 0 || direction1 == 1)
+  {
+    switch (direction2)
+    {
     case 7:
       (*start_y)++;
       direction_list[(*num)++] = 3;
@@ -455,7 +615,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
     case 1:
       (*start_y)--;
       direction_list[(*num)++] = 1;
-      if ((*start_y) > 0) {
+      if ((*start_y) > 0)
+      {
         (*start_x)++;
         direction_list[(*num)++] = 0;
       }
@@ -463,7 +624,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
     case 2:
       (*start_y)--;
       direction_list[(*num)++] = 1;
-      if (boundary || !((*start_x) == end_x && (*start_y) == end_y)) {
+      if (boundary || !((*start_x) == end_x && (*start_y) == end_y))
+      {
         (*start_y)--;
         direction_list[(*num)++] = 1;
       }
@@ -473,7 +635,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
       direction_list[(*num)++] = 1;
       (*start_x)--;
       direction_list[(*num)++] = 2;
-      if (boundary || !((*start_x) == end_x && (*start_y) == end_y)) {
+      if (boundary || !((*start_x) == end_x && (*start_y) == end_y))
+      {
         (*start_y) -= 1;
         direction_list[(*num)++] = 1;
       }
@@ -486,8 +649,11 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
       direction_list[(*num)++] = 2;
       break;
     }
-  } else if (direction1 == 2 || direction1 == 3) {
-    switch (direction2) {
+  }
+  else if (direction1 == 2 || direction1 == 3)
+  {
+    switch (direction2)
+    {
     case 1:
       (*start_x)++;
       direction_list[(*num)++] = 0;
@@ -500,7 +666,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
       (*start_x)--;
       direction_list[(*num)++] = 2;
       if ((*start_x) > 0 &&
-          (boundary || !((*start_x) == end_x && (*start_y) == end_y))) {
+          (boundary || !((*start_x) == end_x && (*start_y) == end_y)))
+      {
         (*start_y)--;
         direction_list[(*num)++] = 1;
       }
@@ -525,8 +692,11 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
       direction_list[(*num)++] = 3;
       break;
     }
-  } else if (direction1 == 4 || direction1 == 5) {
-    switch (direction2) {
+  }
+  else if (direction1 == 4 || direction1 == 5)
+  {
+    switch (direction2)
+    {
     case 3:
       (*start_y)--;
       direction_list[(*num)++] = 1;
@@ -538,7 +708,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
     case 5:
       (*start_y)++;
       direction_list[(*num)++] = 3;
-      if ((*start_y) < pic_height) {
+      if ((*start_y) < pic_height)
+      {
         (*start_x)--;
         direction_list[(*num)++] = 2;
       }
@@ -563,8 +734,11 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
       direction_list[(*num)++] = 0;
       break;
     }
-  } else if (direction1 == 6 || direction1 == 7) {
-    switch (direction2) {
+  }
+  else if (direction1 == 6 || direction1 == 7)
+  {
+    switch (direction2)
+    {
     case 5:
       (*start_x)--;
       direction_list[(*num)++] = 2;
@@ -576,7 +750,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
     case 7:
       (*start_x)++;
       direction_list[(*num)++] = 0;
-      if ((*start_x) < pic_width) {
+      if ((*start_x) < pic_width)
+      {
         (*start_y)++;
         direction_list[(*num)++] = 3;
       }
@@ -607,7 +782,8 @@ int get_3OT(int direction1, int direction2, int *direction_list, int *num,
   }
 }
 
-int get_direction1(int direction, int *index) {
+int get_direction1(int direction, int *index)
+{
   if (direction == 0 || direction == 1 || direction == 11 || direction == 26 ||
       direction == 8 || direction == 9 || direction == 10 || direction == 24 ||
       direction == 25)
@@ -651,7 +827,8 @@ int get_direction1(int direction, int *index) {
     return 8;
 }
 
-int get_RMSC(int index, int direction) {
+int get_RMSC(int index, int direction)
+{
   if ((index == 0 && direction == 0) || (index == 1 && direction == 2) ||
       (index == 2 && direction == 4) || (index == 3 && direction == 6))
     return 0;
@@ -735,7 +912,8 @@ int get_RMSC(int index, int direction) {
     return 26;
 }
 
-int get_dec_MSC(int index, int direction) {
+int get_dec_MSC(int index, int direction)
+{
   if ((index == 0 && direction == 0) || (index == 2 && direction == 12) ||
       (index == 3 && direction == 9))
     return 0;
@@ -847,18 +1025,24 @@ int get_dec_MSC(int index, int direction) {
 }
 
 void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
-                    int start_index) {
+                    int start_index)
+{
   int forbidden_num = 0;
-  for (int direction = 0; direction < 36; direction++) {
-    switch (direction) {
+  for (int direction = 0; direction < 36; direction++)
+  {
+    switch (direction)
+    {
     case 0:
-      if (x + 1 >= pic_w || y == pic_h - 1) {
+      if (x + 1 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 0;
         break;
       } // out border
-      if ((y == 0 && x + 1 <= pic_w - 1) || x + 1 == pic_w - 1) {
-        if (get_position_index(x + 1, y, pic_w, pic_h) <= start_index) {
+      if ((y == 0 && x + 1 <= pic_w - 1) || x + 1 == pic_w - 1)
+      {
+        if (get_position_index(x + 1, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 0;
           break;
@@ -866,20 +1050,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 1:
-      if (x + 1 >= pic_w) {
+      if (x + 1 >= pic_w)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 1;
           break;
         }
       }
-      if (y == 0) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (y == 0)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 1;
           break;
@@ -887,13 +1076,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 2:
-      if (y - 1 < 0 || x == pic_w - 1) {
+      if (y - 1 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 == 0 || (x == 0 && y - 1 >= 0)) {
-        if (get_position_index(x, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 || (x == 0 && y - 1 >= 0))
+      {
+        if (get_position_index(x, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 2;
           break;
@@ -901,20 +1093,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 3:
-      if (y - 1 < 0) {
+      if (y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 3;
           break;
         }
       }
-      if (x == 0) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (x == 0)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 3;
           break;
@@ -922,13 +1119,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 4:
-      if (x - 1 < 0 || y == 0) {
+      if (x - 1 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 4;
         break;
       }
-      if ((y == pic_h - 1 && x - 1 >= 0) || x - 1 == 0) {
-        if (get_position_index(x - 1, y, pic_w, pic_h) <= start_index) {
+      if ((y == pic_h - 1 && x - 1 >= 0) || x - 1 == 0)
+      {
+        if (get_position_index(x - 1, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 4;
           break;
@@ -936,20 +1136,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 5:
-      if (x - 1 < 0) {
+      if (x - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 5;
         break;
       }
-      if (x - 1 == 0 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 5;
           break;
         }
       }
-      if (y == pic_h - 1) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (y == pic_h - 1)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 5;
           break;
@@ -957,13 +1162,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 6:
-      if (y + 1 >= pic_h || x == 0) {
+      if (y + 1 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 6;
         break;
       }
-      if (y + 1 == pic_h - 1 || (x == pic_w - 1 && y + 1 <= pic_h - 1)) {
-        if (get_position_index(x, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 || (x == pic_w - 1 && y + 1 <= pic_h - 1))
+      {
+        if (get_position_index(x, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 6;
           break;
@@ -971,20 +1179,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 7:
-      if (y + 1 >= pic_h) {
+      if (y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 7;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 7;
           break;
         }
       }
-      if (x == pic_w - 1) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (x == pic_w - 1)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 7;
           break;
@@ -992,13 +1205,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 8:
-      if (x + 2 >= pic_w || y == pic_h - 1) {
+      if (x + 2 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 8;
         break;
       }
-      if ((y == 0 && x + 2 <= pic_w - 1) || x + 2 == pic_w - 1) {
-        if (get_position_index(x + 2, y, pic_w, pic_h) <= start_index) {
+      if ((y == 0 && x + 2 <= pic_w - 1) || x + 2 == pic_w - 1)
+      {
+        if (get_position_index(x + 2, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 8;
           break;
@@ -1006,13 +1222,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 9:
-      if (x + 2 >= pic_w || y - 1 < 0) {
+      if (x + 2 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (x + 2 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 2, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 2 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 2, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 9;
           break;
@@ -1020,20 +1239,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 10:
-      if (x + 2 >= pic_w || y - 1 < 0) {
+      if (x + 2 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (x + 2 == pic_w - 1 && y - 2 >= 0) {
-        if (get_position_index(x + 2, y - 2, pic_w, pic_h) <= start_index) {
+      if (x + 2 == pic_w - 1 && y - 2 >= 0)
+      {
+        if (get_position_index(x + 2, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 10;
           break;
         }
       }
-      if (y - 1 == 0 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 10;
           break;
@@ -1041,13 +1265,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 11:
-      if (x + 1 >= pic_w || y - 2 < 0) {
+      if (x + 1 >= pic_w || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 2 >= 0) {
-        if (get_position_index(x + 1, y - 2, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 2 >= 0)
+      {
+        if (get_position_index(x + 1, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 11;
           break;
@@ -1055,13 +1282,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 12:
-      if (y - 2 < 0 || x == pic_w - 1) {
+      if (y - 2 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 == 0 || (x == 0 && y - 2 >= 0)) {
-        if (get_position_index(x, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 || (x == 0 && y - 2 >= 0))
+      {
+        if (get_position_index(x, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 12;
           break;
@@ -1069,13 +1299,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 13:
-      if (x - 1 < 0 || y - 2 < 0) {
+      if (x - 1 < 0 || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (y - 2 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 13;
           break;
@@ -1083,20 +1316,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 14:
-      if (x - 1 < 0 || y - 2 < 0) {
+      if (x - 1 < 0 || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (y - 2 == 0 && x - 2 >= 0) {
-        if (get_position_index(x - 2, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 && x - 2 >= 0)
+      {
+        if (get_position_index(x - 2, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 14;
           break;
         }
       }
-      if (x - 1 == 0 && y - 1 >= 0) {
-        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 14;
           break;
@@ -1104,13 +1342,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 15:
-      if (x - 2 < 0 || y - 1 < 0) {
+      if (x - 2 < 0 || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (y - 1 == 0 && x - 2 >= 0) {
-        if (get_position_index(x - 2, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 2 >= 0)
+      {
+        if (get_position_index(x - 2, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 15;
           break;
@@ -1118,13 +1359,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 16:
-      if (x - 2 < 0 || y == 0) {
+      if (x - 2 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 16;
         break;
       }
-      if ((y == pic_h - 1 && x - 2 >= 0) || x - 2 == 0) {
-        if (get_position_index(x - 2, y, pic_w, pic_h) <= start_index) {
+      if ((y == pic_h - 1 && x - 2 >= 0) || x - 2 == 0)
+      {
+        if (get_position_index(x - 2, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 16;
           break;
@@ -1132,13 +1376,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 17:
-      if (x - 2 < 0 || y + 1 >= pic_h) {
+      if (x - 2 < 0 || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 17;
         break;
       }
-      if (x - 2 == 0 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x - 2, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 2 == 0 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x - 2, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 17;
           break;
@@ -1146,20 +1393,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 18:
-      if (x - 2 < 0 || y + 2 > pic_h) {
+      if (x - 2 < 0 || y + 2 > pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 18;
         break;
       }
-      if (x - 2 == 0 && y + 2 <= pic_h - 1) {
-        if (get_position_index(x - 2, y + 2, pic_w, pic_h) <= start_index) {
+      if (x - 2 == 0 && y + 2 <= pic_h - 1)
+      {
+        if (get_position_index(x - 2, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 18;
           break;
         }
       }
-      if (y + 1 == pic_h - 1 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 18;
           break;
@@ -1167,13 +1419,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 19:
-      if (x - 1 < 0 || y + 2 >= pic_h) {
+      if (x - 1 < 0 || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 19;
         break;
       }
-      if (x - 1 == 0 && y + 2 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 2, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 2 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 19;
           break;
@@ -1181,13 +1436,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 20:
-      if (y + 2 >= pic_h || x == 0) {
+      if (y + 2 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 20;
         break;
       }
-      if (y + 2 == pic_h - 1 || (x == pic_w - 1 && y + 2 <= pic_h - 1)) {
-        if (get_position_index(x, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 || (x == pic_w - 1 && y + 2 <= pic_h - 1))
+      {
+        if (get_position_index(x, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 20;
           break;
@@ -1195,13 +1453,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 21:
-      if (x + 1 >= pic_w || y + 2 >= pic_h) {
+      if (x + 1 >= pic_w || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 21;
         break;
       }
-      if (y + 2 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 21;
           break;
@@ -1209,20 +1470,25 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 22:
-      if (x + 2 > pic_w || y + 2 >= pic_h) {
+      if (x + 2 > pic_w || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 22;
         break;
       }
-      if (y + 2 == pic_h - 1 && x + 2 <= pic_w - 1) {
-        if (get_position_index(x + 2, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 && x + 2 <= pic_w - 1)
+      {
+        if (get_position_index(x + 2, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 22;
           break;
         }
       }
-      if (x + 1 == pic_w - 1 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 22;
           break;
@@ -1230,13 +1496,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 23:
-      if (x + 2 >= pic_w || y + 1 >= pic_h) {
+      if (x + 2 >= pic_w || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 23;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 2 <= pic_w - 1) {
-        if (get_position_index(x + 2, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 2 <= pic_w - 1)
+      {
+        if (get_position_index(x + 2, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 23;
           break;
@@ -1244,13 +1513,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 24:
-      if (x + 3 >= pic_w || y == pic_h - 1) {
+      if (x + 3 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 24;
         break;
       }
-      if (x + 3 == pic_w - 1) {
-        if (get_position_index(x + 3, y, pic_w, pic_h) <= start_index) {
+      if (x + 3 == pic_w - 1)
+      {
+        if (get_position_index(x + 3, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 24;
           break;
@@ -1258,13 +1530,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 25:
-      if (x + 3 >= pic_w || y - 1 < 0) {
+      if (x + 3 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (x + 3 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 3, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 3 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 3, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 25;
           break;
@@ -1272,13 +1547,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 26:
-      if (x + 1 >= pic_w || y - 3 < 0) {
+      if (x + 1 >= pic_w || y - 3 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 3 >= 0) {
-        if (get_position_index(x + 1, y - 3, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 3 >= 0)
+      {
+        if (get_position_index(x + 1, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 26;
           break;
@@ -1286,13 +1564,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 27:
-      if (y - 3 < 0 || x == pic_w - 1) {
+      if (y - 3 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 == 0) {
-        if (get_position_index(x, y - 3, pic_w, pic_h) <= start_index) {
+      if (y - 3 == 0)
+      {
+        if (get_position_index(x, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 27;
           break;
@@ -1300,13 +1581,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 28:
-      if (x - 1 < 0 || y - 3 < 0) {
+      if (x - 1 < 0 || y - 3 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (y - 3 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 3, pic_w, pic_h) <= start_index) {
+      if (y - 3 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 28;
           break;
@@ -1314,13 +1598,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 29:
-      if (x - 3 < 0 || y - 1 < 0) {
+      if (x - 3 < 0 || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (y - 1 == 0 && x - 3 >= 0) {
-        if (get_position_index(x - 3, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 3 >= 0)
+      {
+        if (get_position_index(x - 3, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 29;
           break;
@@ -1328,13 +1615,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 30:
-      if (x - 3 < 0 || y == 0) {
+      if (x - 3 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 30;
         break;
       }
-      if (x - 3 == 0) {
-        if (get_position_index(x - 3, y, pic_w, pic_h) <= start_index) {
+      if (x - 3 == 0)
+      {
+        if (get_position_index(x - 3, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 30;
           break;
@@ -1342,13 +1632,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 31:
-      if (x - 3 < 0 || y + 1 >= pic_h) {
+      if (x - 3 < 0 || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 31;
         break;
       }
-      if (x - 3 == 0 && y + 1 >= pic_h - 1) {
-        if (get_position_index(x - 3, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 3 == 0 && y + 1 >= pic_h - 1)
+      {
+        if (get_position_index(x - 3, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 31;
           break;
@@ -1356,13 +1649,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 32:
-      if (x - 1 < 0 || y + 3 >= pic_h) {
+      if (x - 1 < 0 || y + 3 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 32;
         break;
       }
-      if (x - 1 == 0 && y + 3 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 3, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 3 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 32;
           break;
@@ -1370,13 +1666,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 33:
-      if (y + 3 >= pic_h || x == 0) {
+      if (y + 3 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 33;
         break;
       }
-      if (y + 3 == pic_h - 1) {
-        if (get_position_index(x, y + 3, pic_w, pic_h) <= start_index) {
+      if (y + 3 == pic_h - 1)
+      {
+        if (get_position_index(x, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 33;
           break;
@@ -1384,13 +1683,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 34:
-      if (x + 1 >= pic_w || y + 3 >= pic_h) {
+      if (x + 1 >= pic_w || y + 3 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 34;
         break;
       }
-      if (y + 3 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 3, pic_w, pic_h) <= start_index) {
+      if (y + 3 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 34;
           break;
@@ -1398,13 +1700,16 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
       }
       break;
     case 35:
-      if (x + 3 >= pic_w || y + 1 >= pic_h) {
+      if (x + 3 >= pic_w || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 35;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 3 <= pic_w - 1) {
-        if (get_position_index(x + 3, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 3 <= pic_w - 1)
+      {
+        if (get_position_index(x + 3, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 35;
           break;
@@ -1418,21 +1723,27 @@ void get_forbidden1(int x, int y, int pic_w, int pic_h, int *forbidden,
 
 void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
                     int direction1, int *forbidden, int start_index,
-                    int high_point, int left_point) {
+                    int high_point, int left_point)
+{
   int forbidden_num = 0;
-  for (int direction = 0; direction < num_arr1[direction1]; direction++) {
+  for (int direction = 0; direction < num_arr1[direction1]; direction++)
+  {
     int direction_ori = dec_arr1[direction1][direction];
     direction_ori = get_dec_MSC(direction_index, direction_ori);
 
-    switch (direction_ori) {
+    switch (direction_ori)
+    {
     case 0:
-      if (x + 1 >= pic_w || y == pic_h - 1) {
+      if (x + 1 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 0;
         break;
       } // out border
-      if ((y == 0 && x + 1 <= pic_w - 1) || x + 1 == pic_w - 1) {
-        if (get_position_index(x + 1, y, pic_w, pic_h) <= start_index) {
+      if ((y == 0 && x + 1 <= pic_w - 1) || x + 1 == pic_w - 1)
+      {
+        if (get_position_index(x + 1, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 0;
           break;
@@ -1440,30 +1751,37 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 1:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (y - 1 == high_point && x + 1 < left_point) {
+      if (y - 1 == high_point && x + 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (x + 1 >= pic_w) {
+      if (x + 1 >= pic_w)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 1;
           break;
         }
       }
-      if (y == 0) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (y == 0)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 1;
           break;
@@ -1471,23 +1789,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 2:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 == high_point && x < left_point) {
+      if (y - 1 == high_point && x < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 < 0 || x == pic_w - 1) {
+      if (y - 1 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 == 0 || (x == 0 && y - 1 >= 0)) {
-        if (get_position_index(x, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 || (x == 0 && y - 1 >= 0))
+      {
+        if (get_position_index(x, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 2;
           break;
@@ -1495,30 +1818,37 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 3:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 == high_point && x - 1 < left_point) {
+      if (y - 1 == high_point && x - 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 < 0) {
+      if (y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 3;
           break;
         }
       }
-      if (x == 0) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (x == 0)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 3;
           break;
@@ -1526,13 +1856,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 4:
-      if (x - 1 < 0 || y == 0) {
+      if (x - 1 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 4;
         break;
       }
-      if ((y == pic_h - 1 && x - 1 >= 0) || x - 1 == 0) {
-        if (get_position_index(x - 1, y, pic_w, pic_h) <= start_index) {
+      if ((y == pic_h - 1 && x - 1 >= 0) || x - 1 == 0)
+      {
+        if (get_position_index(x - 1, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 4;
           break;
@@ -1540,20 +1873,25 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 5:
-      if (x - 1 < 0) {
+      if (x - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 5;
         break;
       }
-      if (x - 1 == 0 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 5;
           break;
         }
       }
-      if (y == pic_h - 1) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (y == pic_h - 1)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 5;
           break;
@@ -1561,13 +1899,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 6:
-      if (y + 1 >= pic_h || x == 0) {
+      if (y + 1 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 6;
         break;
       }
-      if (y + 1 == pic_h - 1 || (x == pic_w - 1 && y + 1 <= pic_h - 1)) {
-        if (get_position_index(x, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 || (x == pic_w - 1 && y + 1 <= pic_h - 1))
+      {
+        if (get_position_index(x, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 6;
           break;
@@ -1575,20 +1916,25 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 7:
-      if (y + 1 >= pic_h) {
+      if (y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 7;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 7;
           break;
         }
       }
-      if (x == pic_w - 1) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (x == pic_w - 1)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 7;
           break;
@@ -1596,13 +1942,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 8:
-      if (x + 2 >= pic_w || y == pic_h - 1) {
+      if (x + 2 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 8;
         break;
       }
-      if ((y == 0 && x + 2 <= pic_w - 1) || x + 2 == pic_w - 1) {
-        if (get_position_index(x + 2, y, pic_w, pic_h) <= start_index) {
+      if ((y == 0 && x + 2 <= pic_w - 1) || x + 2 == pic_w - 1)
+      {
+        if (get_position_index(x + 2, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 8;
           break;
@@ -1610,23 +1959,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 9:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (y - 1 == high_point && x + 2 < left_point) {
+      if (y - 1 == high_point && x + 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (x + 2 >= pic_w || y - 1 < 0) {
+      if (x + 2 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (x + 2 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 2, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 2 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 2, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 9;
           break;
@@ -1634,30 +1988,37 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 10:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (y - 2 == high_point && x + 2 < left_point) {
+      if (y - 2 == high_point && x + 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (x + 2 >= pic_w || y - 1 < 0) {
+      if (x + 2 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (x + 2 == pic_w - 1 && y - 2 >= 0) {
-        if (get_position_index(x + 2, y - 2, pic_w, pic_h) <= start_index) {
+      if (x + 2 == pic_w - 1 && y - 2 >= 0)
+      {
+        if (get_position_index(x + 2, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 10;
           break;
         }
       }
-      if (y - 1 == 0 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 10;
           break;
@@ -1665,23 +2026,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 11:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (y - 2 == high_point && x + 1 < left_point) {
+      if (y - 2 == high_point && x + 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (x + 1 >= pic_w || y - 2 < 0) {
+      if (x + 1 >= pic_w || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 2 >= 0) {
-        if (get_position_index(x + 1, y - 2, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 2 >= 0)
+      {
+        if (get_position_index(x + 1, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 11;
           break;
@@ -1689,23 +2055,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 12:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 == high_point && x < left_point) {
+      if (y - 2 == high_point && x < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 < 0 || x == pic_w - 1) {
+      if (y - 2 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 == 0 || (x == 0 && y - 2 >= 0)) {
-        if (get_position_index(x, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 || (x == 0 && y - 2 >= 0))
+      {
+        if (get_position_index(x, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 12;
           break;
@@ -1713,23 +2084,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 13:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (y - 2 == high_point && x - 1 < left_point) {
+      if (y - 2 == high_point && x - 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (x - 1 < 0 || y - 2 < 0) {
+      if (x - 1 < 0 || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (y - 2 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 13;
           break;
@@ -1737,30 +2113,37 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 14:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (y - 2 == high_point && x - 2 < left_point) {
+      if (y - 2 == high_point && x - 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (x - 1 < 0 || y - 2 < 0) {
+      if (x - 1 < 0 || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (y - 2 == 0 && x - 2 >= 0) {
-        if (get_position_index(x - 2, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 && x - 2 >= 0)
+      {
+        if (get_position_index(x - 2, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 14;
           break;
         }
       }
-      if (x - 1 == 0 && y - 1 >= 0) {
-        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 14;
           break;
@@ -1768,23 +2151,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 15:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (y - 1 == high_point && x - 2 < left_point) {
+      if (y - 1 == high_point && x - 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (x - 2 < 0 || y - 1 < 0) {
+      if (x - 2 < 0 || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (y - 1 == 0 && x - 2 >= 0) {
-        if (get_position_index(x - 2, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 2 >= 0)
+      {
+        if (get_position_index(x - 2, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 15;
           break;
@@ -1792,13 +2180,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 16:
-      if (x - 2 < 0 || y == 0) {
+      if (x - 2 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 16;
         break;
       }
-      if ((y == pic_h - 1 && x - 2 >= 0) || x - 2 == 0) {
-        if (get_position_index(x - 2, y, pic_w, pic_h) <= start_index) {
+      if ((y == pic_h - 1 && x - 2 >= 0) || x - 2 == 0)
+      {
+        if (get_position_index(x - 2, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 16;
           break;
@@ -1806,13 +2197,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 17:
-      if (x - 2 < 0 || y + 1 >= pic_h) {
+      if (x - 2 < 0 || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 17;
         break;
       }
-      if (x - 2 == 0 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x - 2, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 2 == 0 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x - 2, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 17;
           break;
@@ -1820,20 +2214,25 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 18:
-      if (x - 2 < 0 || y + 2 > pic_h) {
+      if (x - 2 < 0 || y + 2 > pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 18;
         break;
       }
-      if (x - 2 == 0 && y + 2 <= pic_h - 1) {
-        if (get_position_index(x - 2, y + 2, pic_w, pic_h) <= start_index) {
+      if (x - 2 == 0 && y + 2 <= pic_h - 1)
+      {
+        if (get_position_index(x - 2, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 18;
           break;
         }
       }
-      if (y + 1 == pic_h - 1 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 18;
           break;
@@ -1841,13 +2240,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 19:
-      if (x - 1 < 0 || y + 2 >= pic_h) {
+      if (x - 1 < 0 || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 19;
         break;
       }
-      if (x - 1 == 0 && y + 2 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 2, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 2 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 19;
           break;
@@ -1855,13 +2257,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 20:
-      if (y + 2 >= pic_h || x == 0) {
+      if (y + 2 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 20;
         break;
       }
-      if (y + 2 == pic_h - 1 || (x == pic_w - 1 && y + 2 <= pic_h - 1)) {
-        if (get_position_index(x, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 || (x == pic_w - 1 && y + 2 <= pic_h - 1))
+      {
+        if (get_position_index(x, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 20;
           break;
@@ -1869,13 +2274,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 21:
-      if (x + 1 >= pic_w || y + 2 >= pic_h) {
+      if (x + 1 >= pic_w || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 21;
         break;
       }
-      if (y + 2 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 21;
           break;
@@ -1883,20 +2291,25 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 22:
-      if (x + 2 > pic_w || y + 2 >= pic_h) {
+      if (x + 2 > pic_w || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 22;
         break;
       }
-      if (y + 2 == pic_h - 1 && x + 2 <= pic_w - 1) {
-        if (get_position_index(x + 2, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 && x + 2 <= pic_w - 1)
+      {
+        if (get_position_index(x + 2, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 22;
           break;
         }
       }
-      if (x + 1 == pic_w - 1 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 22;
           break;
@@ -1904,13 +2317,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 23:
-      if (x + 2 >= pic_w || y + 1 >= pic_h) {
+      if (x + 2 >= pic_w || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 23;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 2 <= pic_w - 1) {
-        if (get_position_index(x + 2, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 2 <= pic_w - 1)
+      {
+        if (get_position_index(x + 2, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 23;
           break;
@@ -1918,13 +2334,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 24:
-      if (x + 3 >= pic_w || y == pic_h - 1) {
+      if (x + 3 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 24;
         break;
       }
-      if (x + 3 == pic_w - 1) {
-        if (get_position_index(x + 3, y, pic_w, pic_h) <= start_index) {
+      if (x + 3 == pic_w - 1)
+      {
+        if (get_position_index(x + 3, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 24;
           break;
@@ -1932,23 +2351,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 25:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (y - 1 == high_point && x + 3 < left_point) {
+      if (y - 1 == high_point && x + 3 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (x + 3 >= pic_w || y - 1 < 0) {
+      if (x + 3 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (x + 3 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 3, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 3 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 3, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 25;
           break;
@@ -1956,23 +2380,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 26:
-      if (y - 3 < high_point) {
+      if (y - 3 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (y - 3 == high_point && x + 1 < left_point) {
+      if (y - 3 == high_point && x + 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (x + 1 >= pic_w || y - 3 < 0) {
+      if (x + 1 >= pic_w || y - 3 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 3 >= 0) {
-        if (get_position_index(x + 1, y - 3, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 3 >= 0)
+      {
+        if (get_position_index(x + 1, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 26;
           break;
@@ -1980,23 +2409,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 27:
-      if (y - 3 < high_point) {
+      if (y - 3 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 == high_point && x < left_point) {
+      if (y - 3 == high_point && x < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 < 0 || x == pic_w - 1) {
+      if (y - 3 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 == 0) {
-        if (get_position_index(x, y - 3, pic_w, pic_h) <= start_index) {
+      if (y - 3 == 0)
+      {
+        if (get_position_index(x, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 27;
           break;
@@ -2004,23 +2438,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 28:
-      if (y - 3 < high_point) {
+      if (y - 3 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (y - 3 == high_point && x - 1 < left_point) {
+      if (y - 3 == high_point && x - 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (x - 1 < 0 || y - 3 < 0) {
+      if (x - 1 < 0 || y - 3 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (y - 3 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 3, pic_w, pic_h) <= start_index) {
+      if (y - 3 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 28;
           break;
@@ -2028,23 +2467,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 29:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (y - 1 == high_point && x - 3 < left_point) {
+      if (y - 1 == high_point && x - 3 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (x - 3 < 0 || y - 1 < 0) {
+      if (x - 3 < 0 || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (y - 1 == 0 && x - 3 >= 0) {
-        if (get_position_index(x - 3, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 3 >= 0)
+      {
+        if (get_position_index(x - 3, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 29;
           break;
@@ -2052,13 +2496,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 30:
-      if (x - 3 < 0 || y == 0) {
+      if (x - 3 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 30;
         break;
       }
-      if (x - 3 == 0) {
-        if (get_position_index(x - 3, y, pic_w, pic_h) <= start_index) {
+      if (x - 3 == 0)
+      {
+        if (get_position_index(x - 3, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 30;
           break;
@@ -2066,13 +2513,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 31:
-      if (x - 3 < 0 || y + 1 >= pic_h) {
+      if (x - 3 < 0 || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 31;
         break;
       }
-      if (x - 3 == 0 && y + 1 >= pic_h - 1) {
-        if (get_position_index(x - 3, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 3 == 0 && y + 1 >= pic_h - 1)
+      {
+        if (get_position_index(x - 3, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 31;
           break;
@@ -2080,13 +2530,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 32:
-      if (x - 1 < 0 || y + 3 >= pic_h) {
+      if (x - 1 < 0 || y + 3 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 32;
         break;
       }
-      if (x - 1 == 0 && y + 3 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 3, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 3 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 32;
           break;
@@ -2094,13 +2547,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 33:
-      if (y + 3 >= pic_h || x == 0) {
+      if (y + 3 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 33;
         break;
       }
-      if (y + 3 == pic_h - 1) {
-        if (get_position_index(x, y + 3, pic_w, pic_h) <= start_index) {
+      if (y + 3 == pic_h - 1)
+      {
+        if (get_position_index(x, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 33;
           break;
@@ -2108,13 +2564,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 34:
-      if (x + 1 >= pic_w || y + 3 >= pic_h) {
+      if (x + 1 >= pic_w || y + 3 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 34;
         break;
       }
-      if (y + 3 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 3, pic_w, pic_h) <= start_index) {
+      if (y + 3 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 34;
           break;
@@ -2122,13 +2581,16 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 35:
-      if (x + 3 >= pic_w || y + 1 >= pic_h) {
+      if (x + 3 >= pic_w || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 35;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 3 <= pic_w - 1) {
-        if (get_position_index(x + 3, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 3 <= pic_w - 1)
+      {
+        if (get_position_index(x + 3, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 35;
           break;
@@ -2139,7 +2601,8 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
   }
   forbidden[0] = forbidden_num;
 
-  for (int i = 0; i < forbidden[0]; i++) {
+  for (int i = 0; i < forbidden[0]; i++)
+  {
     forbidden[i + 1] =
         enc_arr1[direction1][get_RMSC(direction_index, forbidden[i + 1])];
   }
@@ -2147,22 +2610,28 @@ void get_forbidden2(int x, int y, int pic_w, int pic_h, int direction_index,
 
 void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
                     int direction1, int direction2, int *forbidden,
-                    int start_index, int high_point, int left_point) {
+                    int start_index, int high_point, int left_point)
+{
   int forbidden_num = 0;
   for (int direction = 0; direction < num_arr[direction1][direction2];
-       direction++) {
+       direction++)
+  {
     int direction_ori = dec_arr[direction1][direction2][direction];
     direction_ori = get_dec_MSC(direction_index, direction_ori);
 
-    switch (direction_ori) {
+    switch (direction_ori)
+    {
     case 0:
-      if (x + 1 >= pic_w || y == pic_h - 1) {
+      if (x + 1 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 0;
         break;
       } // out border
-      if ((y == 0 && x + 1 <= pic_w - 1) || x + 1 == pic_w - 1) {
-        if (get_position_index(x + 1, y, pic_w, pic_h) <= start_index) {
+      if ((y == 0 && x + 1 <= pic_w - 1) || x + 1 == pic_w - 1)
+      {
+        if (get_position_index(x + 1, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 0;
           break;
@@ -2170,30 +2639,37 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 1:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (y - 1 == high_point && x + 1 < left_point) {
+      if (y - 1 == high_point && x + 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (x + 1 >= pic_w) {
+      if (x + 1 >= pic_w)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 1;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 1;
           break;
         }
       }
-      if (y == 0) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (y == 0)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 1;
           break;
@@ -2201,23 +2677,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 2:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 == high_point && x < left_point) {
+      if (y - 1 == high_point && x < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 < 0 || x == pic_w - 1) {
+      if (y - 1 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 2;
         break;
       }
-      if (y - 1 == 0 || (x == 0 && y - 1 >= 0)) {
-        if (get_position_index(x, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 || (x == 0 && y - 1 >= 0))
+      {
+        if (get_position_index(x, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 2;
           break;
@@ -2225,30 +2706,37 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 3:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 == high_point && x - 1 < left_point) {
+      if (y - 1 == high_point && x - 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 < 0) {
+      if (y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 3;
         break;
       }
-      if (y - 1 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 3;
           break;
         }
       }
-      if (x == 0) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (x == 0)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 3;
           break;
@@ -2256,13 +2744,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 4:
-      if (x - 1 < 0 || y == 0) {
+      if (x - 1 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 4;
         break;
       }
-      if ((y == pic_h - 1 && x - 1 >= 0) || x - 1 == 0) {
-        if (get_position_index(x - 1, y, pic_w, pic_h) <= start_index) {
+      if ((y == pic_h - 1 && x - 1 >= 0) || x - 1 == 0)
+      {
+        if (get_position_index(x - 1, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 4;
           break;
@@ -2270,20 +2761,25 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 5:
-      if (x - 1 < 0) {
+      if (x - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 5;
         break;
       }
-      if (x - 1 == 0 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 5;
           break;
         }
       }
-      if (y == pic_h - 1) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (y == pic_h - 1)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 5;
           break;
@@ -2291,13 +2787,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 6:
-      if (y + 1 >= pic_h || x == 0) {
+      if (y + 1 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 6;
         break;
       }
-      if (y + 1 == pic_h - 1 || (x == pic_w - 1 && y + 1 <= pic_h - 1)) {
-        if (get_position_index(x, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 || (x == pic_w - 1 && y + 1 <= pic_h - 1))
+      {
+        if (get_position_index(x, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 6;
           break;
@@ -2305,20 +2804,25 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 7:
-      if (y + 1 >= pic_h) {
+      if (y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 7;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 7;
           break;
         }
       }
-      if (x == pic_w - 1) {
-        if (get_position_index(x, y, pic_w, pic_h) <= start_index) {
+      if (x == pic_w - 1)
+      {
+        if (get_position_index(x, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 7;
           break;
@@ -2326,13 +2830,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 8:
-      if (x + 2 >= pic_w || y == pic_h - 1) {
+      if (x + 2 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 8;
         break;
       }
-      if ((y == 0 && x + 2 <= pic_w - 1) || x + 2 == pic_w - 1) {
-        if (get_position_index(x + 2, y, pic_w, pic_h) <= start_index) {
+      if ((y == 0 && x + 2 <= pic_w - 1) || x + 2 == pic_w - 1)
+      {
+        if (get_position_index(x + 2, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 8;
           break;
@@ -2340,23 +2847,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 9:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (y - 1 == high_point && x + 2 < left_point) {
+      if (y - 1 == high_point && x + 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (x + 2 >= pic_w || y - 1 < 0) {
+      if (x + 2 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 9;
         break;
       }
-      if (x + 2 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 2, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 2 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 2, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 9;
           break;
@@ -2364,30 +2876,37 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 10:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (y - 2 == high_point && x + 2 < left_point) {
+      if (y - 2 == high_point && x + 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (x + 2 >= pic_w || y - 1 < 0) {
+      if (x + 2 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 10;
         break;
       }
-      if (x + 2 == pic_w - 1 && y - 2 >= 0) {
-        if (get_position_index(x + 2, y - 2, pic_w, pic_h) <= start_index) {
+      if (x + 2 == pic_w - 1 && y - 2 >= 0)
+      {
+        if (get_position_index(x + 2, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 10;
           break;
         }
       }
-      if (y - 1 == 0 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 10;
           break;
@@ -2395,23 +2914,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 11:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (y - 2 == high_point && x + 1 < left_point) {
+      if (y - 2 == high_point && x + 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (x + 1 >= pic_w || y - 2 < 0) {
+      if (x + 1 >= pic_w || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 11;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 2 >= 0) {
-        if (get_position_index(x + 1, y - 2, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 2 >= 0)
+      {
+        if (get_position_index(x + 1, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 11;
           break;
@@ -2419,23 +2943,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 12:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 == high_point && x < left_point) {
+      if (y - 2 == high_point && x < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 < 0 || x == pic_w - 1) {
+      if (y - 2 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 12;
         break;
       }
-      if (y - 2 == 0 || (x == 0 && y - 2 >= 0)) {
-        if (get_position_index(x, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 || (x == 0 && y - 2 >= 0))
+      {
+        if (get_position_index(x, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 12;
           break;
@@ -2443,23 +2972,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 13:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (y - 2 == high_point && x - 1 < left_point) {
+      if (y - 2 == high_point && x - 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (x - 1 < 0 || y - 2 < 0) {
+      if (x - 1 < 0 || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 13;
         break;
       }
-      if (y - 2 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 13;
           break;
@@ -2467,30 +3001,37 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 14:
-      if (y - 2 < high_point) {
+      if (y - 2 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (y - 2 == high_point && x - 2 < left_point) {
+      if (y - 2 == high_point && x - 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (x - 1 < 0 || y - 2 < 0) {
+      if (x - 1 < 0 || y - 2 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 14;
         break;
       }
-      if (y - 2 == 0 && x - 2 >= 0) {
-        if (get_position_index(x - 2, y - 2, pic_w, pic_h) <= start_index) {
+      if (y - 2 == 0 && x - 2 >= 0)
+      {
+        if (get_position_index(x - 2, y - 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 14;
           break;
         }
       }
-      if (x - 1 == 0 && y - 1 >= 0) {
-        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 14;
           break;
@@ -2498,23 +3039,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 15:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (y - 1 == high_point && x - 2 < left_point) {
+      if (y - 1 == high_point && x - 2 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (x - 2 < 0 || y - 1 < 0) {
+      if (x - 2 < 0 || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 15;
         break;
       }
-      if (y - 1 == 0 && x - 2 >= 0) {
-        if (get_position_index(x - 2, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 2 >= 0)
+      {
+        if (get_position_index(x - 2, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 15;
           break;
@@ -2522,13 +3068,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 16:
-      if (x - 2 < 0 || y == 0) {
+      if (x - 2 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 16;
         break;
       }
-      if ((y == pic_h - 1 && x - 2 >= 0) || x - 2 == 0) {
-        if (get_position_index(x - 2, y, pic_w, pic_h) <= start_index) {
+      if ((y == pic_h - 1 && x - 2 >= 0) || x - 2 == 0)
+      {
+        if (get_position_index(x - 2, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 16;
           break;
@@ -2536,13 +3085,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 17:
-      if (x - 2 < 0 || y + 1 >= pic_h) {
+      if (x - 2 < 0 || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 17;
         break;
       }
-      if (x - 2 == 0 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x - 2, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 2 == 0 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x - 2, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 17;
           break;
@@ -2550,20 +3102,25 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 18:
-      if (x - 2 < 0 || y + 2 > pic_h) {
+      if (x - 2 < 0 || y + 2 > pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 18;
         break;
       }
-      if (x - 2 == 0 && y + 2 <= pic_h - 1) {
-        if (get_position_index(x - 2, y + 2, pic_w, pic_h) <= start_index) {
+      if (x - 2 == 0 && y + 2 <= pic_h - 1)
+      {
+        if (get_position_index(x - 2, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 18;
           break;
         }
       }
-      if (y + 1 == pic_h - 1 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 18;
           break;
@@ -2571,13 +3128,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 19:
-      if (x - 1 < 0 || y + 2 >= pic_h) {
+      if (x - 1 < 0 || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 19;
         break;
       }
-      if (x - 1 == 0 && y + 2 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 2, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 2 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 19;
           break;
@@ -2585,13 +3145,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 20:
-      if (y + 2 >= pic_h || x == 0) {
+      if (y + 2 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 20;
         break;
       }
-      if (y + 2 == pic_h - 1 || (x == pic_w - 1 && y + 2 <= pic_h - 1)) {
-        if (get_position_index(x, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 || (x == pic_w - 1 && y + 2 <= pic_h - 1))
+      {
+        if (get_position_index(x, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 20;
           break;
@@ -2599,13 +3162,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 21:
-      if (x + 1 >= pic_w || y + 2 >= pic_h) {
+      if (x + 1 >= pic_w || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 21;
         break;
       }
-      if (y + 2 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 21;
           break;
@@ -2613,20 +3179,25 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 22:
-      if (x + 2 > pic_w || y + 2 >= pic_h) {
+      if (x + 2 > pic_w || y + 2 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 22;
         break;
       }
-      if (y + 2 == pic_h - 1 && x + 2 <= pic_w - 1) {
-        if (get_position_index(x + 2, y + 2, pic_w, pic_h) <= start_index) {
+      if (y + 2 == pic_h - 1 && x + 2 <= pic_w - 1)
+      {
+        if (get_position_index(x + 2, y + 2, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 22;
           break;
         }
       }
-      if (x + 1 == pic_w - 1 && y + 1 <= pic_h - 1) {
-        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y + 1 <= pic_h - 1)
+      {
+        if (get_position_index(x + 1, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 22;
           break;
@@ -2634,13 +3205,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 23:
-      if (x + 2 >= pic_w || y + 1 >= pic_h) {
+      if (x + 2 >= pic_w || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 23;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 2 <= pic_w - 1) {
-        if (get_position_index(x + 2, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 2 <= pic_w - 1)
+      {
+        if (get_position_index(x + 2, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 23;
           break;
@@ -2648,13 +3222,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 24:
-      if (x + 3 >= pic_w || y == pic_h - 1) {
+      if (x + 3 >= pic_w || y == pic_h - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 24;
         break;
       }
-      if (x + 3 == pic_w - 1) {
-        if (get_position_index(x + 3, y, pic_w, pic_h) <= start_index) {
+      if (x + 3 == pic_w - 1)
+      {
+        if (get_position_index(x + 3, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 24;
           break;
@@ -2662,23 +3239,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 25:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (y - 1 == high_point && x + 3 < left_point) {
+      if (y - 1 == high_point && x + 3 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (x + 3 >= pic_w || y - 1 < 0) {
+      if (x + 3 >= pic_w || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 25;
         break;
       }
-      if (x + 3 == pic_w - 1 && y - 1 >= 0) {
-        if (get_position_index(x + 3, y - 1, pic_w, pic_h) <= start_index) {
+      if (x + 3 == pic_w - 1 && y - 1 >= 0)
+      {
+        if (get_position_index(x + 3, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 25;
           break;
@@ -2686,23 +3268,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 26:
-      if (y - 3 < high_point) {
+      if (y - 3 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (y - 3 == high_point && x + 1 < left_point) {
+      if (y - 3 == high_point && x + 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (x + 1 >= pic_w || y - 3 < 0) {
+      if (x + 1 >= pic_w || y - 3 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 26;
         break;
       }
-      if (x + 1 == pic_w - 1 && y - 3 >= 0) {
-        if (get_position_index(x + 1, y - 3, pic_w, pic_h) <= start_index) {
+      if (x + 1 == pic_w - 1 && y - 3 >= 0)
+      {
+        if (get_position_index(x + 1, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 26;
           break;
@@ -2710,23 +3297,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 27:
-      if (y - 3 < high_point) {
+      if (y - 3 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 == high_point && x < left_point) {
+      if (y - 3 == high_point && x < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 < 0 || x == pic_w - 1) {
+      if (y - 3 < 0 || x == pic_w - 1)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 27;
         break;
       }
-      if (y - 3 == 0) {
-        if (get_position_index(x, y - 3, pic_w, pic_h) <= start_index) {
+      if (y - 3 == 0)
+      {
+        if (get_position_index(x, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 27;
           break;
@@ -2734,23 +3326,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 28:
-      if (y - 3 < high_point) {
+      if (y - 3 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (y - 3 == high_point && x - 1 < left_point) {
+      if (y - 3 == high_point && x - 1 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (x - 1 < 0 || y - 3 < 0) {
+      if (x - 1 < 0 || y - 3 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 28;
         break;
       }
-      if (y - 3 == 0 && x - 1 >= 0) {
-        if (get_position_index(x - 1, y - 3, pic_w, pic_h) <= start_index) {
+      if (y - 3 == 0 && x - 1 >= 0)
+      {
+        if (get_position_index(x - 1, y - 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 28;
           break;
@@ -2758,23 +3355,28 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 29:
-      if (y - 1 < high_point) {
+      if (y - 1 < high_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (y - 1 == high_point && x - 3 < left_point) {
+      if (y - 1 == high_point && x - 3 < left_point)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (x - 3 < 0 || y - 1 < 0) {
+      if (x - 3 < 0 || y - 1 < 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 29;
         break;
       }
-      if (y - 1 == 0 && x - 3 >= 0) {
-        if (get_position_index(x - 3, y - 1, pic_w, pic_h) <= start_index) {
+      if (y - 1 == 0 && x - 3 >= 0)
+      {
+        if (get_position_index(x - 3, y - 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 29;
           break;
@@ -2782,13 +3384,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 30:
-      if (x - 3 < 0 || y == 0) {
+      if (x - 3 < 0 || y == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 30;
         break;
       }
-      if (x - 3 == 0) {
-        if (get_position_index(x - 3, y, pic_w, pic_h) <= start_index) {
+      if (x - 3 == 0)
+      {
+        if (get_position_index(x - 3, y, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 30;
           break;
@@ -2796,13 +3401,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 31:
-      if (x - 3 < 0 || y + 1 >= pic_h) {
+      if (x - 3 < 0 || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 31;
         break;
       }
-      if (x - 3 == 0 && y + 1 >= pic_h - 1) {
-        if (get_position_index(x - 3, y + 1, pic_w, pic_h) <= start_index) {
+      if (x - 3 == 0 && y + 1 >= pic_h - 1)
+      {
+        if (get_position_index(x - 3, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 31;
           break;
@@ -2810,13 +3418,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 32:
-      if (x - 1 < 0 || y + 3 >= pic_h) {
+      if (x - 1 < 0 || y + 3 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 32;
         break;
       }
-      if (x - 1 == 0 && y + 3 <= pic_h - 1) {
-        if (get_position_index(x - 1, y + 3, pic_w, pic_h) <= start_index) {
+      if (x - 1 == 0 && y + 3 <= pic_h - 1)
+      {
+        if (get_position_index(x - 1, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 32;
           break;
@@ -2824,13 +3435,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 33:
-      if (y + 3 >= pic_h || x == 0) {
+      if (y + 3 >= pic_h || x == 0)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 33;
         break;
       }
-      if (y + 3 == pic_h - 1) {
-        if (get_position_index(x, y + 3, pic_w, pic_h) <= start_index) {
+      if (y + 3 == pic_h - 1)
+      {
+        if (get_position_index(x, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 33;
           break;
@@ -2838,13 +3452,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 34:
-      if (x + 1 >= pic_w || y + 3 >= pic_h) {
+      if (x + 1 >= pic_w || y + 3 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 34;
         break;
       }
-      if (y + 3 == pic_h - 1 && x + 1 <= pic_w - 1) {
-        if (get_position_index(x + 1, y + 3, pic_w, pic_h) <= start_index) {
+      if (y + 3 == pic_h - 1 && x + 1 <= pic_w - 1)
+      {
+        if (get_position_index(x + 1, y + 3, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 34;
           break;
@@ -2852,13 +3469,16 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
       }
       break;
     case 35:
-      if (x + 3 >= pic_w || y + 1 >= pic_h) {
+      if (x + 3 >= pic_w || y + 1 >= pic_h)
+      {
         forbidden_num++;
         forbidden[forbidden_num] = 35;
         break;
       }
-      if (y + 1 == pic_h - 1 && x + 3 <= pic_w - 1) {
-        if (get_position_index(x + 3, y + 1, pic_w, pic_h) <= start_index) {
+      if (y + 1 == pic_h - 1 && x + 3 <= pic_w - 1)
+      {
+        if (get_position_index(x + 3, y + 1, pic_w, pic_h) <= start_index)
+        {
           forbidden_num++;
           forbidden[forbidden_num] = 35;
           break;
@@ -2869,14 +3489,17 @@ void get_forbidden3(int x, int y, int pic_w, int pic_h, int direction_index,
   }
   forbidden[0] = forbidden_num;
 
-  for (int i = 0; i < forbidden[0]; i++) {
+  for (int i = 0; i < forbidden[0]; i++)
+  {
     forbidden[i + 1] = enc_arr[direction1][direction2]
                               [get_RMSC(direction_index, forbidden[i + 1])];
   }
 }
 
-void adapt_position(int *x, int *y, int direction) {
-  switch (direction) {
+void adapt_position(int *x, int *y, int direction)
+{
+  switch (direction)
+  {
   case 0:
     *x += 1;
     break;
@@ -3012,7 +3635,8 @@ void adapt_position(int *x, int *y, int direction) {
   }
 }
 
-int get_position_index(int x, int y, int pic_w, int pic_h) {
+int get_position_index(int x, int y, int pic_w, int pic_h)
+{
   if (x == 0 && y == 0)
     return 2 * pic_h + 2 * pic_w - 4;
   else if (x == 0)
@@ -3027,10 +3651,12 @@ int get_position_index(int x, int y, int pic_w, int pic_h) {
     return -1;
 }
 
-void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
+void encodeEdgeLength_MSC(CodingUnit *CU, bool encode)
+{
   int *edge = CU->Edge_MSC;
   int *overlap = CU->Overlap_MSC;
-  if (encode) {
+  if (encode)
+  {
     int loc_y = CU->location_row;
     int loc_x = CU->location_col;
     int pic_h = CU->pic_height;
@@ -3063,21 +3689,27 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
     int runLength = 0;
     bool newzero = false;
 
-    if (overlap[0] > 0 && runLength == 0) {
+    if (overlap[0] > 0 && runLength == 0)
+    {
       bool end = true;
-      for (int j = 0; j < edge[0]; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 0; j < edge[0]; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       acodec.encode(end, aEndFlag);
       if (!end)
         encGolomb(runLength, 0, 3);
     }
-    if (overlap[0] < 2) {
-      if (boundary) {
+    if (overlap[0] < 2)
+    {
+      if (boundary)
+      {
         get_forbidden1(x, y, pic_w, pic_h, forbidden, start_index);
         if (loc_x == 0)
           acodec.encode(edge[1], aMSC_L, forbidden);
@@ -3087,7 +3719,9 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
           acodec.encode(edge[1], aMSC_R, forbidden);
         else if (loc_y == 0)
           acodec.encode(edge[1], aMSC_A, forbidden);
-      } else {
+      }
+      else
+      {
         if (edge[1] == 1)
           acodec.encode(0, aMSC_I);
         else if (edge[1] == 9)
@@ -3097,7 +3731,9 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
         else
           printf("error");
       }
-    } else if (overlap[0] == 2) {
+    }
+    else if (overlap[0] == 2)
+    {
       runLength--;
       if (runLength == 0)
         newzero = true;
@@ -3105,28 +3741,35 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
 
     direction1 = get_direction1(edge[1], &index);
 
-    if (edge[0] > 1) {
+    if (edge[0] > 1)
+    {
       adapt_position(&x, &y, edge[1]);
       direction2 = get_RMSC(index, edge[2]);
 
-      if (overlap[1] > 0 && runLength == 0 && !newzero) {
+      if (overlap[1] > 0 && runLength == 0 && !newzero)
+      {
         bool end = true;
-        for (int j = 1; j < edge[0]; j++) {
-          if (overlap[j] < 2) {
+        for (int j = 1; j < edge[0]; j++)
+        {
+          if (overlap[j] < 2)
+          {
             end = false;
             break;
-          } else
+          }
+          else
             runLength++;
         }
         acodec.encode(end, aEndFlag);
         if (!end)
           encGolomb(runLength, 0, 3);
       }
-      if (overlap[1] < 2) {
+      if (overlap[1] < 2)
+      {
         newzero = false;
         get_forbidden2(x, y, pic_w, pic_h, index, direction1, forbidden,
                        start_index, high_point, left_point);
-        switch (direction1) {
+        switch (direction1)
+        {
         case 0:
           acodec.encode(enc_arr1[0][direction2], aMSC_0, forbidden);
           break;
@@ -3155,7 +3798,9 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
           acodec.encode(enc_arr1[8][direction2], aMSC_8, forbidden);
           break;
         }
-      } else if (overlap[1] == 2) {
+      }
+      else if (overlap[1] == 2)
+      {
         runLength--;
         if (runLength == 0)
           newzero = true;
@@ -3163,29 +3808,36 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
 
       adapt_position(&x, &y, edge[2]);
     }
-    for (int i = 3; i < edge[0] + 1; i++) {
+    for (int i = 3; i < edge[0] + 1; i++)
+    {
       direct_temp = direction2;
       direction2 = get_direction1(edge[i - 1], &index);
       direction3 = get_RMSC(index, edge[i]);
 
-      if (overlap[i - 1] > 0 && runLength == 0 && !newzero) {
+      if (overlap[i - 1] > 0 && runLength == 0 && !newzero)
+      {
         bool end = true;
-        for (int j = i - 1; j < edge[0]; j++) {
-          if (overlap[j] < 2) {
+        for (int j = i - 1; j < edge[0]; j++)
+        {
+          if (overlap[j] < 2)
+          {
             end = false;
             break;
-          } else
+          }
+          else
             runLength++;
         }
         acodec.encode(end, aEndFlag);
         if (!end)
           encGolomb(runLength, 0, 3);
       }
-      if (overlap[i - 1] < 2) {
+      if (overlap[i - 1] < 2)
+      {
         newzero = false;
         get_forbidden3(x, y, pic_w, pic_h, index, direction1, direct_temp,
                        forbidden, start_index, high_point, left_point);
-        switch (direction1 * 100 + direct_temp) {
+        switch (direction1 * 100 + direct_temp)
+        {
         case 0:
           acodec.encode(enc_arr[0][0][direction3], aMSC_00, forbidden);
           break;
@@ -3916,7 +4568,9 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
           acodec.encode(enc_arr[8][26][direction3], aMSC_826, forbidden);
           break;
         }
-      } else if (overlap[i - 1] == 2) {
+      }
+      else if (overlap[i - 1] == 2)
+      {
         runLength--;
         if (runLength == 0)
           newzero = true;
@@ -3938,9 +4592,12 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
     //	printf("%d ", overlap[i]);
     // }
     // printf("\n");
-  } else {
+  }
+  else
+  {
     int direction1, direction2, index;
-    for (int i = 1; i < edge[0] + 1; i++) {
+    for (int i = 1; i < edge[0] + 1; i++)
+    {
       if (i == 1 || overlap[i - 1] == 2)
         continue;
       direction1 = get_direction1(edge[i - 1], &index);
@@ -3950,27 +4607,34 @@ void encodeEdgeLength_MSC(CodingUnit *CU, bool encode) {
   }
 }
 
-int to_3OT(int direct_pre, int direct_cur, int *turn) {
+int to_3OT(int direct_pre, int direct_cur, int *turn)
+{
   if (direct_cur == direct_pre)
     return 0;
-  else if ((direct_cur - direct_pre + 4) % 4 == 1) {
+  else if ((direct_cur - direct_pre + 4) % 4 == 1)
+  {
     if (*turn == 0)
       return 2;
-    else {
+    else
+    {
       *turn = 0;
       return 1;
     }
-  } else if ((direct_cur - direct_pre + 4) % 4 == 3) {
+  }
+  else if ((direct_cur - direct_pre + 4) % 4 == 3)
+  {
     if (*turn == 1)
       return 2;
-    else {
+    else
+    {
       *turn = 1;
       return 1;
     }
   }
 }
 
-int get_position_3OT(int x, int y, int pic_w, int pic_h) {
+int get_position_3OT(int x, int y, int pic_w, int pic_h)
+{
   if (x == 0)
     return y;
   else if (y == pic_h)
@@ -3985,19 +4649,24 @@ int get_position_3OT(int x, int y, int pic_w, int pic_h) {
 
 void get_forbidden_3OT(int x, int y, int pic_w, int pic_h, int pre_direction,
                        int turn, int *forbidden, bool boundary, int start_index,
-                       int high_point, int left_point) {
+                       int high_point, int left_point)
+{
   int forbidden_num = 0;
   int cur_direction;
   int x_cur, y_cur;
-  for (int direction = 0; direction < 3; direction++) {
+  for (int direction = 0; direction < 3; direction++)
+  {
     if (direction == 0)
       cur_direction = pre_direction;
-    else if (direction == 1) {
+    else if (direction == 1)
+    {
       if (turn == 0)
         cur_direction = (pre_direction + 3) % 4;
       else
         cur_direction = (pre_direction + 1) % 4;
-    } else {
+    }
+    else
+    {
       if (turn == 0)
         cur_direction = (pre_direction + 1) % 4;
       else
@@ -4006,7 +4675,8 @@ void get_forbidden_3OT(int x, int y, int pic_w, int pic_h, int pre_direction,
 
     x_cur = x;
     y_cur = y;
-    switch (cur_direction) {
+    switch (cur_direction)
+    {
     case 0:
       x_cur++;
       break;
@@ -4021,11 +4691,14 @@ void get_forbidden_3OT(int x, int y, int pic_w, int pic_h, int pre_direction,
       break;
     }
     if ((x_cur == pic_w || x_cur == 0 || y_cur == 0 || y_cur == pic_h) &&
-        get_position_3OT(x_cur, y_cur, pic_w, pic_h) <= start_index) {
+        get_position_3OT(x_cur, y_cur, pic_w, pic_h) <= start_index)
+    {
       forbidden_num++;
       forbidden[forbidden_num] = direction;
-    } else if ((y_cur < high_point && x_cur > left_point) ||
-               (y_cur <= high_point && x_cur <= left_point)) {
+    }
+    else if ((y_cur < high_point && x_cur > left_point) ||
+             (y_cur <= high_point && x_cur <= left_point))
+    {
       forbidden_num++;
       forbidden[forbidden_num] = direction;
     }
@@ -4035,8 +4708,10 @@ void get_forbidden_3OT(int x, int y, int pic_w, int pic_h, int pre_direction,
   forbidden[0] = forbidden_num;
 }
 
-void adapt_position_3OT(int *x, int *y, int direction) {
-  switch (direction) {
+void adapt_position_3OT(int *x, int *y, int direction)
+{
+  switch (direction)
+  {
   case 0:
     *x += 1;
     break;
@@ -4052,7 +4727,8 @@ void adapt_position_3OT(int *x, int *y, int direction) {
   }
 }
 
-void encodeEdgeLength_3OT(CodingUnit *CU) {
+void encodeEdgeLength_3OT(CodingUnit *CU)
+{
   int *edge = CU->Edge_3OT;
   int *overlap = CU->Overlap_3OT;
 
@@ -4069,28 +4745,39 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
     ;
   else if (loc_y == pic_h - 1)
     y++;
-  else if (loc_x == pic_w - 1) {
+  else if (loc_x == pic_w - 1)
+  {
     x++;
     y++;
-  } else if (loc_y == 0)
+  }
+  else if (loc_y == 0)
     x++;
 
   int start_index = get_position_3OT(x, y, pic_w, pic_h);
 
   int pre_direction;
-  if (loc_x == 0) {
+  if (loc_x == 0)
+  {
     x++;
     pre_direction = 0;
-  } else if (loc_y == pic_h - 1) {
+  }
+  else if (loc_y == pic_h - 1)
+  {
     y--;
     pre_direction = 1;
-  } else if (loc_x == pic_w - 1) {
+  }
+  else if (loc_x == pic_w - 1)
+  {
     x--;
     pre_direction = 2;
-  } else if (loc_y == 0) {
+  }
+  else if (loc_y == 0)
+  {
     y++;
     pre_direction = 3;
-  } else {
+  }
+  else
+  {
     x++;
     pre_direction = 0;
   }
@@ -4116,68 +4803,92 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
   int runLength = 0;
   bool end;
 
-  if (overlap[0] == 1 && runLength == 0) {
+  if (overlap[0] == 1 && runLength == 0)
+  {
     end = true;
-    for (int j = 1; j < edge[0] + 1; j++) {
-      if (overlap[j] < 2) {
+    for (int j = 1; j < edge[0] + 1; j++)
+    {
+      if (overlap[j] < 2)
+      {
         end = false;
         break;
-      } else
+      }
+      else
         runLength++;
     }
     acodec.encode(end, aEndFlag);
     if (!end)
       encGolomb(runLength, 0, 3);
   }
-  if (overlap[1] < 2) {
+  if (overlap[1] < 2)
+  {
     get_forbidden_3OT(x, y, pic_w, pic_h, pre_direction, turn, forbidden,
                       boundary, start_index, high_point, left_point);
 
-    if (boundary) {
-      if (loc_x == 0) {
+    if (boundary)
+    {
+      if (loc_x == 0)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         acodec.encode(direct_cur, a3OT_L, forbidden);
-      } else if (loc_y == pic_h - 1) {
+      }
+      else if (loc_y == pic_h - 1)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         acodec.encode(direct_cur, a3OT_B, forbidden);
-      } else if (loc_x == pic_w - 1) {
+      }
+      else if (loc_x == pic_w - 1)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         acodec.encode(direct_cur, a3OT_R, forbidden);
-      } else if (loc_y == 0) {
+      }
+      else if (loc_y == 0)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         acodec.encode(direct_cur, a3OT_A, forbidden);
       }
-    } else {
+    }
+    else
+    {
       direct_cur = to_3OT(pre_direction, edge[1], &turn);
       acodec.encode(direct_cur, a3OT_I, forbidden);
     }
-  } else if (overlap[1] == 2) {
+  }
+  else if (overlap[1] == 2)
+  {
     direct_cur = to_3OT(pre_direction, edge[1], &turn);
     runLength--;
   }
   direction1 = direct_cur;
   adapt_position_3OT(&x, &y, edge[1]);
 
-  if (edge[0] > 1) {
-    if (overlap[1] == 1 && runLength == 0) {
+  if (edge[0] > 1)
+  {
+    if (overlap[1] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = 2; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 2; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       acodec.encode(end, aEndFlag);
       if (!end)
         encGolomb(runLength, 0, 3);
     }
-    if (overlap[2] < 2) {
+    if (overlap[2] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[1], turn, forbidden, boundary,
                         start_index, high_point, left_point);
       direction2 = to_3OT(edge[1], edge[2], &turn);
-      switch (direction1) {
+      switch (direction1)
+      {
       case 0:
         acodec.encode(direction2, a3OT_0, forbidden);
         break;
@@ -4188,33 +4899,42 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
         acodec.encode(direction2, a3OT_2, forbidden);
         break;
       }
-    } else if (overlap[2] == 2) {
+    }
+    else if (overlap[2] == 2)
+    {
       direction2 = to_3OT(edge[1], edge[2], &turn);
       runLength--;
     }
     adapt_position_3OT(&x, &y, edge[2]);
   }
 
-  if (edge[0] > 2) {
-    if (overlap[2] == 1 && runLength == 0) {
+  if (edge[0] > 2)
+  {
+    if (overlap[2] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = 3; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 3; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       acodec.encode(end, aEndFlag);
       if (!end)
         encGolomb(runLength, 0, 3);
     }
-    if (overlap[3] < 2) {
+    if (overlap[3] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[2], turn, forbidden, boundary,
                         start_index, high_point, left_point);
       direction3 = to_3OT(edge[2], edge[3], &turn);
-      switch (direction1 * 3 + direction2) {
+      switch (direction1 * 3 + direction2)
+      {
       case 0:
         acodec.encode(direction3, a3OT_00, forbidden);
         break;
@@ -4243,33 +4963,42 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
         acodec.encode(direction3, a3OT_22, forbidden);
         break;
       }
-    } else if (overlap[3] == 2) {
+    }
+    else if (overlap[3] == 2)
+    {
       direction3 = to_3OT(edge[2], edge[3], &turn);
       runLength--;
     }
     adapt_position_3OT(&x, &y, edge[3]);
   }
 
-  if (edge[0] > 3) {
-    if (overlap[3] == 1 && runLength == 0) {
+  if (edge[0] > 3)
+  {
+    if (overlap[3] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = 4; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 4; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       acodec.encode(end, aEndFlag);
       if (!end)
         encGolomb(runLength, 0, 3);
     }
-    if (overlap[4] < 2) {
+    if (overlap[4] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[3], turn, forbidden, boundary,
                         start_index, high_point, left_point);
       direction4 = to_3OT(edge[3], edge[4], &turn);
-      switch (direction1 * 9 + direction2 * 3 + direction3) {
+      switch (direction1 * 9 + direction2 * 3 + direction3)
+      {
       case 0:
         acodec.encode(direction4, a3OT_000, forbidden);
         break;
@@ -4352,28 +5081,36 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
         acodec.encode(direction4, a3OT_222, forbidden);
         break;
       }
-    } else if (overlap[4] == 2) {
+    }
+    else if (overlap[4] == 2)
+    {
       direction4 = to_3OT(edge[3], edge[4], &turn);
       runLength--;
     }
     adapt_position_3OT(&x, &y, edge[4]);
   }
 
-  for (int i = 5; i < edge[0] + 1; i++) {
-    if (overlap[i - 1] == 1 && runLength == 0) {
+  for (int i = 5; i < edge[0] + 1; i++)
+  {
+    if (overlap[i - 1] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = i; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = i; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       acodec.encode(end, aEndFlag);
       if (!end)
         encGolomb(runLength, 0, 3);
     }
-    if (overlap[i] < 2) {
+    if (overlap[i] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[i - 1], turn, forbidden,
                         boundary, start_index, high_point, left_point);
@@ -4383,7 +5120,8 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
       //	edge[i] = 2;
       // }
 
-      switch (direction1 * 27 + direction2 * 9 + direction3 * 3 + direction4) {
+      switch (direction1 * 27 + direction2 * 9 + direction3 * 3 + direction4)
+      {
       case 0:
         acodec.encode(direct_cur, a3OT_0000, forbidden);
         break;
@@ -4628,7 +5366,9 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
         acodec.encode(direct_cur, a3OT_2222, forbidden);
         break;
       }
-    } else if (overlap[i] == 2) {
+    }
+    else if (overlap[i] == 2)
+    {
       direct_cur = to_3OT(edge[i - 1], edge[i], &turn);
       runLength--;
     }
@@ -4653,7 +5393,8 @@ void encodeEdgeLength_3OT(CodingUnit *CU) {
   // printf("\n");
 }
 
-float getBits_MSC(CodingUnit *CU) {
+float getBits_MSC(CodingUnit *CU)
+{
   int *edge = CU->Edge_MSC;
   int *overlap = CU->Overlap_MSC;
 
@@ -4691,21 +5432,27 @@ float getBits_MSC(CodingUnit *CU) {
 
   float rate = 0;
 
-  if (overlap[0] > 0 && runLength == 0) {
+  if (overlap[0] > 0 && runLength == 0)
+  {
     bool end = true;
-    for (int j = 0; j < edge[0]; j++) {
-      if (overlap[j] < 2) {
+    for (int j = 0; j < edge[0]; j++)
+    {
+      if (overlap[j] < 2)
+      {
         end = false;
         break;
-      } else
+      }
+      else
         runLength++;
     }
     rate += 1;
     if (!end)
       rate += GolombBits(runLength, 0, 3);
   }
-  if (overlap[0] < 2) {
-    if (boundary) {
+  if (overlap[0] < 2)
+  {
+    if (boundary)
+    {
       get_forbidden1(x, y, pic_w, pic_h, forbidden, start_index);
       if (loc_x == 0)
         rate += acodec.getBits(edge[1], aMSC_L, forbidden);
@@ -4715,7 +5462,9 @@ float getBits_MSC(CodingUnit *CU) {
         rate += acodec.getBits(edge[1], aMSC_R, forbidden);
       else if (loc_y == 0)
         rate += acodec.getBits(edge[1], aMSC_A, forbidden);
-    } else {
+    }
+    else
+    {
       if (edge[1] == 1)
         rate += acodec.getBits(0, aMSC_I, forbidden);
       else if (edge[1] == 9)
@@ -4725,7 +5474,9 @@ float getBits_MSC(CodingUnit *CU) {
       else
         printf("error");
     }
-  } else if (overlap[0] == 2) {
+  }
+  else if (overlap[0] == 2)
+  {
     runLength--;
     if (runLength == 0)
       newzero = true;
@@ -4733,28 +5484,35 @@ float getBits_MSC(CodingUnit *CU) {
 
   direction1 = get_direction1(edge[1], &index);
 
-  if (edge[0] > 1) {
+  if (edge[0] > 1)
+  {
     adapt_position(&x, &y, edge[1]);
     direction2 = get_RMSC(index, edge[2]);
 
-    if (overlap[1] > 0 && runLength == 0 && !newzero) {
+    if (overlap[1] > 0 && runLength == 0 && !newzero)
+    {
       bool end = true;
-      for (int j = 1; j < edge[0]; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 1; j < edge[0]; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       rate += 1;
       if (!end)
         rate += GolombBits(runLength, 0, 3);
     }
-    if (overlap[1] < 2) {
+    if (overlap[1] < 2)
+    {
       newzero = false;
       get_forbidden2(x, y, pic_w, pic_h, index, direction1, forbidden,
                      start_index, high_point, left_point);
-      switch (direction1) {
+      switch (direction1)
+      {
       case 0:
         rate += acodec.getBits(enc_arr1[0][direction2], aMSC_0, forbidden);
         break;
@@ -4783,7 +5541,9 @@ float getBits_MSC(CodingUnit *CU) {
         rate += acodec.getBits(enc_arr1[8][direction2], aMSC_8, forbidden);
         break;
       }
-    } else if (overlap[1] == 2) {
+    }
+    else if (overlap[1] == 2)
+    {
       runLength--;
       if (runLength == 0)
         newzero = true;
@@ -4791,29 +5551,36 @@ float getBits_MSC(CodingUnit *CU) {
 
     adapt_position(&x, &y, edge[2]);
   }
-  for (int i = 3; i < edge[0] + 1; i++) {
+  for (int i = 3; i < edge[0] + 1; i++)
+  {
     direct_temp = direction2;
     direction2 = get_direction1(edge[i - 1], &index);
     direction3 = get_RMSC(index, edge[i]);
 
-    if (overlap[i - 1] > 0 && runLength == 0 && !newzero) {
+    if (overlap[i - 1] > 0 && runLength == 0 && !newzero)
+    {
       bool end = true;
-      for (int j = i - 1; j < edge[0]; j++) {
-        if (overlap[j] < 2) {
+      for (int j = i - 1; j < edge[0]; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       rate += 1;
       if (!end)
         rate += GolombBits(runLength, 0, 3);
     }
-    if (overlap[i - 1] < 2) {
+    if (overlap[i - 1] < 2)
+    {
       newzero = false;
       get_forbidden3(x, y, pic_w, pic_h, index, direction1, direct_temp,
                      forbidden, start_index, high_point, left_point);
-      switch (direction1 * 100 + direct_temp) {
+      switch (direction1 * 100 + direct_temp)
+      {
       case 0:
         rate += acodec.getBits(enc_arr[0][0][direction3], aMSC_00, forbidden);
         break;
@@ -5544,7 +6311,9 @@ float getBits_MSC(CodingUnit *CU) {
         rate += acodec.getBits(enc_arr[8][26][direction3], aMSC_826, forbidden);
         break;
       }
-    } else if (overlap[i - 1] == 2) {
+    }
+    else if (overlap[i - 1] == 2)
+    {
       runLength--;
       if (runLength == 0)
         newzero = true;
@@ -5557,7 +6326,8 @@ float getBits_MSC(CodingUnit *CU) {
   return rate;
 }
 
-float getBits_3OT(CodingUnit *CU) {
+float getBits_3OT(CodingUnit *CU)
+{
   int *edge = CU->Edge_3OT;
   int *overlap = CU->Overlap_3OT;
 
@@ -5574,28 +6344,39 @@ float getBits_3OT(CodingUnit *CU) {
     ;
   else if (loc_y == pic_h - 1)
     y++;
-  else if (loc_x == pic_w - 1) {
+  else if (loc_x == pic_w - 1)
+  {
     x++;
     y++;
-  } else if (loc_y == 0)
+  }
+  else if (loc_y == 0)
     x++;
 
   int start_index = get_position_3OT(x, y, pic_w, pic_h);
 
   int pre_direction;
-  if (loc_x == 0) {
+  if (loc_x == 0)
+  {
     x++;
     pre_direction = 0;
-  } else if (loc_y == pic_h - 1) {
+  }
+  else if (loc_y == pic_h - 1)
+  {
     y--;
     pre_direction = 1;
-  } else if (loc_x == pic_w - 1) {
+  }
+  else if (loc_x == pic_w - 1)
+  {
     x--;
     pre_direction = 2;
-  } else if (loc_y == 0) {
+  }
+  else if (loc_y == 0)
+  {
     y++;
     pre_direction = 3;
-  } else {
+  }
+  else
+  {
     x++;
     pre_direction = 0;
   }
@@ -5623,68 +6404,92 @@ float getBits_3OT(CodingUnit *CU) {
 
   float rate = 0;
 
-  if (overlap[0] == 1 && runLength == 0) {
+  if (overlap[0] == 1 && runLength == 0)
+  {
     end = true;
-    for (int j = 1; j < edge[0] + 1; j++) {
-      if (overlap[j] < 2) {
+    for (int j = 1; j < edge[0] + 1; j++)
+    {
+      if (overlap[j] < 2)
+      {
         end = false;
         break;
-      } else
+      }
+      else
         runLength++;
     }
     rate += 1;
     if (!end)
       rate += GolombBits(runLength, 0, 3);
   }
-  if (overlap[1] < 2) {
+  if (overlap[1] < 2)
+  {
     get_forbidden_3OT(x, y, pic_w, pic_h, pre_direction, turn, forbidden,
                       boundary, start_index, high_point, left_point);
 
-    if (boundary) {
-      if (loc_x == 0) {
+    if (boundary)
+    {
+      if (loc_x == 0)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         rate += acodec.getBits(direct_cur, a3OT_L, forbidden);
-      } else if (loc_y == pic_h - 1) {
+      }
+      else if (loc_y == pic_h - 1)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         rate += acodec.getBits(direct_cur, a3OT_B, forbidden);
-      } else if (loc_x == pic_w - 1) {
+      }
+      else if (loc_x == pic_w - 1)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         rate += acodec.getBits(direct_cur, a3OT_R, forbidden);
-      } else if (loc_y == 0) {
+      }
+      else if (loc_y == 0)
+      {
         direct_cur = to_3OT(pre_direction, edge[1], &turn);
         rate += acodec.getBits(direct_cur, a3OT_A, forbidden);
       }
-    } else {
+    }
+    else
+    {
       direct_cur = to_3OT(pre_direction, edge[1], &turn);
       rate += acodec.getBits(direct_cur, a3OT_I, forbidden);
     }
-  } else if (overlap[1] == 2) {
+  }
+  else if (overlap[1] == 2)
+  {
     direct_cur = to_3OT(pre_direction, edge[1], &turn);
     runLength--;
   }
   direction1 = direct_cur;
   adapt_position_3OT(&x, &y, edge[1]);
 
-  if (edge[0] > 1) {
-    if (overlap[1] == 1 && runLength == 0) {
+  if (edge[0] > 1)
+  {
+    if (overlap[1] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = 2; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 2; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       rate += 1;
       if (!end)
         rate += GolombBits(runLength, 0, 3);
     }
-    if (overlap[2] < 2) {
+    if (overlap[2] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[1], turn, forbidden, boundary,
                         start_index, high_point, left_point);
       direction2 = to_3OT(edge[1], edge[2], &turn);
-      switch (direction1) {
+      switch (direction1)
+      {
       case 0:
         rate += acodec.getBits(direction2, a3OT_0, forbidden);
         break;
@@ -5695,33 +6500,42 @@ float getBits_3OT(CodingUnit *CU) {
         rate += acodec.getBits(direction2, a3OT_2, forbidden);
         break;
       }
-    } else if (overlap[2] == 2) {
+    }
+    else if (overlap[2] == 2)
+    {
       direction2 = to_3OT(edge[1], edge[2], &turn);
       runLength--;
     }
     adapt_position_3OT(&x, &y, edge[2]);
   }
 
-  if (edge[0] > 2) {
-    if (overlap[2] == 1 && runLength == 0) {
+  if (edge[0] > 2)
+  {
+    if (overlap[2] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = 3; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 3; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       rate += 1;
       if (!end)
         rate += GolombBits(runLength, 0, 3);
     }
-    if (overlap[3] < 2) {
+    if (overlap[3] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[2], turn, forbidden, boundary,
                         start_index, high_point, left_point);
       direction3 = to_3OT(edge[2], edge[3], &turn);
-      switch (direction1 * 3 + direction2) {
+      switch (direction1 * 3 + direction2)
+      {
       case 0:
         rate += acodec.getBits(direction3, a3OT_00, forbidden);
         break;
@@ -5750,33 +6564,42 @@ float getBits_3OT(CodingUnit *CU) {
         rate += acodec.getBits(direction3, a3OT_22, forbidden);
         break;
       }
-    } else if (overlap[3] == 2) {
+    }
+    else if (overlap[3] == 2)
+    {
       direction3 = to_3OT(edge[2], edge[3], &turn);
       runLength--;
     }
     adapt_position_3OT(&x, &y, edge[3]);
   }
 
-  if (edge[0] > 3) {
-    if (overlap[3] == 1 && runLength == 0) {
+  if (edge[0] > 3)
+  {
+    if (overlap[3] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = 4; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = 4; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       rate += 1;
       if (!end)
         rate += GolombBits(runLength, 0, 3);
     }
-    if (overlap[4] < 2) {
+    if (overlap[4] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[3], turn, forbidden, boundary,
                         start_index, high_point, left_point);
       direction4 = to_3OT(edge[3], edge[4], &turn);
-      switch (direction1 * 9 + direction2 * 3 + direction3) {
+      switch (direction1 * 9 + direction2 * 3 + direction3)
+      {
       case 0:
         rate += acodec.getBits(direction4, a3OT_000, forbidden);
         break;
@@ -5859,28 +6682,36 @@ float getBits_3OT(CodingUnit *CU) {
         rate += acodec.getBits(direction4, a3OT_222, forbidden);
         break;
       }
-    } else if (overlap[4] == 2) {
+    }
+    else if (overlap[4] == 2)
+    {
       direction4 = to_3OT(edge[3], edge[4], &turn);
       runLength--;
     }
     adapt_position_3OT(&x, &y, edge[4]);
   }
 
-  for (int i = 5; i < edge[0] + 1; i++) {
-    if (overlap[i - 1] == 1 && runLength == 0) {
+  for (int i = 5; i < edge[0] + 1; i++)
+  {
+    if (overlap[i - 1] == 1 && runLength == 0)
+    {
       end = true;
-      for (int j = i; j < edge[0] + 1; j++) {
-        if (overlap[j] < 2) {
+      for (int j = i; j < edge[0] + 1; j++)
+      {
+        if (overlap[j] < 2)
+        {
           end = false;
           break;
-        } else
+        }
+        else
           runLength++;
       }
       rate += 1;
       if (!end)
         rate += GolombBits(runLength, 0, 3);
     }
-    if (overlap[i] < 2) {
+    if (overlap[i] < 2)
+    {
       // encCodedMap[y*pic_w + x] = 1;
       get_forbidden_3OT(x, y, pic_w, pic_h, edge[i - 1], turn, forbidden,
                         boundary, start_index, high_point, left_point);
@@ -5890,7 +6721,8 @@ float getBits_3OT(CodingUnit *CU) {
       //	edge[i] = 2;
       // }
 
-      switch (direction1 * 27 + direction2 * 9 + direction3 * 3 + direction4) {
+      switch (direction1 * 27 + direction2 * 9 + direction3 * 3 + direction4)
+      {
       case 0:
         rate += acodec.getBits(direct_cur, a3OT_0000, forbidden);
         break;
@@ -6135,7 +6967,9 @@ float getBits_3OT(CodingUnit *CU) {
         rate += acodec.getBits(direct_cur, a3OT_2222, forbidden);
         break;
       }
-    } else if (overlap[i] == 2) {
+    }
+    else if (overlap[i] == 2)
+    {
       direct_cur = to_3OT(edge[i - 1], edge[i], &turn);
       runLength--;
     }
@@ -6150,8 +6984,10 @@ float getBits_3OT(CodingUnit *CU) {
 }
 
 // portable helpers to process input arguments
-void copyArg(char *dst, size_t dstSize, const char *src) {
-  if (dst == nullptr || src == nullptr || dstSize == 0) {
+void copyArg(char *dst, size_t dstSize, const char *src)
+{
+  if (dst == nullptr || src == nullptr || dstSize == 0)
+  {
     return;
   }
 
@@ -6159,16 +6995,20 @@ void copyArg(char *dst, size_t dstSize, const char *src) {
   dst[dstSize - 1] = '\0';
 }
 
-bool parseIntArg(const char *src, int *value) {
-  if (src == nullptr || value == nullptr) {
+bool parseIntArg(const char *src, int *value)
+{
+  if (src == nullptr || value == nullptr)
+  {
     return false;
   }
 
   return std::sscanf(src, "%d", value) == 1;
 }
 
-FILE *openFile(const char *path, const char *mode) {
-  if (path == nullptr || mode == nullptr) {
+FILE *openFile(const char *path, const char *mode)
+{
+  if (path == nullptr || mode == nullptr)
+  {
     return nullptr;
   }
 

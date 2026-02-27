@@ -1,3 +1,8 @@
+/* Copyright (c) 2026, InterDigital
+ * All rights reserved.
+ * See LICENSE under the root folder.
+ */
+
 #include "../../source/commonlib/coding_unit.h"
 #include "../../source/commonlib/utility.h"
 #include "decOptions.h"
@@ -7,46 +12,60 @@
 #include <time.h>
 using namespace std;
 
-void dec_edge_position(int *loc_row, int *loc_col, int h, int w, int val) {
-  if (val < h) {
+void dec_edge_position(int *loc_row, int *loc_col, int h, int w, int val)
+{
+  if (val < h)
+  {
     *loc_row = val;
     *loc_col = 0;
-  } else if (val < h + w - 1) {
+  }
+  else if (val < h + w - 1)
+  {
     *loc_row = h - 1;
     *loc_col = val - (h - 1);
-  } else if (val < 2 * h + w - 2) {
+  }
+  else if (val < 2 * h + w - 2)
+  {
     *loc_row = 2 * h + w - 3 - val;
     *loc_col = w - 1;
-  } else {
+  }
+  else
+  {
     *loc_row = 0;
     *loc_col = 2 * h + 2 * w - 4 - val;
   }
 }
 
 int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
-                int x_run, int direction, int *Available_val) {
+                int x_run, int direction, int *Available_val)
+{
   int F8[3] = {-1, -1, -1};
   int x, y;
 
-  for (int k = 0; k < 3; k++) {
+  for (int k = 0; k < 3; k++)
+  {
     x = x_run;
     y = y_run;
     direction = (direction + 5) % 8;
     int end_direction = direction;
     bool find = false;
     while (x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-           y_run < pic_height) {
+           y_run < pic_height)
+    {
       direction = (direction + 1) % 8;
-      switch (direction) {
+      switch (direction)
+      {
       case 0:
         x_run = x + 1;
         y_run = y;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 0;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 0;
           find = true;
         }
@@ -55,11 +74,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x + 1;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 1;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 1;
           find = true;
         }
@@ -68,11 +89,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 2;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 2;
           find = true;
         }
@@ -81,11 +104,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x - 1;
         y_run = y - 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 3;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 3;
           find = true;
         }
@@ -94,11 +119,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x - 1;
         y_run = y;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 4;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 4;
           find = true;
         }
@@ -107,11 +134,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x - 1;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 5;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 5;
           find = true;
         }
@@ -120,11 +149,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 6;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 6;
           find = true;
         }
@@ -133,11 +164,13 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
         x_run = x + 1;
         y_run = y + 1;
         if (!(x_run >= 0 && x_run < pic_width && y_run >= 0 &&
-              y_run < pic_height)) {
+              y_run < pic_height))
+        {
           F8[k] = 7;
           break;
         }
-        if (Available_val[img[y_run * pic_width + x_run]]) {
+        if (Available_val[img[y_run * pic_width + x_run]])
+        {
           F8[k] = 7;
           find = true;
         }
@@ -153,7 +186,8 @@ int get_overlap(unsigned char *img, int pic_height, int pic_width, int y_run,
 }
 
 void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
-                      int initial_loc_y, int initial_loc_x, int color) {
+                      int initial_loc_y, int initial_loc_x, int color)
+{
   int loc_y, loc_x, first_y, first_x;
   int direction, dir_last, dir_index, direction1, direction2, direction_index,
       direction1_candi1, direction1_candi2;
@@ -168,19 +202,28 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
 
   // printf("%d %d\n", initial_loc_y, initial_loc_x);
 
-  if (loc_x == 0) {
+  if (loc_x == 0)
+  {
     loc_y -= 1;
     dir_last = 0;
-  } else if (loc_y == pic_height - 1) {
+  }
+  else if (loc_y == pic_height - 1)
+  {
     loc_x -= 1;
     dir_last = 2;
-  } else if (loc_x == pic_width - 1) {
+  }
+  else if (loc_x == pic_width - 1)
+  {
     loc_y += 1;
     dir_last = 4;
-  } else if (loc_y == 0) {
+  }
+  else if (loc_y == 0)
+  {
     loc_x += 1;
     dir_last = 6;
-  } else {
+  }
+  else
+  {
     loc_x -= 1;
     dir_last = 2;
   }
@@ -215,9 +258,12 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
   Available_val[img[initial_loc_y * pic_width + initial_loc_x]] = 0;
   runLength = 0;
   newzero = false;
-  do {
-    if (dir_index == 0) {
-      if (Available_val[img[loc_y * pic_width + loc_x]]) {
+  do
+  {
+    if (dir_index == 0)
+    {
+      if (Available_val[img[loc_y * pic_width + loc_x]])
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
@@ -225,9 +271,11 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
           runLength = decGolomb(0, 3);
       }
 
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
-        if (boundary) {
+        if (boundary)
+        {
           get_forbidden1(loc_x, loc_y, pic_width, pic_height, forbidden,
                          start_index);
           if (initial_loc_x == 0)
@@ -238,7 +286,9 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
             direction = acodec.decode(aMSC_R, forbidden);
           else if (initial_loc_y == 0)
             direction = acodec.decode(aMSC_A, forbidden);
-        } else {
+        }
+        else
+        {
           int MSC_index = acodec.decode(aMSC_I);
           if (MSC_index == 0)
             direction = 1;
@@ -247,7 +297,9 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
           else if (MSC_index == 2)
             direction = 25;
         }
-      } else {
+      }
+      else
+      {
         direction = get_overlap(img, pic_height, pic_width, loc_y, loc_x,
                                 dir_last, Available_val);
         runLength--;
@@ -256,9 +308,12 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       }
 
       direction1 = get_direction1(direction, &direction_index);
-    } else if (dir_index == 1) {
+    }
+    else if (dir_index == 1)
+    {
       if (Available_val[img[loc_y * pic_width + loc_x]] && runLength == 0 &&
-          !newzero) {
+          !newzero)
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
@@ -266,12 +321,14 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
           runLength = decGolomb(0, 3);
       }
 
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden2(loc_x, loc_y, pic_width, pic_height, direction_index,
                        direction1, forbidden, start_index, high_point,
                        left_point);
-        switch (direction1) {
+        switch (direction1)
+        {
         case 0:
           direction2 = dec_arr1[0][acodec.decode(aMSC_0, forbidden)];
           break;
@@ -301,7 +358,9 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
           break;
         }
         direction = get_dec_MSC(direction_index, direction2);
-      } else {
+      }
+      else
+      {
         direction = get_overlap(img, pic_height, pic_width, loc_y, loc_x,
                                 dir_last, Available_val);
         direction2 = get_RMSC(direction_index, direction);
@@ -311,9 +370,12 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       }
 
       direction1_candi1 = get_direction1(direction, &direction_index);
-    } else {
+    }
+    else
+    {
       if (Available_val[img[loc_y * pic_width + loc_x]] && runLength == 0 &&
-          !newzero) {
+          !newzero)
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
@@ -321,12 +383,14 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
           runLength = decGolomb(0, 3);
       }
 
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden3(loc_x, loc_y, pic_width, pic_height, direction_index,
                        direction1, direction2, forbidden, start_index,
                        high_point, left_point);
-        switch (direction1 * 100 + direction2) {
+        switch (direction1 * 100 + direction2)
+        {
         case 0:
           direction2 = dec_arr[0][0][acodec.decode(aMSC_00, forbidden)];
           break;
@@ -1058,7 +1122,9 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
           break;
         }
         direction = get_dec_MSC(direction_index, direction2);
-      } else {
+      }
+      else
+      {
         direction = get_overlap(img, pic_height, pic_width, loc_y, loc_x,
                                 dir_last, Available_val);
         direction2 = get_RMSC(direction_index, direction);
@@ -1081,10 +1147,12 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     //	pre_direction = direction;
     // }
     bool loop = false;
-    switch (direction) {
+    switch (direction)
+    {
     case 0:
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1094,7 +1162,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 1:
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1103,7 +1172,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 2:
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1113,7 +1183,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 3:
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1122,7 +1193,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 4:
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1132,7 +1204,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 5:
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1141,7 +1214,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 6:
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1151,7 +1225,8 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 7:
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1160,13 +1235,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 8:
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1176,13 +1253,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 9:
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1192,14 +1271,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 10:
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1208,14 +1289,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 11:
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1224,13 +1307,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 12:
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1240,13 +1325,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 13:
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1256,14 +1343,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 14:
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1272,14 +1361,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 15:
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1288,13 +1379,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 16:
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1304,13 +1397,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 17:
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1320,14 +1415,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 18:
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1336,14 +1433,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 19:
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1352,13 +1451,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 20:
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1368,13 +1469,15 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 21:
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1384,14 +1487,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 22:
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1400,14 +1505,16 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 23:
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1416,19 +1523,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 24:
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1438,19 +1548,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 25:
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1459,20 +1572,23 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 26:
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1481,19 +1597,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 27:
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1503,19 +1622,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 28:
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1524,20 +1646,23 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 29:
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
       loc_y--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1546,19 +1671,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 30:
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1568,19 +1696,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 31:
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1589,20 +1720,23 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 32:
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x--;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1611,19 +1745,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 33:
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1633,19 +1770,22 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
     case 34:
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1654,20 +1794,23 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
       break;
     case 35:
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
       }
       loc_x++;
       loc_y++;
-      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height) {
+      if (loc_x >= 0 && loc_x < pic_width && loc_y >= 0 && loc_y < pic_height)
+      {
         if (loc_x == first_x && loc_y == first_y)
           loop = true;
         codedMap[loc_y * pic_width + loc_x] = -1;
@@ -1708,16 +1851,20 @@ void deObjectEdge_MSC(unsigned char *img, int pic_height, int pic_width,
                   color);
 }
 
-int to_direction(int pre_direction, int direction, int *turn) {
+int to_direction(int pre_direction, int direction, int *turn)
+{
   if (direction == 0)
     return pre_direction;
-  else if (direction == 1) {
+  else if (direction == 1)
+  {
     *turn = 1 - *turn;
     if (*turn == 0)
       return (pre_direction + 1) % 4;
     else
       return (pre_direction + 3) % 4;
-  } else {
+  }
+  else
+  {
     if (*turn == 0)
       return (pre_direction + 1) % 4;
     else
@@ -1727,59 +1874,73 @@ int to_direction(int pre_direction, int direction, int *turn) {
 
 int get_overlap_3OT(unsigned char *img, int pic_height, int pic_width,
                     int y_run, int x_run, int pre_direction, int turn,
-                    int *Available_val) {
-  switch (pre_direction) {
+                    int *Available_val)
+{
+  switch (pre_direction)
+  {
   case 0:
-    if (Available_val[img[y_run * pic_width + x_run]]) {
+    if (Available_val[img[y_run * pic_width + x_run]])
+    {
       if (turn)
         return 2;
       else
         return 1;
-    } else if (Available_val[img[(y_run - 1) * pic_width + x_run]])
+    }
+    else if (Available_val[img[(y_run - 1) * pic_width + x_run]])
       return 0;
-    else if (Available_val[img[(y_run - 1) * pic_width + x_run - 1]]) {
+    else if (Available_val[img[(y_run - 1) * pic_width + x_run - 1]])
+    {
       if (turn)
         return 1;
       else
         return 2;
     }
   case 1:
-    if (Available_val[img[(y_run - 1) * pic_width + x_run]]) {
+    if (Available_val[img[(y_run - 1) * pic_width + x_run]])
+    {
       if (turn)
         return 2;
       else
         return 1;
-    } else if (Available_val[img[(y_run - 1) * pic_width + x_run - 1]])
+    }
+    else if (Available_val[img[(y_run - 1) * pic_width + x_run - 1]])
       return 0;
-    else if (Available_val[img[y_run * pic_width + x_run - 1]]) {
+    else if (Available_val[img[y_run * pic_width + x_run - 1]])
+    {
       if (turn)
         return 1;
       else
         return 2;
     }
   case 2:
-    if (Available_val[img[(y_run - 1) * pic_width + x_run - 1]]) {
+    if (Available_val[img[(y_run - 1) * pic_width + x_run - 1]])
+    {
       if (turn)
         return 2;
       else
         return 1;
-    } else if (Available_val[img[y_run * pic_width + x_run - 1]])
+    }
+    else if (Available_val[img[y_run * pic_width + x_run - 1]])
       return 0;
-    else if (Available_val[img[y_run * pic_width + x_run]]) {
+    else if (Available_val[img[y_run * pic_width + x_run]])
+    {
       if (turn)
         return 1;
       else
         return 2;
     }
   case 3:
-    if (Available_val[img[y_run * pic_width + x_run - 1]]) {
+    if (Available_val[img[y_run * pic_width + x_run - 1]])
+    {
       if (turn)
         return 2;
       else
         return 1;
-    } else if (Available_val[img[y_run * pic_width + x_run]])
+    }
+    else if (Available_val[img[y_run * pic_width + x_run]])
       return 0;
-    else if (Available_val[img[(y_run - 1) * pic_width + x_run]]) {
+    else if (Available_val[img[(y_run - 1) * pic_width + x_run]])
+    {
       if (turn)
         return 1;
       else
@@ -1789,7 +1950,8 @@ int get_overlap_3OT(unsigned char *img, int pic_height, int pic_width,
 }
 
 void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
-                      int initial_loc_y, int initial_loc_x, int color) {
+                      int initial_loc_y, int initial_loc_x, int color)
+{
   int loc_y, loc_x, start_y, start_x, end_y, end_x;
   int direction, dir_last, dir_index, direction1, direction2, direction3,
       direction4, pre_direction, cur_direction;
@@ -1810,27 +1972,36 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
   end_y = initial_loc_y + 1;
   end_x = initial_loc_x;
 
-  if (initial_loc_x == 0) {
+  if (initial_loc_x == 0)
+  {
     loc_y -= 1;
     dir_last = 0;
     pre_direction = 0;
-  } else if (initial_loc_y == pic_height - 1) {
+  }
+  else if (initial_loc_y == pic_height - 1)
+  {
     loc_x -= 1;
     dir_last = 2;
     pre_direction = 1;
     start_y++;
-  } else if (initial_loc_x == pic_width - 1) {
+  }
+  else if (initial_loc_x == pic_width - 1)
+  {
     loc_y += 1;
     dir_last = 4;
     pre_direction = 2;
     start_y++;
     start_x++;
-  } else if (initial_loc_y == 0) {
+  }
+  else if (initial_loc_y == 0)
+  {
     loc_x += 1;
     dir_last = 6;
     pre_direction = 3;
     start_x++;
-  } else {
+  }
+  else
+  {
     loc_x -= 1;
     dir_last = 2;
     pre_direction = 0;
@@ -1838,15 +2009,24 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
 
   start_index = get_position_3OT(start_x, start_y, pic_width, pic_height);
 
-  if (initial_loc_x == 0) {
+  if (initial_loc_x == 0)
+  {
     start_x++;
-  } else if (initial_loc_y == pic_height - 1) {
+  }
+  else if (initial_loc_y == pic_height - 1)
+  {
     start_y--;
-  } else if (initial_loc_x == pic_width - 1) {
+  }
+  else if (initial_loc_x == pic_width - 1)
+  {
     start_x--;
-  } else if (initial_loc_y == 0) {
+  }
+  else if (initial_loc_y == 0)
+  {
     start_y++;
-  } else {
+  }
+  else
+  {
     start_x++;
   }
 
@@ -1871,7 +2051,8 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
   for (int j = 0; j < pic_height * pic_width; j++)
     codedMap[j] = 255;
   codedMap[loc_y * pic_width + loc_x] = -1;
-  if (!boundary) {
+  if (!boundary)
+  {
     codedMap[(loc_y - 1) * pic_width + loc_x + 1] = -1;
     loc_y--;
     loc_x++;
@@ -1887,21 +2068,26 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
   runLength = 0;
   newzero = false;
 
-  do {
-    if (dir_index == 0) {
-      if (Available_val[img[loc_y * pic_width + loc_x]]) {
+  do
+  {
+    if (dir_index == 0)
+    {
+      if (Available_val[img[loc_y * pic_width + loc_x]])
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
         else
           runLength = decGolomb(0, 3);
       }
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden_3OT(start_x, start_y, pic_width, pic_height,
                           pre_direction, turn, forbidden, boundary, start_index,
                           high_point, left_point);
-        if (boundary) {
+        if (boundary)
+        {
           if (initial_loc_x == 0)
             direction = acodec.decode(a3OT_L, forbidden);
           else if (initial_loc_y == pic_height - 1)
@@ -1910,10 +2096,14 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
             direction = acodec.decode(a3OT_R, forbidden);
           else if (initial_loc_y == 0)
             direction = acodec.decode(a3OT_A, forbidden);
-        } else {
+        }
+        else
+        {
           direction = acodec.decode(a3OT_I, forbidden);
         }
-      } else {
+      }
+      else
+      {
         direction =
             get_overlap_3OT(img, pic_height, pic_width, start_y, start_x,
                             pre_direction, turn, Available_val);
@@ -1923,21 +2113,26 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
       }
       cur_direction = to_direction(pre_direction, direction, &turn);
       direction1 = direction;
-    } else if (dir_index == 1) {
+    }
+    else if (dir_index == 1)
+    {
       if (Available_val[img[loc_y * pic_width + loc_x]] && runLength == 0 &&
-          !newzero) {
+          !newzero)
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
         else
           runLength = decGolomb(0, 3);
       }
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden_3OT(start_x, start_y, pic_width, pic_height,
                           pre_direction, turn, forbidden, boundary, start_index,
                           high_point, left_point);
-        switch (direction1) {
+        switch (direction1)
+        {
         case 0:
           direction = acodec.decode(a3OT_0, forbidden);
           break;
@@ -1948,7 +2143,9 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
           direction = acodec.decode(a3OT_2, forbidden);
           break;
         }
-      } else {
+      }
+      else
+      {
         direction =
             get_overlap_3OT(img, pic_height, pic_width, start_y, start_x,
                             pre_direction, turn, Available_val);
@@ -1958,21 +2155,26 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
       }
       cur_direction = to_direction(pre_direction, direction, &turn);
       direction2 = direction;
-    } else if (dir_index == 2) {
+    }
+    else if (dir_index == 2)
+    {
       if (Available_val[img[loc_y * pic_width + loc_x]] && runLength == 0 &&
-          !newzero) {
+          !newzero)
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
         else
           runLength = decGolomb(0, 3);
       }
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden_3OT(start_x, start_y, pic_width, pic_height,
                           pre_direction, turn, forbidden, boundary, start_index,
                           high_point, left_point);
-        switch (direction1 * 3 + direction2) {
+        switch (direction1 * 3 + direction2)
+        {
         case 0:
           direction = acodec.decode(a3OT_00, forbidden);
           break;
@@ -2001,7 +2203,9 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
           direction = acodec.decode(a3OT_22, forbidden);
           break;
         }
-      } else {
+      }
+      else
+      {
         direction =
             get_overlap_3OT(img, pic_height, pic_width, start_y, start_x,
                             pre_direction, turn, Available_val);
@@ -2011,21 +2215,26 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
       }
       cur_direction = to_direction(pre_direction, direction, &turn);
       direction3 = direction;
-    } else if (dir_index == 3) {
+    }
+    else if (dir_index == 3)
+    {
       if (Available_val[img[loc_y * pic_width + loc_x]] && runLength == 0 &&
-          !newzero) {
+          !newzero)
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
         else
           runLength = decGolomb(0, 3);
       }
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden_3OT(start_x, start_y, pic_width, pic_height,
                           pre_direction, turn, forbidden, boundary, start_index,
                           high_point, left_point);
-        switch (direction1 * 9 + direction2 * 3 + direction3) {
+        switch (direction1 * 9 + direction2 * 3 + direction3)
+        {
         case 0:
           direction = acodec.decode(a3OT_000, forbidden);
           break;
@@ -2108,7 +2317,9 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
           direction = acodec.decode(a3OT_222, forbidden);
           break;
         }
-      } else {
+      }
+      else
+      {
         direction =
             get_overlap_3OT(img, pic_height, pic_width, start_y, start_x,
                             pre_direction, turn, Available_val);
@@ -2118,22 +2329,27 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
       }
       cur_direction = to_direction(pre_direction, direction, &turn);
       direction4 = direction;
-    } else {
+    }
+    else
+    {
       if (Available_val[img[loc_y * pic_width + loc_x]] && runLength == 0 &&
-          !newzero) {
+          !newzero)
+      {
         end = acodec.decode(aEndFlag);
         if (end)
           runLength = 10000000;
         else
           runLength = decGolomb(0, 3);
       }
-      if (!runLength) {
+      if (!runLength)
+      {
         newzero = false;
         get_forbidden_3OT(start_x, start_y, pic_width, pic_height,
                           pre_direction, turn, forbidden, boundary, start_index,
                           high_point, left_point);
         switch (direction1 * 27 + direction2 * 9 + direction3 * 3 +
-                direction4) {
+                direction4)
+        {
         case 0:
           direction = acodec.decode(a3OT_0000, forbidden);
           break;
@@ -2378,7 +2594,9 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
           direction = acodec.decode(a3OT_2222, forbidden);
           break;
         }
-      } else {
+      }
+      else
+      {
         direction =
             get_overlap_3OT(img, pic_height, pic_width, start_y, start_x,
                             pre_direction, turn, Available_val);
@@ -2401,7 +2619,8 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
     //		//printf("%d\n", direction);
     //	pre_direction = direction;
     // }
-    switch (cur_direction) {
+    switch (cur_direction)
+    {
     case 0:
       start_x++;
       codedMap[(start_y - 1) * pic_width + start_x - 1] = -1;
@@ -2430,7 +2649,8 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
 
     pre_direction = cur_direction;
 
-    switch (cur_direction) {
+    switch (cur_direction)
+    {
     case 0:
       loc_y = start_y - 1;
       loc_x = start_x - 1;
@@ -2459,7 +2679,8 @@ void deObjectEdge_3OT(unsigned char *img, int pic_height, int pic_width,
                   color);
 }
 
-void deObjectEdge(unsigned char *img, int pic_height, int pic_width) {
+void deObjectEdge(unsigned char *img, int pic_height, int pic_width)
+{
   int old_val = 0, new_val;
   int initial_loc_y = 0, initial_loc_x = 0, loc_y, loc_x, first_y, first_x;
   int color;
@@ -2471,7 +2692,8 @@ void deObjectEdge(unsigned char *img, int pic_height, int pic_width) {
   bool end;
   bool newzero = false;
 
-  for (int i = 0; i < edge_num + inner_num; i++) {
+  for (int i = 0; i < edge_num + inner_num; i++)
+  {
     color = acodec.decode(aColor);
 
     if (i == edge_num)
@@ -2481,7 +2703,8 @@ void deObjectEdge(unsigned char *img, int pic_height, int pic_width) {
     position_A += new_val - old_val - 1;
     position_N += 1;
     position_K = getBitSize(position_A / (2 * position_N));
-    if (position_N >= 8) {
+    if (position_N >= 8)
+    {
       position_N /= 2;
       position_A /= 2;
     }
@@ -2491,7 +2714,8 @@ void deObjectEdge(unsigned char *img, int pic_height, int pic_width) {
     if (i < edge_num)
       dec_edge_position(&initial_loc_y, &initial_loc_x, pic_height, pic_width,
                         new_val);
-    else {
+    else
+    {
       initial_loc_y = new_val / (pic_width - 2);
       initial_loc_x = new_val - initial_loc_y * (pic_width - 2) + 1;
     }
@@ -2504,7 +2728,8 @@ void deObjectEdge(unsigned char *img, int pic_height, int pic_width) {
     else if (chain_mode == 1)
       deObjectEdge_3OT(img, pic_height, pic_width, initial_loc_y, initial_loc_x,
                        color);
-    else if (chain_mode == 2) {
+    else if (chain_mode == 2)
+    {
       int chainType = acodec.decode(aChainType);
       if (chainType == 0)
         deObjectEdge_MSC(img, pic_height, pic_width, initial_loc_y,
@@ -2516,7 +2741,8 @@ void deObjectEdge(unsigned char *img, int pic_height, int pic_width) {
   }
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   int begin, end;
   begin = clock();
 
@@ -2526,7 +2752,8 @@ int main(int argc, char **argv) {
   FILE *pFile;
   int size;
   pFile = openFile(filein, "rb");
-  if (pFile == nullptr) {
+  if (pFile == nullptr)
+  {
     cout << "failed to open input file: " << filein << endl;
     return -1;
   }
@@ -2547,7 +2774,8 @@ int main(int argc, char **argv) {
 
   int *m_colorMap = new int[numC];
 
-  for (int i = 0; i < numC; i++) {
+  for (int i = 0; i < numC; i++)
+  {
     m_colorMap[i] = readByArithmetic(&acodec, &ahead, 8);
   }
 
@@ -2557,12 +2785,16 @@ int main(int argc, char **argv) {
        i++)
     pic[i] = 0;
 
-  if (numC == 1) {
+  if (numC == 1)
+  {
     int color = m_colorMap[0];
-    for (int k = 0; k < frameNum; k++) {
+    for (int k = 0; k < frameNum; k++)
+    {
       int offset = (pic_height * pic_width * k * (type + 2)) >> 1;
-      for (int i = 0; i < pic_height; i++) {
-        for (int j = 0; j < pic_width; j++) {
+      for (int i = 0; i < pic_height; i++)
+      {
+        for (int j = 0; j < pic_width; j++)
+        {
           pic[offset + i * pic_width + j] = color;
         }
       }
@@ -2580,7 +2812,8 @@ int main(int argc, char **argv) {
   codedMap = new int[pic_height * pic_width];
   encCodedMap = new int[pic_height * pic_width];
   unsigned char *slice = pic;
-  for (int i = 0; i < frameNum; i++) {
+  for (int i = 0; i < frameNum; i++)
+  {
     for (int j = 0; j < pic_height * pic_width; j++)
       slice[j] = 255;
     aColor.reset();
@@ -2589,7 +2822,8 @@ int main(int argc, char **argv) {
     edge_num = decGolomb(0, 1);
     inner_num = decGolomb(0, 3);
     first_color = acodec.decode(aColor);
-    if (edge_num + inner_num > 0) {
+    if (edge_num + inner_num > 0)
+    {
       dec_global();
       reset_arithmetic();
       deObjectEdge(slice, pic_height, pic_width);
@@ -2602,9 +2836,12 @@ int main(int argc, char **argv) {
   acodec.stop_decoder();
 
   int offset = (pic_height * pic_width * (type + 2)) >> 1;
-  for (int k = 0; k < frameNum; k++) {
-    for (int i = 0; i < pic_height; i++) {
-      for (int j = 0; j < pic_width; j++) {
+  for (int k = 0; k < frameNum; k++)
+  {
+    for (int i = 0; i < pic_height; i++)
+    {
+      for (int j = 0; j < pic_width; j++)
+      {
         pic[k * offset + i * pic_width + j] =
             m_colorMap[pic[k * offset + i * pic_width + j]];
       }

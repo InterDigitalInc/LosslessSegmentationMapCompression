@@ -1,14 +1,22 @@
+// Copyright (c) 2026, InterDigital
+// All rights reserved.
+// See LICENSE under the root folder.
+
 #include "decOptions.h"
 #include <cstring>
 #include <iostream>
 using namespace std;
 
-int readOptions(int argc, char *argv[], char *filein, char *fileout) {
+int readOptions(int argc, char *argv[], char *filein, char *fileout)
+{
   int i;
   // get input para
-  for (i = 1; i < argc; i++) {
-    if (argv[i][0] == '-') {
-      switch (argv[i][1]) {
+  for (i = 1; i < argc; i++)
+  {
+    if (argv[i][0] == '-')
+    {
+      switch (argv[i][1])
+      {
       case 'h':
         cout
             << " There are three kinds of commands.\n -h(help information) -i(input file which created by our encoder) -o(output file which is .yuv) \
