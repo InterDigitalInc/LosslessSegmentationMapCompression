@@ -110,11 +110,10 @@ CMakeLists.txt
 ## 9. Authors
 
 ### This Repository
-- Runyu Yang, Junqi Liao, Hyomin Choi, and Fabien Racapé
+- Runyu Yang, Junqi Liao, Hyomin Choi, Fabien Racapé, and Ivan V. Bajić
 
 ### Third-Party Arithmetic Coding Source
-- Amir Said
-- William A. Pearlman
+- Amir Said and William A. Pearlman
 
 Reference implementation files:
 - `source/arithmetic_coder/third_party/arithmetic_codec.h`
