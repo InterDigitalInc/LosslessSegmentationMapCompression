@@ -106,3 +106,38 @@ CMakeLists.txt
 
 - The codebase currently compiles with warnings on strict flags; binaries are still produced.
 - If `cmake` is unavailable, use the Makefile flow (`make`).
+
+## 9. Authors
+
+### This Repository
+- Runyu Yang, Junqi Liao, Hyomin Choi, and Fabien Racapé
+
+### Third-Party Arithmetic Coding Source
+- Amir Said
+- William A. Pearlman
+
+Reference implementation files:
+- `source/arithmetic_coder/third_party/arithmetic_codec.h`
+- `source/arithmetic_coder/third_party/arithmetic_codec.cpp`
+
+## 10. Citation
+
+If you use this repository in academic work, please cite both this project and
+the original arithmetic coding reference.
+
+### Project Citation (TBD)
+
+
+### Arithmetic Coding Reference
+
+```bibtex
+@incollection{said2003arithmetic,
+  author    = {Amir Said},
+  title     = {Arithmetic Coding},
+  booktitle = {Lossless Compression Handbook},
+  editor    = {Khalid Sayood},
+  pages     = {101--152},
+  year      = {2003},
+  publisher = {Academic Press}
+}
+```

@@ -3,8 +3,9 @@
  * See LICENSE under the root folder.
  */
 
-#include "../../source/commonlib/coding_unit.h"
-#include "../../source/commonlib/utility.h"
+#include "../commonlib/coding_unit.h"
+#include "../commonlib/utility.h"
+#include "../arithmetic_coder/third_party/arithmetic_codec.h"
 #include "decOptions.h"
 #include <assert.h>
 #include <fstream>

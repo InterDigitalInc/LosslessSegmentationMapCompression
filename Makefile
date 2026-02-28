@@ -1,7 +1,7 @@
 CXX ?= g++
 
 CXXFLAGS ?= -std=c++17 -O2 -Wall -Wextra
-CPPFLAGS ?= -Isource/commonlib -Isource/third_party -Isource/encoder -Isource/decoder
+CPPFLAGS ?= -Isource/commonlib -Isource/arithmetic_coder -Isource/arithmetic_coder/third_party -Isource/encoder -Isource/decoder
 
 BUILD_DIR := build
 
@@ -9,7 +9,8 @@ COMMON_SRCS := \
 	source/commonlib/coding_unit.cpp \
 	source/commonlib/global_arithmetic.cpp \
 	source/commonlib/utility.cpp \
-	source/third_party/arithmetic_codec.cpp
+	source/arithmetic_coder/acodec.cpp \
+	source/arithmetic_coder/third_party/arithmetic_codec.cpp
 
 ENCODER_SRCS := source/encoder/encoder.cpp source/encoder/encOptions.cpp
 DECODER_SRCS := source/decoder/decoder.cpp source/decoder/decOptions.cpp

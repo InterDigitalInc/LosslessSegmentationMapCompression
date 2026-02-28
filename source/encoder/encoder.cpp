@@ -2,9 +2,10 @@
 // All rights reserved.
 // See LICENSE under the root folder.
 
-#include "../../source/commonlib/coding_unit.h"
-#include "../../source/commonlib/global_arithmetic.h"
-#include "../../source/commonlib/utility.h"
+#include "../commonlib/coding_unit.h"
+#include "../commonlib/global_arithmetic.h"
+#include "../arithmetic_coder/third_party/arithmetic_codec.h"
+#include "../commonlib/utility.h"
 #include "encOptions.h"
 #include <assert.h>
 #include <fstream>

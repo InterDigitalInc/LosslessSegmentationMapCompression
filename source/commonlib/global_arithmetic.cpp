@@ -4,395 +4,395 @@
 
 #include "global_arithmetic.h"
 
-Arithmetic_Codec acodec;
-Adaptive_Data_Model aColor;
-Adaptive_Data_Model a3OT_L(3);
-Adaptive_Data_Model a3OT_A(3);
-Adaptive_Data_Model a3OT_B(3);
-Adaptive_Data_Model a3OT_R(3);
-Adaptive_Data_Model a3OT_I(3);
-Adaptive_Data_Model a3OT_0(3);
-Adaptive_Data_Model a3OT_1(3);
-Adaptive_Data_Model a3OT_2(3);
-Adaptive_Data_Model a3OT_00(3);
-Adaptive_Data_Model a3OT_01(3);
-Adaptive_Data_Model a3OT_02(3);
-Adaptive_Data_Model a3OT_10(3);
-Adaptive_Data_Model a3OT_11(3);
-Adaptive_Data_Model a3OT_12(3);
-Adaptive_Data_Model a3OT_20(3);
-Adaptive_Data_Model a3OT_21(3);
-Adaptive_Data_Model a3OT_22(3);
-Adaptive_Data_Model a3OT_000(3);
-Adaptive_Data_Model a3OT_001(3);
-Adaptive_Data_Model a3OT_002(3);
-Adaptive_Data_Model a3OT_010(3);
-Adaptive_Data_Model a3OT_011(3);
-Adaptive_Data_Model a3OT_012(3);
-Adaptive_Data_Model a3OT_020(3);
-Adaptive_Data_Model a3OT_021(3);
-Adaptive_Data_Model a3OT_022(3);
-Adaptive_Data_Model a3OT_100(3);
-Adaptive_Data_Model a3OT_101(3);
-Adaptive_Data_Model a3OT_102(3);
-Adaptive_Data_Model a3OT_110(3);
-Adaptive_Data_Model a3OT_111(3);
-Adaptive_Data_Model a3OT_112(3);
-Adaptive_Data_Model a3OT_120(3);
-Adaptive_Data_Model a3OT_121(3);
-Adaptive_Data_Model a3OT_122(3);
-Adaptive_Data_Model a3OT_200(3);
-Adaptive_Data_Model a3OT_201(3);
-Adaptive_Data_Model a3OT_202(3);
-Adaptive_Data_Model a3OT_210(3);
-Adaptive_Data_Model a3OT_211(3);
-Adaptive_Data_Model a3OT_212(3);
-Adaptive_Data_Model a3OT_220(3);
-Adaptive_Data_Model a3OT_221(3);
-Adaptive_Data_Model a3OT_222(3);
-Adaptive_Data_Model a3OT_0000(3);
-Adaptive_Data_Model a3OT_0001(3);
-Adaptive_Data_Model a3OT_0002(3);
-Adaptive_Data_Model a3OT_0010(3);
-Adaptive_Data_Model a3OT_0011(3);
-Adaptive_Data_Model a3OT_0012(3);
-Adaptive_Data_Model a3OT_0020(3);
-Adaptive_Data_Model a3OT_0021(3);
-Adaptive_Data_Model a3OT_0022(3);
-Adaptive_Data_Model a3OT_0100(3);
-Adaptive_Data_Model a3OT_0101(3);
-Adaptive_Data_Model a3OT_0102(3);
-Adaptive_Data_Model a3OT_0110(3);
-Adaptive_Data_Model a3OT_0111(3);
-Adaptive_Data_Model a3OT_0112(3);
-Adaptive_Data_Model a3OT_0120(3);
-Adaptive_Data_Model a3OT_0121(3);
-Adaptive_Data_Model a3OT_0122(3);
-Adaptive_Data_Model a3OT_0200(3);
-Adaptive_Data_Model a3OT_0201(3);
-Adaptive_Data_Model a3OT_0202(3);
-Adaptive_Data_Model a3OT_0210(3);
-Adaptive_Data_Model a3OT_0211(3);
-Adaptive_Data_Model a3OT_0212(3);
-Adaptive_Data_Model a3OT_0220(3);
-Adaptive_Data_Model a3OT_0221(3);
-Adaptive_Data_Model a3OT_0222(3);
-Adaptive_Data_Model a3OT_1000(3);
-Adaptive_Data_Model a3OT_1001(3);
-Adaptive_Data_Model a3OT_1002(3);
-Adaptive_Data_Model a3OT_1010(3);
-Adaptive_Data_Model a3OT_1011(3);
-Adaptive_Data_Model a3OT_1012(3);
-Adaptive_Data_Model a3OT_1020(3);
-Adaptive_Data_Model a3OT_1021(3);
-Adaptive_Data_Model a3OT_1022(3);
-Adaptive_Data_Model a3OT_1100(3);
-Adaptive_Data_Model a3OT_1101(3);
-Adaptive_Data_Model a3OT_1102(3);
-Adaptive_Data_Model a3OT_1110(3);
-Adaptive_Data_Model a3OT_1111(3);
-Adaptive_Data_Model a3OT_1112(3);
-Adaptive_Data_Model a3OT_1120(3);
-Adaptive_Data_Model a3OT_1121(3);
-Adaptive_Data_Model a3OT_1122(3);
-Adaptive_Data_Model a3OT_1200(3);
-Adaptive_Data_Model a3OT_1201(3);
-Adaptive_Data_Model a3OT_1202(3);
-Adaptive_Data_Model a3OT_1210(3);
-Adaptive_Data_Model a3OT_1211(3);
-Adaptive_Data_Model a3OT_1212(3);
-Adaptive_Data_Model a3OT_1220(3);
-Adaptive_Data_Model a3OT_1221(3);
-Adaptive_Data_Model a3OT_1222(3);
-Adaptive_Data_Model a3OT_2000(3);
-Adaptive_Data_Model a3OT_2001(3);
-Adaptive_Data_Model a3OT_2002(3);
-Adaptive_Data_Model a3OT_2010(3);
-Adaptive_Data_Model a3OT_2011(3);
-Adaptive_Data_Model a3OT_2012(3);
-Adaptive_Data_Model a3OT_2020(3);
-Adaptive_Data_Model a3OT_2021(3);
-Adaptive_Data_Model a3OT_2022(3);
-Adaptive_Data_Model a3OT_2100(3);
-Adaptive_Data_Model a3OT_2101(3);
-Adaptive_Data_Model a3OT_2102(3);
-Adaptive_Data_Model a3OT_2110(3);
-Adaptive_Data_Model a3OT_2111(3);
-Adaptive_Data_Model a3OT_2112(3);
-Adaptive_Data_Model a3OT_2120(3);
-Adaptive_Data_Model a3OT_2121(3);
-Adaptive_Data_Model a3OT_2122(3);
-Adaptive_Data_Model a3OT_2200(3);
-Adaptive_Data_Model a3OT_2201(3);
-Adaptive_Data_Model a3OT_2202(3);
-Adaptive_Data_Model a3OT_2210(3);
-Adaptive_Data_Model a3OT_2211(3);
-Adaptive_Data_Model a3OT_2212(3);
-Adaptive_Data_Model a3OT_2220(3);
-Adaptive_Data_Model a3OT_2221(3);
-Adaptive_Data_Model a3OT_2222(3);
-Adaptive_Data_Model aMSC_L(36);
-Adaptive_Data_Model aMSC_A(36);
-Adaptive_Data_Model aMSC_B(36);
-Adaptive_Data_Model aMSC_R(36);
-Adaptive_Data_Model aMSC_I(3);
-Adaptive_Data_Model aMSC_0(27);
-Adaptive_Data_Model aMSC_1(27);
-Adaptive_Data_Model aMSC_2(27);
-Adaptive_Data_Model aMSC_3(27);
-Adaptive_Data_Model aMSC_4(27);
-Adaptive_Data_Model aMSC_5(27);
-Adaptive_Data_Model aMSC_6(27);
-Adaptive_Data_Model aMSC_7(27);
-Adaptive_Data_Model aMSC_8(27);
-Adaptive_Data_Model aMSC_00(27);
-Adaptive_Data_Model aMSC_01(27);
-Adaptive_Data_Model aMSC_02(27);
-Adaptive_Data_Model aMSC_03(27);
-Adaptive_Data_Model aMSC_04(27);
-Adaptive_Data_Model aMSC_05(27);
-Adaptive_Data_Model aMSC_06(27);
-Adaptive_Data_Model aMSC_07(27);
-Adaptive_Data_Model aMSC_08(27);
-Adaptive_Data_Model aMSC_09(27);
-Adaptive_Data_Model aMSC_010(27);
-Adaptive_Data_Model aMSC_011(27);
-Adaptive_Data_Model aMSC_012(27);
-Adaptive_Data_Model aMSC_013(27);
-Adaptive_Data_Model aMSC_014(27);
-Adaptive_Data_Model aMSC_015(27);
-Adaptive_Data_Model aMSC_016(27);
-Adaptive_Data_Model aMSC_017(27);
-Adaptive_Data_Model aMSC_018(27);
-Adaptive_Data_Model aMSC_019(27);
-Adaptive_Data_Model aMSC_020(27);
-Adaptive_Data_Model aMSC_021(27);
-Adaptive_Data_Model aMSC_022(27);
-Adaptive_Data_Model aMSC_023(27);
-Adaptive_Data_Model aMSC_024(27);
-Adaptive_Data_Model aMSC_025(27);
-Adaptive_Data_Model aMSC_026(27);
-Adaptive_Data_Model aMSC_10(27);
-Adaptive_Data_Model aMSC_11(27);
-Adaptive_Data_Model aMSC_12(27);
-Adaptive_Data_Model aMSC_13(27);
-Adaptive_Data_Model aMSC_14(27);
-Adaptive_Data_Model aMSC_15(27);
-Adaptive_Data_Model aMSC_16(27);
-Adaptive_Data_Model aMSC_17(27);
-Adaptive_Data_Model aMSC_18(27);
-Adaptive_Data_Model aMSC_19(27);
-Adaptive_Data_Model aMSC_110(27);
-Adaptive_Data_Model aMSC_111(27);
-Adaptive_Data_Model aMSC_112(27);
-Adaptive_Data_Model aMSC_113(27);
-Adaptive_Data_Model aMSC_114(27);
-Adaptive_Data_Model aMSC_115(27);
-Adaptive_Data_Model aMSC_116(27);
-Adaptive_Data_Model aMSC_117(27);
-Adaptive_Data_Model aMSC_118(27);
-Adaptive_Data_Model aMSC_119(27);
-Adaptive_Data_Model aMSC_120(27);
-Adaptive_Data_Model aMSC_121(27);
-Adaptive_Data_Model aMSC_122(27);
-Adaptive_Data_Model aMSC_123(27);
-Adaptive_Data_Model aMSC_124(27);
-Adaptive_Data_Model aMSC_125(27);
-Adaptive_Data_Model aMSC_126(27);
-Adaptive_Data_Model aMSC_20(27);
-Adaptive_Data_Model aMSC_21(27);
-Adaptive_Data_Model aMSC_22(27);
-Adaptive_Data_Model aMSC_23(27);
-Adaptive_Data_Model aMSC_24(27);
-Adaptive_Data_Model aMSC_25(27);
-Adaptive_Data_Model aMSC_26(27);
-Adaptive_Data_Model aMSC_27(27);
-Adaptive_Data_Model aMSC_28(27);
-Adaptive_Data_Model aMSC_29(27);
-Adaptive_Data_Model aMSC_210(27);
-Adaptive_Data_Model aMSC_211(27);
-Adaptive_Data_Model aMSC_212(27);
-Adaptive_Data_Model aMSC_213(27);
-Adaptive_Data_Model aMSC_214(27);
-Adaptive_Data_Model aMSC_215(27);
-Adaptive_Data_Model aMSC_216(27);
-Adaptive_Data_Model aMSC_217(27);
-Adaptive_Data_Model aMSC_218(27);
-Adaptive_Data_Model aMSC_219(27);
-Adaptive_Data_Model aMSC_220(27);
-Adaptive_Data_Model aMSC_221(27);
-Adaptive_Data_Model aMSC_222(27);
-Adaptive_Data_Model aMSC_223(27);
-Adaptive_Data_Model aMSC_224(27);
-Adaptive_Data_Model aMSC_225(27);
-Adaptive_Data_Model aMSC_226(27);
-Adaptive_Data_Model aMSC_30(27);
-Adaptive_Data_Model aMSC_31(27);
-Adaptive_Data_Model aMSC_32(27);
-Adaptive_Data_Model aMSC_33(27);
-Adaptive_Data_Model aMSC_34(27);
-Adaptive_Data_Model aMSC_35(27);
-Adaptive_Data_Model aMSC_36(27);
-Adaptive_Data_Model aMSC_37(27);
-Adaptive_Data_Model aMSC_38(27);
-Adaptive_Data_Model aMSC_39(27);
-Adaptive_Data_Model aMSC_310(27);
-Adaptive_Data_Model aMSC_311(27);
-Adaptive_Data_Model aMSC_312(27);
-Adaptive_Data_Model aMSC_313(27);
-Adaptive_Data_Model aMSC_314(27);
-Adaptive_Data_Model aMSC_315(27);
-Adaptive_Data_Model aMSC_316(27);
-Adaptive_Data_Model aMSC_317(27);
-Adaptive_Data_Model aMSC_318(27);
-Adaptive_Data_Model aMSC_319(27);
-Adaptive_Data_Model aMSC_320(27);
-Adaptive_Data_Model aMSC_321(27);
-Adaptive_Data_Model aMSC_322(27);
-Adaptive_Data_Model aMSC_323(27);
-Adaptive_Data_Model aMSC_324(27);
-Adaptive_Data_Model aMSC_325(27);
-Adaptive_Data_Model aMSC_326(27);
-Adaptive_Data_Model aMSC_40(27);
-Adaptive_Data_Model aMSC_41(27);
-Adaptive_Data_Model aMSC_42(27);
-Adaptive_Data_Model aMSC_43(27);
-Adaptive_Data_Model aMSC_44(27);
-Adaptive_Data_Model aMSC_45(27);
-Adaptive_Data_Model aMSC_46(27);
-Adaptive_Data_Model aMSC_47(27);
-Adaptive_Data_Model aMSC_48(27);
-Adaptive_Data_Model aMSC_49(27);
-Adaptive_Data_Model aMSC_410(27);
-Adaptive_Data_Model aMSC_411(27);
-Adaptive_Data_Model aMSC_412(27);
-Adaptive_Data_Model aMSC_413(27);
-Adaptive_Data_Model aMSC_414(27);
-Adaptive_Data_Model aMSC_415(27);
-Adaptive_Data_Model aMSC_416(27);
-Adaptive_Data_Model aMSC_417(27);
-Adaptive_Data_Model aMSC_418(27);
-Adaptive_Data_Model aMSC_419(27);
-Adaptive_Data_Model aMSC_420(27);
-Adaptive_Data_Model aMSC_421(27);
-Adaptive_Data_Model aMSC_422(27);
-Adaptive_Data_Model aMSC_423(27);
-Adaptive_Data_Model aMSC_424(27);
-Adaptive_Data_Model aMSC_425(27);
-Adaptive_Data_Model aMSC_426(27);
-Adaptive_Data_Model aMSC_50(27);
-Adaptive_Data_Model aMSC_51(27);
-Adaptive_Data_Model aMSC_52(27);
-Adaptive_Data_Model aMSC_53(27);
-Adaptive_Data_Model aMSC_54(27);
-Adaptive_Data_Model aMSC_55(27);
-Adaptive_Data_Model aMSC_56(27);
-Adaptive_Data_Model aMSC_57(27);
-Adaptive_Data_Model aMSC_58(27);
-Adaptive_Data_Model aMSC_59(27);
-Adaptive_Data_Model aMSC_510(27);
-Adaptive_Data_Model aMSC_511(27);
-Adaptive_Data_Model aMSC_512(27);
-Adaptive_Data_Model aMSC_513(27);
-Adaptive_Data_Model aMSC_514(27);
-Adaptive_Data_Model aMSC_515(27);
-Adaptive_Data_Model aMSC_516(27);
-Adaptive_Data_Model aMSC_517(27);
-Adaptive_Data_Model aMSC_518(27);
-Adaptive_Data_Model aMSC_519(27);
-Adaptive_Data_Model aMSC_520(27);
-Adaptive_Data_Model aMSC_521(27);
-Adaptive_Data_Model aMSC_522(27);
-Adaptive_Data_Model aMSC_523(27);
-Adaptive_Data_Model aMSC_524(27);
-Adaptive_Data_Model aMSC_525(27);
-Adaptive_Data_Model aMSC_526(27);
-Adaptive_Data_Model aMSC_60(27);
-Adaptive_Data_Model aMSC_61(27);
-Adaptive_Data_Model aMSC_62(27);
-Adaptive_Data_Model aMSC_63(27);
-Adaptive_Data_Model aMSC_64(27);
-Adaptive_Data_Model aMSC_65(27);
-Adaptive_Data_Model aMSC_66(27);
-Adaptive_Data_Model aMSC_67(27);
-Adaptive_Data_Model aMSC_68(27);
-Adaptive_Data_Model aMSC_69(27);
-Adaptive_Data_Model aMSC_610(27);
-Adaptive_Data_Model aMSC_611(27);
-Adaptive_Data_Model aMSC_612(27);
-Adaptive_Data_Model aMSC_613(27);
-Adaptive_Data_Model aMSC_614(27);
-Adaptive_Data_Model aMSC_615(27);
-Adaptive_Data_Model aMSC_616(27);
-Adaptive_Data_Model aMSC_617(27);
-Adaptive_Data_Model aMSC_618(27);
-Adaptive_Data_Model aMSC_619(27);
-Adaptive_Data_Model aMSC_620(27);
-Adaptive_Data_Model aMSC_621(27);
-Adaptive_Data_Model aMSC_622(27);
-Adaptive_Data_Model aMSC_623(27);
-Adaptive_Data_Model aMSC_624(27);
-Adaptive_Data_Model aMSC_625(27);
-Adaptive_Data_Model aMSC_626(27);
-Adaptive_Data_Model aMSC_70(27);
-Adaptive_Data_Model aMSC_71(27);
-Adaptive_Data_Model aMSC_72(27);
-Adaptive_Data_Model aMSC_73(27);
-Adaptive_Data_Model aMSC_74(27);
-Adaptive_Data_Model aMSC_75(27);
-Adaptive_Data_Model aMSC_76(27);
-Adaptive_Data_Model aMSC_77(27);
-Adaptive_Data_Model aMSC_78(27);
-Adaptive_Data_Model aMSC_79(27);
-Adaptive_Data_Model aMSC_710(27);
-Adaptive_Data_Model aMSC_711(27);
-Adaptive_Data_Model aMSC_712(27);
-Adaptive_Data_Model aMSC_713(27);
-Adaptive_Data_Model aMSC_714(27);
-Adaptive_Data_Model aMSC_715(27);
-Adaptive_Data_Model aMSC_716(27);
-Adaptive_Data_Model aMSC_717(27);
-Adaptive_Data_Model aMSC_718(27);
-Adaptive_Data_Model aMSC_719(27);
-Adaptive_Data_Model aMSC_720(27);
-Adaptive_Data_Model aMSC_721(27);
-Adaptive_Data_Model aMSC_722(27);
-Adaptive_Data_Model aMSC_723(27);
-Adaptive_Data_Model aMSC_724(27);
-Adaptive_Data_Model aMSC_725(27);
-Adaptive_Data_Model aMSC_726(27);
-Adaptive_Data_Model aMSC_80(27);
-Adaptive_Data_Model aMSC_81(27);
-Adaptive_Data_Model aMSC_82(27);
-Adaptive_Data_Model aMSC_83(27);
-Adaptive_Data_Model aMSC_84(27);
-Adaptive_Data_Model aMSC_85(27);
-Adaptive_Data_Model aMSC_86(27);
-Adaptive_Data_Model aMSC_87(27);
-Adaptive_Data_Model aMSC_88(27);
-Adaptive_Data_Model aMSC_89(27);
-Adaptive_Data_Model aMSC_810(27);
-Adaptive_Data_Model aMSC_811(27);
-Adaptive_Data_Model aMSC_812(27);
-Adaptive_Data_Model aMSC_813(27);
-Adaptive_Data_Model aMSC_814(27);
-Adaptive_Data_Model aMSC_815(27);
-Adaptive_Data_Model aMSC_816(27);
-Adaptive_Data_Model aMSC_817(27);
-Adaptive_Data_Model aMSC_818(27);
-Adaptive_Data_Model aMSC_819(27);
-Adaptive_Data_Model aMSC_820(27);
-Adaptive_Data_Model aMSC_821(27);
-Adaptive_Data_Model aMSC_822(27);
-Adaptive_Data_Model aMSC_823(27);
-Adaptive_Data_Model aMSC_824(27);
-Adaptive_Data_Model aMSC_825(27);
-Adaptive_Data_Model aMSC_826(27);
-Adaptive_Bit_Model ahead;
-Adaptive_Bit_Model aflag;
-Adaptive_Bit_Model aGolomb;
-Adaptive_Bit_Model aEndFlag;
-Adaptive_Bit_Model aChainType;
+ArithmeticCodec acodec;
+AdaptiveDataModel aColor;
+AdaptiveDataModel a3OT_L(3);
+AdaptiveDataModel a3OT_A(3);
+AdaptiveDataModel a3OT_B(3);
+AdaptiveDataModel a3OT_R(3);
+AdaptiveDataModel a3OT_I(3);
+AdaptiveDataModel a3OT_0(3);
+AdaptiveDataModel a3OT_1(3);
+AdaptiveDataModel a3OT_2(3);
+AdaptiveDataModel a3OT_00(3);
+AdaptiveDataModel a3OT_01(3);
+AdaptiveDataModel a3OT_02(3);
+AdaptiveDataModel a3OT_10(3);
+AdaptiveDataModel a3OT_11(3);
+AdaptiveDataModel a3OT_12(3);
+AdaptiveDataModel a3OT_20(3);
+AdaptiveDataModel a3OT_21(3);
+AdaptiveDataModel a3OT_22(3);
+AdaptiveDataModel a3OT_000(3);
+AdaptiveDataModel a3OT_001(3);
+AdaptiveDataModel a3OT_002(3);
+AdaptiveDataModel a3OT_010(3);
+AdaptiveDataModel a3OT_011(3);
+AdaptiveDataModel a3OT_012(3);
+AdaptiveDataModel a3OT_020(3);
+AdaptiveDataModel a3OT_021(3);
+AdaptiveDataModel a3OT_022(3);
+AdaptiveDataModel a3OT_100(3);
+AdaptiveDataModel a3OT_101(3);
+AdaptiveDataModel a3OT_102(3);
+AdaptiveDataModel a3OT_110(3);
+AdaptiveDataModel a3OT_111(3);
+AdaptiveDataModel a3OT_112(3);
+AdaptiveDataModel a3OT_120(3);
+AdaptiveDataModel a3OT_121(3);
+AdaptiveDataModel a3OT_122(3);
+AdaptiveDataModel a3OT_200(3);
+AdaptiveDataModel a3OT_201(3);
+AdaptiveDataModel a3OT_202(3);
+AdaptiveDataModel a3OT_210(3);
+AdaptiveDataModel a3OT_211(3);
+AdaptiveDataModel a3OT_212(3);
+AdaptiveDataModel a3OT_220(3);
+AdaptiveDataModel a3OT_221(3);
+AdaptiveDataModel a3OT_222(3);
+AdaptiveDataModel a3OT_0000(3);
+AdaptiveDataModel a3OT_0001(3);
+AdaptiveDataModel a3OT_0002(3);
+AdaptiveDataModel a3OT_0010(3);
+AdaptiveDataModel a3OT_0011(3);
+AdaptiveDataModel a3OT_0012(3);
+AdaptiveDataModel a3OT_0020(3);
+AdaptiveDataModel a3OT_0021(3);
+AdaptiveDataModel a3OT_0022(3);
+AdaptiveDataModel a3OT_0100(3);
+AdaptiveDataModel a3OT_0101(3);
+AdaptiveDataModel a3OT_0102(3);
+AdaptiveDataModel a3OT_0110(3);
+AdaptiveDataModel a3OT_0111(3);
+AdaptiveDataModel a3OT_0112(3);
+AdaptiveDataModel a3OT_0120(3);
+AdaptiveDataModel a3OT_0121(3);
+AdaptiveDataModel a3OT_0122(3);
+AdaptiveDataModel a3OT_0200(3);
+AdaptiveDataModel a3OT_0201(3);
+AdaptiveDataModel a3OT_0202(3);
+AdaptiveDataModel a3OT_0210(3);
+AdaptiveDataModel a3OT_0211(3);
+AdaptiveDataModel a3OT_0212(3);
+AdaptiveDataModel a3OT_0220(3);
+AdaptiveDataModel a3OT_0221(3);
+AdaptiveDataModel a3OT_0222(3);
+AdaptiveDataModel a3OT_1000(3);
+AdaptiveDataModel a3OT_1001(3);
+AdaptiveDataModel a3OT_1002(3);
+AdaptiveDataModel a3OT_1010(3);
+AdaptiveDataModel a3OT_1011(3);
+AdaptiveDataModel a3OT_1012(3);
+AdaptiveDataModel a3OT_1020(3);
+AdaptiveDataModel a3OT_1021(3);
+AdaptiveDataModel a3OT_1022(3);
+AdaptiveDataModel a3OT_1100(3);
+AdaptiveDataModel a3OT_1101(3);
+AdaptiveDataModel a3OT_1102(3);
+AdaptiveDataModel a3OT_1110(3);
+AdaptiveDataModel a3OT_1111(3);
+AdaptiveDataModel a3OT_1112(3);
+AdaptiveDataModel a3OT_1120(3);
+AdaptiveDataModel a3OT_1121(3);
+AdaptiveDataModel a3OT_1122(3);
+AdaptiveDataModel a3OT_1200(3);
+AdaptiveDataModel a3OT_1201(3);
+AdaptiveDataModel a3OT_1202(3);
+AdaptiveDataModel a3OT_1210(3);
+AdaptiveDataModel a3OT_1211(3);
+AdaptiveDataModel a3OT_1212(3);
+AdaptiveDataModel a3OT_1220(3);
+AdaptiveDataModel a3OT_1221(3);
+AdaptiveDataModel a3OT_1222(3);
+AdaptiveDataModel a3OT_2000(3);
+AdaptiveDataModel a3OT_2001(3);
+AdaptiveDataModel a3OT_2002(3);
+AdaptiveDataModel a3OT_2010(3);
+AdaptiveDataModel a3OT_2011(3);
+AdaptiveDataModel a3OT_2012(3);
+AdaptiveDataModel a3OT_2020(3);
+AdaptiveDataModel a3OT_2021(3);
+AdaptiveDataModel a3OT_2022(3);
+AdaptiveDataModel a3OT_2100(3);
+AdaptiveDataModel a3OT_2101(3);
+AdaptiveDataModel a3OT_2102(3);
+AdaptiveDataModel a3OT_2110(3);
+AdaptiveDataModel a3OT_2111(3);
+AdaptiveDataModel a3OT_2112(3);
+AdaptiveDataModel a3OT_2120(3);
+AdaptiveDataModel a3OT_2121(3);
+AdaptiveDataModel a3OT_2122(3);
+AdaptiveDataModel a3OT_2200(3);
+AdaptiveDataModel a3OT_2201(3);
+AdaptiveDataModel a3OT_2202(3);
+AdaptiveDataModel a3OT_2210(3);
+AdaptiveDataModel a3OT_2211(3);
+AdaptiveDataModel a3OT_2212(3);
+AdaptiveDataModel a3OT_2220(3);
+AdaptiveDataModel a3OT_2221(3);
+AdaptiveDataModel a3OT_2222(3);
+AdaptiveDataModel aMSC_L(36);
+AdaptiveDataModel aMSC_A(36);
+AdaptiveDataModel aMSC_B(36);
+AdaptiveDataModel aMSC_R(36);
+AdaptiveDataModel aMSC_I(3);
+AdaptiveDataModel aMSC_0(27);
+AdaptiveDataModel aMSC_1(27);
+AdaptiveDataModel aMSC_2(27);
+AdaptiveDataModel aMSC_3(27);
+AdaptiveDataModel aMSC_4(27);
+AdaptiveDataModel aMSC_5(27);
+AdaptiveDataModel aMSC_6(27);
+AdaptiveDataModel aMSC_7(27);
+AdaptiveDataModel aMSC_8(27);
+AdaptiveDataModel aMSC_00(27);
+AdaptiveDataModel aMSC_01(27);
+AdaptiveDataModel aMSC_02(27);
+AdaptiveDataModel aMSC_03(27);
+AdaptiveDataModel aMSC_04(27);
+AdaptiveDataModel aMSC_05(27);
+AdaptiveDataModel aMSC_06(27);
+AdaptiveDataModel aMSC_07(27);
+AdaptiveDataModel aMSC_08(27);
+AdaptiveDataModel aMSC_09(27);
+AdaptiveDataModel aMSC_010(27);
+AdaptiveDataModel aMSC_011(27);
+AdaptiveDataModel aMSC_012(27);
+AdaptiveDataModel aMSC_013(27);
+AdaptiveDataModel aMSC_014(27);
+AdaptiveDataModel aMSC_015(27);
+AdaptiveDataModel aMSC_016(27);
+AdaptiveDataModel aMSC_017(27);
+AdaptiveDataModel aMSC_018(27);
+AdaptiveDataModel aMSC_019(27);
+AdaptiveDataModel aMSC_020(27);
+AdaptiveDataModel aMSC_021(27);
+AdaptiveDataModel aMSC_022(27);
+AdaptiveDataModel aMSC_023(27);
+AdaptiveDataModel aMSC_024(27);
+AdaptiveDataModel aMSC_025(27);
+AdaptiveDataModel aMSC_026(27);
+AdaptiveDataModel aMSC_10(27);
+AdaptiveDataModel aMSC_11(27);
+AdaptiveDataModel aMSC_12(27);
+AdaptiveDataModel aMSC_13(27);
+AdaptiveDataModel aMSC_14(27);
+AdaptiveDataModel aMSC_15(27);
+AdaptiveDataModel aMSC_16(27);
+AdaptiveDataModel aMSC_17(27);
+AdaptiveDataModel aMSC_18(27);
+AdaptiveDataModel aMSC_19(27);
+AdaptiveDataModel aMSC_110(27);
+AdaptiveDataModel aMSC_111(27);
+AdaptiveDataModel aMSC_112(27);
+AdaptiveDataModel aMSC_113(27);
+AdaptiveDataModel aMSC_114(27);
+AdaptiveDataModel aMSC_115(27);
+AdaptiveDataModel aMSC_116(27);
+AdaptiveDataModel aMSC_117(27);
+AdaptiveDataModel aMSC_118(27);
+AdaptiveDataModel aMSC_119(27);
+AdaptiveDataModel aMSC_120(27);
+AdaptiveDataModel aMSC_121(27);
+AdaptiveDataModel aMSC_122(27);
+AdaptiveDataModel aMSC_123(27);
+AdaptiveDataModel aMSC_124(27);
+AdaptiveDataModel aMSC_125(27);
+AdaptiveDataModel aMSC_126(27);
+AdaptiveDataModel aMSC_20(27);
+AdaptiveDataModel aMSC_21(27);
+AdaptiveDataModel aMSC_22(27);
+AdaptiveDataModel aMSC_23(27);
+AdaptiveDataModel aMSC_24(27);
+AdaptiveDataModel aMSC_25(27);
+AdaptiveDataModel aMSC_26(27);
+AdaptiveDataModel aMSC_27(27);
+AdaptiveDataModel aMSC_28(27);
+AdaptiveDataModel aMSC_29(27);
+AdaptiveDataModel aMSC_210(27);
+AdaptiveDataModel aMSC_211(27);
+AdaptiveDataModel aMSC_212(27);
+AdaptiveDataModel aMSC_213(27);
+AdaptiveDataModel aMSC_214(27);
+AdaptiveDataModel aMSC_215(27);
+AdaptiveDataModel aMSC_216(27);
+AdaptiveDataModel aMSC_217(27);
+AdaptiveDataModel aMSC_218(27);
+AdaptiveDataModel aMSC_219(27);
+AdaptiveDataModel aMSC_220(27);
+AdaptiveDataModel aMSC_221(27);
+AdaptiveDataModel aMSC_222(27);
+AdaptiveDataModel aMSC_223(27);
+AdaptiveDataModel aMSC_224(27);
+AdaptiveDataModel aMSC_225(27);
+AdaptiveDataModel aMSC_226(27);
+AdaptiveDataModel aMSC_30(27);
+AdaptiveDataModel aMSC_31(27);
+AdaptiveDataModel aMSC_32(27);
+AdaptiveDataModel aMSC_33(27);
+AdaptiveDataModel aMSC_34(27);
+AdaptiveDataModel aMSC_35(27);
+AdaptiveDataModel aMSC_36(27);
+AdaptiveDataModel aMSC_37(27);
+AdaptiveDataModel aMSC_38(27);
+AdaptiveDataModel aMSC_39(27);
+AdaptiveDataModel aMSC_310(27);
+AdaptiveDataModel aMSC_311(27);
+AdaptiveDataModel aMSC_312(27);
+AdaptiveDataModel aMSC_313(27);
+AdaptiveDataModel aMSC_314(27);
+AdaptiveDataModel aMSC_315(27);
+AdaptiveDataModel aMSC_316(27);
+AdaptiveDataModel aMSC_317(27);
+AdaptiveDataModel aMSC_318(27);
+AdaptiveDataModel aMSC_319(27);
+AdaptiveDataModel aMSC_320(27);
+AdaptiveDataModel aMSC_321(27);
+AdaptiveDataModel aMSC_322(27);
+AdaptiveDataModel aMSC_323(27);
+AdaptiveDataModel aMSC_324(27);
+AdaptiveDataModel aMSC_325(27);
+AdaptiveDataModel aMSC_326(27);
+AdaptiveDataModel aMSC_40(27);
+AdaptiveDataModel aMSC_41(27);
+AdaptiveDataModel aMSC_42(27);
+AdaptiveDataModel aMSC_43(27);
+AdaptiveDataModel aMSC_44(27);
+AdaptiveDataModel aMSC_45(27);
+AdaptiveDataModel aMSC_46(27);
+AdaptiveDataModel aMSC_47(27);
+AdaptiveDataModel aMSC_48(27);
+AdaptiveDataModel aMSC_49(27);
+AdaptiveDataModel aMSC_410(27);
+AdaptiveDataModel aMSC_411(27);
+AdaptiveDataModel aMSC_412(27);
+AdaptiveDataModel aMSC_413(27);
+AdaptiveDataModel aMSC_414(27);
+AdaptiveDataModel aMSC_415(27);
+AdaptiveDataModel aMSC_416(27);
+AdaptiveDataModel aMSC_417(27);
+AdaptiveDataModel aMSC_418(27);
+AdaptiveDataModel aMSC_419(27);
+AdaptiveDataModel aMSC_420(27);
+AdaptiveDataModel aMSC_421(27);
+AdaptiveDataModel aMSC_422(27);
+AdaptiveDataModel aMSC_423(27);
+AdaptiveDataModel aMSC_424(27);
+AdaptiveDataModel aMSC_425(27);
+AdaptiveDataModel aMSC_426(27);
+AdaptiveDataModel aMSC_50(27);
+AdaptiveDataModel aMSC_51(27);
+AdaptiveDataModel aMSC_52(27);
+AdaptiveDataModel aMSC_53(27);
+AdaptiveDataModel aMSC_54(27);
+AdaptiveDataModel aMSC_55(27);
+AdaptiveDataModel aMSC_56(27);
+AdaptiveDataModel aMSC_57(27);
+AdaptiveDataModel aMSC_58(27);
+AdaptiveDataModel aMSC_59(27);
+AdaptiveDataModel aMSC_510(27);
+AdaptiveDataModel aMSC_511(27);
+AdaptiveDataModel aMSC_512(27);
+AdaptiveDataModel aMSC_513(27);
+AdaptiveDataModel aMSC_514(27);
+AdaptiveDataModel aMSC_515(27);
+AdaptiveDataModel aMSC_516(27);
+AdaptiveDataModel aMSC_517(27);
+AdaptiveDataModel aMSC_518(27);
+AdaptiveDataModel aMSC_519(27);
+AdaptiveDataModel aMSC_520(27);
+AdaptiveDataModel aMSC_521(27);
+AdaptiveDataModel aMSC_522(27);
+AdaptiveDataModel aMSC_523(27);
+AdaptiveDataModel aMSC_524(27);
+AdaptiveDataModel aMSC_525(27);
+AdaptiveDataModel aMSC_526(27);
+AdaptiveDataModel aMSC_60(27);
+AdaptiveDataModel aMSC_61(27);
+AdaptiveDataModel aMSC_62(27);
+AdaptiveDataModel aMSC_63(27);
+AdaptiveDataModel aMSC_64(27);
+AdaptiveDataModel aMSC_65(27);
+AdaptiveDataModel aMSC_66(27);
+AdaptiveDataModel aMSC_67(27);
+AdaptiveDataModel aMSC_68(27);
+AdaptiveDataModel aMSC_69(27);
+AdaptiveDataModel aMSC_610(27);
+AdaptiveDataModel aMSC_611(27);
+AdaptiveDataModel aMSC_612(27);
+AdaptiveDataModel aMSC_613(27);
+AdaptiveDataModel aMSC_614(27);
+AdaptiveDataModel aMSC_615(27);
+AdaptiveDataModel aMSC_616(27);
+AdaptiveDataModel aMSC_617(27);
+AdaptiveDataModel aMSC_618(27);
+AdaptiveDataModel aMSC_619(27);
+AdaptiveDataModel aMSC_620(27);
+AdaptiveDataModel aMSC_621(27);
+AdaptiveDataModel aMSC_622(27);
+AdaptiveDataModel aMSC_623(27);
+AdaptiveDataModel aMSC_624(27);
+AdaptiveDataModel aMSC_625(27);
+AdaptiveDataModel aMSC_626(27);
+AdaptiveDataModel aMSC_70(27);
+AdaptiveDataModel aMSC_71(27);
+AdaptiveDataModel aMSC_72(27);
+AdaptiveDataModel aMSC_73(27);
+AdaptiveDataModel aMSC_74(27);
+AdaptiveDataModel aMSC_75(27);
+AdaptiveDataModel aMSC_76(27);
+AdaptiveDataModel aMSC_77(27);
+AdaptiveDataModel aMSC_78(27);
+AdaptiveDataModel aMSC_79(27);
+AdaptiveDataModel aMSC_710(27);
+AdaptiveDataModel aMSC_711(27);
+AdaptiveDataModel aMSC_712(27);
+AdaptiveDataModel aMSC_713(27);
+AdaptiveDataModel aMSC_714(27);
+AdaptiveDataModel aMSC_715(27);
+AdaptiveDataModel aMSC_716(27);
+AdaptiveDataModel aMSC_717(27);
+AdaptiveDataModel aMSC_718(27);
+AdaptiveDataModel aMSC_719(27);
+AdaptiveDataModel aMSC_720(27);
+AdaptiveDataModel aMSC_721(27);
+AdaptiveDataModel aMSC_722(27);
+AdaptiveDataModel aMSC_723(27);
+AdaptiveDataModel aMSC_724(27);
+AdaptiveDataModel aMSC_725(27);
+AdaptiveDataModel aMSC_726(27);
+AdaptiveDataModel aMSC_80(27);
+AdaptiveDataModel aMSC_81(27);
+AdaptiveDataModel aMSC_82(27);
+AdaptiveDataModel aMSC_83(27);
+AdaptiveDataModel aMSC_84(27);
+AdaptiveDataModel aMSC_85(27);
+AdaptiveDataModel aMSC_86(27);
+AdaptiveDataModel aMSC_87(27);
+AdaptiveDataModel aMSC_88(27);
+AdaptiveDataModel aMSC_89(27);
+AdaptiveDataModel aMSC_810(27);
+AdaptiveDataModel aMSC_811(27);
+AdaptiveDataModel aMSC_812(27);
+AdaptiveDataModel aMSC_813(27);
+AdaptiveDataModel aMSC_814(27);
+AdaptiveDataModel aMSC_815(27);
+AdaptiveDataModel aMSC_816(27);
+AdaptiveDataModel aMSC_817(27);
+AdaptiveDataModel aMSC_818(27);
+AdaptiveDataModel aMSC_819(27);
+AdaptiveDataModel aMSC_820(27);
+AdaptiveDataModel aMSC_821(27);
+AdaptiveDataModel aMSC_822(27);
+AdaptiveDataModel aMSC_823(27);
+AdaptiveDataModel aMSC_824(27);
+AdaptiveDataModel aMSC_825(27);
+AdaptiveDataModel aMSC_826(27);
+AdaptiveBitModel ahead;
+AdaptiveBitModel aflag;
+AdaptiveBitModel aGolomb;
+AdaptiveBitModel aEndFlag;
+AdaptiveBitModel aChainType;
 
 int chain_mode = 2; // 0: MSC  1: 3OT  2: mix MSC and 3OT
 
@@ -1232,189 +1232,189 @@ void reset_arithmetic()
   a3OT_2221.reset();
   a3OT_2222.reset();
   float a3OT_Lpro[3] = {0.4, 0.5, 0.1};
-  a3OT_L.setPro(a3OT_Lpro);
+  a3OT_L.setProbability(a3OT_Lpro);
   float a3OT_Apro[3] = {0.4, 0.5, 0.1};
-  a3OT_A.setPro(a3OT_Apro);
+  a3OT_A.setProbability(a3OT_Apro);
   float a3OT_Bpro[3] = {0.2, 0.7, 0.1};
-  a3OT_B.setPro(a3OT_Bpro);
+  a3OT_B.setProbability(a3OT_Bpro);
   float a3OT_Rpro[3] = {0.4, 0.5, 0.1};
-  a3OT_R.setPro(a3OT_Rpro);
+  a3OT_R.setProbability(a3OT_Rpro);
   float a3OT_0pro[3] = {0.6, 0.3, 0.1};
-  a3OT_0.setPro(a3OT_0pro);
+  a3OT_0.setProbability(a3OT_0pro);
   float a3OT_1pro[3] = {0.4, 0.5, 0.1};
-  a3OT_1.setPro(a3OT_1pro);
+  a3OT_1.setProbability(a3OT_1pro);
   float a3OT_2pro[3] = {0.5, 0.4, 0.1};
-  a3OT_2.setPro(a3OT_2pro);
+  a3OT_2.setProbability(a3OT_2pro);
   float a3OT_00pro[3] = {0.7, 0.2, 0.1};
-  a3OT_00.setPro(a3OT_00pro);
+  a3OT_00.setProbability(a3OT_00pro);
   float a3OT_01pro[3] = {0.1, 0.8, 0.1};
-  a3OT_01.setPro(a3OT_01pro);
+  a3OT_01.setProbability(a3OT_01pro);
   float a3OT_10pro[3] = {0.5, 0.4, 0.1};
-  a3OT_10.setPro(a3OT_10pro);
+  a3OT_10.setProbability(a3OT_10pro);
   float a3OT_11pro[3] = {0.4, 0.5, 0.1};
-  a3OT_11.setPro(a3OT_11pro);
+  a3OT_11.setProbability(a3OT_11pro);
   float a3OT_20pro[3] = {0.7, 0.2, 0.1};
-  a3OT_20.setPro(a3OT_20pro);
+  a3OT_20.setProbability(a3OT_20pro);
   float a3OT_000pro[3] = {0.8, 0.1, 0.1};
-  a3OT_000.setPro(a3OT_000pro);
+  a3OT_000.setProbability(a3OT_000pro);
   float a3OT_001pro[3] = {0.1, 0.8, 0.1};
-  a3OT_001.setPro(a3OT_001pro);
+  a3OT_001.setProbability(a3OT_001pro);
   float a3OT_002pro[3] = {0.1, 0.8, 0.1};
-  a3OT_002.setPro(a3OT_002pro);
+  a3OT_002.setProbability(a3OT_002pro);
   float a3OT_010pro[3] = {0.6, 0.2, 0.2};
-  a3OT_010.setPro(a3OT_010pro);
+  a3OT_010.setProbability(a3OT_010pro);
   float a3OT_011pro[3] = {0.7, 0.2, 0.1};
-  a3OT_011.setPro(a3OT_011pro);
+  a3OT_011.setProbability(a3OT_011pro);
   float a3OT_012pro[3] = {0.4, 0.5, 0.1};
-  a3OT_012.setPro(a3OT_012pro);
+  a3OT_012.setProbability(a3OT_012pro);
   float a3OT_020pro[3] = {0.7, 0.2, 0.1};
-  a3OT_020.setPro(a3OT_020pro);
+  a3OT_020.setProbability(a3OT_020pro);
   float a3OT_021pro[3] = {0.6, 0.3, 0.1};
-  a3OT_021.setPro(a3OT_021pro);
+  a3OT_021.setProbability(a3OT_021pro);
   float a3OT_100pro[3] = {0.6, 0.3, 0.1};
-  a3OT_100.setPro(a3OT_100pro);
+  a3OT_100.setProbability(a3OT_100pro);
   float a3OT_101pro[3] = {0.1, 0.8, 0.1};
-  a3OT_101.setPro(a3OT_101pro);
+  a3OT_101.setProbability(a3OT_101pro);
   float a3OT_102pro[3] = {0.2, 0.7, 0.1};
-  a3OT_102.setPro(a3OT_102pro);
+  a3OT_102.setProbability(a3OT_102pro);
   float a3OT_110pro[3] = {0.5, 0.4, 0.1};
-  a3OT_110.setPro(a3OT_110pro);
+  a3OT_110.setProbability(a3OT_110pro);
   float a3OT_111pro[3] = {0.2, 0.7, 0.1};
-  a3OT_111.setPro(a3OT_111pro);
+  a3OT_111.setProbability(a3OT_111pro);
   float a3OT_112pro[3] = {0.3, 0.6, 0.1};
-  a3OT_112.setPro(a3OT_112pro);
+  a3OT_112.setProbability(a3OT_112pro);
   float a3OT_120pro[3] = {0.6, 0.3, 0.1};
-  a3OT_120.setPro(a3OT_120pro);
+  a3OT_120.setProbability(a3OT_120pro);
   float a3OT_121pro[3] = {0.3, 0.6, 0.1};
-  a3OT_121.setPro(a3OT_121pro);
+  a3OT_121.setProbability(a3OT_121pro);
   float a3OT_200pro[3] = {0.8, 0.1, 0.1};
-  a3OT_200.setPro(a3OT_200pro);
+  a3OT_200.setProbability(a3OT_200pro);
   float a3OT_201pro[3] = {0.1, 0.8, 0.1};
-  a3OT_201.setPro(a3OT_201pro);
+  a3OT_201.setProbability(a3OT_201pro);
   float a3OT_210pro[3] = {0.7, 0.2, 0.1};
-  a3OT_210.setPro(a3OT_210pro);
+  a3OT_210.setProbability(a3OT_210pro);
   float a3OT_211pro[3] = {0.3, 0.6, 0.1};
-  a3OT_211.setPro(a3OT_211pro);
+  a3OT_211.setProbability(a3OT_211pro);
   float a3OT_0000pro[3] = {0.8, 0.1, 0.1};
-  a3OT_0000.setPro(a3OT_0000pro);
+  a3OT_0000.setProbability(a3OT_0000pro);
   float a3OT_0001pro[3] = {0.1, 0.8, 0.1};
-  a3OT_0001.setPro(a3OT_0001pro);
+  a3OT_0001.setProbability(a3OT_0001pro);
   float a3OT_0002pro[3] = {0.1, 0.8, 0.1};
-  a3OT_0002.setPro(a3OT_0002pro);
+  a3OT_0002.setProbability(a3OT_0002pro);
   float a3OT_0010pro[3] = {0.6, 0.2, 0.2};
-  a3OT_0010.setPro(a3OT_0010pro);
+  a3OT_0010.setProbability(a3OT_0010pro);
   float a3OT_0011pro[3] = {0.7, 0.2, 0.1};
-  a3OT_0011.setPro(a3OT_0011pro);
+  a3OT_0011.setProbability(a3OT_0011pro);
   float a3OT_0012pro[3] = {0.4, 0.5, 0.1};
-  a3OT_0012.setPro(a3OT_0012pro);
+  a3OT_0012.setProbability(a3OT_0012pro);
   float a3OT_0020pro[3] = {0.7, 0.2, 0.1};
-  a3OT_0020.setPro(a3OT_0020pro);
+  a3OT_0020.setProbability(a3OT_0020pro);
   float a3OT_0021pro[3] = {0.6, 0.3, 0.1};
-  a3OT_0021.setPro(a3OT_0021pro);
+  a3OT_0021.setProbability(a3OT_0021pro);
   float a3OT_0100pro[3] = {0.6, 0.3, 0.1};
-  a3OT_0100.setPro(a3OT_0100pro);
+  a3OT_0100.setProbability(a3OT_0100pro);
   float a3OT_0101pro[3] = {0.1, 0.8, 0.1};
-  a3OT_0101.setPro(a3OT_0101pro);
+  a3OT_0101.setProbability(a3OT_0101pro);
   float a3OT_0102pro[3] = {0.2, 0.7, 0.1};
-  a3OT_0102.setPro(a3OT_0102pro);
+  a3OT_0102.setProbability(a3OT_0102pro);
   float a3OT_0110pro[3] = {0.5, 0.4, 0.1};
-  a3OT_0110.setPro(a3OT_0110pro);
+  a3OT_0110.setProbability(a3OT_0110pro);
   float a3OT_0111pro[3] = {0.2, 0.7, 0.1};
-  a3OT_0111.setPro(a3OT_0111pro);
+  a3OT_0111.setProbability(a3OT_0111pro);
   float a3OT_0112pro[3] = {0.3, 0.6, 0.1};
-  a3OT_0112.setPro(a3OT_0112pro);
+  a3OT_0112.setProbability(a3OT_0112pro);
   float a3OT_0120pro[3] = {0.6, 0.3, 0.1};
-  a3OT_0120.setPro(a3OT_0120pro);
+  a3OT_0120.setProbability(a3OT_0120pro);
   float a3OT_0121pro[3] = {0.3, 0.6, 0.1};
-  a3OT_0121.setPro(a3OT_0121pro);
+  a3OT_0121.setProbability(a3OT_0121pro);
   float a3OT_0200pro[3] = {0.8, 0.1, 0.1};
-  a3OT_0200.setPro(a3OT_0200pro);
+  a3OT_0200.setProbability(a3OT_0200pro);
   float a3OT_0201pro[3] = {0.1, 0.8, 0.1};
-  a3OT_0201.setPro(a3OT_0201pro);
+  a3OT_0201.setProbability(a3OT_0201pro);
   float a3OT_0210pro[3] = {0.7, 0.2, 0.1};
-  a3OT_0210.setPro(a3OT_0210pro);
+  a3OT_0210.setProbability(a3OT_0210pro);
   float a3OT_0211pro[3] = {0.3, 0.6, 0.1};
-  a3OT_0211.setPro(a3OT_0211pro);
+  a3OT_0211.setProbability(a3OT_0211pro);
   float a3OT_1000pro[3] = {0.8, 0.1, 0.1};
-  a3OT_1000.setPro(a3OT_1000pro);
+  a3OT_1000.setProbability(a3OT_1000pro);
   float a3OT_1001pro[3] = {0.1, 0.8, 0.1};
-  a3OT_1001.setPro(a3OT_1001pro);
+  a3OT_1001.setProbability(a3OT_1001pro);
   float a3OT_1002pro[3] = {0.1, 0.8, 0.1};
-  a3OT_1002.setPro(a3OT_1002pro);
+  a3OT_1002.setProbability(a3OT_1002pro);
   float a3OT_1010pro[3] = {0.6, 0.2, 0.2};
-  a3OT_1010.setPro(a3OT_1010pro);
+  a3OT_1010.setProbability(a3OT_1010pro);
   float a3OT_1011pro[3] = {0.7, 0.2, 0.1};
-  a3OT_1011.setPro(a3OT_1011pro);
+  a3OT_1011.setProbability(a3OT_1011pro);
   float a3OT_1012pro[3] = {0.4, 0.5, 0.1};
-  a3OT_1012.setPro(a3OT_1012pro);
+  a3OT_1012.setProbability(a3OT_1012pro);
   float a3OT_1020pro[3] = {0.7, 0.2, 0.1};
-  a3OT_1020.setPro(a3OT_1020pro);
+  a3OT_1020.setProbability(a3OT_1020pro);
   float a3OT_1021pro[3] = {0.6, 0.3, 0.1};
-  a3OT_1021.setPro(a3OT_1021pro);
+  a3OT_1021.setProbability(a3OT_1021pro);
   float a3OT_1100pro[3] = {0.6, 0.3, 0.1};
-  a3OT_1100.setPro(a3OT_1100pro);
+  a3OT_1100.setProbability(a3OT_1100pro);
   float a3OT_1101pro[3] = {0.1, 0.8, 0.1};
-  a3OT_1101.setPro(a3OT_1101pro);
+  a3OT_1101.setProbability(a3OT_1101pro);
   float a3OT_1102pro[3] = {0.2, 0.7, 0.1};
-  a3OT_1102.setPro(a3OT_1102pro);
+  a3OT_1102.setProbability(a3OT_1102pro);
   float a3OT_1110pro[3] = {0.5, 0.4, 0.1};
-  a3OT_1110.setPro(a3OT_1110pro);
+  a3OT_1110.setProbability(a3OT_1110pro);
   float a3OT_1111pro[3] = {0.2, 0.7, 0.1};
-  a3OT_1111.setPro(a3OT_1111pro);
+  a3OT_1111.setProbability(a3OT_1111pro);
   float a3OT_1112pro[3] = {0.3, 0.6, 0.1};
-  a3OT_1112.setPro(a3OT_1112pro);
+  a3OT_1112.setProbability(a3OT_1112pro);
   float a3OT_1120pro[3] = {0.6, 0.3, 0.1};
-  a3OT_1120.setPro(a3OT_1120pro);
+  a3OT_1120.setProbability(a3OT_1120pro);
   float a3OT_1121pro[3] = {0.3, 0.6, 0.1};
-  a3OT_1121.setPro(a3OT_1121pro);
+  a3OT_1121.setProbability(a3OT_1121pro);
   float a3OT_1200pro[3] = {0.8, 0.1, 0.1};
-  a3OT_1200.setPro(a3OT_1200pro);
+  a3OT_1200.setProbability(a3OT_1200pro);
   float a3OT_1201pro[3] = {0.1, 0.8, 0.1};
-  a3OT_1201.setPro(a3OT_1201pro);
+  a3OT_1201.setProbability(a3OT_1201pro);
   float a3OT_1210pro[3] = {0.7, 0.2, 0.1};
-  a3OT_1210.setPro(a3OT_1210pro);
+  a3OT_1210.setProbability(a3OT_1210pro);
   float a3OT_1211pro[3] = {0.3, 0.6, 0.1};
-  a3OT_1211.setPro(a3OT_1211pro);
+  a3OT_1211.setProbability(a3OT_1211pro);
   float a3OT_2000pro[3] = {0.8, 0.1, 0.1};
-  a3OT_2000.setPro(a3OT_2000pro);
+  a3OT_2000.setProbability(a3OT_2000pro);
   float a3OT_2001pro[3] = {0.1, 0.8, 0.1};
-  a3OT_2001.setPro(a3OT_2001pro);
+  a3OT_2001.setProbability(a3OT_2001pro);
   float a3OT_2002pro[3] = {0.1, 0.8, 0.1};
-  a3OT_2002.setPro(a3OT_2002pro);
+  a3OT_2002.setProbability(a3OT_2002pro);
   float a3OT_2010pro[3] = {0.6, 0.2, 0.2};
-  a3OT_2010.setPro(a3OT_2010pro);
+  a3OT_2010.setProbability(a3OT_2010pro);
   float a3OT_2011pro[3] = {0.7, 0.2, 0.1};
-  a3OT_2011.setPro(a3OT_2011pro);
+  a3OT_2011.setProbability(a3OT_2011pro);
   float a3OT_2012pro[3] = {0.4, 0.5, 0.1};
-  a3OT_2012.setPro(a3OT_2012pro);
+  a3OT_2012.setProbability(a3OT_2012pro);
   float a3OT_2020pro[3] = {0.7, 0.2, 0.1};
-  a3OT_2020.setPro(a3OT_2020pro);
+  a3OT_2020.setProbability(a3OT_2020pro);
   float a3OT_2021pro[3] = {0.6, 0.3, 0.1};
-  a3OT_2021.setPro(a3OT_2021pro);
+  a3OT_2021.setProbability(a3OT_2021pro);
   float a3OT_2100pro[3] = {0.6, 0.3, 0.1};
-  a3OT_2100.setPro(a3OT_2100pro);
+  a3OT_2100.setProbability(a3OT_2100pro);
   float a3OT_2101pro[3] = {0.1, 0.8, 0.1};
-  a3OT_2101.setPro(a3OT_2101pro);
+  a3OT_2101.setProbability(a3OT_2101pro);
   float a3OT_2102pro[3] = {0.2, 0.7, 0.1};
-  a3OT_2102.setPro(a3OT_2102pro);
+  a3OT_2102.setProbability(a3OT_2102pro);
   float a3OT_2110pro[3] = {0.5, 0.4, 0.1};
-  a3OT_2110.setPro(a3OT_2110pro);
+  a3OT_2110.setProbability(a3OT_2110pro);
   float a3OT_2111pro[3] = {0.2, 0.7, 0.1};
-  a3OT_2111.setPro(a3OT_2111pro);
+  a3OT_2111.setProbability(a3OT_2111pro);
   float a3OT_2112pro[3] = {0.3, 0.6, 0.1};
-  a3OT_2112.setPro(a3OT_2112pro);
+  a3OT_2112.setProbability(a3OT_2112pro);
   float a3OT_2120pro[3] = {0.6, 0.3, 0.1};
-  a3OT_2120.setPro(a3OT_2120pro);
+  a3OT_2120.setProbability(a3OT_2120pro);
   float a3OT_2121pro[3] = {0.3, 0.6, 0.1};
-  a3OT_2121.setPro(a3OT_2121pro);
+  a3OT_2121.setProbability(a3OT_2121pro);
   float a3OT_2200pro[3] = {0.8, 0.1, 0.1};
-  a3OT_2200.setPro(a3OT_2200pro);
+  a3OT_2200.setProbability(a3OT_2200pro);
   float a3OT_2201pro[3] = {0.1, 0.8, 0.1};
-  a3OT_2201.setPro(a3OT_2201pro);
+  a3OT_2201.setProbability(a3OT_2201pro);
   float a3OT_2210pro[3] = {0.7, 0.2, 0.1};
-  a3OT_2210.setPro(a3OT_2210pro);
+  a3OT_2210.setProbability(a3OT_2210pro);
   float a3OT_2211pro[3] = {0.3, 0.6, 0.1};
-  a3OT_2211.setPro(a3OT_2211pro);
+  a3OT_2211.setProbability(a3OT_2211pro);
 
   aMSC_L.reset();
   aMSC_A.reset();
@@ -3193,2310 +3193,2306 @@ void reset_arithmetic()
   position_K = 9;
 }
 
-void save_3OT()
-{
-  for (int i = 0; i < a3OT_L.data_symbols; i++)
-    a3OT_L.distribution_forbidden[i] = a3OT_L.symbol_count[i];
-  a3OT_L.pre_count = a3OT_L.total_count;
-  for (int i = 0; i < a3OT_A.data_symbols; i++)
-    a3OT_A.distribution_forbidden[i] = a3OT_A.symbol_count[i];
-  a3OT_A.pre_count = a3OT_A.total_count;
-  for (int i = 0; i < a3OT_B.data_symbols; i++)
-    a3OT_B.distribution_forbidden[i] = a3OT_B.symbol_count[i];
-  a3OT_B.pre_count = a3OT_B.total_count;
-  for (int i = 0; i < a3OT_R.data_symbols; i++)
-    a3OT_R.distribution_forbidden[i] = a3OT_R.symbol_count[i];
-  a3OT_R.pre_count = a3OT_R.total_count;
-  for (int i = 0; i < a3OT_I.data_symbols; i++)
-    a3OT_I.distribution_forbidden[i] = a3OT_I.symbol_count[i];
-  a3OT_I.pre_count = a3OT_I.total_count;
-  for (int i = 0; i < a3OT_0.data_symbols; i++)
-    a3OT_0.distribution_forbidden[i] = a3OT_0.symbol_count[i];
-  a3OT_0.pre_count = a3OT_0.total_count;
-  for (int i = 0; i < a3OT_1.data_symbols; i++)
-    a3OT_1.distribution_forbidden[i] = a3OT_1.symbol_count[i];
-  a3OT_1.pre_count = a3OT_1.total_count;
-  for (int i = 0; i < a3OT_2.data_symbols; i++)
-    a3OT_2.distribution_forbidden[i] = a3OT_2.symbol_count[i];
-  a3OT_2.pre_count = a3OT_2.total_count;
-  for (int i = 0; i < a3OT_00.data_symbols; i++)
-    a3OT_00.distribution_forbidden[i] = a3OT_00.symbol_count[i];
-  a3OT_00.pre_count = a3OT_00.total_count;
-  for (int i = 0; i < a3OT_01.data_symbols; i++)
-    a3OT_01.distribution_forbidden[i] = a3OT_01.symbol_count[i];
-  a3OT_01.pre_count = a3OT_01.total_count;
-  for (int i = 0; i < a3OT_02.data_symbols; i++)
-    a3OT_02.distribution_forbidden[i] = a3OT_02.symbol_count[i];
-  a3OT_02.pre_count = a3OT_02.total_count;
-  for (int i = 0; i < a3OT_10.data_symbols; i++)
-    a3OT_10.distribution_forbidden[i] = a3OT_10.symbol_count[i];
-  a3OT_10.pre_count = a3OT_10.total_count;
-  for (int i = 0; i < a3OT_11.data_symbols; i++)
-    a3OT_11.distribution_forbidden[i] = a3OT_11.symbol_count[i];
-  a3OT_11.pre_count = a3OT_11.total_count;
-  for (int i = 0; i < a3OT_12.data_symbols; i++)
-    a3OT_12.distribution_forbidden[i] = a3OT_12.symbol_count[i];
-  a3OT_12.pre_count = a3OT_12.total_count;
-  for (int i = 0; i < a3OT_20.data_symbols; i++)
-    a3OT_20.distribution_forbidden[i] = a3OT_20.symbol_count[i];
-  a3OT_20.pre_count = a3OT_20.total_count;
-  for (int i = 0; i < a3OT_21.data_symbols; i++)
-    a3OT_21.distribution_forbidden[i] = a3OT_21.symbol_count[i];
-  a3OT_21.pre_count = a3OT_21.total_count;
-  for (int i = 0; i < a3OT_22.data_symbols; i++)
-    a3OT_22.distribution_forbidden[i] = a3OT_22.symbol_count[i];
-  a3OT_22.pre_count = a3OT_22.total_count;
-  for (int i = 0; i < a3OT_000.data_symbols; i++)
-    a3OT_000.distribution_forbidden[i] = a3OT_000.symbol_count[i];
-  a3OT_000.pre_count = a3OT_000.total_count;
-  for (int i = 0; i < a3OT_001.data_symbols; i++)
-    a3OT_001.distribution_forbidden[i] = a3OT_001.symbol_count[i];
-  a3OT_001.pre_count = a3OT_001.total_count;
-  for (int i = 0; i < a3OT_002.data_symbols; i++)
-    a3OT_002.distribution_forbidden[i] = a3OT_002.symbol_count[i];
-  a3OT_002.pre_count = a3OT_002.total_count;
-  for (int i = 0; i < a3OT_010.data_symbols; i++)
-    a3OT_010.distribution_forbidden[i] = a3OT_010.symbol_count[i];
-  a3OT_010.pre_count = a3OT_010.total_count;
-  for (int i = 0; i < a3OT_011.data_symbols; i++)
-    a3OT_011.distribution_forbidden[i] = a3OT_011.symbol_count[i];
-  a3OT_011.pre_count = a3OT_011.total_count;
-  for (int i = 0; i < a3OT_012.data_symbols; i++)
-    a3OT_012.distribution_forbidden[i] = a3OT_012.symbol_count[i];
-  a3OT_012.pre_count = a3OT_012.total_count;
-  for (int i = 0; i < a3OT_020.data_symbols; i++)
-    a3OT_020.distribution_forbidden[i] = a3OT_020.symbol_count[i];
-  a3OT_020.pre_count = a3OT_020.total_count;
-  for (int i = 0; i < a3OT_021.data_symbols; i++)
-    a3OT_021.distribution_forbidden[i] = a3OT_021.symbol_count[i];
-  a3OT_021.pre_count = a3OT_021.total_count;
-  for (int i = 0; i < a3OT_022.data_symbols; i++)
-    a3OT_022.distribution_forbidden[i] = a3OT_022.symbol_count[i];
-  a3OT_022.pre_count = a3OT_022.total_count;
-  for (int i = 0; i < a3OT_100.data_symbols; i++)
-    a3OT_100.distribution_forbidden[i] = a3OT_100.symbol_count[i];
-  a3OT_100.pre_count = a3OT_100.total_count;
-  for (int i = 0; i < a3OT_101.data_symbols; i++)
-    a3OT_101.distribution_forbidden[i] = a3OT_101.symbol_count[i];
-  a3OT_101.pre_count = a3OT_101.total_count;
-  for (int i = 0; i < a3OT_102.data_symbols; i++)
-    a3OT_102.distribution_forbidden[i] = a3OT_102.symbol_count[i];
-  a3OT_102.pre_count = a3OT_102.total_count;
-  for (int i = 0; i < a3OT_110.data_symbols; i++)
-    a3OT_110.distribution_forbidden[i] = a3OT_110.symbol_count[i];
-  a3OT_110.pre_count = a3OT_110.total_count;
-  for (int i = 0; i < a3OT_111.data_symbols; i++)
-    a3OT_111.distribution_forbidden[i] = a3OT_111.symbol_count[i];
-  a3OT_111.pre_count = a3OT_111.total_count;
-  for (int i = 0; i < a3OT_112.data_symbols; i++)
-    a3OT_112.distribution_forbidden[i] = a3OT_112.symbol_count[i];
-  a3OT_112.pre_count = a3OT_112.total_count;
-  for (int i = 0; i < a3OT_120.data_symbols; i++)
-    a3OT_120.distribution_forbidden[i] = a3OT_120.symbol_count[i];
-  a3OT_120.pre_count = a3OT_120.total_count;
-  for (int i = 0; i < a3OT_121.data_symbols; i++)
-    a3OT_121.distribution_forbidden[i] = a3OT_121.symbol_count[i];
-  a3OT_121.pre_count = a3OT_121.total_count;
-  for (int i = 0; i < a3OT_122.data_symbols; i++)
-    a3OT_122.distribution_forbidden[i] = a3OT_122.symbol_count[i];
-  a3OT_122.pre_count = a3OT_122.total_count;
-  for (int i = 0; i < a3OT_200.data_symbols; i++)
-    a3OT_200.distribution_forbidden[i] = a3OT_200.symbol_count[i];
-  a3OT_200.pre_count = a3OT_200.total_count;
-  for (int i = 0; i < a3OT_201.data_symbols; i++)
-    a3OT_201.distribution_forbidden[i] = a3OT_201.symbol_count[i];
-  a3OT_201.pre_count = a3OT_201.total_count;
-  for (int i = 0; i < a3OT_202.data_symbols; i++)
-    a3OT_202.distribution_forbidden[i] = a3OT_202.symbol_count[i];
-  a3OT_202.pre_count = a3OT_202.total_count;
-  for (int i = 0; i < a3OT_210.data_symbols; i++)
-    a3OT_210.distribution_forbidden[i] = a3OT_210.symbol_count[i];
-  a3OT_210.pre_count = a3OT_210.total_count;
-  for (int i = 0; i < a3OT_211.data_symbols; i++)
-    a3OT_211.distribution_forbidden[i] = a3OT_211.symbol_count[i];
-  a3OT_211.pre_count = a3OT_211.total_count;
-  for (int i = 0; i < a3OT_212.data_symbols; i++)
-    a3OT_212.distribution_forbidden[i] = a3OT_212.symbol_count[i];
-  a3OT_212.pre_count = a3OT_212.total_count;
-  for (int i = 0; i < a3OT_220.data_symbols; i++)
-    a3OT_220.distribution_forbidden[i] = a3OT_220.symbol_count[i];
-  a3OT_220.pre_count = a3OT_220.total_count;
-  for (int i = 0; i < a3OT_221.data_symbols; i++)
-    a3OT_221.distribution_forbidden[i] = a3OT_221.symbol_count[i];
-  a3OT_221.pre_count = a3OT_221.total_count;
-  for (int i = 0; i < a3OT_222.data_symbols; i++)
-    a3OT_222.distribution_forbidden[i] = a3OT_222.symbol_count[i];
-  a3OT_222.pre_count = a3OT_222.total_count;
-  for (int i = 0; i < a3OT_0000.data_symbols; i++)
-    a3OT_0000.distribution_forbidden[i] = a3OT_0000.symbol_count[i];
-  a3OT_0000.pre_count = a3OT_0000.total_count;
-  for (int i = 0; i < a3OT_0001.data_symbols; i++)
-    a3OT_0001.distribution_forbidden[i] = a3OT_0001.symbol_count[i];
-  a3OT_0001.pre_count = a3OT_0001.total_count;
-  for (int i = 0; i < a3OT_0002.data_symbols; i++)
-    a3OT_0002.distribution_forbidden[i] = a3OT_0002.symbol_count[i];
-  a3OT_0002.pre_count = a3OT_0002.total_count;
-  for (int i = 0; i < a3OT_0010.data_symbols; i++)
-    a3OT_0010.distribution_forbidden[i] = a3OT_0010.symbol_count[i];
-  a3OT_0010.pre_count = a3OT_0010.total_count;
-  for (int i = 0; i < a3OT_0011.data_symbols; i++)
-    a3OT_0011.distribution_forbidden[i] = a3OT_0011.symbol_count[i];
-  a3OT_0011.pre_count = a3OT_0011.total_count;
-  for (int i = 0; i < a3OT_0012.data_symbols; i++)
-    a3OT_0012.distribution_forbidden[i] = a3OT_0012.symbol_count[i];
-  a3OT_0012.pre_count = a3OT_0012.total_count;
-  for (int i = 0; i < a3OT_0020.data_symbols; i++)
-    a3OT_0020.distribution_forbidden[i] = a3OT_0020.symbol_count[i];
-  a3OT_0020.pre_count = a3OT_0020.total_count;
-  for (int i = 0; i < a3OT_0021.data_symbols; i++)
-    a3OT_0021.distribution_forbidden[i] = a3OT_0021.symbol_count[i];
-  a3OT_0021.pre_count = a3OT_0021.total_count;
-  for (int i = 0; i < a3OT_0022.data_symbols; i++)
-    a3OT_0022.distribution_forbidden[i] = a3OT_0022.symbol_count[i];
-  a3OT_0022.pre_count = a3OT_0022.total_count;
-  for (int i = 0; i < a3OT_0100.data_symbols; i++)
-    a3OT_0100.distribution_forbidden[i] = a3OT_0100.symbol_count[i];
-  a3OT_0100.pre_count = a3OT_0100.total_count;
-  for (int i = 0; i < a3OT_0101.data_symbols; i++)
-    a3OT_0101.distribution_forbidden[i] = a3OT_0101.symbol_count[i];
-  a3OT_0101.pre_count = a3OT_0101.total_count;
-  for (int i = 0; i < a3OT_0102.data_symbols; i++)
-    a3OT_0102.distribution_forbidden[i] = a3OT_0102.symbol_count[i];
-  a3OT_0102.pre_count = a3OT_0102.total_count;
-  for (int i = 0; i < a3OT_0110.data_symbols; i++)
-    a3OT_0110.distribution_forbidden[i] = a3OT_0110.symbol_count[i];
-  a3OT_0110.pre_count = a3OT_0110.total_count;
-  for (int i = 0; i < a3OT_0111.data_symbols; i++)
-    a3OT_0111.distribution_forbidden[i] = a3OT_0111.symbol_count[i];
-  a3OT_0111.pre_count = a3OT_0111.total_count;
-  for (int i = 0; i < a3OT_0112.data_symbols; i++)
-    a3OT_0112.distribution_forbidden[i] = a3OT_0112.symbol_count[i];
-  a3OT_0112.pre_count = a3OT_0112.total_count;
-  for (int i = 0; i < a3OT_0120.data_symbols; i++)
-    a3OT_0120.distribution_forbidden[i] = a3OT_0120.symbol_count[i];
-  a3OT_0120.pre_count = a3OT_0120.total_count;
-  for (int i = 0; i < a3OT_0121.data_symbols; i++)
-    a3OT_0121.distribution_forbidden[i] = a3OT_0121.symbol_count[i];
-  a3OT_0121.pre_count = a3OT_0121.total_count;
-  for (int i = 0; i < a3OT_0122.data_symbols; i++)
-    a3OT_0122.distribution_forbidden[i] = a3OT_0122.symbol_count[i];
-  a3OT_0122.pre_count = a3OT_0122.total_count;
-  for (int i = 0; i < a3OT_0200.data_symbols; i++)
-    a3OT_0200.distribution_forbidden[i] = a3OT_0200.symbol_count[i];
-  a3OT_0200.pre_count = a3OT_0200.total_count;
-  for (int i = 0; i < a3OT_0201.data_symbols; i++)
-    a3OT_0201.distribution_forbidden[i] = a3OT_0201.symbol_count[i];
-  a3OT_0201.pre_count = a3OT_0201.total_count;
-  for (int i = 0; i < a3OT_0202.data_symbols; i++)
-    a3OT_0202.distribution_forbidden[i] = a3OT_0202.symbol_count[i];
-  a3OT_0202.pre_count = a3OT_0202.total_count;
-  for (int i = 0; i < a3OT_0210.data_symbols; i++)
-    a3OT_0210.distribution_forbidden[i] = a3OT_0210.symbol_count[i];
-  a3OT_0210.pre_count = a3OT_0210.total_count;
-  for (int i = 0; i < a3OT_0211.data_symbols; i++)
-    a3OT_0211.distribution_forbidden[i] = a3OT_0211.symbol_count[i];
-  a3OT_0211.pre_count = a3OT_0211.total_count;
-  for (int i = 0; i < a3OT_0212.data_symbols; i++)
-    a3OT_0212.distribution_forbidden[i] = a3OT_0212.symbol_count[i];
-  a3OT_0212.pre_count = a3OT_0212.total_count;
-  for (int i = 0; i < a3OT_0220.data_symbols; i++)
-    a3OT_0220.distribution_forbidden[i] = a3OT_0220.symbol_count[i];
-  a3OT_0220.pre_count = a3OT_0220.total_count;
-  for (int i = 0; i < a3OT_0221.data_symbols; i++)
-    a3OT_0221.distribution_forbidden[i] = a3OT_0221.symbol_count[i];
-  a3OT_0221.pre_count = a3OT_0221.total_count;
-  for (int i = 0; i < a3OT_0222.data_symbols; i++)
-    a3OT_0222.distribution_forbidden[i] = a3OT_0222.symbol_count[i];
-  a3OT_0222.pre_count = a3OT_0222.total_count;
-  for (int i = 0; i < a3OT_1000.data_symbols; i++)
-    a3OT_1000.distribution_forbidden[i] = a3OT_1000.symbol_count[i];
-  a3OT_1000.pre_count = a3OT_1000.total_count;
-  for (int i = 0; i < a3OT_1001.data_symbols; i++)
-    a3OT_1001.distribution_forbidden[i] = a3OT_1001.symbol_count[i];
-  a3OT_1001.pre_count = a3OT_1001.total_count;
-  for (int i = 0; i < a3OT_1002.data_symbols; i++)
-    a3OT_1002.distribution_forbidden[i] = a3OT_1002.symbol_count[i];
-  a3OT_1002.pre_count = a3OT_1002.total_count;
-  for (int i = 0; i < a3OT_1010.data_symbols; i++)
-    a3OT_1010.distribution_forbidden[i] = a3OT_1010.symbol_count[i];
-  a3OT_1010.pre_count = a3OT_1010.total_count;
-  for (int i = 0; i < a3OT_1011.data_symbols; i++)
-    a3OT_1011.distribution_forbidden[i] = a3OT_1011.symbol_count[i];
-  a3OT_1011.pre_count = a3OT_1011.total_count;
-  for (int i = 0; i < a3OT_1012.data_symbols; i++)
-    a3OT_1012.distribution_forbidden[i] = a3OT_1012.symbol_count[i];
-  a3OT_1012.pre_count = a3OT_1012.total_count;
-  for (int i = 0; i < a3OT_1020.data_symbols; i++)
-    a3OT_1020.distribution_forbidden[i] = a3OT_1020.symbol_count[i];
-  a3OT_1020.pre_count = a3OT_1020.total_count;
-  for (int i = 0; i < a3OT_1021.data_symbols; i++)
-    a3OT_1021.distribution_forbidden[i] = a3OT_1021.symbol_count[i];
-  a3OT_1021.pre_count = a3OT_1021.total_count;
-  for (int i = 0; i < a3OT_1022.data_symbols; i++)
-    a3OT_1022.distribution_forbidden[i] = a3OT_1022.symbol_count[i];
-  a3OT_1022.pre_count = a3OT_1022.total_count;
-  for (int i = 0; i < a3OT_1100.data_symbols; i++)
-    a3OT_1100.distribution_forbidden[i] = a3OT_1100.symbol_count[i];
-  a3OT_1100.pre_count = a3OT_1100.total_count;
-  for (int i = 0; i < a3OT_1101.data_symbols; i++)
-    a3OT_1101.distribution_forbidden[i] = a3OT_1101.symbol_count[i];
-  a3OT_1101.pre_count = a3OT_1101.total_count;
-  for (int i = 0; i < a3OT_1102.data_symbols; i++)
-    a3OT_1102.distribution_forbidden[i] = a3OT_1102.symbol_count[i];
-  a3OT_1102.pre_count = a3OT_1102.total_count;
-  for (int i = 0; i < a3OT_1110.data_symbols; i++)
-    a3OT_1110.distribution_forbidden[i] = a3OT_1110.symbol_count[i];
-  a3OT_1110.pre_count = a3OT_1110.total_count;
-  for (int i = 0; i < a3OT_1111.data_symbols; i++)
-    a3OT_1111.distribution_forbidden[i] = a3OT_1111.symbol_count[i];
-  a3OT_1111.pre_count = a3OT_1111.total_count;
-  for (int i = 0; i < a3OT_1112.data_symbols; i++)
-    a3OT_1112.distribution_forbidden[i] = a3OT_1112.symbol_count[i];
-  a3OT_1112.pre_count = a3OT_1112.total_count;
-  for (int i = 0; i < a3OT_1120.data_symbols; i++)
-    a3OT_1120.distribution_forbidden[i] = a3OT_1120.symbol_count[i];
-  a3OT_1120.pre_count = a3OT_1120.total_count;
-  for (int i = 0; i < a3OT_1121.data_symbols; i++)
-    a3OT_1121.distribution_forbidden[i] = a3OT_1121.symbol_count[i];
-  a3OT_1121.pre_count = a3OT_1121.total_count;
-  for (int i = 0; i < a3OT_1122.data_symbols; i++)
-    a3OT_1122.distribution_forbidden[i] = a3OT_1122.symbol_count[i];
-  a3OT_1122.pre_count = a3OT_1122.total_count;
-  for (int i = 0; i < a3OT_1200.data_symbols; i++)
-    a3OT_1200.distribution_forbidden[i] = a3OT_1200.symbol_count[i];
-  a3OT_1200.pre_count = a3OT_1200.total_count;
-  for (int i = 0; i < a3OT_1201.data_symbols; i++)
-    a3OT_1201.distribution_forbidden[i] = a3OT_1201.symbol_count[i];
-  a3OT_1201.pre_count = a3OT_1201.total_count;
-  for (int i = 0; i < a3OT_1202.data_symbols; i++)
-    a3OT_1202.distribution_forbidden[i] = a3OT_1202.symbol_count[i];
-  a3OT_1202.pre_count = a3OT_1202.total_count;
-  for (int i = 0; i < a3OT_1210.data_symbols; i++)
-    a3OT_1210.distribution_forbidden[i] = a3OT_1210.symbol_count[i];
-  a3OT_1210.pre_count = a3OT_1210.total_count;
-  for (int i = 0; i < a3OT_1211.data_symbols; i++)
-    a3OT_1211.distribution_forbidden[i] = a3OT_1211.symbol_count[i];
-  a3OT_1211.pre_count = a3OT_1211.total_count;
-  for (int i = 0; i < a3OT_1212.data_symbols; i++)
-    a3OT_1212.distribution_forbidden[i] = a3OT_1212.symbol_count[i];
-  a3OT_1212.pre_count = a3OT_1212.total_count;
-  for (int i = 0; i < a3OT_1220.data_symbols; i++)
-    a3OT_1220.distribution_forbidden[i] = a3OT_1220.symbol_count[i];
-  a3OT_1220.pre_count = a3OT_1220.total_count;
-  for (int i = 0; i < a3OT_1221.data_symbols; i++)
-    a3OT_1221.distribution_forbidden[i] = a3OT_1221.symbol_count[i];
-  a3OT_1221.pre_count = a3OT_1221.total_count;
-  for (int i = 0; i < a3OT_1222.data_symbols; i++)
-    a3OT_1222.distribution_forbidden[i] = a3OT_1222.symbol_count[i];
-  a3OT_1222.pre_count = a3OT_1222.total_count;
-  for (int i = 0; i < a3OT_2000.data_symbols; i++)
-    a3OT_2000.distribution_forbidden[i] = a3OT_2000.symbol_count[i];
-  a3OT_2000.pre_count = a3OT_2000.total_count;
-  for (int i = 0; i < a3OT_2001.data_symbols; i++)
-    a3OT_2001.distribution_forbidden[i] = a3OT_2001.symbol_count[i];
-  a3OT_2001.pre_count = a3OT_2001.total_count;
-  for (int i = 0; i < a3OT_2002.data_symbols; i++)
-    a3OT_2002.distribution_forbidden[i] = a3OT_2002.symbol_count[i];
-  a3OT_2002.pre_count = a3OT_2002.total_count;
-  for (int i = 0; i < a3OT_2010.data_symbols; i++)
-    a3OT_2010.distribution_forbidden[i] = a3OT_2010.symbol_count[i];
-  a3OT_2010.pre_count = a3OT_2010.total_count;
-  for (int i = 0; i < a3OT_2011.data_symbols; i++)
-    a3OT_2011.distribution_forbidden[i] = a3OT_2011.symbol_count[i];
-  a3OT_2011.pre_count = a3OT_2011.total_count;
-  for (int i = 0; i < a3OT_2012.data_symbols; i++)
-    a3OT_2012.distribution_forbidden[i] = a3OT_2012.symbol_count[i];
-  a3OT_2012.pre_count = a3OT_2012.total_count;
-  for (int i = 0; i < a3OT_2020.data_symbols; i++)
-    a3OT_2020.distribution_forbidden[i] = a3OT_2020.symbol_count[i];
-  a3OT_2020.pre_count = a3OT_2020.total_count;
-  for (int i = 0; i < a3OT_2021.data_symbols; i++)
-    a3OT_2021.distribution_forbidden[i] = a3OT_2021.symbol_count[i];
-  a3OT_2021.pre_count = a3OT_2021.total_count;
-  for (int i = 0; i < a3OT_2022.data_symbols; i++)
-    a3OT_2022.distribution_forbidden[i] = a3OT_2022.symbol_count[i];
-  a3OT_2022.pre_count = a3OT_2022.total_count;
-  for (int i = 0; i < a3OT_2100.data_symbols; i++)
-    a3OT_2100.distribution_forbidden[i] = a3OT_2100.symbol_count[i];
-  a3OT_2100.pre_count = a3OT_2100.total_count;
-  for (int i = 0; i < a3OT_2101.data_symbols; i++)
-    a3OT_2101.distribution_forbidden[i] = a3OT_2101.symbol_count[i];
-  a3OT_2101.pre_count = a3OT_2101.total_count;
-  for (int i = 0; i < a3OT_2102.data_symbols; i++)
-    a3OT_2102.distribution_forbidden[i] = a3OT_2102.symbol_count[i];
-  a3OT_2102.pre_count = a3OT_2102.total_count;
-  for (int i = 0; i < a3OT_2110.data_symbols; i++)
-    a3OT_2110.distribution_forbidden[i] = a3OT_2110.symbol_count[i];
-  a3OT_2110.pre_count = a3OT_2110.total_count;
-  for (int i = 0; i < a3OT_2111.data_symbols; i++)
-    a3OT_2111.distribution_forbidden[i] = a3OT_2111.symbol_count[i];
-  a3OT_2111.pre_count = a3OT_2111.total_count;
-  for (int i = 0; i < a3OT_2112.data_symbols; i++)
-    a3OT_2112.distribution_forbidden[i] = a3OT_2112.symbol_count[i];
-  a3OT_2112.pre_count = a3OT_2112.total_count;
-  for (int i = 0; i < a3OT_2120.data_symbols; i++)
-    a3OT_2120.distribution_forbidden[i] = a3OT_2120.symbol_count[i];
-  a3OT_2120.pre_count = a3OT_2120.total_count;
-  for (int i = 0; i < a3OT_2121.data_symbols; i++)
-    a3OT_2121.distribution_forbidden[i] = a3OT_2121.symbol_count[i];
-  a3OT_2121.pre_count = a3OT_2121.total_count;
-  for (int i = 0; i < a3OT_2122.data_symbols; i++)
-    a3OT_2122.distribution_forbidden[i] = a3OT_2122.symbol_count[i];
-  a3OT_2122.pre_count = a3OT_2122.total_count;
-  for (int i = 0; i < a3OT_2200.data_symbols; i++)
-    a3OT_2200.distribution_forbidden[i] = a3OT_2200.symbol_count[i];
-  a3OT_2200.pre_count = a3OT_2200.total_count;
-  for (int i = 0; i < a3OT_2201.data_symbols; i++)
-    a3OT_2201.distribution_forbidden[i] = a3OT_2201.symbol_count[i];
-  a3OT_2201.pre_count = a3OT_2201.total_count;
-  for (int i = 0; i < a3OT_2202.data_symbols; i++)
-    a3OT_2202.distribution_forbidden[i] = a3OT_2202.symbol_count[i];
-  a3OT_2202.pre_count = a3OT_2202.total_count;
-  for (int i = 0; i < a3OT_2210.data_symbols; i++)
-    a3OT_2210.distribution_forbidden[i] = a3OT_2210.symbol_count[i];
-  a3OT_2210.pre_count = a3OT_2210.total_count;
-  for (int i = 0; i < a3OT_2211.data_symbols; i++)
-    a3OT_2211.distribution_forbidden[i] = a3OT_2211.symbol_count[i];
-  a3OT_2211.pre_count = a3OT_2211.total_count;
-  for (int i = 0; i < a3OT_2212.data_symbols; i++)
-    a3OT_2212.distribution_forbidden[i] = a3OT_2212.symbol_count[i];
-  a3OT_2212.pre_count = a3OT_2212.total_count;
-  for (int i = 0; i < a3OT_2220.data_symbols; i++)
-    a3OT_2220.distribution_forbidden[i] = a3OT_2220.symbol_count[i];
-  a3OT_2220.pre_count = a3OT_2220.total_count;
-  for (int i = 0; i < a3OT_2221.data_symbols; i++)
-    a3OT_2221.distribution_forbidden[i] = a3OT_2221.symbol_count[i];
-  a3OT_2221.pre_count = a3OT_2221.total_count;
-  for (int i = 0; i < a3OT_2222.data_symbols; i++)
-    a3OT_2222.distribution_forbidden[i] = a3OT_2222.symbol_count[i];
-  a3OT_2222.pre_count = a3OT_2222.total_count;
+void save_3OT() {
+  for (int i = 0; i < a3OT_L.model_symbols(); i++)
+    a3OT_L.distribution_forbidden[i] = a3OT_L.get_symbol_count(i);
+  a3OT_L.pre_count = a3OT_L.get_total_count();
+  for (int i = 0; i < a3OT_A.model_symbols(); i++)
+    a3OT_A.distribution_forbidden[i] = a3OT_A.get_symbol_count(i);
+  a3OT_A.pre_count = a3OT_A.get_total_count();
+  for (int i = 0; i < a3OT_B.model_symbols(); i++)
+    a3OT_B.distribution_forbidden[i] = a3OT_B.get_symbol_count(i);
+  a3OT_B.pre_count = a3OT_B.get_total_count();
+  for (int i = 0; i < a3OT_R.model_symbols(); i++)
+    a3OT_R.distribution_forbidden[i] = a3OT_R.get_symbol_count(i);
+  a3OT_R.pre_count = a3OT_R.get_total_count();
+  for (int i = 0; i < a3OT_I.model_symbols(); i++)
+    a3OT_I.distribution_forbidden[i] = a3OT_I.get_symbol_count(i);
+  a3OT_I.pre_count = a3OT_I.get_total_count();
+  for (int i = 0; i < a3OT_0.model_symbols(); i++)
+    a3OT_0.distribution_forbidden[i] = a3OT_0.get_symbol_count(i);
+  a3OT_0.pre_count = a3OT_0.get_total_count();
+  for (int i = 0; i < a3OT_1.model_symbols(); i++)
+    a3OT_1.distribution_forbidden[i] = a3OT_1.get_symbol_count(i);
+  a3OT_1.pre_count = a3OT_1.get_total_count();
+  for (int i = 0; i < a3OT_2.model_symbols(); i++)
+    a3OT_2.distribution_forbidden[i] = a3OT_2.get_symbol_count(i);
+  a3OT_2.pre_count = a3OT_2.get_total_count();
+  for (int i = 0; i < a3OT_00.model_symbols(); i++)
+    a3OT_00.distribution_forbidden[i] = a3OT_00.get_symbol_count(i);
+  a3OT_00.pre_count = a3OT_00.get_total_count();
+  for (int i = 0; i < a3OT_01.model_symbols(); i++)
+    a3OT_01.distribution_forbidden[i] = a3OT_01.get_symbol_count(i);
+  a3OT_01.pre_count = a3OT_01.get_total_count();
+  for (int i = 0; i < a3OT_02.model_symbols(); i++)
+    a3OT_02.distribution_forbidden[i] = a3OT_02.get_symbol_count(i);
+  a3OT_02.pre_count = a3OT_02.get_total_count();
+  for (int i = 0; i < a3OT_10.model_symbols(); i++)
+    a3OT_10.distribution_forbidden[i] = a3OT_10.get_symbol_count(i);
+  a3OT_10.pre_count = a3OT_10.get_total_count();
+  for (int i = 0; i < a3OT_11.model_symbols(); i++)
+    a3OT_11.distribution_forbidden[i] = a3OT_11.get_symbol_count(i);
+  a3OT_11.pre_count = a3OT_11.get_total_count();
+  for (int i = 0; i < a3OT_12.model_symbols(); i++)
+    a3OT_12.distribution_forbidden[i] = a3OT_12.get_symbol_count(i);
+  a3OT_12.pre_count = a3OT_12.get_total_count();
+  for (int i = 0; i < a3OT_20.model_symbols(); i++)
+    a3OT_20.distribution_forbidden[i] = a3OT_20.get_symbol_count(i);
+  a3OT_20.pre_count = a3OT_20.get_total_count();
+  for (int i = 0; i < a3OT_21.model_symbols(); i++)
+    a3OT_21.distribution_forbidden[i] = a3OT_21.get_symbol_count(i);
+  a3OT_21.pre_count = a3OT_21.get_total_count();
+  for (int i = 0; i < a3OT_22.model_symbols(); i++)
+    a3OT_22.distribution_forbidden[i] = a3OT_22.get_symbol_count(i);
+  a3OT_22.pre_count = a3OT_22.get_total_count();
+  for (int i = 0; i < a3OT_000.model_symbols(); i++)
+    a3OT_000.distribution_forbidden[i] = a3OT_000.get_symbol_count(i);
+  a3OT_000.pre_count = a3OT_000.get_total_count();
+  for (int i = 0; i < a3OT_001.model_symbols(); i++)
+    a3OT_001.distribution_forbidden[i] = a3OT_001.get_symbol_count(i);
+  a3OT_001.pre_count = a3OT_001.get_total_count();
+  for (int i = 0; i < a3OT_002.model_symbols(); i++)
+    a3OT_002.distribution_forbidden[i] = a3OT_002.get_symbol_count(i);
+  a3OT_002.pre_count = a3OT_002.get_total_count();
+  for (int i = 0; i < a3OT_010.model_symbols(); i++)
+    a3OT_010.distribution_forbidden[i] = a3OT_010.get_symbol_count(i);
+  a3OT_010.pre_count = a3OT_010.get_total_count();
+  for (int i = 0; i < a3OT_011.model_symbols(); i++)
+    a3OT_011.distribution_forbidden[i] = a3OT_011.get_symbol_count(i);
+  a3OT_011.pre_count = a3OT_011.get_total_count();
+  for (int i = 0; i < a3OT_012.model_symbols(); i++)
+    a3OT_012.distribution_forbidden[i] = a3OT_012.get_symbol_count(i);
+  a3OT_012.pre_count = a3OT_012.get_total_count();
+  for (int i = 0; i < a3OT_020.model_symbols(); i++)
+    a3OT_020.distribution_forbidden[i] = a3OT_020.get_symbol_count(i);
+  a3OT_020.pre_count = a3OT_020.get_total_count();
+  for (int i = 0; i < a3OT_021.model_symbols(); i++)
+    a3OT_021.distribution_forbidden[i] = a3OT_021.get_symbol_count(i);
+  a3OT_021.pre_count = a3OT_021.get_total_count();
+  for (int i = 0; i < a3OT_022.model_symbols(); i++)
+    a3OT_022.distribution_forbidden[i] = a3OT_022.get_symbol_count(i);
+  a3OT_022.pre_count = a3OT_022.get_total_count();
+  for (int i = 0; i < a3OT_100.model_symbols(); i++)
+    a3OT_100.distribution_forbidden[i] = a3OT_100.get_symbol_count(i);
+  a3OT_100.pre_count = a3OT_100.get_total_count();
+  for (int i = 0; i < a3OT_101.model_symbols(); i++)
+    a3OT_101.distribution_forbidden[i] = a3OT_101.get_symbol_count(i);
+  a3OT_101.pre_count = a3OT_101.get_total_count();
+  for (int i = 0; i < a3OT_102.model_symbols(); i++)
+    a3OT_102.distribution_forbidden[i] = a3OT_102.get_symbol_count(i);
+  a3OT_102.pre_count = a3OT_102.get_total_count();
+  for (int i = 0; i < a3OT_110.model_symbols(); i++)
+    a3OT_110.distribution_forbidden[i] = a3OT_110.get_symbol_count(i);
+  a3OT_110.pre_count = a3OT_110.get_total_count();
+  for (int i = 0; i < a3OT_111.model_symbols(); i++)
+    a3OT_111.distribution_forbidden[i] = a3OT_111.get_symbol_count(i);
+  a3OT_111.pre_count = a3OT_111.get_total_count();
+  for (int i = 0; i < a3OT_112.model_symbols(); i++)
+    a3OT_112.distribution_forbidden[i] = a3OT_112.get_symbol_count(i);
+  a3OT_112.pre_count = a3OT_112.get_total_count();
+  for (int i = 0; i < a3OT_120.model_symbols(); i++)
+    a3OT_120.distribution_forbidden[i] = a3OT_120.get_symbol_count(i);
+  a3OT_120.pre_count = a3OT_120.get_total_count();
+  for (int i = 0; i < a3OT_121.model_symbols(); i++)
+    a3OT_121.distribution_forbidden[i] = a3OT_121.get_symbol_count(i);
+  a3OT_121.pre_count = a3OT_121.get_total_count();
+  for (int i = 0; i < a3OT_122.model_symbols(); i++)
+    a3OT_122.distribution_forbidden[i] = a3OT_122.get_symbol_count(i);
+  a3OT_122.pre_count = a3OT_122.get_total_count();
+  for (int i = 0; i < a3OT_200.model_symbols(); i++)
+    a3OT_200.distribution_forbidden[i] = a3OT_200.get_symbol_count(i);
+  a3OT_200.pre_count = a3OT_200.get_total_count();
+  for (int i = 0; i < a3OT_201.model_symbols(); i++)
+    a3OT_201.distribution_forbidden[i] = a3OT_201.get_symbol_count(i);
+  a3OT_201.pre_count = a3OT_201.get_total_count();
+  for (int i = 0; i < a3OT_202.model_symbols(); i++)
+    a3OT_202.distribution_forbidden[i] = a3OT_202.get_symbol_count(i);
+  a3OT_202.pre_count = a3OT_202.get_total_count();
+  for (int i = 0; i < a3OT_210.model_symbols(); i++)
+    a3OT_210.distribution_forbidden[i] = a3OT_210.get_symbol_count(i);
+  a3OT_210.pre_count = a3OT_210.get_total_count();
+  for (int i = 0; i < a3OT_211.model_symbols(); i++)
+    a3OT_211.distribution_forbidden[i] = a3OT_211.get_symbol_count(i);
+  a3OT_211.pre_count = a3OT_211.get_total_count();
+  for (int i = 0; i < a3OT_212.model_symbols(); i++)
+    a3OT_212.distribution_forbidden[i] = a3OT_212.get_symbol_count(i);
+  a3OT_212.pre_count = a3OT_212.get_total_count();
+  for (int i = 0; i < a3OT_220.model_symbols(); i++)
+    a3OT_220.distribution_forbidden[i] = a3OT_220.get_symbol_count(i);
+  a3OT_220.pre_count = a3OT_220.get_total_count();
+  for (int i = 0; i < a3OT_221.model_symbols(); i++)
+    a3OT_221.distribution_forbidden[i] = a3OT_221.get_symbol_count(i);
+  a3OT_221.pre_count = a3OT_221.get_total_count();
+  for (int i = 0; i < a3OT_222.model_symbols(); i++)
+    a3OT_222.distribution_forbidden[i] = a3OT_222.get_symbol_count(i);
+  a3OT_222.pre_count = a3OT_222.get_total_count();
+  for (int i = 0; i < a3OT_0000.model_symbols(); i++)
+    a3OT_0000.distribution_forbidden[i] = a3OT_0000.get_symbol_count(i);
+  a3OT_0000.pre_count = a3OT_0000.get_total_count();
+  for (int i = 0; i < a3OT_0001.model_symbols(); i++)
+    a3OT_0001.distribution_forbidden[i] = a3OT_0001.get_symbol_count(i);
+  a3OT_0001.pre_count = a3OT_0001.get_total_count();
+  for (int i = 0; i < a3OT_0002.model_symbols(); i++)
+    a3OT_0002.distribution_forbidden[i] = a3OT_0002.get_symbol_count(i);
+  a3OT_0002.pre_count = a3OT_0002.get_total_count();
+  for (int i = 0; i < a3OT_0010.model_symbols(); i++)
+    a3OT_0010.distribution_forbidden[i] = a3OT_0010.get_symbol_count(i);
+  a3OT_0010.pre_count = a3OT_0010.get_total_count();
+  for (int i = 0; i < a3OT_0011.model_symbols(); i++)
+    a3OT_0011.distribution_forbidden[i] = a3OT_0011.get_symbol_count(i);
+  a3OT_0011.pre_count = a3OT_0011.get_total_count();
+  for (int i = 0; i < a3OT_0012.model_symbols(); i++)
+    a3OT_0012.distribution_forbidden[i] = a3OT_0012.get_symbol_count(i);
+  a3OT_0012.pre_count = a3OT_0012.get_total_count();
+  for (int i = 0; i < a3OT_0020.model_symbols(); i++)
+    a3OT_0020.distribution_forbidden[i] = a3OT_0020.get_symbol_count(i);
+  a3OT_0020.pre_count = a3OT_0020.get_total_count();
+  for (int i = 0; i < a3OT_0021.model_symbols(); i++)
+    a3OT_0021.distribution_forbidden[i] = a3OT_0021.get_symbol_count(i);
+  a3OT_0021.pre_count = a3OT_0021.get_total_count();
+  for (int i = 0; i < a3OT_0022.model_symbols(); i++)
+    a3OT_0022.distribution_forbidden[i] = a3OT_0022.get_symbol_count(i);
+  a3OT_0022.pre_count = a3OT_0022.get_total_count();
+  for (int i = 0; i < a3OT_0100.model_symbols(); i++)
+    a3OT_0100.distribution_forbidden[i] = a3OT_0100.get_symbol_count(i);
+  a3OT_0100.pre_count = a3OT_0100.get_total_count();
+  for (int i = 0; i < a3OT_0101.model_symbols(); i++)
+    a3OT_0101.distribution_forbidden[i] = a3OT_0101.get_symbol_count(i);
+  a3OT_0101.pre_count = a3OT_0101.get_total_count();
+  for (int i = 0; i < a3OT_0102.model_symbols(); i++)
+    a3OT_0102.distribution_forbidden[i] = a3OT_0102.get_symbol_count(i);
+  a3OT_0102.pre_count = a3OT_0102.get_total_count();
+  for (int i = 0; i < a3OT_0110.model_symbols(); i++)
+    a3OT_0110.distribution_forbidden[i] = a3OT_0110.get_symbol_count(i);
+  a3OT_0110.pre_count = a3OT_0110.get_total_count();
+  for (int i = 0; i < a3OT_0111.model_symbols(); i++)
+    a3OT_0111.distribution_forbidden[i] = a3OT_0111.get_symbol_count(i);
+  a3OT_0111.pre_count = a3OT_0111.get_total_count();
+  for (int i = 0; i < a3OT_0112.model_symbols(); i++)
+    a3OT_0112.distribution_forbidden[i] = a3OT_0112.get_symbol_count(i);
+  a3OT_0112.pre_count = a3OT_0112.get_total_count();
+  for (int i = 0; i < a3OT_0120.model_symbols(); i++)
+    a3OT_0120.distribution_forbidden[i] = a3OT_0120.get_symbol_count(i);
+  a3OT_0120.pre_count = a3OT_0120.get_total_count();
+  for (int i = 0; i < a3OT_0121.model_symbols(); i++)
+    a3OT_0121.distribution_forbidden[i] = a3OT_0121.get_symbol_count(i);
+  a3OT_0121.pre_count = a3OT_0121.get_total_count();
+  for (int i = 0; i < a3OT_0122.model_symbols(); i++)
+    a3OT_0122.distribution_forbidden[i] = a3OT_0122.get_symbol_count(i);
+  a3OT_0122.pre_count = a3OT_0122.get_total_count();
+  for (int i = 0; i < a3OT_0200.model_symbols(); i++)
+    a3OT_0200.distribution_forbidden[i] = a3OT_0200.get_symbol_count(i);
+  a3OT_0200.pre_count = a3OT_0200.get_total_count();
+  for (int i = 0; i < a3OT_0201.model_symbols(); i++)
+    a3OT_0201.distribution_forbidden[i] = a3OT_0201.get_symbol_count(i);
+  a3OT_0201.pre_count = a3OT_0201.get_total_count();
+  for (int i = 0; i < a3OT_0202.model_symbols(); i++)
+    a3OT_0202.distribution_forbidden[i] = a3OT_0202.get_symbol_count(i);
+  a3OT_0202.pre_count = a3OT_0202.get_total_count();
+  for (int i = 0; i < a3OT_0210.model_symbols(); i++)
+    a3OT_0210.distribution_forbidden[i] = a3OT_0210.get_symbol_count(i);
+  a3OT_0210.pre_count = a3OT_0210.get_total_count();
+  for (int i = 0; i < a3OT_0211.model_symbols(); i++)
+    a3OT_0211.distribution_forbidden[i] = a3OT_0211.get_symbol_count(i);
+  a3OT_0211.pre_count = a3OT_0211.get_total_count();
+  for (int i = 0; i < a3OT_0212.model_symbols(); i++)
+    a3OT_0212.distribution_forbidden[i] = a3OT_0212.get_symbol_count(i);
+  a3OT_0212.pre_count = a3OT_0212.get_total_count();
+  for (int i = 0; i < a3OT_0220.model_symbols(); i++)
+    a3OT_0220.distribution_forbidden[i] = a3OT_0220.get_symbol_count(i);
+  a3OT_0220.pre_count = a3OT_0220.get_total_count();
+  for (int i = 0; i < a3OT_0221.model_symbols(); i++)
+    a3OT_0221.distribution_forbidden[i] = a3OT_0221.get_symbol_count(i);
+  a3OT_0221.pre_count = a3OT_0221.get_total_count();
+  for (int i = 0; i < a3OT_0222.model_symbols(); i++)
+    a3OT_0222.distribution_forbidden[i] = a3OT_0222.get_symbol_count(i);
+  a3OT_0222.pre_count = a3OT_0222.get_total_count();
+  for (int i = 0; i < a3OT_1000.model_symbols(); i++)
+    a3OT_1000.distribution_forbidden[i] = a3OT_1000.get_symbol_count(i);
+  a3OT_1000.pre_count = a3OT_1000.get_total_count();
+  for (int i = 0; i < a3OT_1001.model_symbols(); i++)
+    a3OT_1001.distribution_forbidden[i] = a3OT_1001.get_symbol_count(i);
+  a3OT_1001.pre_count = a3OT_1001.get_total_count();
+  for (int i = 0; i < a3OT_1002.model_symbols(); i++)
+    a3OT_1002.distribution_forbidden[i] = a3OT_1002.get_symbol_count(i);
+  a3OT_1002.pre_count = a3OT_1002.get_total_count();
+  for (int i = 0; i < a3OT_1010.model_symbols(); i++)
+    a3OT_1010.distribution_forbidden[i] = a3OT_1010.get_symbol_count(i);
+  a3OT_1010.pre_count = a3OT_1010.get_total_count();
+  for (int i = 0; i < a3OT_1011.model_symbols(); i++)
+    a3OT_1011.distribution_forbidden[i] = a3OT_1011.get_symbol_count(i);
+  a3OT_1011.pre_count = a3OT_1011.get_total_count();
+  for (int i = 0; i < a3OT_1012.model_symbols(); i++)
+    a3OT_1012.distribution_forbidden[i] = a3OT_1012.get_symbol_count(i);
+  a3OT_1012.pre_count = a3OT_1012.get_total_count();
+  for (int i = 0; i < a3OT_1020.model_symbols(); i++)
+    a3OT_1020.distribution_forbidden[i] = a3OT_1020.get_symbol_count(i);
+  a3OT_1020.pre_count = a3OT_1020.get_total_count();
+  for (int i = 0; i < a3OT_1021.model_symbols(); i++)
+    a3OT_1021.distribution_forbidden[i] = a3OT_1021.get_symbol_count(i);
+  a3OT_1021.pre_count = a3OT_1021.get_total_count();
+  for (int i = 0; i < a3OT_1022.model_symbols(); i++)
+    a3OT_1022.distribution_forbidden[i] = a3OT_1022.get_symbol_count(i);
+  a3OT_1022.pre_count = a3OT_1022.get_total_count();
+  for (int i = 0; i < a3OT_1100.model_symbols(); i++)
+    a3OT_1100.distribution_forbidden[i] = a3OT_1100.get_symbol_count(i);
+  a3OT_1100.pre_count = a3OT_1100.get_total_count();
+  for (int i = 0; i < a3OT_1101.model_symbols(); i++)
+    a3OT_1101.distribution_forbidden[i] = a3OT_1101.get_symbol_count(i);
+  a3OT_1101.pre_count = a3OT_1101.get_total_count();
+  for (int i = 0; i < a3OT_1102.model_symbols(); i++)
+    a3OT_1102.distribution_forbidden[i] = a3OT_1102.get_symbol_count(i);
+  a3OT_1102.pre_count = a3OT_1102.get_total_count();
+  for (int i = 0; i < a3OT_1110.model_symbols(); i++)
+    a3OT_1110.distribution_forbidden[i] = a3OT_1110.get_symbol_count(i);
+  a3OT_1110.pre_count = a3OT_1110.get_total_count();
+  for (int i = 0; i < a3OT_1111.model_symbols(); i++)
+    a3OT_1111.distribution_forbidden[i] = a3OT_1111.get_symbol_count(i);
+  a3OT_1111.pre_count = a3OT_1111.get_total_count();
+  for (int i = 0; i < a3OT_1112.model_symbols(); i++)
+    a3OT_1112.distribution_forbidden[i] = a3OT_1112.get_symbol_count(i);
+  a3OT_1112.pre_count = a3OT_1112.get_total_count();
+  for (int i = 0; i < a3OT_1120.model_symbols(); i++)
+    a3OT_1120.distribution_forbidden[i] = a3OT_1120.get_symbol_count(i);
+  a3OT_1120.pre_count = a3OT_1120.get_total_count();
+  for (int i = 0; i < a3OT_1121.model_symbols(); i++)
+    a3OT_1121.distribution_forbidden[i] = a3OT_1121.get_symbol_count(i);
+  a3OT_1121.pre_count = a3OT_1121.get_total_count();
+  for (int i = 0; i < a3OT_1122.model_symbols(); i++)
+    a3OT_1122.distribution_forbidden[i] = a3OT_1122.get_symbol_count(i);
+  a3OT_1122.pre_count = a3OT_1122.get_total_count();
+  for (int i = 0; i < a3OT_1200.model_symbols(); i++)
+    a3OT_1200.distribution_forbidden[i] = a3OT_1200.get_symbol_count(i);
+  a3OT_1200.pre_count = a3OT_1200.get_total_count();
+  for (int i = 0; i < a3OT_1201.model_symbols(); i++)
+    a3OT_1201.distribution_forbidden[i] = a3OT_1201.get_symbol_count(i);
+  a3OT_1201.pre_count = a3OT_1201.get_total_count();
+  for (int i = 0; i < a3OT_1202.model_symbols(); i++)
+    a3OT_1202.distribution_forbidden[i] = a3OT_1202.get_symbol_count(i);
+  a3OT_1202.pre_count = a3OT_1202.get_total_count();
+  for (int i = 0; i < a3OT_1210.model_symbols(); i++)
+    a3OT_1210.distribution_forbidden[i] = a3OT_1210.get_symbol_count(i);
+  a3OT_1210.pre_count = a3OT_1210.get_total_count();
+  for (int i = 0; i < a3OT_1211.model_symbols(); i++)
+    a3OT_1211.distribution_forbidden[i] = a3OT_1211.get_symbol_count(i);
+  a3OT_1211.pre_count = a3OT_1211.get_total_count();
+  for (int i = 0; i < a3OT_1212.model_symbols(); i++)
+    a3OT_1212.distribution_forbidden[i] = a3OT_1212.get_symbol_count(i);
+  a3OT_1212.pre_count = a3OT_1212.get_total_count();
+  for (int i = 0; i < a3OT_1220.model_symbols(); i++)
+    a3OT_1220.distribution_forbidden[i] = a3OT_1220.get_symbol_count(i);
+  a3OT_1220.pre_count = a3OT_1220.get_total_count();
+  for (int i = 0; i < a3OT_1221.model_symbols(); i++)
+    a3OT_1221.distribution_forbidden[i] = a3OT_1221.get_symbol_count(i);
+  a3OT_1221.pre_count = a3OT_1221.get_total_count();
+  for (int i = 0; i < a3OT_1222.model_symbols(); i++)
+    a3OT_1222.distribution_forbidden[i] = a3OT_1222.get_symbol_count(i);
+  a3OT_1222.pre_count = a3OT_1222.get_total_count();
+  for (int i = 0; i < a3OT_2000.model_symbols(); i++)
+    a3OT_2000.distribution_forbidden[i] = a3OT_2000.get_symbol_count(i);
+  a3OT_2000.pre_count = a3OT_2000.get_total_count();
+  for (int i = 0; i < a3OT_2001.model_symbols(); i++)
+    a3OT_2001.distribution_forbidden[i] = a3OT_2001.get_symbol_count(i);
+  a3OT_2001.pre_count = a3OT_2001.get_total_count();
+  for (int i = 0; i < a3OT_2002.model_symbols(); i++)
+    a3OT_2002.distribution_forbidden[i] = a3OT_2002.get_symbol_count(i);
+  a3OT_2002.pre_count = a3OT_2002.get_total_count();
+  for (int i = 0; i < a3OT_2010.model_symbols(); i++)
+    a3OT_2010.distribution_forbidden[i] = a3OT_2010.get_symbol_count(i);
+  a3OT_2010.pre_count = a3OT_2010.get_total_count();
+  for (int i = 0; i < a3OT_2011.model_symbols(); i++)
+    a3OT_2011.distribution_forbidden[i] = a3OT_2011.get_symbol_count(i);
+  a3OT_2011.pre_count = a3OT_2011.get_total_count();
+  for (int i = 0; i < a3OT_2012.model_symbols(); i++)
+    a3OT_2012.distribution_forbidden[i] = a3OT_2012.get_symbol_count(i);
+  a3OT_2012.pre_count = a3OT_2012.get_total_count();
+  for (int i = 0; i < a3OT_2020.model_symbols(); i++)
+    a3OT_2020.distribution_forbidden[i] = a3OT_2020.get_symbol_count(i);
+  a3OT_2020.pre_count = a3OT_2020.get_total_count();
+  for (int i = 0; i < a3OT_2021.model_symbols(); i++)
+    a3OT_2021.distribution_forbidden[i] = a3OT_2021.get_symbol_count(i);
+  a3OT_2021.pre_count = a3OT_2021.get_total_count();
+  for (int i = 0; i < a3OT_2022.model_symbols(); i++)
+    a3OT_2022.distribution_forbidden[i] = a3OT_2022.get_symbol_count(i);
+  a3OT_2022.pre_count = a3OT_2022.get_total_count();
+  for (int i = 0; i < a3OT_2100.model_symbols(); i++)
+    a3OT_2100.distribution_forbidden[i] = a3OT_2100.get_symbol_count(i);
+  a3OT_2100.pre_count = a3OT_2100.get_total_count();
+  for (int i = 0; i < a3OT_2101.model_symbols(); i++)
+    a3OT_2101.distribution_forbidden[i] = a3OT_2101.get_symbol_count(i);
+  a3OT_2101.pre_count = a3OT_2101.get_total_count();
+  for (int i = 0; i < a3OT_2102.model_symbols(); i++)
+    a3OT_2102.distribution_forbidden[i] = a3OT_2102.get_symbol_count(i);
+  a3OT_2102.pre_count = a3OT_2102.get_total_count();
+  for (int i = 0; i < a3OT_2110.model_symbols(); i++)
+    a3OT_2110.distribution_forbidden[i] = a3OT_2110.get_symbol_count(i);
+  a3OT_2110.pre_count = a3OT_2110.get_total_count();
+  for (int i = 0; i < a3OT_2111.model_symbols(); i++)
+    a3OT_2111.distribution_forbidden[i] = a3OT_2111.get_symbol_count(i);
+  a3OT_2111.pre_count = a3OT_2111.get_total_count();
+  for (int i = 0; i < a3OT_2112.model_symbols(); i++)
+    a3OT_2112.distribution_forbidden[i] = a3OT_2112.get_symbol_count(i);
+  a3OT_2112.pre_count = a3OT_2112.get_total_count();
+  for (int i = 0; i < a3OT_2120.model_symbols(); i++)
+    a3OT_2120.distribution_forbidden[i] = a3OT_2120.get_symbol_count(i);
+  a3OT_2120.pre_count = a3OT_2120.get_total_count();
+  for (int i = 0; i < a3OT_2121.model_symbols(); i++)
+    a3OT_2121.distribution_forbidden[i] = a3OT_2121.get_symbol_count(i);
+  a3OT_2121.pre_count = a3OT_2121.get_total_count();
+  for (int i = 0; i < a3OT_2122.model_symbols(); i++)
+    a3OT_2122.distribution_forbidden[i] = a3OT_2122.get_symbol_count(i);
+  a3OT_2122.pre_count = a3OT_2122.get_total_count();
+  for (int i = 0; i < a3OT_2200.model_symbols(); i++)
+    a3OT_2200.distribution_forbidden[i] = a3OT_2200.get_symbol_count(i);
+  a3OT_2200.pre_count = a3OT_2200.get_total_count();
+  for (int i = 0; i < a3OT_2201.model_symbols(); i++)
+    a3OT_2201.distribution_forbidden[i] = a3OT_2201.get_symbol_count(i);
+  a3OT_2201.pre_count = a3OT_2201.get_total_count();
+  for (int i = 0; i < a3OT_2202.model_symbols(); i++)
+    a3OT_2202.distribution_forbidden[i] = a3OT_2202.get_symbol_count(i);
+  a3OT_2202.pre_count = a3OT_2202.get_total_count();
+  for (int i = 0; i < a3OT_2210.model_symbols(); i++)
+    a3OT_2210.distribution_forbidden[i] = a3OT_2210.get_symbol_count(i);
+  a3OT_2210.pre_count = a3OT_2210.get_total_count();
+  for (int i = 0; i < a3OT_2211.model_symbols(); i++)
+    a3OT_2211.distribution_forbidden[i] = a3OT_2211.get_symbol_count(i);
+  a3OT_2211.pre_count = a3OT_2211.get_total_count();
+  for (int i = 0; i < a3OT_2212.model_symbols(); i++)
+    a3OT_2212.distribution_forbidden[i] = a3OT_2212.get_symbol_count(i);
+  a3OT_2212.pre_count = a3OT_2212.get_total_count();
+  for (int i = 0; i < a3OT_2220.model_symbols(); i++)
+    a3OT_2220.distribution_forbidden[i] = a3OT_2220.get_symbol_count(i);
+  a3OT_2220.pre_count = a3OT_2220.get_total_count();
+  for (int i = 0; i < a3OT_2221.model_symbols(); i++)
+    a3OT_2221.distribution_forbidden[i] = a3OT_2221.get_symbol_count(i);
+  a3OT_2221.pre_count = a3OT_2221.get_total_count();
+  for (int i = 0; i < a3OT_2222.model_symbols(); i++)
+    a3OT_2222.distribution_forbidden[i] = a3OT_2222.get_symbol_count(i);
+  a3OT_2222.pre_count = a3OT_2222.get_total_count();
 }
 
-void restore_3OT()
-{
-  for (int i = 0; i < a3OT_L.data_symbols; i++)
-    a3OT_L.symbol_count[i] = a3OT_L.distribution_forbidden[i];
-  a3OT_L.total_count = a3OT_L.pre_count;
-  for (int i = 0; i < a3OT_A.data_symbols; i++)
-    a3OT_A.symbol_count[i] = a3OT_A.distribution_forbidden[i];
-  a3OT_A.total_count = a3OT_A.pre_count;
-  for (int i = 0; i < a3OT_B.data_symbols; i++)
-    a3OT_B.symbol_count[i] = a3OT_B.distribution_forbidden[i];
-  a3OT_B.total_count = a3OT_B.pre_count;
-  for (int i = 0; i < a3OT_R.data_symbols; i++)
-    a3OT_R.symbol_count[i] = a3OT_R.distribution_forbidden[i];
-  a3OT_R.total_count = a3OT_R.pre_count;
-  for (int i = 0; i < a3OT_I.data_symbols; i++)
-    a3OT_I.symbol_count[i] = a3OT_I.distribution_forbidden[i];
-  a3OT_I.total_count = a3OT_I.pre_count;
-  for (int i = 0; i < a3OT_0.data_symbols; i++)
-    a3OT_0.symbol_count[i] = a3OT_0.distribution_forbidden[i];
-  a3OT_0.total_count = a3OT_0.pre_count;
-  for (int i = 0; i < a3OT_1.data_symbols; i++)
-    a3OT_1.symbol_count[i] = a3OT_1.distribution_forbidden[i];
-  a3OT_1.total_count = a3OT_1.pre_count;
-  for (int i = 0; i < a3OT_2.data_symbols; i++)
-    a3OT_2.symbol_count[i] = a3OT_2.distribution_forbidden[i];
-  a3OT_2.total_count = a3OT_2.pre_count;
-  for (int i = 0; i < a3OT_00.data_symbols; i++)
-    a3OT_00.symbol_count[i] = a3OT_00.distribution_forbidden[i];
-  a3OT_00.total_count = a3OT_00.pre_count;
-  for (int i = 0; i < a3OT_01.data_symbols; i++)
-    a3OT_01.symbol_count[i] = a3OT_01.distribution_forbidden[i];
-  a3OT_01.total_count = a3OT_01.pre_count;
-  for (int i = 0; i < a3OT_02.data_symbols; i++)
-    a3OT_02.symbol_count[i] = a3OT_02.distribution_forbidden[i];
-  a3OT_02.total_count = a3OT_02.pre_count;
-  for (int i = 0; i < a3OT_10.data_symbols; i++)
-    a3OT_10.symbol_count[i] = a3OT_10.distribution_forbidden[i];
-  a3OT_10.total_count = a3OT_10.pre_count;
-  for (int i = 0; i < a3OT_11.data_symbols; i++)
-    a3OT_11.symbol_count[i] = a3OT_11.distribution_forbidden[i];
-  a3OT_11.total_count = a3OT_11.pre_count;
-  for (int i = 0; i < a3OT_12.data_symbols; i++)
-    a3OT_12.symbol_count[i] = a3OT_12.distribution_forbidden[i];
-  a3OT_12.total_count = a3OT_12.pre_count;
-  for (int i = 0; i < a3OT_20.data_symbols; i++)
-    a3OT_20.symbol_count[i] = a3OT_20.distribution_forbidden[i];
-  a3OT_20.total_count = a3OT_20.pre_count;
-  for (int i = 0; i < a3OT_21.data_symbols; i++)
-    a3OT_21.symbol_count[i] = a3OT_21.distribution_forbidden[i];
-  a3OT_21.total_count = a3OT_21.pre_count;
-  for (int i = 0; i < a3OT_22.data_symbols; i++)
-    a3OT_22.symbol_count[i] = a3OT_22.distribution_forbidden[i];
-  a3OT_22.total_count = a3OT_22.pre_count;
-  for (int i = 0; i < a3OT_000.data_symbols; i++)
-    a3OT_000.symbol_count[i] = a3OT_000.distribution_forbidden[i];
-  a3OT_000.total_count = a3OT_000.pre_count;
-  for (int i = 0; i < a3OT_001.data_symbols; i++)
-    a3OT_001.symbol_count[i] = a3OT_001.distribution_forbidden[i];
-  a3OT_001.total_count = a3OT_001.pre_count;
-  for (int i = 0; i < a3OT_002.data_symbols; i++)
-    a3OT_002.symbol_count[i] = a3OT_002.distribution_forbidden[i];
-  a3OT_002.total_count = a3OT_002.pre_count;
-  for (int i = 0; i < a3OT_010.data_symbols; i++)
-    a3OT_010.symbol_count[i] = a3OT_010.distribution_forbidden[i];
-  a3OT_010.total_count = a3OT_010.pre_count;
-  for (int i = 0; i < a3OT_011.data_symbols; i++)
-    a3OT_011.symbol_count[i] = a3OT_011.distribution_forbidden[i];
-  a3OT_011.total_count = a3OT_011.pre_count;
-  for (int i = 0; i < a3OT_012.data_symbols; i++)
-    a3OT_012.symbol_count[i] = a3OT_012.distribution_forbidden[i];
-  a3OT_012.total_count = a3OT_012.pre_count;
-  for (int i = 0; i < a3OT_020.data_symbols; i++)
-    a3OT_020.symbol_count[i] = a3OT_020.distribution_forbidden[i];
-  a3OT_020.total_count = a3OT_020.pre_count;
-  for (int i = 0; i < a3OT_021.data_symbols; i++)
-    a3OT_021.symbol_count[i] = a3OT_021.distribution_forbidden[i];
-  a3OT_021.total_count = a3OT_021.pre_count;
-  for (int i = 0; i < a3OT_022.data_symbols; i++)
-    a3OT_022.symbol_count[i] = a3OT_022.distribution_forbidden[i];
-  a3OT_022.total_count = a3OT_022.pre_count;
-  for (int i = 0; i < a3OT_100.data_symbols; i++)
-    a3OT_100.symbol_count[i] = a3OT_100.distribution_forbidden[i];
-  a3OT_100.total_count = a3OT_100.pre_count;
-  for (int i = 0; i < a3OT_101.data_symbols; i++)
-    a3OT_101.symbol_count[i] = a3OT_101.distribution_forbidden[i];
-  a3OT_101.total_count = a3OT_101.pre_count;
-  for (int i = 0; i < a3OT_102.data_symbols; i++)
-    a3OT_102.symbol_count[i] = a3OT_102.distribution_forbidden[i];
-  a3OT_102.total_count = a3OT_102.pre_count;
-  for (int i = 0; i < a3OT_110.data_symbols; i++)
-    a3OT_110.symbol_count[i] = a3OT_110.distribution_forbidden[i];
-  a3OT_110.total_count = a3OT_110.pre_count;
-  for (int i = 0; i < a3OT_111.data_symbols; i++)
-    a3OT_111.symbol_count[i] = a3OT_111.distribution_forbidden[i];
-  a3OT_111.total_count = a3OT_111.pre_count;
-  for (int i = 0; i < a3OT_112.data_symbols; i++)
-    a3OT_112.symbol_count[i] = a3OT_112.distribution_forbidden[i];
-  a3OT_112.total_count = a3OT_112.pre_count;
-  for (int i = 0; i < a3OT_120.data_symbols; i++)
-    a3OT_120.symbol_count[i] = a3OT_120.distribution_forbidden[i];
-  a3OT_120.total_count = a3OT_120.pre_count;
-  for (int i = 0; i < a3OT_121.data_symbols; i++)
-    a3OT_121.symbol_count[i] = a3OT_121.distribution_forbidden[i];
-  a3OT_121.total_count = a3OT_121.pre_count;
-  for (int i = 0; i < a3OT_122.data_symbols; i++)
-    a3OT_122.symbol_count[i] = a3OT_122.distribution_forbidden[i];
-  a3OT_122.total_count = a3OT_122.pre_count;
-  for (int i = 0; i < a3OT_200.data_symbols; i++)
-    a3OT_200.symbol_count[i] = a3OT_200.distribution_forbidden[i];
-  a3OT_200.total_count = a3OT_200.pre_count;
-  for (int i = 0; i < a3OT_201.data_symbols; i++)
-    a3OT_201.symbol_count[i] = a3OT_201.distribution_forbidden[i];
-  a3OT_201.total_count = a3OT_201.pre_count;
-  for (int i = 0; i < a3OT_202.data_symbols; i++)
-    a3OT_202.symbol_count[i] = a3OT_202.distribution_forbidden[i];
-  a3OT_202.total_count = a3OT_202.pre_count;
-  for (int i = 0; i < a3OT_210.data_symbols; i++)
-    a3OT_210.symbol_count[i] = a3OT_210.distribution_forbidden[i];
-  a3OT_210.total_count = a3OT_210.pre_count;
-  for (int i = 0; i < a3OT_211.data_symbols; i++)
-    a3OT_211.symbol_count[i] = a3OT_211.distribution_forbidden[i];
-  a3OT_211.total_count = a3OT_211.pre_count;
-  for (int i = 0; i < a3OT_212.data_symbols; i++)
-    a3OT_212.symbol_count[i] = a3OT_212.distribution_forbidden[i];
-  a3OT_212.total_count = a3OT_212.pre_count;
-  for (int i = 0; i < a3OT_220.data_symbols; i++)
-    a3OT_220.symbol_count[i] = a3OT_220.distribution_forbidden[i];
-  a3OT_220.total_count = a3OT_220.pre_count;
-  for (int i = 0; i < a3OT_221.data_symbols; i++)
-    a3OT_221.symbol_count[i] = a3OT_221.distribution_forbidden[i];
-  a3OT_221.total_count = a3OT_221.pre_count;
-  for (int i = 0; i < a3OT_222.data_symbols; i++)
-    a3OT_222.symbol_count[i] = a3OT_222.distribution_forbidden[i];
-  a3OT_222.total_count = a3OT_222.pre_count;
-  for (int i = 0; i < a3OT_0000.data_symbols; i++)
-    a3OT_0000.symbol_count[i] = a3OT_0000.distribution_forbidden[i];
-  a3OT_0000.total_count = a3OT_0000.pre_count;
-  for (int i = 0; i < a3OT_0001.data_symbols; i++)
-    a3OT_0001.symbol_count[i] = a3OT_0001.distribution_forbidden[i];
-  a3OT_0001.total_count = a3OT_0001.pre_count;
-  for (int i = 0; i < a3OT_0002.data_symbols; i++)
-    a3OT_0002.symbol_count[i] = a3OT_0002.distribution_forbidden[i];
-  a3OT_0002.total_count = a3OT_0002.pre_count;
-  for (int i = 0; i < a3OT_0010.data_symbols; i++)
-    a3OT_0010.symbol_count[i] = a3OT_0010.distribution_forbidden[i];
-  a3OT_0010.total_count = a3OT_0010.pre_count;
-  for (int i = 0; i < a3OT_0011.data_symbols; i++)
-    a3OT_0011.symbol_count[i] = a3OT_0011.distribution_forbidden[i];
-  a3OT_0011.total_count = a3OT_0011.pre_count;
-  for (int i = 0; i < a3OT_0012.data_symbols; i++)
-    a3OT_0012.symbol_count[i] = a3OT_0012.distribution_forbidden[i];
-  a3OT_0012.total_count = a3OT_0012.pre_count;
-  for (int i = 0; i < a3OT_0020.data_symbols; i++)
-    a3OT_0020.symbol_count[i] = a3OT_0020.distribution_forbidden[i];
-  a3OT_0020.total_count = a3OT_0020.pre_count;
-  for (int i = 0; i < a3OT_0021.data_symbols; i++)
-    a3OT_0021.symbol_count[i] = a3OT_0021.distribution_forbidden[i];
-  a3OT_0021.total_count = a3OT_0021.pre_count;
-  for (int i = 0; i < a3OT_0022.data_symbols; i++)
-    a3OT_0022.symbol_count[i] = a3OT_0022.distribution_forbidden[i];
-  a3OT_0022.total_count = a3OT_0022.pre_count;
-  for (int i = 0; i < a3OT_0100.data_symbols; i++)
-    a3OT_0100.symbol_count[i] = a3OT_0100.distribution_forbidden[i];
-  a3OT_0100.total_count = a3OT_0100.pre_count;
-  for (int i = 0; i < a3OT_0101.data_symbols; i++)
-    a3OT_0101.symbol_count[i] = a3OT_0101.distribution_forbidden[i];
-  a3OT_0101.total_count = a3OT_0101.pre_count;
-  for (int i = 0; i < a3OT_0102.data_symbols; i++)
-    a3OT_0102.symbol_count[i] = a3OT_0102.distribution_forbidden[i];
-  a3OT_0102.total_count = a3OT_0102.pre_count;
-  for (int i = 0; i < a3OT_0110.data_symbols; i++)
-    a3OT_0110.symbol_count[i] = a3OT_0110.distribution_forbidden[i];
-  a3OT_0110.total_count = a3OT_0110.pre_count;
-  for (int i = 0; i < a3OT_0111.data_symbols; i++)
-    a3OT_0111.symbol_count[i] = a3OT_0111.distribution_forbidden[i];
-  a3OT_0111.total_count = a3OT_0111.pre_count;
-  for (int i = 0; i < a3OT_0112.data_symbols; i++)
-    a3OT_0112.symbol_count[i] = a3OT_0112.distribution_forbidden[i];
-  a3OT_0112.total_count = a3OT_0112.pre_count;
-  for (int i = 0; i < a3OT_0120.data_symbols; i++)
-    a3OT_0120.symbol_count[i] = a3OT_0120.distribution_forbidden[i];
-  a3OT_0120.total_count = a3OT_0120.pre_count;
-  for (int i = 0; i < a3OT_0121.data_symbols; i++)
-    a3OT_0121.symbol_count[i] = a3OT_0121.distribution_forbidden[i];
-  a3OT_0121.total_count = a3OT_0121.pre_count;
-  for (int i = 0; i < a3OT_0122.data_symbols; i++)
-    a3OT_0122.symbol_count[i] = a3OT_0122.distribution_forbidden[i];
-  a3OT_0122.total_count = a3OT_0122.pre_count;
-  for (int i = 0; i < a3OT_0200.data_symbols; i++)
-    a3OT_0200.symbol_count[i] = a3OT_0200.distribution_forbidden[i];
-  a3OT_0200.total_count = a3OT_0200.pre_count;
-  for (int i = 0; i < a3OT_0201.data_symbols; i++)
-    a3OT_0201.symbol_count[i] = a3OT_0201.distribution_forbidden[i];
-  a3OT_0201.total_count = a3OT_0201.pre_count;
-  for (int i = 0; i < a3OT_0202.data_symbols; i++)
-    a3OT_0202.symbol_count[i] = a3OT_0202.distribution_forbidden[i];
-  a3OT_0202.total_count = a3OT_0202.pre_count;
-  for (int i = 0; i < a3OT_0210.data_symbols; i++)
-    a3OT_0210.symbol_count[i] = a3OT_0210.distribution_forbidden[i];
-  a3OT_0210.total_count = a3OT_0210.pre_count;
-  for (int i = 0; i < a3OT_0211.data_symbols; i++)
-    a3OT_0211.symbol_count[i] = a3OT_0211.distribution_forbidden[i];
-  a3OT_0211.total_count = a3OT_0211.pre_count;
-  for (int i = 0; i < a3OT_0212.data_symbols; i++)
-    a3OT_0212.symbol_count[i] = a3OT_0212.distribution_forbidden[i];
-  a3OT_0212.total_count = a3OT_0212.pre_count;
-  for (int i = 0; i < a3OT_0220.data_symbols; i++)
-    a3OT_0220.symbol_count[i] = a3OT_0220.distribution_forbidden[i];
-  a3OT_0220.total_count = a3OT_0220.pre_count;
-  for (int i = 0; i < a3OT_0221.data_symbols; i++)
-    a3OT_0221.symbol_count[i] = a3OT_0221.distribution_forbidden[i];
-  a3OT_0221.total_count = a3OT_0221.pre_count;
-  for (int i = 0; i < a3OT_0222.data_symbols; i++)
-    a3OT_0222.symbol_count[i] = a3OT_0222.distribution_forbidden[i];
-  a3OT_0222.total_count = a3OT_0222.pre_count;
-  for (int i = 0; i < a3OT_1000.data_symbols; i++)
-    a3OT_1000.symbol_count[i] = a3OT_1000.distribution_forbidden[i];
-  a3OT_1000.total_count = a3OT_1000.pre_count;
-  for (int i = 0; i < a3OT_1001.data_symbols; i++)
-    a3OT_1001.symbol_count[i] = a3OT_1001.distribution_forbidden[i];
-  a3OT_1001.total_count = a3OT_1001.pre_count;
-  for (int i = 0; i < a3OT_1002.data_symbols; i++)
-    a3OT_1002.symbol_count[i] = a3OT_1002.distribution_forbidden[i];
-  a3OT_1002.total_count = a3OT_1002.pre_count;
-  for (int i = 0; i < a3OT_1010.data_symbols; i++)
-    a3OT_1010.symbol_count[i] = a3OT_1010.distribution_forbidden[i];
-  a3OT_1010.total_count = a3OT_1010.pre_count;
-  for (int i = 0; i < a3OT_1011.data_symbols; i++)
-    a3OT_1011.symbol_count[i] = a3OT_1011.distribution_forbidden[i];
-  a3OT_1011.total_count = a3OT_1011.pre_count;
-  for (int i = 0; i < a3OT_1012.data_symbols; i++)
-    a3OT_1012.symbol_count[i] = a3OT_1012.distribution_forbidden[i];
-  a3OT_1012.total_count = a3OT_1012.pre_count;
-  for (int i = 0; i < a3OT_1020.data_symbols; i++)
-    a3OT_1020.symbol_count[i] = a3OT_1020.distribution_forbidden[i];
-  a3OT_1020.total_count = a3OT_1020.pre_count;
-  for (int i = 0; i < a3OT_1021.data_symbols; i++)
-    a3OT_1021.symbol_count[i] = a3OT_1021.distribution_forbidden[i];
-  a3OT_1021.total_count = a3OT_1021.pre_count;
-  for (int i = 0; i < a3OT_1022.data_symbols; i++)
-    a3OT_1022.symbol_count[i] = a3OT_1022.distribution_forbidden[i];
-  a3OT_1022.total_count = a3OT_1022.pre_count;
-  for (int i = 0; i < a3OT_1100.data_symbols; i++)
-    a3OT_1100.symbol_count[i] = a3OT_1100.distribution_forbidden[i];
-  a3OT_1100.total_count = a3OT_1100.pre_count;
-  for (int i = 0; i < a3OT_1101.data_symbols; i++)
-    a3OT_1101.symbol_count[i] = a3OT_1101.distribution_forbidden[i];
-  a3OT_1101.total_count = a3OT_1101.pre_count;
-  for (int i = 0; i < a3OT_1102.data_symbols; i++)
-    a3OT_1102.symbol_count[i] = a3OT_1102.distribution_forbidden[i];
-  a3OT_1102.total_count = a3OT_1102.pre_count;
-  for (int i = 0; i < a3OT_1110.data_symbols; i++)
-    a3OT_1110.symbol_count[i] = a3OT_1110.distribution_forbidden[i];
-  a3OT_1110.total_count = a3OT_1110.pre_count;
-  for (int i = 0; i < a3OT_1111.data_symbols; i++)
-    a3OT_1111.symbol_count[i] = a3OT_1111.distribution_forbidden[i];
-  a3OT_1111.total_count = a3OT_1111.pre_count;
-  for (int i = 0; i < a3OT_1112.data_symbols; i++)
-    a3OT_1112.symbol_count[i] = a3OT_1112.distribution_forbidden[i];
-  a3OT_1112.total_count = a3OT_1112.pre_count;
-  for (int i = 0; i < a3OT_1120.data_symbols; i++)
-    a3OT_1120.symbol_count[i] = a3OT_1120.distribution_forbidden[i];
-  a3OT_1120.total_count = a3OT_1120.pre_count;
-  for (int i = 0; i < a3OT_1121.data_symbols; i++)
-    a3OT_1121.symbol_count[i] = a3OT_1121.distribution_forbidden[i];
-  a3OT_1121.total_count = a3OT_1121.pre_count;
-  for (int i = 0; i < a3OT_1122.data_symbols; i++)
-    a3OT_1122.symbol_count[i] = a3OT_1122.distribution_forbidden[i];
-  a3OT_1122.total_count = a3OT_1122.pre_count;
-  for (int i = 0; i < a3OT_1200.data_symbols; i++)
-    a3OT_1200.symbol_count[i] = a3OT_1200.distribution_forbidden[i];
-  a3OT_1200.total_count = a3OT_1200.pre_count;
-  for (int i = 0; i < a3OT_1201.data_symbols; i++)
-    a3OT_1201.symbol_count[i] = a3OT_1201.distribution_forbidden[i];
-  a3OT_1201.total_count = a3OT_1201.pre_count;
-  for (int i = 0; i < a3OT_1202.data_symbols; i++)
-    a3OT_1202.symbol_count[i] = a3OT_1202.distribution_forbidden[i];
-  a3OT_1202.total_count = a3OT_1202.pre_count;
-  for (int i = 0; i < a3OT_1210.data_symbols; i++)
-    a3OT_1210.symbol_count[i] = a3OT_1210.distribution_forbidden[i];
-  a3OT_1210.total_count = a3OT_1210.pre_count;
-  for (int i = 0; i < a3OT_1211.data_symbols; i++)
-    a3OT_1211.symbol_count[i] = a3OT_1211.distribution_forbidden[i];
-  a3OT_1211.total_count = a3OT_1211.pre_count;
-  for (int i = 0; i < a3OT_1212.data_symbols; i++)
-    a3OT_1212.symbol_count[i] = a3OT_1212.distribution_forbidden[i];
-  a3OT_1212.total_count = a3OT_1212.pre_count;
-  for (int i = 0; i < a3OT_1220.data_symbols; i++)
-    a3OT_1220.symbol_count[i] = a3OT_1220.distribution_forbidden[i];
-  a3OT_1220.total_count = a3OT_1220.pre_count;
-  for (int i = 0; i < a3OT_1221.data_symbols; i++)
-    a3OT_1221.symbol_count[i] = a3OT_1221.distribution_forbidden[i];
-  a3OT_1221.total_count = a3OT_1221.pre_count;
-  for (int i = 0; i < a3OT_1222.data_symbols; i++)
-    a3OT_1222.symbol_count[i] = a3OT_1222.distribution_forbidden[i];
-  a3OT_1222.total_count = a3OT_1222.pre_count;
-  for (int i = 0; i < a3OT_2000.data_symbols; i++)
-    a3OT_2000.symbol_count[i] = a3OT_2000.distribution_forbidden[i];
-  a3OT_2000.total_count = a3OT_2000.pre_count;
-  for (int i = 0; i < a3OT_2001.data_symbols; i++)
-    a3OT_2001.symbol_count[i] = a3OT_2001.distribution_forbidden[i];
-  a3OT_2001.total_count = a3OT_2001.pre_count;
-  for (int i = 0; i < a3OT_2002.data_symbols; i++)
-    a3OT_2002.symbol_count[i] = a3OT_2002.distribution_forbidden[i];
-  a3OT_2002.total_count = a3OT_2002.pre_count;
-  for (int i = 0; i < a3OT_2010.data_symbols; i++)
-    a3OT_2010.symbol_count[i] = a3OT_2010.distribution_forbidden[i];
-  a3OT_2010.total_count = a3OT_2010.pre_count;
-  for (int i = 0; i < a3OT_2011.data_symbols; i++)
-    a3OT_2011.symbol_count[i] = a3OT_2011.distribution_forbidden[i];
-  a3OT_2011.total_count = a3OT_2011.pre_count;
-  for (int i = 0; i < a3OT_2012.data_symbols; i++)
-    a3OT_2012.symbol_count[i] = a3OT_2012.distribution_forbidden[i];
-  a3OT_2012.total_count = a3OT_2012.pre_count;
-  for (int i = 0; i < a3OT_2020.data_symbols; i++)
-    a3OT_2020.symbol_count[i] = a3OT_2020.distribution_forbidden[i];
-  a3OT_2020.total_count = a3OT_2020.pre_count;
-  for (int i = 0; i < a3OT_2021.data_symbols; i++)
-    a3OT_2021.symbol_count[i] = a3OT_2021.distribution_forbidden[i];
-  a3OT_2021.total_count = a3OT_2021.pre_count;
-  for (int i = 0; i < a3OT_2022.data_symbols; i++)
-    a3OT_2022.symbol_count[i] = a3OT_2022.distribution_forbidden[i];
-  a3OT_2022.total_count = a3OT_2022.pre_count;
-  for (int i = 0; i < a3OT_2100.data_symbols; i++)
-    a3OT_2100.symbol_count[i] = a3OT_2100.distribution_forbidden[i];
-  a3OT_2100.total_count = a3OT_2100.pre_count;
-  for (int i = 0; i < a3OT_2101.data_symbols; i++)
-    a3OT_2101.symbol_count[i] = a3OT_2101.distribution_forbidden[i];
-  a3OT_2101.total_count = a3OT_2101.pre_count;
-  for (int i = 0; i < a3OT_2102.data_symbols; i++)
-    a3OT_2102.symbol_count[i] = a3OT_2102.distribution_forbidden[i];
-  a3OT_2102.total_count = a3OT_2102.pre_count;
-  for (int i = 0; i < a3OT_2110.data_symbols; i++)
-    a3OT_2110.symbol_count[i] = a3OT_2110.distribution_forbidden[i];
-  a3OT_2110.total_count = a3OT_2110.pre_count;
-  for (int i = 0; i < a3OT_2111.data_symbols; i++)
-    a3OT_2111.symbol_count[i] = a3OT_2111.distribution_forbidden[i];
-  a3OT_2111.total_count = a3OT_2111.pre_count;
-  for (int i = 0; i < a3OT_2112.data_symbols; i++)
-    a3OT_2112.symbol_count[i] = a3OT_2112.distribution_forbidden[i];
-  a3OT_2112.total_count = a3OT_2112.pre_count;
-  for (int i = 0; i < a3OT_2120.data_symbols; i++)
-    a3OT_2120.symbol_count[i] = a3OT_2120.distribution_forbidden[i];
-  a3OT_2120.total_count = a3OT_2120.pre_count;
-  for (int i = 0; i < a3OT_2121.data_symbols; i++)
-    a3OT_2121.symbol_count[i] = a3OT_2121.distribution_forbidden[i];
-  a3OT_2121.total_count = a3OT_2121.pre_count;
-  for (int i = 0; i < a3OT_2122.data_symbols; i++)
-    a3OT_2122.symbol_count[i] = a3OT_2122.distribution_forbidden[i];
-  a3OT_2122.total_count = a3OT_2122.pre_count;
-  for (int i = 0; i < a3OT_2200.data_symbols; i++)
-    a3OT_2200.symbol_count[i] = a3OT_2200.distribution_forbidden[i];
-  a3OT_2200.total_count = a3OT_2200.pre_count;
-  for (int i = 0; i < a3OT_2201.data_symbols; i++)
-    a3OT_2201.symbol_count[i] = a3OT_2201.distribution_forbidden[i];
-  a3OT_2201.total_count = a3OT_2201.pre_count;
-  for (int i = 0; i < a3OT_2202.data_symbols; i++)
-    a3OT_2202.symbol_count[i] = a3OT_2202.distribution_forbidden[i];
-  a3OT_2202.total_count = a3OT_2202.pre_count;
-  for (int i = 0; i < a3OT_2210.data_symbols; i++)
-    a3OT_2210.symbol_count[i] = a3OT_2210.distribution_forbidden[i];
-  a3OT_2210.total_count = a3OT_2210.pre_count;
-  for (int i = 0; i < a3OT_2211.data_symbols; i++)
-    a3OT_2211.symbol_count[i] = a3OT_2211.distribution_forbidden[i];
-  a3OT_2211.total_count = a3OT_2211.pre_count;
-  for (int i = 0; i < a3OT_2212.data_symbols; i++)
-    a3OT_2212.symbol_count[i] = a3OT_2212.distribution_forbidden[i];
-  a3OT_2212.total_count = a3OT_2212.pre_count;
-  for (int i = 0; i < a3OT_2220.data_symbols; i++)
-    a3OT_2220.symbol_count[i] = a3OT_2220.distribution_forbidden[i];
-  a3OT_2220.total_count = a3OT_2220.pre_count;
-  for (int i = 0; i < a3OT_2221.data_symbols; i++)
-    a3OT_2221.symbol_count[i] = a3OT_2221.distribution_forbidden[i];
-  a3OT_2221.total_count = a3OT_2221.pre_count;
-  for (int i = 0; i < a3OT_2222.data_symbols; i++)
-    a3OT_2222.symbol_count[i] = a3OT_2222.distribution_forbidden[i];
-  a3OT_2222.total_count = a3OT_2222.pre_count;
+void restore_3OT() {
+  for (int i = 0; i < a3OT_L.model_symbols(); i++)
+    a3OT_L.get_arr_symbol_count()[i] = a3OT_L.distribution_forbidden[i];
+  a3OT_L.set_total_count(a3OT_L.pre_count);
+  for (int i = 0; i < a3OT_A.model_symbols(); i++)
+    a3OT_A.get_arr_symbol_count()[i] = a3OT_A.distribution_forbidden[i];
+  a3OT_A.set_total_count(a3OT_A.pre_count);
+  for (int i = 0; i < a3OT_B.model_symbols(); i++)
+    a3OT_B.get_arr_symbol_count()[i] = a3OT_B.distribution_forbidden[i];
+  a3OT_B.set_total_count(a3OT_B.pre_count);
+  for (int i = 0; i < a3OT_R.model_symbols(); i++)
+    a3OT_R.get_arr_symbol_count()[i] = a3OT_R.distribution_forbidden[i];
+  a3OT_R.set_total_count(a3OT_R.pre_count);
+  for (int i = 0; i < a3OT_I.model_symbols(); i++)
+    a3OT_I.get_arr_symbol_count()[i] = a3OT_I.distribution_forbidden[i];
+  a3OT_I.set_total_count(a3OT_I.pre_count);
+  for (int i = 0; i < a3OT_0.model_symbols(); i++)
+    a3OT_0.get_arr_symbol_count()[i] = a3OT_0.distribution_forbidden[i];
+  a3OT_0.set_total_count(a3OT_0.pre_count);
+  for (int i = 0; i < a3OT_1.model_symbols(); i++)
+    a3OT_1.get_arr_symbol_count()[i] = a3OT_1.distribution_forbidden[i];
+  a3OT_1.set_total_count(a3OT_1.pre_count);
+  for (int i = 0; i < a3OT_2.model_symbols(); i++)
+    a3OT_2.get_arr_symbol_count()[i] = a3OT_2.distribution_forbidden[i];
+  a3OT_2.set_total_count(a3OT_2.pre_count);
+  for (int i = 0; i < a3OT_00.model_symbols(); i++)
+    a3OT_00.get_arr_symbol_count()[i] = a3OT_00.distribution_forbidden[i];
+  a3OT_00.set_total_count(a3OT_00.pre_count);
+  for (int i = 0; i < a3OT_01.model_symbols(); i++)
+    a3OT_01.get_arr_symbol_count()[i] = a3OT_01.distribution_forbidden[i];
+  a3OT_01.set_total_count(a3OT_01.pre_count);
+  for (int i = 0; i < a3OT_02.model_symbols(); i++)
+    a3OT_02.get_arr_symbol_count()[i] = a3OT_02.distribution_forbidden[i];
+  a3OT_02.set_total_count(a3OT_02.pre_count);
+  for (int i = 0; i < a3OT_10.model_symbols(); i++)
+    a3OT_10.get_arr_symbol_count()[i] = a3OT_10.distribution_forbidden[i];
+  a3OT_10.set_total_count(a3OT_10.pre_count);
+  for (int i = 0; i < a3OT_11.model_symbols(); i++)
+    a3OT_11.get_arr_symbol_count()[i] = a3OT_11.distribution_forbidden[i];
+  a3OT_11.set_total_count(a3OT_11.pre_count);
+  for (int i = 0; i < a3OT_12.model_symbols(); i++)
+    a3OT_12.get_arr_symbol_count()[i] = a3OT_12.distribution_forbidden[i];
+  a3OT_12.set_total_count(a3OT_12.pre_count);
+  for (int i = 0; i < a3OT_20.model_symbols(); i++)
+    a3OT_20.get_arr_symbol_count()[i] = a3OT_20.distribution_forbidden[i];
+  a3OT_20.set_total_count(a3OT_20.pre_count);
+  for (int i = 0; i < a3OT_21.model_symbols(); i++)
+    a3OT_21.get_arr_symbol_count()[i] = a3OT_21.distribution_forbidden[i];
+  a3OT_21.set_total_count(a3OT_21.pre_count);
+  for (int i = 0; i < a3OT_22.model_symbols(); i++)
+    a3OT_22.get_arr_symbol_count()[i] = a3OT_22.distribution_forbidden[i];
+  a3OT_22.set_total_count(a3OT_22.pre_count);
+  for (int i = 0; i < a3OT_000.model_symbols(); i++)
+    a3OT_000.get_arr_symbol_count()[i] = a3OT_000.distribution_forbidden[i];
+  a3OT_000.set_total_count(a3OT_000.pre_count);
+  for (int i = 0; i < a3OT_001.model_symbols(); i++)
+    a3OT_001.get_arr_symbol_count()[i] = a3OT_001.distribution_forbidden[i];
+  a3OT_001.set_total_count(a3OT_001.pre_count);
+  for (int i = 0; i < a3OT_002.model_symbols(); i++)
+    a3OT_002.get_arr_symbol_count()[i] = a3OT_002.distribution_forbidden[i];
+  a3OT_002.set_total_count(a3OT_002.pre_count);
+  for (int i = 0; i < a3OT_010.model_symbols(); i++)
+    a3OT_010.get_arr_symbol_count()[i] = a3OT_010.distribution_forbidden[i];
+  a3OT_010.set_total_count(a3OT_010.pre_count);
+  for (int i = 0; i < a3OT_011.model_symbols(); i++)
+    a3OT_011.get_arr_symbol_count()[i] = a3OT_011.distribution_forbidden[i];
+  a3OT_011.set_total_count(a3OT_011.pre_count);
+  for (int i = 0; i < a3OT_012.model_symbols(); i++)
+    a3OT_012.get_arr_symbol_count()[i] = a3OT_012.distribution_forbidden[i];
+  a3OT_012.set_total_count(a3OT_012.pre_count);
+  for (int i = 0; i < a3OT_020.model_symbols(); i++)
+    a3OT_020.get_arr_symbol_count()[i] = a3OT_020.distribution_forbidden[i];
+  a3OT_020.set_total_count(a3OT_020.pre_count);
+  for (int i = 0; i < a3OT_021.model_symbols(); i++)
+    a3OT_021.get_arr_symbol_count()[i] = a3OT_021.distribution_forbidden[i];
+  a3OT_021.set_total_count(a3OT_021.pre_count);
+  for (int i = 0; i < a3OT_022.model_symbols(); i++)
+    a3OT_022.get_arr_symbol_count()[i] = a3OT_022.distribution_forbidden[i];
+  a3OT_022.set_total_count(a3OT_022.pre_count);
+  for (int i = 0; i < a3OT_100.model_symbols(); i++)
+    a3OT_100.get_arr_symbol_count()[i] = a3OT_100.distribution_forbidden[i];
+  a3OT_100.set_total_count(a3OT_100.pre_count);
+  for (int i = 0; i < a3OT_101.model_symbols(); i++)
+    a3OT_101.get_arr_symbol_count()[i] = a3OT_101.distribution_forbidden[i];
+  a3OT_101.set_total_count(a3OT_101.pre_count);
+  for (int i = 0; i < a3OT_102.model_symbols(); i++)
+    a3OT_102.get_arr_symbol_count()[i] = a3OT_102.distribution_forbidden[i];
+  a3OT_102.set_total_count(a3OT_102.pre_count);
+  for (int i = 0; i < a3OT_110.model_symbols(); i++)
+    a3OT_110.get_arr_symbol_count()[i] = a3OT_110.distribution_forbidden[i];
+  a3OT_110.set_total_count(a3OT_110.pre_count);
+  for (int i = 0; i < a3OT_111.model_symbols(); i++)
+    a3OT_111.get_arr_symbol_count()[i] = a3OT_111.distribution_forbidden[i];
+  a3OT_111.set_total_count(a3OT_111.pre_count);
+  for (int i = 0; i < a3OT_112.model_symbols(); i++)
+    a3OT_112.get_arr_symbol_count()[i] = a3OT_112.distribution_forbidden[i];
+  a3OT_112.set_total_count(a3OT_112.pre_count);
+  for (int i = 0; i < a3OT_120.model_symbols(); i++)
+    a3OT_120.get_arr_symbol_count()[i] = a3OT_120.distribution_forbidden[i];
+  a3OT_120.set_total_count(a3OT_120.pre_count);
+  for (int i = 0; i < a3OT_121.model_symbols(); i++)
+    a3OT_121.get_arr_symbol_count()[i] = a3OT_121.distribution_forbidden[i];
+  a3OT_121.set_total_count(a3OT_121.pre_count);
+  for (int i = 0; i < a3OT_122.model_symbols(); i++)
+    a3OT_122.get_arr_symbol_count()[i] = a3OT_122.distribution_forbidden[i];
+  a3OT_122.set_total_count(a3OT_122.pre_count);
+  for (int i = 0; i < a3OT_200.model_symbols(); i++)
+    a3OT_200.get_arr_symbol_count()[i] = a3OT_200.distribution_forbidden[i];
+  a3OT_200.set_total_count(a3OT_200.pre_count);
+  for (int i = 0; i < a3OT_201.model_symbols(); i++)
+    a3OT_201.get_arr_symbol_count()[i] = a3OT_201.distribution_forbidden[i];
+  a3OT_201.set_total_count(a3OT_201.pre_count);
+  for (int i = 0; i < a3OT_202.model_symbols(); i++)
+    a3OT_202.get_arr_symbol_count()[i] = a3OT_202.distribution_forbidden[i];
+  a3OT_202.set_total_count(a3OT_202.pre_count);
+  for (int i = 0; i < a3OT_210.model_symbols(); i++)
+    a3OT_210.get_arr_symbol_count()[i] = a3OT_210.distribution_forbidden[i];
+  a3OT_210.set_total_count(a3OT_210.pre_count);
+  for (int i = 0; i < a3OT_211.model_symbols(); i++)
+    a3OT_211.get_arr_symbol_count()[i] = a3OT_211.distribution_forbidden[i];
+  a3OT_211.set_total_count(a3OT_211.pre_count);
+  for (int i = 0; i < a3OT_212.model_symbols(); i++)
+    a3OT_212.get_arr_symbol_count()[i] = a3OT_212.distribution_forbidden[i];
+  a3OT_212.set_total_count(a3OT_212.pre_count);
+  for (int i = 0; i < a3OT_220.model_symbols(); i++)
+    a3OT_220.get_arr_symbol_count()[i] = a3OT_220.distribution_forbidden[i];
+  a3OT_220.set_total_count(a3OT_220.pre_count);
+  for (int i = 0; i < a3OT_221.model_symbols(); i++)
+    a3OT_221.get_arr_symbol_count()[i] = a3OT_221.distribution_forbidden[i];
+  a3OT_221.set_total_count(a3OT_221.pre_count);
+  for (int i = 0; i < a3OT_222.model_symbols(); i++)
+    a3OT_222.get_arr_symbol_count()[i] = a3OT_222.distribution_forbidden[i];
+  a3OT_222.set_total_count(a3OT_222.pre_count);
+  for (int i = 0; i < a3OT_0000.model_symbols(); i++)
+    a3OT_0000.get_arr_symbol_count()[i] = a3OT_0000.distribution_forbidden[i];
+  a3OT_0000.set_total_count(a3OT_0000.pre_count);
+  for (int i = 0; i < a3OT_0001.model_symbols(); i++)
+    a3OT_0001.get_arr_symbol_count()[i] = a3OT_0001.distribution_forbidden[i];
+  a3OT_0001.set_total_count(a3OT_0001.pre_count);
+  for (int i = 0; i < a3OT_0002.model_symbols(); i++)
+    a3OT_0002.get_arr_symbol_count()[i] = a3OT_0002.distribution_forbidden[i];
+  a3OT_0002.set_total_count(a3OT_0002.pre_count);
+  for (int i = 0; i < a3OT_0010.model_symbols(); i++)
+    a3OT_0010.get_arr_symbol_count()[i] = a3OT_0010.distribution_forbidden[i];
+  a3OT_0010.set_total_count(a3OT_0010.pre_count);
+  for (int i = 0; i < a3OT_0011.model_symbols(); i++)
+    a3OT_0011.get_arr_symbol_count()[i] = a3OT_0011.distribution_forbidden[i];
+  a3OT_0011.set_total_count(a3OT_0011.pre_count);
+  for (int i = 0; i < a3OT_0012.model_symbols(); i++)
+    a3OT_0012.get_arr_symbol_count()[i] = a3OT_0012.distribution_forbidden[i];
+  a3OT_0012.set_total_count(a3OT_0012.pre_count);
+  for (int i = 0; i < a3OT_0020.model_symbols(); i++)
+    a3OT_0020.get_arr_symbol_count()[i] = a3OT_0020.distribution_forbidden[i];
+  a3OT_0020.set_total_count(a3OT_0020.pre_count);
+  for (int i = 0; i < a3OT_0021.model_symbols(); i++)
+    a3OT_0021.get_arr_symbol_count()[i] = a3OT_0021.distribution_forbidden[i];
+  a3OT_0021.set_total_count(a3OT_0021.pre_count);
+  for (int i = 0; i < a3OT_0022.model_symbols(); i++)
+    a3OT_0022.get_arr_symbol_count()[i] = a3OT_0022.distribution_forbidden[i];
+  a3OT_0022.set_total_count(a3OT_0022.pre_count);
+  for (int i = 0; i < a3OT_0100.model_symbols(); i++)
+    a3OT_0100.get_arr_symbol_count()[i] = a3OT_0100.distribution_forbidden[i];
+  a3OT_0100.set_total_count(a3OT_0100.pre_count);
+  for (int i = 0; i < a3OT_0101.model_symbols(); i++)
+    a3OT_0101.get_arr_symbol_count()[i] = a3OT_0101.distribution_forbidden[i];
+  a3OT_0101.set_total_count(a3OT_0101.pre_count);
+  for (int i = 0; i < a3OT_0102.model_symbols(); i++)
+    a3OT_0102.get_arr_symbol_count()[i] = a3OT_0102.distribution_forbidden[i];
+  a3OT_0102.set_total_count(a3OT_0102.pre_count);
+  for (int i = 0; i < a3OT_0110.model_symbols(); i++)
+    a3OT_0110.get_arr_symbol_count()[i] = a3OT_0110.distribution_forbidden[i];
+  a3OT_0110.set_total_count(a3OT_0110.pre_count);
+  for (int i = 0; i < a3OT_0111.model_symbols(); i++)
+    a3OT_0111.get_arr_symbol_count()[i] = a3OT_0111.distribution_forbidden[i];
+  a3OT_0111.set_total_count(a3OT_0111.pre_count);
+  for (int i = 0; i < a3OT_0112.model_symbols(); i++)
+    a3OT_0112.get_arr_symbol_count()[i] = a3OT_0112.distribution_forbidden[i];
+  a3OT_0112.set_total_count(a3OT_0112.pre_count);
+  for (int i = 0; i < a3OT_0120.model_symbols(); i++)
+    a3OT_0120.get_arr_symbol_count()[i] = a3OT_0120.distribution_forbidden[i];
+  a3OT_0120.set_total_count(a3OT_0120.pre_count);
+  for (int i = 0; i < a3OT_0121.model_symbols(); i++)
+    a3OT_0121.get_arr_symbol_count()[i] = a3OT_0121.distribution_forbidden[i];
+  a3OT_0121.set_total_count(a3OT_0121.pre_count);
+  for (int i = 0; i < a3OT_0122.model_symbols(); i++)
+    a3OT_0122.get_arr_symbol_count()[i] = a3OT_0122.distribution_forbidden[i];
+  a3OT_0122.set_total_count(a3OT_0122.pre_count);
+  for (int i = 0; i < a3OT_0200.model_symbols(); i++)
+    a3OT_0200.get_arr_symbol_count()[i] = a3OT_0200.distribution_forbidden[i];
+  a3OT_0200.set_total_count(a3OT_0200.pre_count);
+  for (int i = 0; i < a3OT_0201.model_symbols(); i++)
+    a3OT_0201.get_arr_symbol_count()[i] = a3OT_0201.distribution_forbidden[i];
+  a3OT_0201.set_total_count(a3OT_0201.pre_count);
+  for (int i = 0; i < a3OT_0202.model_symbols(); i++)
+    a3OT_0202.get_arr_symbol_count()[i] = a3OT_0202.distribution_forbidden[i];
+  a3OT_0202.set_total_count(a3OT_0202.pre_count);
+  for (int i = 0; i < a3OT_0210.model_symbols(); i++)
+    a3OT_0210.get_arr_symbol_count()[i] = a3OT_0210.distribution_forbidden[i];
+  a3OT_0210.set_total_count(a3OT_0210.pre_count);
+  for (int i = 0; i < a3OT_0211.model_symbols(); i++)
+    a3OT_0211.get_arr_symbol_count()[i] = a3OT_0211.distribution_forbidden[i];
+  a3OT_0211.set_total_count(a3OT_0211.pre_count);
+  for (int i = 0; i < a3OT_0212.model_symbols(); i++)
+    a3OT_0212.get_arr_symbol_count()[i] = a3OT_0212.distribution_forbidden[i];
+  a3OT_0212.set_total_count(a3OT_0212.pre_count);
+  for (int i = 0; i < a3OT_0220.model_symbols(); i++)
+    a3OT_0220.get_arr_symbol_count()[i] = a3OT_0220.distribution_forbidden[i];
+  a3OT_0220.set_total_count(a3OT_0220.pre_count);
+  for (int i = 0; i < a3OT_0221.model_symbols(); i++)
+    a3OT_0221.get_arr_symbol_count()[i] = a3OT_0221.distribution_forbidden[i];
+  a3OT_0221.set_total_count(a3OT_0221.pre_count);
+  for (int i = 0; i < a3OT_0222.model_symbols(); i++)
+    a3OT_0222.get_arr_symbol_count()[i] = a3OT_0222.distribution_forbidden[i];
+  a3OT_0222.set_total_count(a3OT_0222.pre_count);
+  for (int i = 0; i < a3OT_1000.model_symbols(); i++)
+    a3OT_1000.get_arr_symbol_count()[i] = a3OT_1000.distribution_forbidden[i];
+  a3OT_1000.set_total_count(a3OT_1000.pre_count);
+  for (int i = 0; i < a3OT_1001.model_symbols(); i++)
+    a3OT_1001.get_arr_symbol_count()[i] = a3OT_1001.distribution_forbidden[i];
+  a3OT_1001.set_total_count(a3OT_1001.pre_count);
+  for (int i = 0; i < a3OT_1002.model_symbols(); i++)
+    a3OT_1002.get_arr_symbol_count()[i] = a3OT_1002.distribution_forbidden[i];
+  a3OT_1002.set_total_count(a3OT_1002.pre_count);
+  for (int i = 0; i < a3OT_1010.model_symbols(); i++)
+    a3OT_1010.get_arr_symbol_count()[i] = a3OT_1010.distribution_forbidden[i];
+  a3OT_1010.set_total_count(a3OT_1010.pre_count);
+  for (int i = 0; i < a3OT_1011.model_symbols(); i++)
+    a3OT_1011.get_arr_symbol_count()[i] = a3OT_1011.distribution_forbidden[i];
+  a3OT_1011.set_total_count(a3OT_1011.pre_count);
+  for (int i = 0; i < a3OT_1012.model_symbols(); i++)
+    a3OT_1012.get_arr_symbol_count()[i] = a3OT_1012.distribution_forbidden[i];
+  a3OT_1012.set_total_count(a3OT_1012.pre_count);
+  for (int i = 0; i < a3OT_1020.model_symbols(); i++)
+    a3OT_1020.get_arr_symbol_count()[i] = a3OT_1020.distribution_forbidden[i];
+  a3OT_1020.set_total_count(a3OT_1020.pre_count);
+  for (int i = 0; i < a3OT_1021.model_symbols(); i++)
+    a3OT_1021.get_arr_symbol_count()[i] = a3OT_1021.distribution_forbidden[i];
+  a3OT_1021.set_total_count(a3OT_1021.pre_count);
+  for (int i = 0; i < a3OT_1022.model_symbols(); i++)
+    a3OT_1022.get_arr_symbol_count()[i] = a3OT_1022.distribution_forbidden[i];
+  a3OT_1022.set_total_count(a3OT_1022.pre_count);
+  for (int i = 0; i < a3OT_1100.model_symbols(); i++)
+    a3OT_1100.get_arr_symbol_count()[i] = a3OT_1100.distribution_forbidden[i];
+  a3OT_1100.set_total_count(a3OT_1100.pre_count);
+  for (int i = 0; i < a3OT_1101.model_symbols(); i++)
+    a3OT_1101.get_arr_symbol_count()[i] = a3OT_1101.distribution_forbidden[i];
+  a3OT_1101.set_total_count(a3OT_1101.pre_count);
+  for (int i = 0; i < a3OT_1102.model_symbols(); i++)
+    a3OT_1102.get_arr_symbol_count()[i] = a3OT_1102.distribution_forbidden[i];
+  a3OT_1102.set_total_count(a3OT_1102.pre_count);
+  for (int i = 0; i < a3OT_1110.model_symbols(); i++)
+    a3OT_1110.get_arr_symbol_count()[i] = a3OT_1110.distribution_forbidden[i];
+  a3OT_1110.set_total_count(a3OT_1110.pre_count);
+  for (int i = 0; i < a3OT_1111.model_symbols(); i++)
+    a3OT_1111.get_arr_symbol_count()[i] = a3OT_1111.distribution_forbidden[i];
+  a3OT_1111.set_total_count(a3OT_1111.pre_count);
+  for (int i = 0; i < a3OT_1112.model_symbols(); i++)
+    a3OT_1112.get_arr_symbol_count()[i] = a3OT_1112.distribution_forbidden[i];
+  a3OT_1112.set_total_count(a3OT_1112.pre_count);
+  for (int i = 0; i < a3OT_1120.model_symbols(); i++)
+    a3OT_1120.get_arr_symbol_count()[i] = a3OT_1120.distribution_forbidden[i];
+  a3OT_1120.set_total_count(a3OT_1120.pre_count);
+  for (int i = 0; i < a3OT_1121.model_symbols(); i++)
+    a3OT_1121.get_arr_symbol_count()[i] = a3OT_1121.distribution_forbidden[i];
+  a3OT_1121.set_total_count(a3OT_1121.pre_count);
+  for (int i = 0; i < a3OT_1122.model_symbols(); i++)
+    a3OT_1122.get_arr_symbol_count()[i] = a3OT_1122.distribution_forbidden[i];
+  a3OT_1122.set_total_count(a3OT_1122.pre_count);
+  for (int i = 0; i < a3OT_1200.model_symbols(); i++)
+    a3OT_1200.get_arr_symbol_count()[i] = a3OT_1200.distribution_forbidden[i];
+  a3OT_1200.set_total_count(a3OT_1200.pre_count);
+  for (int i = 0; i < a3OT_1201.model_symbols(); i++)
+    a3OT_1201.get_arr_symbol_count()[i] = a3OT_1201.distribution_forbidden[i];
+  a3OT_1201.set_total_count(a3OT_1201.pre_count);
+  for (int i = 0; i < a3OT_1202.model_symbols(); i++)
+    a3OT_1202.get_arr_symbol_count()[i] = a3OT_1202.distribution_forbidden[i];
+  a3OT_1202.set_total_count(a3OT_1202.pre_count);
+  for (int i = 0; i < a3OT_1210.model_symbols(); i++)
+    a3OT_1210.get_arr_symbol_count()[i] = a3OT_1210.distribution_forbidden[i];
+  a3OT_1210.set_total_count(a3OT_1210.pre_count);
+  for (int i = 0; i < a3OT_1211.model_symbols(); i++)
+    a3OT_1211.get_arr_symbol_count()[i] = a3OT_1211.distribution_forbidden[i];
+  a3OT_1211.set_total_count(a3OT_1211.pre_count);
+  for (int i = 0; i < a3OT_1212.model_symbols(); i++)
+    a3OT_1212.get_arr_symbol_count()[i] = a3OT_1212.distribution_forbidden[i];
+  a3OT_1212.set_total_count(a3OT_1212.pre_count);
+  for (int i = 0; i < a3OT_1220.model_symbols(); i++)
+    a3OT_1220.get_arr_symbol_count()[i] = a3OT_1220.distribution_forbidden[i];
+  a3OT_1220.set_total_count(a3OT_1220.pre_count);
+  for (int i = 0; i < a3OT_1221.model_symbols(); i++)
+    a3OT_1221.get_arr_symbol_count()[i] = a3OT_1221.distribution_forbidden[i];
+  a3OT_1221.set_total_count(a3OT_1221.pre_count);
+  for (int i = 0; i < a3OT_1222.model_symbols(); i++)
+    a3OT_1222.get_arr_symbol_count()[i] = a3OT_1222.distribution_forbidden[i];
+  a3OT_1222.set_total_count(a3OT_1222.pre_count);
+  for (int i = 0; i < a3OT_2000.model_symbols(); i++)
+    a3OT_2000.get_arr_symbol_count()[i] = a3OT_2000.distribution_forbidden[i];
+  a3OT_2000.set_total_count(a3OT_2000.pre_count);
+  for (int i = 0; i < a3OT_2001.model_symbols(); i++)
+    a3OT_2001.get_arr_symbol_count()[i] = a3OT_2001.distribution_forbidden[i];
+  a3OT_2001.set_total_count(a3OT_2001.pre_count);
+  for (int i = 0; i < a3OT_2002.model_symbols(); i++)
+    a3OT_2002.get_arr_symbol_count()[i] = a3OT_2002.distribution_forbidden[i];
+  a3OT_2002.set_total_count(a3OT_2002.pre_count);
+  for (int i = 0; i < a3OT_2010.model_symbols(); i++)
+    a3OT_2010.get_arr_symbol_count()[i] = a3OT_2010.distribution_forbidden[i];
+  a3OT_2010.set_total_count(a3OT_2010.pre_count);
+  for (int i = 0; i < a3OT_2011.model_symbols(); i++)
+    a3OT_2011.get_arr_symbol_count()[i] = a3OT_2011.distribution_forbidden[i];
+  a3OT_2011.set_total_count(a3OT_2011.pre_count);
+  for (int i = 0; i < a3OT_2012.model_symbols(); i++)
+    a3OT_2012.get_arr_symbol_count()[i] = a3OT_2012.distribution_forbidden[i];
+  a3OT_2012.set_total_count(a3OT_2012.pre_count);
+  for (int i = 0; i < a3OT_2020.model_symbols(); i++)
+    a3OT_2020.get_arr_symbol_count()[i] = a3OT_2020.distribution_forbidden[i];
+  a3OT_2020.set_total_count(a3OT_2020.pre_count);
+  for (int i = 0; i < a3OT_2021.model_symbols(); i++)
+    a3OT_2021.get_arr_symbol_count()[i] = a3OT_2021.distribution_forbidden[i];
+  a3OT_2021.set_total_count(a3OT_2021.pre_count);
+  for (int i = 0; i < a3OT_2022.model_symbols(); i++)
+    a3OT_2022.get_arr_symbol_count()[i] = a3OT_2022.distribution_forbidden[i];
+  a3OT_2022.set_total_count(a3OT_2022.pre_count);
+  for (int i = 0; i < a3OT_2100.model_symbols(); i++)
+    a3OT_2100.get_arr_symbol_count()[i] = a3OT_2100.distribution_forbidden[i];
+  a3OT_2100.set_total_count(a3OT_2100.pre_count);
+  for (int i = 0; i < a3OT_2101.model_symbols(); i++)
+    a3OT_2101.get_arr_symbol_count()[i] = a3OT_2101.distribution_forbidden[i];
+  a3OT_2101.set_total_count(a3OT_2101.pre_count);
+  for (int i = 0; i < a3OT_2102.model_symbols(); i++)
+    a3OT_2102.get_arr_symbol_count()[i] = a3OT_2102.distribution_forbidden[i];
+  a3OT_2102.set_total_count(a3OT_2102.pre_count);
+  for (int i = 0; i < a3OT_2110.model_symbols(); i++)
+    a3OT_2110.get_arr_symbol_count()[i] = a3OT_2110.distribution_forbidden[i];
+  a3OT_2110.set_total_count(a3OT_2110.pre_count);
+  for (int i = 0; i < a3OT_2111.model_symbols(); i++)
+    a3OT_2111.get_arr_symbol_count()[i] = a3OT_2111.distribution_forbidden[i];
+  a3OT_2111.set_total_count(a3OT_2111.pre_count);
+  for (int i = 0; i < a3OT_2112.model_symbols(); i++)
+    a3OT_2112.get_arr_symbol_count()[i] = a3OT_2112.distribution_forbidden[i];
+  a3OT_2112.set_total_count(a3OT_2112.pre_count);
+  for (int i = 0; i < a3OT_2120.model_symbols(); i++)
+    a3OT_2120.get_arr_symbol_count()[i] = a3OT_2120.distribution_forbidden[i];
+  a3OT_2120.set_total_count(a3OT_2120.pre_count);
+  for (int i = 0; i < a3OT_2121.model_symbols(); i++)
+    a3OT_2121.get_arr_symbol_count()[i] = a3OT_2121.distribution_forbidden[i];
+  a3OT_2121.set_total_count(a3OT_2121.pre_count);
+  for (int i = 0; i < a3OT_2122.model_symbols(); i++)
+    a3OT_2122.get_arr_symbol_count()[i] = a3OT_2122.distribution_forbidden[i];
+  a3OT_2122.set_total_count(a3OT_2122.pre_count);
+  for (int i = 0; i < a3OT_2200.model_symbols(); i++)
+    a3OT_2200.get_arr_symbol_count()[i] = a3OT_2200.distribution_forbidden[i];
+  a3OT_2200.set_total_count(a3OT_2200.pre_count);
+  for (int i = 0; i < a3OT_2201.model_symbols(); i++)
+    a3OT_2201.get_arr_symbol_count()[i] = a3OT_2201.distribution_forbidden[i];
+  a3OT_2201.set_total_count(a3OT_2201.pre_count);
+  for (int i = 0; i < a3OT_2202.model_symbols(); i++)
+    a3OT_2202.get_arr_symbol_count()[i] = a3OT_2202.distribution_forbidden[i];
+  a3OT_2202.set_total_count(a3OT_2202.pre_count);
+  for (int i = 0; i < a3OT_2210.model_symbols(); i++)
+    a3OT_2210.get_arr_symbol_count()[i] = a3OT_2210.distribution_forbidden[i];
+  a3OT_2210.set_total_count(a3OT_2210.pre_count);
+  for (int i = 0; i < a3OT_2211.model_symbols(); i++)
+    a3OT_2211.get_arr_symbol_count()[i] = a3OT_2211.distribution_forbidden[i];
+  a3OT_2211.set_total_count(a3OT_2211.pre_count);
+  for (int i = 0; i < a3OT_2212.model_symbols(); i++)
+    a3OT_2212.get_arr_symbol_count()[i] = a3OT_2212.distribution_forbidden[i];
+  a3OT_2212.set_total_count(a3OT_2212.pre_count);
+  for (int i = 0; i < a3OT_2220.model_symbols(); i++)
+    a3OT_2220.get_arr_symbol_count()[i] = a3OT_2220.distribution_forbidden[i];
+  a3OT_2220.set_total_count(a3OT_2220.pre_count);
+  for (int i = 0; i < a3OT_2221.model_symbols(); i++)
+    a3OT_2221.get_arr_symbol_count()[i] = a3OT_2221.distribution_forbidden[i];
+  a3OT_2221.set_total_count(a3OT_2221.pre_count);
+  for (int i = 0; i < a3OT_2222.model_symbols(); i++)
+    a3OT_2222.get_arr_symbol_count()[i] = a3OT_2222.distribution_forbidden[i];
+  a3OT_2222.set_total_count(a3OT_2222.pre_count);
 }
 
-void save_MSC()
-{
-  for (int i = 0; i < aMSC_L.data_symbols; i++)
-    aMSC_L.distribution_forbidden[i] = aMSC_L.symbol_count[i];
-  aMSC_L.pre_count = aMSC_L.total_count;
-  for (int i = 0; i < aMSC_A.data_symbols; i++)
-    aMSC_A.distribution_forbidden[i] = aMSC_A.symbol_count[i];
-  aMSC_A.pre_count = aMSC_A.total_count;
-  for (int i = 0; i < aMSC_B.data_symbols; i++)
-    aMSC_B.distribution_forbidden[i] = aMSC_B.symbol_count[i];
-  aMSC_B.pre_count = aMSC_B.total_count;
-  for (int i = 0; i < aMSC_R.data_symbols; i++)
-    aMSC_R.distribution_forbidden[i] = aMSC_R.symbol_count[i];
-  aMSC_R.pre_count = aMSC_R.total_count;
-  for (int i = 0; i < aMSC_I.data_symbols; i++)
-    aMSC_I.distribution_forbidden[i] = aMSC_I.symbol_count[i];
-  aMSC_I.pre_count = aMSC_I.total_count;
-  for (int i = 0; i < aMSC_0.data_symbols; i++)
-    aMSC_0.distribution_forbidden[i] = aMSC_0.symbol_count[i];
-  aMSC_0.pre_count = aMSC_0.total_count;
-  for (int i = 0; i < aMSC_1.data_symbols; i++)
-    aMSC_1.distribution_forbidden[i] = aMSC_1.symbol_count[i];
-  aMSC_1.pre_count = aMSC_1.total_count;
-  for (int i = 0; i < aMSC_2.data_symbols; i++)
-    aMSC_2.distribution_forbidden[i] = aMSC_2.symbol_count[i];
-  aMSC_2.pre_count = aMSC_2.total_count;
-  for (int i = 0; i < aMSC_3.data_symbols; i++)
-    aMSC_3.distribution_forbidden[i] = aMSC_3.symbol_count[i];
-  aMSC_3.pre_count = aMSC_3.total_count;
-  for (int i = 0; i < aMSC_4.data_symbols; i++)
-    aMSC_4.distribution_forbidden[i] = aMSC_4.symbol_count[i];
-  aMSC_4.pre_count = aMSC_4.total_count;
-  for (int i = 0; i < aMSC_5.data_symbols; i++)
-    aMSC_5.distribution_forbidden[i] = aMSC_5.symbol_count[i];
-  aMSC_5.pre_count = aMSC_5.total_count;
-  for (int i = 0; i < aMSC_6.data_symbols; i++)
-    aMSC_6.distribution_forbidden[i] = aMSC_6.symbol_count[i];
-  aMSC_6.pre_count = aMSC_6.total_count;
-  for (int i = 0; i < aMSC_7.data_symbols; i++)
-    aMSC_7.distribution_forbidden[i] = aMSC_7.symbol_count[i];
-  aMSC_7.pre_count = aMSC_7.total_count;
-  for (int i = 0; i < aMSC_8.data_symbols; i++)
-    aMSC_8.distribution_forbidden[i] = aMSC_8.symbol_count[i];
-  aMSC_8.pre_count = aMSC_8.total_count;
-  for (int i = 0; i < aMSC_00.data_symbols; i++)
-    aMSC_00.distribution_forbidden[i] = aMSC_00.symbol_count[i];
-  aMSC_00.pre_count = aMSC_00.total_count;
-  for (int i = 0; i < aMSC_01.data_symbols; i++)
-    aMSC_01.distribution_forbidden[i] = aMSC_01.symbol_count[i];
-  aMSC_01.pre_count = aMSC_01.total_count;
-  for (int i = 0; i < aMSC_02.data_symbols; i++)
-    aMSC_02.distribution_forbidden[i] = aMSC_02.symbol_count[i];
-  aMSC_02.pre_count = aMSC_02.total_count;
-  for (int i = 0; i < aMSC_03.data_symbols; i++)
-    aMSC_03.distribution_forbidden[i] = aMSC_03.symbol_count[i];
-  aMSC_03.pre_count = aMSC_03.total_count;
-  for (int i = 0; i < aMSC_04.data_symbols; i++)
-    aMSC_04.distribution_forbidden[i] = aMSC_04.symbol_count[i];
-  aMSC_04.pre_count = aMSC_04.total_count;
-  for (int i = 0; i < aMSC_05.data_symbols; i++)
-    aMSC_05.distribution_forbidden[i] = aMSC_05.symbol_count[i];
-  aMSC_05.pre_count = aMSC_05.total_count;
-  for (int i = 0; i < aMSC_06.data_symbols; i++)
-    aMSC_06.distribution_forbidden[i] = aMSC_06.symbol_count[i];
-  aMSC_06.pre_count = aMSC_06.total_count;
-  for (int i = 0; i < aMSC_07.data_symbols; i++)
-    aMSC_07.distribution_forbidden[i] = aMSC_07.symbol_count[i];
-  aMSC_07.pre_count = aMSC_07.total_count;
-  for (int i = 0; i < aMSC_08.data_symbols; i++)
-    aMSC_08.distribution_forbidden[i] = aMSC_08.symbol_count[i];
-  aMSC_08.pre_count = aMSC_08.total_count;
-  for (int i = 0; i < aMSC_09.data_symbols; i++)
-    aMSC_09.distribution_forbidden[i] = aMSC_09.symbol_count[i];
-  aMSC_09.pre_count = aMSC_09.total_count;
-  for (int i = 0; i < aMSC_010.data_symbols; i++)
-    aMSC_010.distribution_forbidden[i] = aMSC_010.symbol_count[i];
-  aMSC_010.pre_count = aMSC_010.total_count;
-  for (int i = 0; i < aMSC_011.data_symbols; i++)
-    aMSC_011.distribution_forbidden[i] = aMSC_011.symbol_count[i];
-  aMSC_011.pre_count = aMSC_011.total_count;
-  for (int i = 0; i < aMSC_012.data_symbols; i++)
-    aMSC_012.distribution_forbidden[i] = aMSC_012.symbol_count[i];
-  aMSC_012.pre_count = aMSC_012.total_count;
-  for (int i = 0; i < aMSC_013.data_symbols; i++)
-    aMSC_013.distribution_forbidden[i] = aMSC_013.symbol_count[i];
-  aMSC_013.pre_count = aMSC_013.total_count;
-  for (int i = 0; i < aMSC_014.data_symbols; i++)
-    aMSC_014.distribution_forbidden[i] = aMSC_014.symbol_count[i];
-  aMSC_014.pre_count = aMSC_014.total_count;
-  for (int i = 0; i < aMSC_015.data_symbols; i++)
-    aMSC_015.distribution_forbidden[i] = aMSC_015.symbol_count[i];
-  aMSC_015.pre_count = aMSC_015.total_count;
-  for (int i = 0; i < aMSC_016.data_symbols; i++)
-    aMSC_016.distribution_forbidden[i] = aMSC_016.symbol_count[i];
-  aMSC_016.pre_count = aMSC_016.total_count;
-  for (int i = 0; i < aMSC_017.data_symbols; i++)
-    aMSC_017.distribution_forbidden[i] = aMSC_017.symbol_count[i];
-  aMSC_017.pre_count = aMSC_017.total_count;
-  for (int i = 0; i < aMSC_018.data_symbols; i++)
-    aMSC_018.distribution_forbidden[i] = aMSC_018.symbol_count[i];
-  aMSC_018.pre_count = aMSC_018.total_count;
-  for (int i = 0; i < aMSC_019.data_symbols; i++)
-    aMSC_019.distribution_forbidden[i] = aMSC_019.symbol_count[i];
-  aMSC_019.pre_count = aMSC_019.total_count;
-  for (int i = 0; i < aMSC_020.data_symbols; i++)
-    aMSC_020.distribution_forbidden[i] = aMSC_020.symbol_count[i];
-  aMSC_020.pre_count = aMSC_020.total_count;
-  for (int i = 0; i < aMSC_021.data_symbols; i++)
-    aMSC_021.distribution_forbidden[i] = aMSC_021.symbol_count[i];
-  aMSC_021.pre_count = aMSC_021.total_count;
-  for (int i = 0; i < aMSC_022.data_symbols; i++)
-    aMSC_022.distribution_forbidden[i] = aMSC_022.symbol_count[i];
-  aMSC_022.pre_count = aMSC_022.total_count;
-  for (int i = 0; i < aMSC_023.data_symbols; i++)
-    aMSC_023.distribution_forbidden[i] = aMSC_023.symbol_count[i];
-  aMSC_023.pre_count = aMSC_023.total_count;
-  for (int i = 0; i < aMSC_024.data_symbols; i++)
-    aMSC_024.distribution_forbidden[i] = aMSC_024.symbol_count[i];
-  aMSC_024.pre_count = aMSC_024.total_count;
-  for (int i = 0; i < aMSC_025.data_symbols; i++)
-    aMSC_025.distribution_forbidden[i] = aMSC_025.symbol_count[i];
-  aMSC_025.pre_count = aMSC_025.total_count;
-  for (int i = 0; i < aMSC_026.data_symbols; i++)
-    aMSC_026.distribution_forbidden[i] = aMSC_026.symbol_count[i];
-  aMSC_026.pre_count = aMSC_026.total_count;
-  for (int i = 0; i < aMSC_10.data_symbols; i++)
-    aMSC_10.distribution_forbidden[i] = aMSC_10.symbol_count[i];
-  aMSC_10.pre_count = aMSC_10.total_count;
-  for (int i = 0; i < aMSC_11.data_symbols; i++)
-    aMSC_11.distribution_forbidden[i] = aMSC_11.symbol_count[i];
-  aMSC_11.pre_count = aMSC_11.total_count;
-  for (int i = 0; i < aMSC_12.data_symbols; i++)
-    aMSC_12.distribution_forbidden[i] = aMSC_12.symbol_count[i];
-  aMSC_12.pre_count = aMSC_12.total_count;
-  for (int i = 0; i < aMSC_13.data_symbols; i++)
-    aMSC_13.distribution_forbidden[i] = aMSC_13.symbol_count[i];
-  aMSC_13.pre_count = aMSC_13.total_count;
-  for (int i = 0; i < aMSC_14.data_symbols; i++)
-    aMSC_14.distribution_forbidden[i] = aMSC_14.symbol_count[i];
-  aMSC_14.pre_count = aMSC_14.total_count;
-  for (int i = 0; i < aMSC_15.data_symbols; i++)
-    aMSC_15.distribution_forbidden[i] = aMSC_15.symbol_count[i];
-  aMSC_15.pre_count = aMSC_15.total_count;
-  for (int i = 0; i < aMSC_16.data_symbols; i++)
-    aMSC_16.distribution_forbidden[i] = aMSC_16.symbol_count[i];
-  aMSC_16.pre_count = aMSC_16.total_count;
-  for (int i = 0; i < aMSC_17.data_symbols; i++)
-    aMSC_17.distribution_forbidden[i] = aMSC_17.symbol_count[i];
-  aMSC_17.pre_count = aMSC_17.total_count;
-  for (int i = 0; i < aMSC_18.data_symbols; i++)
-    aMSC_18.distribution_forbidden[i] = aMSC_18.symbol_count[i];
-  aMSC_18.pre_count = aMSC_18.total_count;
-  for (int i = 0; i < aMSC_19.data_symbols; i++)
-    aMSC_19.distribution_forbidden[i] = aMSC_19.symbol_count[i];
-  aMSC_19.pre_count = aMSC_19.total_count;
-  for (int i = 0; i < aMSC_110.data_symbols; i++)
-    aMSC_110.distribution_forbidden[i] = aMSC_110.symbol_count[i];
-  aMSC_110.pre_count = aMSC_110.total_count;
-  for (int i = 0; i < aMSC_111.data_symbols; i++)
-    aMSC_111.distribution_forbidden[i] = aMSC_111.symbol_count[i];
-  aMSC_111.pre_count = aMSC_111.total_count;
-  for (int i = 0; i < aMSC_112.data_symbols; i++)
-    aMSC_112.distribution_forbidden[i] = aMSC_112.symbol_count[i];
-  aMSC_112.pre_count = aMSC_112.total_count;
-  for (int i = 0; i < aMSC_113.data_symbols; i++)
-    aMSC_113.distribution_forbidden[i] = aMSC_113.symbol_count[i];
-  aMSC_113.pre_count = aMSC_113.total_count;
-  for (int i = 0; i < aMSC_114.data_symbols; i++)
-    aMSC_114.distribution_forbidden[i] = aMSC_114.symbol_count[i];
-  aMSC_114.pre_count = aMSC_114.total_count;
-  for (int i = 0; i < aMSC_115.data_symbols; i++)
-    aMSC_115.distribution_forbidden[i] = aMSC_115.symbol_count[i];
-  aMSC_115.pre_count = aMSC_115.total_count;
-  for (int i = 0; i < aMSC_116.data_symbols; i++)
-    aMSC_116.distribution_forbidden[i] = aMSC_116.symbol_count[i];
-  aMSC_116.pre_count = aMSC_116.total_count;
-  for (int i = 0; i < aMSC_117.data_symbols; i++)
-    aMSC_117.distribution_forbidden[i] = aMSC_117.symbol_count[i];
-  aMSC_117.pre_count = aMSC_117.total_count;
-  for (int i = 0; i < aMSC_118.data_symbols; i++)
-    aMSC_118.distribution_forbidden[i] = aMSC_118.symbol_count[i];
-  aMSC_118.pre_count = aMSC_118.total_count;
-  for (int i = 0; i < aMSC_119.data_symbols; i++)
-    aMSC_119.distribution_forbidden[i] = aMSC_119.symbol_count[i];
-  aMSC_119.pre_count = aMSC_119.total_count;
-  for (int i = 0; i < aMSC_120.data_symbols; i++)
-    aMSC_120.distribution_forbidden[i] = aMSC_120.symbol_count[i];
-  aMSC_120.pre_count = aMSC_120.total_count;
-  for (int i = 0; i < aMSC_121.data_symbols; i++)
-    aMSC_121.distribution_forbidden[i] = aMSC_121.symbol_count[i];
-  aMSC_121.pre_count = aMSC_121.total_count;
-  for (int i = 0; i < aMSC_122.data_symbols; i++)
-    aMSC_122.distribution_forbidden[i] = aMSC_122.symbol_count[i];
-  aMSC_122.pre_count = aMSC_122.total_count;
-  for (int i = 0; i < aMSC_123.data_symbols; i++)
-    aMSC_123.distribution_forbidden[i] = aMSC_123.symbol_count[i];
-  aMSC_123.pre_count = aMSC_123.total_count;
-  for (int i = 0; i < aMSC_124.data_symbols; i++)
-    aMSC_124.distribution_forbidden[i] = aMSC_124.symbol_count[i];
-  aMSC_124.pre_count = aMSC_124.total_count;
-  for (int i = 0; i < aMSC_125.data_symbols; i++)
-    aMSC_125.distribution_forbidden[i] = aMSC_125.symbol_count[i];
-  aMSC_125.pre_count = aMSC_125.total_count;
-  for (int i = 0; i < aMSC_126.data_symbols; i++)
-    aMSC_126.distribution_forbidden[i] = aMSC_126.symbol_count[i];
-  aMSC_126.pre_count = aMSC_126.total_count;
-  for (int i = 0; i < aMSC_20.data_symbols; i++)
-    aMSC_20.distribution_forbidden[i] = aMSC_20.symbol_count[i];
-  aMSC_20.pre_count = aMSC_20.total_count;
-  for (int i = 0; i < aMSC_21.data_symbols; i++)
-    aMSC_21.distribution_forbidden[i] = aMSC_21.symbol_count[i];
-  aMSC_21.pre_count = aMSC_21.total_count;
-  for (int i = 0; i < aMSC_22.data_symbols; i++)
-    aMSC_22.distribution_forbidden[i] = aMSC_22.symbol_count[i];
-  aMSC_22.pre_count = aMSC_22.total_count;
-  for (int i = 0; i < aMSC_23.data_symbols; i++)
-    aMSC_23.distribution_forbidden[i] = aMSC_23.symbol_count[i];
-  aMSC_23.pre_count = aMSC_23.total_count;
-  for (int i = 0; i < aMSC_24.data_symbols; i++)
-    aMSC_24.distribution_forbidden[i] = aMSC_24.symbol_count[i];
-  aMSC_24.pre_count = aMSC_24.total_count;
-  for (int i = 0; i < aMSC_25.data_symbols; i++)
-    aMSC_25.distribution_forbidden[i] = aMSC_25.symbol_count[i];
-  aMSC_25.pre_count = aMSC_25.total_count;
-  for (int i = 0; i < aMSC_26.data_symbols; i++)
-    aMSC_26.distribution_forbidden[i] = aMSC_26.symbol_count[i];
-  aMSC_26.pre_count = aMSC_26.total_count;
-  for (int i = 0; i < aMSC_27.data_symbols; i++)
-    aMSC_27.distribution_forbidden[i] = aMSC_27.symbol_count[i];
-  aMSC_27.pre_count = aMSC_27.total_count;
-  for (int i = 0; i < aMSC_28.data_symbols; i++)
-    aMSC_28.distribution_forbidden[i] = aMSC_28.symbol_count[i];
-  aMSC_28.pre_count = aMSC_28.total_count;
-  for (int i = 0; i < aMSC_29.data_symbols; i++)
-    aMSC_29.distribution_forbidden[i] = aMSC_29.symbol_count[i];
-  aMSC_29.pre_count = aMSC_29.total_count;
-  for (int i = 0; i < aMSC_210.data_symbols; i++)
-    aMSC_210.distribution_forbidden[i] = aMSC_210.symbol_count[i];
-  aMSC_210.pre_count = aMSC_210.total_count;
-  for (int i = 0; i < aMSC_211.data_symbols; i++)
-    aMSC_211.distribution_forbidden[i] = aMSC_211.symbol_count[i];
-  aMSC_211.pre_count = aMSC_211.total_count;
-  for (int i = 0; i < aMSC_212.data_symbols; i++)
-    aMSC_212.distribution_forbidden[i] = aMSC_212.symbol_count[i];
-  aMSC_212.pre_count = aMSC_212.total_count;
-  for (int i = 0; i < aMSC_213.data_symbols; i++)
-    aMSC_213.distribution_forbidden[i] = aMSC_213.symbol_count[i];
-  aMSC_213.pre_count = aMSC_213.total_count;
-  for (int i = 0; i < aMSC_214.data_symbols; i++)
-    aMSC_214.distribution_forbidden[i] = aMSC_214.symbol_count[i];
-  aMSC_214.pre_count = aMSC_214.total_count;
-  for (int i = 0; i < aMSC_215.data_symbols; i++)
-    aMSC_215.distribution_forbidden[i] = aMSC_215.symbol_count[i];
-  aMSC_215.pre_count = aMSC_215.total_count;
-  for (int i = 0; i < aMSC_216.data_symbols; i++)
-    aMSC_216.distribution_forbidden[i] = aMSC_216.symbol_count[i];
-  aMSC_216.pre_count = aMSC_216.total_count;
-  for (int i = 0; i < aMSC_217.data_symbols; i++)
-    aMSC_217.distribution_forbidden[i] = aMSC_217.symbol_count[i];
-  aMSC_217.pre_count = aMSC_217.total_count;
-  for (int i = 0; i < aMSC_218.data_symbols; i++)
-    aMSC_218.distribution_forbidden[i] = aMSC_218.symbol_count[i];
-  aMSC_218.pre_count = aMSC_218.total_count;
-  for (int i = 0; i < aMSC_219.data_symbols; i++)
-    aMSC_219.distribution_forbidden[i] = aMSC_219.symbol_count[i];
-  aMSC_219.pre_count = aMSC_219.total_count;
-  for (int i = 0; i < aMSC_220.data_symbols; i++)
-    aMSC_220.distribution_forbidden[i] = aMSC_220.symbol_count[i];
-  aMSC_220.pre_count = aMSC_220.total_count;
-  for (int i = 0; i < aMSC_221.data_symbols; i++)
-    aMSC_221.distribution_forbidden[i] = aMSC_221.symbol_count[i];
-  aMSC_221.pre_count = aMSC_221.total_count;
-  for (int i = 0; i < aMSC_222.data_symbols; i++)
-    aMSC_222.distribution_forbidden[i] = aMSC_222.symbol_count[i];
-  aMSC_222.pre_count = aMSC_222.total_count;
-  for (int i = 0; i < aMSC_223.data_symbols; i++)
-    aMSC_223.distribution_forbidden[i] = aMSC_223.symbol_count[i];
-  aMSC_223.pre_count = aMSC_223.total_count;
-  for (int i = 0; i < aMSC_224.data_symbols; i++)
-    aMSC_224.distribution_forbidden[i] = aMSC_224.symbol_count[i];
-  aMSC_224.pre_count = aMSC_224.total_count;
-  for (int i = 0; i < aMSC_225.data_symbols; i++)
-    aMSC_225.distribution_forbidden[i] = aMSC_225.symbol_count[i];
-  aMSC_225.pre_count = aMSC_225.total_count;
-  for (int i = 0; i < aMSC_226.data_symbols; i++)
-    aMSC_226.distribution_forbidden[i] = aMSC_226.symbol_count[i];
-  aMSC_226.pre_count = aMSC_226.total_count;
-  for (int i = 0; i < aMSC_30.data_symbols; i++)
-    aMSC_30.distribution_forbidden[i] = aMSC_30.symbol_count[i];
-  aMSC_30.pre_count = aMSC_30.total_count;
-  for (int i = 0; i < aMSC_31.data_symbols; i++)
-    aMSC_31.distribution_forbidden[i] = aMSC_31.symbol_count[i];
-  aMSC_31.pre_count = aMSC_31.total_count;
-  for (int i = 0; i < aMSC_32.data_symbols; i++)
-    aMSC_32.distribution_forbidden[i] = aMSC_32.symbol_count[i];
-  aMSC_32.pre_count = aMSC_32.total_count;
-  for (int i = 0; i < aMSC_33.data_symbols; i++)
-    aMSC_33.distribution_forbidden[i] = aMSC_33.symbol_count[i];
-  aMSC_33.pre_count = aMSC_33.total_count;
-  for (int i = 0; i < aMSC_34.data_symbols; i++)
-    aMSC_34.distribution_forbidden[i] = aMSC_34.symbol_count[i];
-  aMSC_34.pre_count = aMSC_34.total_count;
-  for (int i = 0; i < aMSC_35.data_symbols; i++)
-    aMSC_35.distribution_forbidden[i] = aMSC_35.symbol_count[i];
-  aMSC_35.pre_count = aMSC_35.total_count;
-  for (int i = 0; i < aMSC_36.data_symbols; i++)
-    aMSC_36.distribution_forbidden[i] = aMSC_36.symbol_count[i];
-  aMSC_36.pre_count = aMSC_36.total_count;
-  for (int i = 0; i < aMSC_37.data_symbols; i++)
-    aMSC_37.distribution_forbidden[i] = aMSC_37.symbol_count[i];
-  aMSC_37.pre_count = aMSC_37.total_count;
-  for (int i = 0; i < aMSC_38.data_symbols; i++)
-    aMSC_38.distribution_forbidden[i] = aMSC_38.symbol_count[i];
-  aMSC_38.pre_count = aMSC_38.total_count;
-  for (int i = 0; i < aMSC_39.data_symbols; i++)
-    aMSC_39.distribution_forbidden[i] = aMSC_39.symbol_count[i];
-  aMSC_39.pre_count = aMSC_39.total_count;
-  for (int i = 0; i < aMSC_310.data_symbols; i++)
-    aMSC_310.distribution_forbidden[i] = aMSC_310.symbol_count[i];
-  aMSC_310.pre_count = aMSC_310.total_count;
-  for (int i = 0; i < aMSC_311.data_symbols; i++)
-    aMSC_311.distribution_forbidden[i] = aMSC_311.symbol_count[i];
-  aMSC_311.pre_count = aMSC_311.total_count;
-  for (int i = 0; i < aMSC_312.data_symbols; i++)
-    aMSC_312.distribution_forbidden[i] = aMSC_312.symbol_count[i];
-  aMSC_312.pre_count = aMSC_312.total_count;
-  for (int i = 0; i < aMSC_313.data_symbols; i++)
-    aMSC_313.distribution_forbidden[i] = aMSC_313.symbol_count[i];
-  aMSC_313.pre_count = aMSC_313.total_count;
-  for (int i = 0; i < aMSC_314.data_symbols; i++)
-    aMSC_314.distribution_forbidden[i] = aMSC_314.symbol_count[i];
-  aMSC_314.pre_count = aMSC_314.total_count;
-  for (int i = 0; i < aMSC_315.data_symbols; i++)
-    aMSC_315.distribution_forbidden[i] = aMSC_315.symbol_count[i];
-  aMSC_315.pre_count = aMSC_315.total_count;
-  for (int i = 0; i < aMSC_316.data_symbols; i++)
-    aMSC_316.distribution_forbidden[i] = aMSC_316.symbol_count[i];
-  aMSC_316.pre_count = aMSC_316.total_count;
-  for (int i = 0; i < aMSC_317.data_symbols; i++)
-    aMSC_317.distribution_forbidden[i] = aMSC_317.symbol_count[i];
-  aMSC_317.pre_count = aMSC_317.total_count;
-  for (int i = 0; i < aMSC_318.data_symbols; i++)
-    aMSC_318.distribution_forbidden[i] = aMSC_318.symbol_count[i];
-  aMSC_318.pre_count = aMSC_318.total_count;
-  for (int i = 0; i < aMSC_319.data_symbols; i++)
-    aMSC_319.distribution_forbidden[i] = aMSC_319.symbol_count[i];
-  aMSC_319.pre_count = aMSC_319.total_count;
-  for (int i = 0; i < aMSC_320.data_symbols; i++)
-    aMSC_320.distribution_forbidden[i] = aMSC_320.symbol_count[i];
-  aMSC_320.pre_count = aMSC_320.total_count;
-  for (int i = 0; i < aMSC_321.data_symbols; i++)
-    aMSC_321.distribution_forbidden[i] = aMSC_321.symbol_count[i];
-  aMSC_321.pre_count = aMSC_321.total_count;
-  for (int i = 0; i < aMSC_322.data_symbols; i++)
-    aMSC_322.distribution_forbidden[i] = aMSC_322.symbol_count[i];
-  aMSC_322.pre_count = aMSC_322.total_count;
-  for (int i = 0; i < aMSC_323.data_symbols; i++)
-    aMSC_323.distribution_forbidden[i] = aMSC_323.symbol_count[i];
-  aMSC_323.pre_count = aMSC_323.total_count;
-  for (int i = 0; i < aMSC_324.data_symbols; i++)
-    aMSC_324.distribution_forbidden[i] = aMSC_324.symbol_count[i];
-  aMSC_324.pre_count = aMSC_324.total_count;
-  for (int i = 0; i < aMSC_325.data_symbols; i++)
-    aMSC_325.distribution_forbidden[i] = aMSC_325.symbol_count[i];
-  aMSC_325.pre_count = aMSC_325.total_count;
-  for (int i = 0; i < aMSC_326.data_symbols; i++)
-    aMSC_326.distribution_forbidden[i] = aMSC_326.symbol_count[i];
-  aMSC_326.pre_count = aMSC_326.total_count;
-  for (int i = 0; i < aMSC_40.data_symbols; i++)
-    aMSC_40.distribution_forbidden[i] = aMSC_40.symbol_count[i];
-  aMSC_40.pre_count = aMSC_40.total_count;
-  for (int i = 0; i < aMSC_41.data_symbols; i++)
-    aMSC_41.distribution_forbidden[i] = aMSC_41.symbol_count[i];
-  aMSC_41.pre_count = aMSC_41.total_count;
-  for (int i = 0; i < aMSC_42.data_symbols; i++)
-    aMSC_42.distribution_forbidden[i] = aMSC_42.symbol_count[i];
-  aMSC_42.pre_count = aMSC_42.total_count;
-  for (int i = 0; i < aMSC_43.data_symbols; i++)
-    aMSC_43.distribution_forbidden[i] = aMSC_43.symbol_count[i];
-  aMSC_43.pre_count = aMSC_43.total_count;
-  for (int i = 0; i < aMSC_44.data_symbols; i++)
-    aMSC_44.distribution_forbidden[i] = aMSC_44.symbol_count[i];
-  aMSC_44.pre_count = aMSC_44.total_count;
-  for (int i = 0; i < aMSC_45.data_symbols; i++)
-    aMSC_45.distribution_forbidden[i] = aMSC_45.symbol_count[i];
-  aMSC_45.pre_count = aMSC_45.total_count;
-  for (int i = 0; i < aMSC_46.data_symbols; i++)
-    aMSC_46.distribution_forbidden[i] = aMSC_46.symbol_count[i];
-  aMSC_46.pre_count = aMSC_46.total_count;
-  for (int i = 0; i < aMSC_47.data_symbols; i++)
-    aMSC_47.distribution_forbidden[i] = aMSC_47.symbol_count[i];
-  aMSC_47.pre_count = aMSC_47.total_count;
-  for (int i = 0; i < aMSC_48.data_symbols; i++)
-    aMSC_48.distribution_forbidden[i] = aMSC_48.symbol_count[i];
-  aMSC_48.pre_count = aMSC_48.total_count;
-  for (int i = 0; i < aMSC_49.data_symbols; i++)
-    aMSC_49.distribution_forbidden[i] = aMSC_49.symbol_count[i];
-  aMSC_49.pre_count = aMSC_49.total_count;
-  for (int i = 0; i < aMSC_410.data_symbols; i++)
-    aMSC_410.distribution_forbidden[i] = aMSC_410.symbol_count[i];
-  aMSC_410.pre_count = aMSC_410.total_count;
-  for (int i = 0; i < aMSC_411.data_symbols; i++)
-    aMSC_411.distribution_forbidden[i] = aMSC_411.symbol_count[i];
-  aMSC_411.pre_count = aMSC_411.total_count;
-  for (int i = 0; i < aMSC_412.data_symbols; i++)
-    aMSC_412.distribution_forbidden[i] = aMSC_412.symbol_count[i];
-  aMSC_412.pre_count = aMSC_412.total_count;
-  for (int i = 0; i < aMSC_413.data_symbols; i++)
-    aMSC_413.distribution_forbidden[i] = aMSC_413.symbol_count[i];
-  aMSC_413.pre_count = aMSC_413.total_count;
-  for (int i = 0; i < aMSC_414.data_symbols; i++)
-    aMSC_414.distribution_forbidden[i] = aMSC_414.symbol_count[i];
-  aMSC_414.pre_count = aMSC_414.total_count;
-  for (int i = 0; i < aMSC_415.data_symbols; i++)
-    aMSC_415.distribution_forbidden[i] = aMSC_415.symbol_count[i];
-  aMSC_415.pre_count = aMSC_415.total_count;
-  for (int i = 0; i < aMSC_416.data_symbols; i++)
-    aMSC_416.distribution_forbidden[i] = aMSC_416.symbol_count[i];
-  aMSC_416.pre_count = aMSC_416.total_count;
-  for (int i = 0; i < aMSC_417.data_symbols; i++)
-    aMSC_417.distribution_forbidden[i] = aMSC_417.symbol_count[i];
-  aMSC_417.pre_count = aMSC_417.total_count;
-  for (int i = 0; i < aMSC_418.data_symbols; i++)
-    aMSC_418.distribution_forbidden[i] = aMSC_418.symbol_count[i];
-  aMSC_418.pre_count = aMSC_418.total_count;
-  for (int i = 0; i < aMSC_419.data_symbols; i++)
-    aMSC_419.distribution_forbidden[i] = aMSC_419.symbol_count[i];
-  aMSC_419.pre_count = aMSC_419.total_count;
-  for (int i = 0; i < aMSC_420.data_symbols; i++)
-    aMSC_420.distribution_forbidden[i] = aMSC_420.symbol_count[i];
-  aMSC_420.pre_count = aMSC_420.total_count;
-  for (int i = 0; i < aMSC_421.data_symbols; i++)
-    aMSC_421.distribution_forbidden[i] = aMSC_421.symbol_count[i];
-  aMSC_421.pre_count = aMSC_421.total_count;
-  for (int i = 0; i < aMSC_422.data_symbols; i++)
-    aMSC_422.distribution_forbidden[i] = aMSC_422.symbol_count[i];
-  aMSC_422.pre_count = aMSC_422.total_count;
-  for (int i = 0; i < aMSC_423.data_symbols; i++)
-    aMSC_423.distribution_forbidden[i] = aMSC_423.symbol_count[i];
-  aMSC_423.pre_count = aMSC_423.total_count;
-  for (int i = 0; i < aMSC_424.data_symbols; i++)
-    aMSC_424.distribution_forbidden[i] = aMSC_424.symbol_count[i];
-  aMSC_424.pre_count = aMSC_424.total_count;
-  for (int i = 0; i < aMSC_425.data_symbols; i++)
-    aMSC_425.distribution_forbidden[i] = aMSC_425.symbol_count[i];
-  aMSC_425.pre_count = aMSC_425.total_count;
-  for (int i = 0; i < aMSC_426.data_symbols; i++)
-    aMSC_426.distribution_forbidden[i] = aMSC_426.symbol_count[i];
-  aMSC_426.pre_count = aMSC_426.total_count;
-  for (int i = 0; i < aMSC_50.data_symbols; i++)
-    aMSC_50.distribution_forbidden[i] = aMSC_50.symbol_count[i];
-  aMSC_50.pre_count = aMSC_50.total_count;
-  for (int i = 0; i < aMSC_51.data_symbols; i++)
-    aMSC_51.distribution_forbidden[i] = aMSC_51.symbol_count[i];
-  aMSC_51.pre_count = aMSC_51.total_count;
-  for (int i = 0; i < aMSC_52.data_symbols; i++)
-    aMSC_52.distribution_forbidden[i] = aMSC_52.symbol_count[i];
-  aMSC_52.pre_count = aMSC_52.total_count;
-  for (int i = 0; i < aMSC_53.data_symbols; i++)
-    aMSC_53.distribution_forbidden[i] = aMSC_53.symbol_count[i];
-  aMSC_53.pre_count = aMSC_53.total_count;
-  for (int i = 0; i < aMSC_54.data_symbols; i++)
-    aMSC_54.distribution_forbidden[i] = aMSC_54.symbol_count[i];
-  aMSC_54.pre_count = aMSC_54.total_count;
-  for (int i = 0; i < aMSC_55.data_symbols; i++)
-    aMSC_55.distribution_forbidden[i] = aMSC_55.symbol_count[i];
-  aMSC_55.pre_count = aMSC_55.total_count;
-  for (int i = 0; i < aMSC_56.data_symbols; i++)
-    aMSC_56.distribution_forbidden[i] = aMSC_56.symbol_count[i];
-  aMSC_56.pre_count = aMSC_56.total_count;
-  for (int i = 0; i < aMSC_57.data_symbols; i++)
-    aMSC_57.distribution_forbidden[i] = aMSC_57.symbol_count[i];
-  aMSC_57.pre_count = aMSC_57.total_count;
-  for (int i = 0; i < aMSC_58.data_symbols; i++)
-    aMSC_58.distribution_forbidden[i] = aMSC_58.symbol_count[i];
-  aMSC_58.pre_count = aMSC_58.total_count;
-  for (int i = 0; i < aMSC_59.data_symbols; i++)
-    aMSC_59.distribution_forbidden[i] = aMSC_59.symbol_count[i];
-  aMSC_59.pre_count = aMSC_59.total_count;
-  for (int i = 0; i < aMSC_510.data_symbols; i++)
-    aMSC_510.distribution_forbidden[i] = aMSC_510.symbol_count[i];
-  aMSC_510.pre_count = aMSC_510.total_count;
-  for (int i = 0; i < aMSC_511.data_symbols; i++)
-    aMSC_511.distribution_forbidden[i] = aMSC_511.symbol_count[i];
-  aMSC_511.pre_count = aMSC_511.total_count;
-  for (int i = 0; i < aMSC_512.data_symbols; i++)
-    aMSC_512.distribution_forbidden[i] = aMSC_512.symbol_count[i];
-  aMSC_512.pre_count = aMSC_512.total_count;
-  for (int i = 0; i < aMSC_513.data_symbols; i++)
-    aMSC_513.distribution_forbidden[i] = aMSC_513.symbol_count[i];
-  aMSC_513.pre_count = aMSC_513.total_count;
-  for (int i = 0; i < aMSC_514.data_symbols; i++)
-    aMSC_514.distribution_forbidden[i] = aMSC_514.symbol_count[i];
-  aMSC_514.pre_count = aMSC_514.total_count;
-  for (int i = 0; i < aMSC_515.data_symbols; i++)
-    aMSC_515.distribution_forbidden[i] = aMSC_515.symbol_count[i];
-  aMSC_515.pre_count = aMSC_515.total_count;
-  for (int i = 0; i < aMSC_516.data_symbols; i++)
-    aMSC_516.distribution_forbidden[i] = aMSC_516.symbol_count[i];
-  aMSC_516.pre_count = aMSC_516.total_count;
-  for (int i = 0; i < aMSC_517.data_symbols; i++)
-    aMSC_517.distribution_forbidden[i] = aMSC_517.symbol_count[i];
-  aMSC_517.pre_count = aMSC_517.total_count;
-  for (int i = 0; i < aMSC_518.data_symbols; i++)
-    aMSC_518.distribution_forbidden[i] = aMSC_518.symbol_count[i];
-  aMSC_518.pre_count = aMSC_518.total_count;
-  for (int i = 0; i < aMSC_519.data_symbols; i++)
-    aMSC_519.distribution_forbidden[i] = aMSC_519.symbol_count[i];
-  aMSC_519.pre_count = aMSC_519.total_count;
-  for (int i = 0; i < aMSC_520.data_symbols; i++)
-    aMSC_520.distribution_forbidden[i] = aMSC_520.symbol_count[i];
-  aMSC_520.pre_count = aMSC_520.total_count;
-  for (int i = 0; i < aMSC_521.data_symbols; i++)
-    aMSC_521.distribution_forbidden[i] = aMSC_521.symbol_count[i];
-  aMSC_521.pre_count = aMSC_521.total_count;
-  for (int i = 0; i < aMSC_522.data_symbols; i++)
-    aMSC_522.distribution_forbidden[i] = aMSC_522.symbol_count[i];
-  aMSC_522.pre_count = aMSC_522.total_count;
-  for (int i = 0; i < aMSC_523.data_symbols; i++)
-    aMSC_523.distribution_forbidden[i] = aMSC_523.symbol_count[i];
-  aMSC_523.pre_count = aMSC_523.total_count;
-  for (int i = 0; i < aMSC_524.data_symbols; i++)
-    aMSC_524.distribution_forbidden[i] = aMSC_524.symbol_count[i];
-  aMSC_524.pre_count = aMSC_524.total_count;
-  for (int i = 0; i < aMSC_525.data_symbols; i++)
-    aMSC_525.distribution_forbidden[i] = aMSC_525.symbol_count[i];
-  aMSC_525.pre_count = aMSC_525.total_count;
-  for (int i = 0; i < aMSC_526.data_symbols; i++)
-    aMSC_526.distribution_forbidden[i] = aMSC_526.symbol_count[i];
-  aMSC_526.pre_count = aMSC_526.total_count;
-  for (int i = 0; i < aMSC_60.data_symbols; i++)
-    aMSC_60.distribution_forbidden[i] = aMSC_60.symbol_count[i];
-  aMSC_60.pre_count = aMSC_60.total_count;
-  for (int i = 0; i < aMSC_61.data_symbols; i++)
-    aMSC_61.distribution_forbidden[i] = aMSC_61.symbol_count[i];
-  aMSC_61.pre_count = aMSC_61.total_count;
-  for (int i = 0; i < aMSC_62.data_symbols; i++)
-    aMSC_62.distribution_forbidden[i] = aMSC_62.symbol_count[i];
-  aMSC_62.pre_count = aMSC_62.total_count;
-  for (int i = 0; i < aMSC_63.data_symbols; i++)
-    aMSC_63.distribution_forbidden[i] = aMSC_63.symbol_count[i];
-  aMSC_63.pre_count = aMSC_63.total_count;
-  for (int i = 0; i < aMSC_64.data_symbols; i++)
-    aMSC_64.distribution_forbidden[i] = aMSC_64.symbol_count[i];
-  aMSC_64.pre_count = aMSC_64.total_count;
-  for (int i = 0; i < aMSC_65.data_symbols; i++)
-    aMSC_65.distribution_forbidden[i] = aMSC_65.symbol_count[i];
-  aMSC_65.pre_count = aMSC_65.total_count;
-  for (int i = 0; i < aMSC_66.data_symbols; i++)
-    aMSC_66.distribution_forbidden[i] = aMSC_66.symbol_count[i];
-  aMSC_66.pre_count = aMSC_66.total_count;
-  for (int i = 0; i < aMSC_67.data_symbols; i++)
-    aMSC_67.distribution_forbidden[i] = aMSC_67.symbol_count[i];
-  aMSC_67.pre_count = aMSC_67.total_count;
-  for (int i = 0; i < aMSC_68.data_symbols; i++)
-    aMSC_68.distribution_forbidden[i] = aMSC_68.symbol_count[i];
-  aMSC_68.pre_count = aMSC_68.total_count;
-  for (int i = 0; i < aMSC_69.data_symbols; i++)
-    aMSC_69.distribution_forbidden[i] = aMSC_69.symbol_count[i];
-  aMSC_69.pre_count = aMSC_69.total_count;
-  for (int i = 0; i < aMSC_610.data_symbols; i++)
-    aMSC_610.distribution_forbidden[i] = aMSC_610.symbol_count[i];
-  aMSC_610.pre_count = aMSC_610.total_count;
-  for (int i = 0; i < aMSC_611.data_symbols; i++)
-    aMSC_611.distribution_forbidden[i] = aMSC_611.symbol_count[i];
-  aMSC_611.pre_count = aMSC_611.total_count;
-  for (int i = 0; i < aMSC_612.data_symbols; i++)
-    aMSC_612.distribution_forbidden[i] = aMSC_612.symbol_count[i];
-  aMSC_612.pre_count = aMSC_612.total_count;
-  for (int i = 0; i < aMSC_613.data_symbols; i++)
-    aMSC_613.distribution_forbidden[i] = aMSC_613.symbol_count[i];
-  aMSC_613.pre_count = aMSC_613.total_count;
-  for (int i = 0; i < aMSC_614.data_symbols; i++)
-    aMSC_614.distribution_forbidden[i] = aMSC_614.symbol_count[i];
-  aMSC_614.pre_count = aMSC_614.total_count;
-  for (int i = 0; i < aMSC_615.data_symbols; i++)
-    aMSC_615.distribution_forbidden[i] = aMSC_615.symbol_count[i];
-  aMSC_615.pre_count = aMSC_615.total_count;
-  for (int i = 0; i < aMSC_616.data_symbols; i++)
-    aMSC_616.distribution_forbidden[i] = aMSC_616.symbol_count[i];
-  aMSC_616.pre_count = aMSC_616.total_count;
-  for (int i = 0; i < aMSC_617.data_symbols; i++)
-    aMSC_617.distribution_forbidden[i] = aMSC_617.symbol_count[i];
-  aMSC_617.pre_count = aMSC_617.total_count;
-  for (int i = 0; i < aMSC_618.data_symbols; i++)
-    aMSC_618.distribution_forbidden[i] = aMSC_618.symbol_count[i];
-  aMSC_618.pre_count = aMSC_618.total_count;
-  for (int i = 0; i < aMSC_619.data_symbols; i++)
-    aMSC_619.distribution_forbidden[i] = aMSC_619.symbol_count[i];
-  aMSC_619.pre_count = aMSC_619.total_count;
-  for (int i = 0; i < aMSC_620.data_symbols; i++)
-    aMSC_620.distribution_forbidden[i] = aMSC_620.symbol_count[i];
-  aMSC_620.pre_count = aMSC_620.total_count;
-  for (int i = 0; i < aMSC_621.data_symbols; i++)
-    aMSC_621.distribution_forbidden[i] = aMSC_621.symbol_count[i];
-  aMSC_621.pre_count = aMSC_621.total_count;
-  for (int i = 0; i < aMSC_622.data_symbols; i++)
-    aMSC_622.distribution_forbidden[i] = aMSC_622.symbol_count[i];
-  aMSC_622.pre_count = aMSC_622.total_count;
-  for (int i = 0; i < aMSC_623.data_symbols; i++)
-    aMSC_623.distribution_forbidden[i] = aMSC_623.symbol_count[i];
-  aMSC_623.pre_count = aMSC_623.total_count;
-  for (int i = 0; i < aMSC_624.data_symbols; i++)
-    aMSC_624.distribution_forbidden[i] = aMSC_624.symbol_count[i];
-  aMSC_624.pre_count = aMSC_624.total_count;
-  for (int i = 0; i < aMSC_625.data_symbols; i++)
-    aMSC_625.distribution_forbidden[i] = aMSC_625.symbol_count[i];
-  aMSC_625.pre_count = aMSC_625.total_count;
-  for (int i = 0; i < aMSC_626.data_symbols; i++)
-    aMSC_626.distribution_forbidden[i] = aMSC_626.symbol_count[i];
-  aMSC_626.pre_count = aMSC_626.total_count;
-  for (int i = 0; i < aMSC_70.data_symbols; i++)
-    aMSC_70.distribution_forbidden[i] = aMSC_70.symbol_count[i];
-  aMSC_70.pre_count = aMSC_70.total_count;
-  for (int i = 0; i < aMSC_71.data_symbols; i++)
-    aMSC_71.distribution_forbidden[i] = aMSC_71.symbol_count[i];
-  aMSC_71.pre_count = aMSC_71.total_count;
-  for (int i = 0; i < aMSC_72.data_symbols; i++)
-    aMSC_72.distribution_forbidden[i] = aMSC_72.symbol_count[i];
-  aMSC_72.pre_count = aMSC_72.total_count;
-  for (int i = 0; i < aMSC_73.data_symbols; i++)
-    aMSC_73.distribution_forbidden[i] = aMSC_73.symbol_count[i];
-  aMSC_73.pre_count = aMSC_73.total_count;
-  for (int i = 0; i < aMSC_74.data_symbols; i++)
-    aMSC_74.distribution_forbidden[i] = aMSC_74.symbol_count[i];
-  aMSC_74.pre_count = aMSC_74.total_count;
-  for (int i = 0; i < aMSC_75.data_symbols; i++)
-    aMSC_75.distribution_forbidden[i] = aMSC_75.symbol_count[i];
-  aMSC_75.pre_count = aMSC_75.total_count;
-  for (int i = 0; i < aMSC_76.data_symbols; i++)
-    aMSC_76.distribution_forbidden[i] = aMSC_76.symbol_count[i];
-  aMSC_76.pre_count = aMSC_76.total_count;
-  for (int i = 0; i < aMSC_77.data_symbols; i++)
-    aMSC_77.distribution_forbidden[i] = aMSC_77.symbol_count[i];
-  aMSC_77.pre_count = aMSC_77.total_count;
-  for (int i = 0; i < aMSC_78.data_symbols; i++)
-    aMSC_78.distribution_forbidden[i] = aMSC_78.symbol_count[i];
-  aMSC_78.pre_count = aMSC_78.total_count;
-  for (int i = 0; i < aMSC_79.data_symbols; i++)
-    aMSC_79.distribution_forbidden[i] = aMSC_79.symbol_count[i];
-  aMSC_79.pre_count = aMSC_79.total_count;
-  for (int i = 0; i < aMSC_710.data_symbols; i++)
-    aMSC_710.distribution_forbidden[i] = aMSC_710.symbol_count[i];
-  aMSC_710.pre_count = aMSC_710.total_count;
-  for (int i = 0; i < aMSC_711.data_symbols; i++)
-    aMSC_711.distribution_forbidden[i] = aMSC_711.symbol_count[i];
-  aMSC_711.pre_count = aMSC_711.total_count;
-  for (int i = 0; i < aMSC_712.data_symbols; i++)
-    aMSC_712.distribution_forbidden[i] = aMSC_712.symbol_count[i];
-  aMSC_712.pre_count = aMSC_712.total_count;
-  for (int i = 0; i < aMSC_713.data_symbols; i++)
-    aMSC_713.distribution_forbidden[i] = aMSC_713.symbol_count[i];
-  aMSC_713.pre_count = aMSC_713.total_count;
-  for (int i = 0; i < aMSC_714.data_symbols; i++)
-    aMSC_714.distribution_forbidden[i] = aMSC_714.symbol_count[i];
-  aMSC_714.pre_count = aMSC_714.total_count;
-  for (int i = 0; i < aMSC_715.data_symbols; i++)
-    aMSC_715.distribution_forbidden[i] = aMSC_715.symbol_count[i];
-  aMSC_715.pre_count = aMSC_715.total_count;
-  for (int i = 0; i < aMSC_716.data_symbols; i++)
-    aMSC_716.distribution_forbidden[i] = aMSC_716.symbol_count[i];
-  aMSC_716.pre_count = aMSC_716.total_count;
-  for (int i = 0; i < aMSC_717.data_symbols; i++)
-    aMSC_717.distribution_forbidden[i] = aMSC_717.symbol_count[i];
-  aMSC_717.pre_count = aMSC_717.total_count;
-  for (int i = 0; i < aMSC_718.data_symbols; i++)
-    aMSC_718.distribution_forbidden[i] = aMSC_718.symbol_count[i];
-  aMSC_718.pre_count = aMSC_718.total_count;
-  for (int i = 0; i < aMSC_719.data_symbols; i++)
-    aMSC_719.distribution_forbidden[i] = aMSC_719.symbol_count[i];
-  aMSC_719.pre_count = aMSC_719.total_count;
-  for (int i = 0; i < aMSC_720.data_symbols; i++)
-    aMSC_720.distribution_forbidden[i] = aMSC_720.symbol_count[i];
-  aMSC_720.pre_count = aMSC_720.total_count;
-  for (int i = 0; i < aMSC_721.data_symbols; i++)
-    aMSC_721.distribution_forbidden[i] = aMSC_721.symbol_count[i];
-  aMSC_721.pre_count = aMSC_721.total_count;
-  for (int i = 0; i < aMSC_722.data_symbols; i++)
-    aMSC_722.distribution_forbidden[i] = aMSC_722.symbol_count[i];
-  aMSC_722.pre_count = aMSC_722.total_count;
-  for (int i = 0; i < aMSC_723.data_symbols; i++)
-    aMSC_723.distribution_forbidden[i] = aMSC_723.symbol_count[i];
-  aMSC_723.pre_count = aMSC_723.total_count;
-  for (int i = 0; i < aMSC_724.data_symbols; i++)
-    aMSC_724.distribution_forbidden[i] = aMSC_724.symbol_count[i];
-  aMSC_724.pre_count = aMSC_724.total_count;
-  for (int i = 0; i < aMSC_725.data_symbols; i++)
-    aMSC_725.distribution_forbidden[i] = aMSC_725.symbol_count[i];
-  aMSC_725.pre_count = aMSC_725.total_count;
-  for (int i = 0; i < aMSC_726.data_symbols; i++)
-    aMSC_726.distribution_forbidden[i] = aMSC_726.symbol_count[i];
-  aMSC_726.pre_count = aMSC_726.total_count;
-  for (int i = 0; i < aMSC_80.data_symbols; i++)
-    aMSC_80.distribution_forbidden[i] = aMSC_80.symbol_count[i];
-  aMSC_80.pre_count = aMSC_80.total_count;
-  for (int i = 0; i < aMSC_81.data_symbols; i++)
-    aMSC_81.distribution_forbidden[i] = aMSC_81.symbol_count[i];
-  aMSC_81.pre_count = aMSC_81.total_count;
-  for (int i = 0; i < aMSC_82.data_symbols; i++)
-    aMSC_82.distribution_forbidden[i] = aMSC_82.symbol_count[i];
-  aMSC_82.pre_count = aMSC_82.total_count;
-  for (int i = 0; i < aMSC_83.data_symbols; i++)
-    aMSC_83.distribution_forbidden[i] = aMSC_83.symbol_count[i];
-  aMSC_83.pre_count = aMSC_83.total_count;
-  for (int i = 0; i < aMSC_84.data_symbols; i++)
-    aMSC_84.distribution_forbidden[i] = aMSC_84.symbol_count[i];
-  aMSC_84.pre_count = aMSC_84.total_count;
-  for (int i = 0; i < aMSC_85.data_symbols; i++)
-    aMSC_85.distribution_forbidden[i] = aMSC_85.symbol_count[i];
-  aMSC_85.pre_count = aMSC_85.total_count;
-  for (int i = 0; i < aMSC_86.data_symbols; i++)
-    aMSC_86.distribution_forbidden[i] = aMSC_86.symbol_count[i];
-  aMSC_86.pre_count = aMSC_86.total_count;
-  for (int i = 0; i < aMSC_87.data_symbols; i++)
-    aMSC_87.distribution_forbidden[i] = aMSC_87.symbol_count[i];
-  aMSC_87.pre_count = aMSC_87.total_count;
-  for (int i = 0; i < aMSC_88.data_symbols; i++)
-    aMSC_88.distribution_forbidden[i] = aMSC_88.symbol_count[i];
-  aMSC_88.pre_count = aMSC_88.total_count;
-  for (int i = 0; i < aMSC_89.data_symbols; i++)
-    aMSC_89.distribution_forbidden[i] = aMSC_89.symbol_count[i];
-  aMSC_89.pre_count = aMSC_89.total_count;
-  for (int i = 0; i < aMSC_810.data_symbols; i++)
-    aMSC_810.distribution_forbidden[i] = aMSC_810.symbol_count[i];
-  aMSC_810.pre_count = aMSC_810.total_count;
-  for (int i = 0; i < aMSC_811.data_symbols; i++)
-    aMSC_811.distribution_forbidden[i] = aMSC_811.symbol_count[i];
-  aMSC_811.pre_count = aMSC_811.total_count;
-  for (int i = 0; i < aMSC_812.data_symbols; i++)
-    aMSC_812.distribution_forbidden[i] = aMSC_812.symbol_count[i];
-  aMSC_812.pre_count = aMSC_812.total_count;
-  for (int i = 0; i < aMSC_813.data_symbols; i++)
-    aMSC_813.distribution_forbidden[i] = aMSC_813.symbol_count[i];
-  aMSC_813.pre_count = aMSC_813.total_count;
-  for (int i = 0; i < aMSC_814.data_symbols; i++)
-    aMSC_814.distribution_forbidden[i] = aMSC_814.symbol_count[i];
-  aMSC_814.pre_count = aMSC_814.total_count;
-  for (int i = 0; i < aMSC_815.data_symbols; i++)
-    aMSC_815.distribution_forbidden[i] = aMSC_815.symbol_count[i];
-  aMSC_815.pre_count = aMSC_815.total_count;
-  for (int i = 0; i < aMSC_816.data_symbols; i++)
-    aMSC_816.distribution_forbidden[i] = aMSC_816.symbol_count[i];
-  aMSC_816.pre_count = aMSC_816.total_count;
-  for (int i = 0; i < aMSC_817.data_symbols; i++)
-    aMSC_817.distribution_forbidden[i] = aMSC_817.symbol_count[i];
-  aMSC_817.pre_count = aMSC_817.total_count;
-  for (int i = 0; i < aMSC_818.data_symbols; i++)
-    aMSC_818.distribution_forbidden[i] = aMSC_818.symbol_count[i];
-  aMSC_818.pre_count = aMSC_818.total_count;
-  for (int i = 0; i < aMSC_819.data_symbols; i++)
-    aMSC_819.distribution_forbidden[i] = aMSC_819.symbol_count[i];
-  aMSC_819.pre_count = aMSC_819.total_count;
-  for (int i = 0; i < aMSC_820.data_symbols; i++)
-    aMSC_820.distribution_forbidden[i] = aMSC_820.symbol_count[i];
-  aMSC_820.pre_count = aMSC_820.total_count;
-  for (int i = 0; i < aMSC_821.data_symbols; i++)
-    aMSC_821.distribution_forbidden[i] = aMSC_821.symbol_count[i];
-  aMSC_821.pre_count = aMSC_821.total_count;
-  for (int i = 0; i < aMSC_822.data_symbols; i++)
-    aMSC_822.distribution_forbidden[i] = aMSC_822.symbol_count[i];
-  aMSC_822.pre_count = aMSC_822.total_count;
-  for (int i = 0; i < aMSC_823.data_symbols; i++)
-    aMSC_823.distribution_forbidden[i] = aMSC_823.symbol_count[i];
-  aMSC_823.pre_count = aMSC_823.total_count;
-  for (int i = 0; i < aMSC_824.data_symbols; i++)
-    aMSC_824.distribution_forbidden[i] = aMSC_824.symbol_count[i];
-  aMSC_824.pre_count = aMSC_824.total_count;
-  for (int i = 0; i < aMSC_825.data_symbols; i++)
-    aMSC_825.distribution_forbidden[i] = aMSC_825.symbol_count[i];
-  aMSC_825.pre_count = aMSC_825.total_count;
-  for (int i = 0; i < aMSC_826.data_symbols; i++)
-    aMSC_826.distribution_forbidden[i] = aMSC_826.symbol_count[i];
-  aMSC_826.pre_count = aMSC_826.total_count;
+void save_MSC() {
+  for (int i = 0; i < aMSC_L.model_symbols(); i++)
+    aMSC_L.distribution_forbidden[i] = aMSC_L.get_symbol_count(i);
+  aMSC_L.pre_count = aMSC_L.get_total_count();
+  for (int i = 0; i < aMSC_A.model_symbols(); i++)
+    aMSC_A.distribution_forbidden[i] = aMSC_A.get_symbol_count(i);
+  aMSC_A.pre_count = aMSC_A.get_total_count();
+  for (int i = 0; i < aMSC_B.model_symbols(); i++)
+    aMSC_B.distribution_forbidden[i] = aMSC_B.get_symbol_count(i);
+  aMSC_B.pre_count = aMSC_B.get_total_count();
+  for (int i = 0; i < aMSC_R.model_symbols(); i++)
+    aMSC_R.distribution_forbidden[i] = aMSC_R.get_symbol_count(i);
+  aMSC_R.pre_count = aMSC_R.get_total_count();
+  for (int i = 0; i < aMSC_I.model_symbols(); i++)
+    aMSC_I.distribution_forbidden[i] = aMSC_I.get_symbol_count(i);
+  aMSC_I.pre_count = aMSC_I.get_total_count();
+  for (int i = 0; i < aMSC_0.model_symbols(); i++)
+    aMSC_0.distribution_forbidden[i] = aMSC_0.get_symbol_count(i);
+  aMSC_0.pre_count = aMSC_0.get_total_count();
+  for (int i = 0; i < aMSC_1.model_symbols(); i++)
+    aMSC_1.distribution_forbidden[i] = aMSC_1.get_symbol_count(i);
+  aMSC_1.pre_count = aMSC_1.get_total_count();
+  for (int i = 0; i < aMSC_2.model_symbols(); i++)
+    aMSC_2.distribution_forbidden[i] = aMSC_2.get_symbol_count(i);
+  aMSC_2.pre_count = aMSC_2.get_total_count();
+  for (int i = 0; i < aMSC_3.model_symbols(); i++)
+    aMSC_3.distribution_forbidden[i] = aMSC_3.get_symbol_count(i);
+  aMSC_3.pre_count = aMSC_3.get_total_count();
+  for (int i = 0; i < aMSC_4.model_symbols(); i++)
+    aMSC_4.distribution_forbidden[i] = aMSC_4.get_symbol_count(i);
+  aMSC_4.pre_count = aMSC_4.get_total_count();
+  for (int i = 0; i < aMSC_5.model_symbols(); i++)
+    aMSC_5.distribution_forbidden[i] = aMSC_5.get_symbol_count(i);
+  aMSC_5.pre_count = aMSC_5.get_total_count();
+  for (int i = 0; i < aMSC_6.model_symbols(); i++)
+    aMSC_6.distribution_forbidden[i] = aMSC_6.get_symbol_count(i);
+  aMSC_6.pre_count = aMSC_6.get_total_count();
+  for (int i = 0; i < aMSC_7.model_symbols(); i++)
+    aMSC_7.distribution_forbidden[i] = aMSC_7.get_symbol_count(i);
+  aMSC_7.pre_count = aMSC_7.get_total_count();
+  for (int i = 0; i < aMSC_8.model_symbols(); i++)
+    aMSC_8.distribution_forbidden[i] = aMSC_8.get_symbol_count(i);
+  aMSC_8.pre_count = aMSC_8.get_total_count();
+  for (int i = 0; i < aMSC_00.model_symbols(); i++)
+    aMSC_00.distribution_forbidden[i] = aMSC_00.get_symbol_count(i);
+  aMSC_00.pre_count = aMSC_00.get_total_count();
+  for (int i = 0; i < aMSC_01.model_symbols(); i++)
+    aMSC_01.distribution_forbidden[i] = aMSC_01.get_symbol_count(i);
+  aMSC_01.pre_count = aMSC_01.get_total_count();
+  for (int i = 0; i < aMSC_02.model_symbols(); i++)
+    aMSC_02.distribution_forbidden[i] = aMSC_02.get_symbol_count(i);
+  aMSC_02.pre_count = aMSC_02.get_total_count();
+  for (int i = 0; i < aMSC_03.model_symbols(); i++)
+    aMSC_03.distribution_forbidden[i] = aMSC_03.get_symbol_count(i);
+  aMSC_03.pre_count = aMSC_03.get_total_count();
+  for (int i = 0; i < aMSC_04.model_symbols(); i++)
+    aMSC_04.distribution_forbidden[i] = aMSC_04.get_symbol_count(i);
+  aMSC_04.pre_count = aMSC_04.get_total_count();
+  for (int i = 0; i < aMSC_05.model_symbols(); i++)
+    aMSC_05.distribution_forbidden[i] = aMSC_05.get_symbol_count(i);
+  aMSC_05.pre_count = aMSC_05.get_total_count();
+  for (int i = 0; i < aMSC_06.model_symbols(); i++)
+    aMSC_06.distribution_forbidden[i] = aMSC_06.get_symbol_count(i);
+  aMSC_06.pre_count = aMSC_06.get_total_count();
+  for (int i = 0; i < aMSC_07.model_symbols(); i++)
+    aMSC_07.distribution_forbidden[i] = aMSC_07.get_symbol_count(i);
+  aMSC_07.pre_count = aMSC_07.get_total_count();
+  for (int i = 0; i < aMSC_08.model_symbols(); i++)
+    aMSC_08.distribution_forbidden[i] = aMSC_08.get_symbol_count(i);
+  aMSC_08.pre_count = aMSC_08.get_total_count();
+  for (int i = 0; i < aMSC_09.model_symbols(); i++)
+    aMSC_09.distribution_forbidden[i] = aMSC_09.get_symbol_count(i);
+  aMSC_09.pre_count = aMSC_09.get_total_count();
+  for (int i = 0; i < aMSC_010.model_symbols(); i++)
+    aMSC_010.distribution_forbidden[i] = aMSC_010.get_symbol_count(i);
+  aMSC_010.pre_count = aMSC_010.get_total_count();
+  for (int i = 0; i < aMSC_011.model_symbols(); i++)
+    aMSC_011.distribution_forbidden[i] = aMSC_011.get_symbol_count(i);
+  aMSC_011.pre_count = aMSC_011.get_total_count();
+  for (int i = 0; i < aMSC_012.model_symbols(); i++)
+    aMSC_012.distribution_forbidden[i] = aMSC_012.get_symbol_count(i);
+  aMSC_012.pre_count = aMSC_012.get_total_count();
+  for (int i = 0; i < aMSC_013.model_symbols(); i++)
+    aMSC_013.distribution_forbidden[i] = aMSC_013.get_symbol_count(i);
+  aMSC_013.pre_count = aMSC_013.get_total_count();
+  for (int i = 0; i < aMSC_014.model_symbols(); i++)
+    aMSC_014.distribution_forbidden[i] = aMSC_014.get_symbol_count(i);
+  aMSC_014.pre_count = aMSC_014.get_total_count();
+  for (int i = 0; i < aMSC_015.model_symbols(); i++)
+    aMSC_015.distribution_forbidden[i] = aMSC_015.get_symbol_count(i);
+  aMSC_015.pre_count = aMSC_015.get_total_count();
+  for (int i = 0; i < aMSC_016.model_symbols(); i++)
+    aMSC_016.distribution_forbidden[i] = aMSC_016.get_symbol_count(i);
+  aMSC_016.pre_count = aMSC_016.get_total_count();
+  for (int i = 0; i < aMSC_017.model_symbols(); i++)
+    aMSC_017.distribution_forbidden[i] = aMSC_017.get_symbol_count(i);
+  aMSC_017.pre_count = aMSC_017.get_total_count();
+  for (int i = 0; i < aMSC_018.model_symbols(); i++)
+    aMSC_018.distribution_forbidden[i] = aMSC_018.get_symbol_count(i);
+  aMSC_018.pre_count = aMSC_018.get_total_count();
+  for (int i = 0; i < aMSC_019.model_symbols(); i++)
+    aMSC_019.distribution_forbidden[i] = aMSC_019.get_symbol_count(i);
+  aMSC_019.pre_count = aMSC_019.get_total_count();
+  for (int i = 0; i < aMSC_020.model_symbols(); i++)
+    aMSC_020.distribution_forbidden[i] = aMSC_020.get_symbol_count(i);
+  aMSC_020.pre_count = aMSC_020.get_total_count();
+  for (int i = 0; i < aMSC_021.model_symbols(); i++)
+    aMSC_021.distribution_forbidden[i] = aMSC_021.get_symbol_count(i);
+  aMSC_021.pre_count = aMSC_021.get_total_count();
+  for (int i = 0; i < aMSC_022.model_symbols(); i++)
+    aMSC_022.distribution_forbidden[i] = aMSC_022.get_symbol_count(i);
+  aMSC_022.pre_count = aMSC_022.get_total_count();
+  for (int i = 0; i < aMSC_023.model_symbols(); i++)
+    aMSC_023.distribution_forbidden[i] = aMSC_023.get_symbol_count(i);
+  aMSC_023.pre_count = aMSC_023.get_total_count();
+  for (int i = 0; i < aMSC_024.model_symbols(); i++)
+    aMSC_024.distribution_forbidden[i] = aMSC_024.get_symbol_count(i);
+  aMSC_024.pre_count = aMSC_024.get_total_count();
+  for (int i = 0; i < aMSC_025.model_symbols(); i++)
+    aMSC_025.distribution_forbidden[i] = aMSC_025.get_symbol_count(i);
+  aMSC_025.pre_count = aMSC_025.get_total_count();
+  for (int i = 0; i < aMSC_026.model_symbols(); i++)
+    aMSC_026.distribution_forbidden[i] = aMSC_026.get_symbol_count(i);
+  aMSC_026.pre_count = aMSC_026.get_total_count();
+  for (int i = 0; i < aMSC_10.model_symbols(); i++)
+    aMSC_10.distribution_forbidden[i] = aMSC_10.get_symbol_count(i);
+  aMSC_10.pre_count = aMSC_10.get_total_count();
+  for (int i = 0; i < aMSC_11.model_symbols(); i++)
+    aMSC_11.distribution_forbidden[i] = aMSC_11.get_symbol_count(i);
+  aMSC_11.pre_count = aMSC_11.get_total_count();
+  for (int i = 0; i < aMSC_12.model_symbols(); i++)
+    aMSC_12.distribution_forbidden[i] = aMSC_12.get_symbol_count(i);
+  aMSC_12.pre_count = aMSC_12.get_total_count();
+  for (int i = 0; i < aMSC_13.model_symbols(); i++)
+    aMSC_13.distribution_forbidden[i] = aMSC_13.get_symbol_count(i);
+  aMSC_13.pre_count = aMSC_13.get_total_count();
+  for (int i = 0; i < aMSC_14.model_symbols(); i++)
+    aMSC_14.distribution_forbidden[i] = aMSC_14.get_symbol_count(i);
+  aMSC_14.pre_count = aMSC_14.get_total_count();
+  for (int i = 0; i < aMSC_15.model_symbols(); i++)
+    aMSC_15.distribution_forbidden[i] = aMSC_15.get_symbol_count(i);
+  aMSC_15.pre_count = aMSC_15.get_total_count();
+  for (int i = 0; i < aMSC_16.model_symbols(); i++)
+    aMSC_16.distribution_forbidden[i] = aMSC_16.get_symbol_count(i);
+  aMSC_16.pre_count = aMSC_16.get_total_count();
+  for (int i = 0; i < aMSC_17.model_symbols(); i++)
+    aMSC_17.distribution_forbidden[i] = aMSC_17.get_symbol_count(i);
+  aMSC_17.pre_count = aMSC_17.get_total_count();
+  for (int i = 0; i < aMSC_18.model_symbols(); i++)
+    aMSC_18.distribution_forbidden[i] = aMSC_18.get_symbol_count(i);
+  aMSC_18.pre_count = aMSC_18.get_total_count();
+  for (int i = 0; i < aMSC_19.model_symbols(); i++)
+    aMSC_19.distribution_forbidden[i] = aMSC_19.get_symbol_count(i);
+  aMSC_19.pre_count = aMSC_19.get_total_count();
+  for (int i = 0; i < aMSC_110.model_symbols(); i++)
+    aMSC_110.distribution_forbidden[i] = aMSC_110.get_symbol_count(i);
+  aMSC_110.pre_count = aMSC_110.get_total_count();
+  for (int i = 0; i < aMSC_111.model_symbols(); i++)
+    aMSC_111.distribution_forbidden[i] = aMSC_111.get_symbol_count(i);
+  aMSC_111.pre_count = aMSC_111.get_total_count();
+  for (int i = 0; i < aMSC_112.model_symbols(); i++)
+    aMSC_112.distribution_forbidden[i] = aMSC_112.get_symbol_count(i);
+  aMSC_112.pre_count = aMSC_112.get_total_count();
+  for (int i = 0; i < aMSC_113.model_symbols(); i++)
+    aMSC_113.distribution_forbidden[i] = aMSC_113.get_symbol_count(i);
+  aMSC_113.pre_count = aMSC_113.get_total_count();
+  for (int i = 0; i < aMSC_114.model_symbols(); i++)
+    aMSC_114.distribution_forbidden[i] = aMSC_114.get_symbol_count(i);
+  aMSC_114.pre_count = aMSC_114.get_total_count();
+  for (int i = 0; i < aMSC_115.model_symbols(); i++)
+    aMSC_115.distribution_forbidden[i] = aMSC_115.get_symbol_count(i);
+  aMSC_115.pre_count = aMSC_115.get_total_count();
+  for (int i = 0; i < aMSC_116.model_symbols(); i++)
+    aMSC_116.distribution_forbidden[i] = aMSC_116.get_symbol_count(i);
+  aMSC_116.pre_count = aMSC_116.get_total_count();
+  for (int i = 0; i < aMSC_117.model_symbols(); i++)
+    aMSC_117.distribution_forbidden[i] = aMSC_117.get_symbol_count(i);
+  aMSC_117.pre_count = aMSC_117.get_total_count();
+  for (int i = 0; i < aMSC_118.model_symbols(); i++)
+    aMSC_118.distribution_forbidden[i] = aMSC_118.get_symbol_count(i);
+  aMSC_118.pre_count = aMSC_118.get_total_count();
+  for (int i = 0; i < aMSC_119.model_symbols(); i++)
+    aMSC_119.distribution_forbidden[i] = aMSC_119.get_symbol_count(i);
+  aMSC_119.pre_count = aMSC_119.get_total_count();
+  for (int i = 0; i < aMSC_120.model_symbols(); i++)
+    aMSC_120.distribution_forbidden[i] = aMSC_120.get_symbol_count(i);
+  aMSC_120.pre_count = aMSC_120.get_total_count();
+  for (int i = 0; i < aMSC_121.model_symbols(); i++)
+    aMSC_121.distribution_forbidden[i] = aMSC_121.get_symbol_count(i);
+  aMSC_121.pre_count = aMSC_121.get_total_count();
+  for (int i = 0; i < aMSC_122.model_symbols(); i++)
+    aMSC_122.distribution_forbidden[i] = aMSC_122.get_symbol_count(i);
+  aMSC_122.pre_count = aMSC_122.get_total_count();
+  for (int i = 0; i < aMSC_123.model_symbols(); i++)
+    aMSC_123.distribution_forbidden[i] = aMSC_123.get_symbol_count(i);
+  aMSC_123.pre_count = aMSC_123.get_total_count();
+  for (int i = 0; i < aMSC_124.model_symbols(); i++)
+    aMSC_124.distribution_forbidden[i] = aMSC_124.get_symbol_count(i);
+  aMSC_124.pre_count = aMSC_124.get_total_count();
+  for (int i = 0; i < aMSC_125.model_symbols(); i++)
+    aMSC_125.distribution_forbidden[i] = aMSC_125.get_symbol_count(i);
+  aMSC_125.pre_count = aMSC_125.get_total_count();
+  for (int i = 0; i < aMSC_126.model_symbols(); i++)
+    aMSC_126.distribution_forbidden[i] = aMSC_126.get_symbol_count(i);
+  aMSC_126.pre_count = aMSC_126.get_total_count();
+  for (int i = 0; i < aMSC_20.model_symbols(); i++)
+    aMSC_20.distribution_forbidden[i] = aMSC_20.get_symbol_count(i);
+  aMSC_20.pre_count = aMSC_20.get_total_count();
+  for (int i = 0; i < aMSC_21.model_symbols(); i++)
+    aMSC_21.distribution_forbidden[i] = aMSC_21.get_symbol_count(i);
+  aMSC_21.pre_count = aMSC_21.get_total_count();
+  for (int i = 0; i < aMSC_22.model_symbols(); i++)
+    aMSC_22.distribution_forbidden[i] = aMSC_22.get_symbol_count(i);
+  aMSC_22.pre_count = aMSC_22.get_total_count();
+  for (int i = 0; i < aMSC_23.model_symbols(); i++)
+    aMSC_23.distribution_forbidden[i] = aMSC_23.get_symbol_count(i);
+  aMSC_23.pre_count = aMSC_23.get_total_count();
+  for (int i = 0; i < aMSC_24.model_symbols(); i++)
+    aMSC_24.distribution_forbidden[i] = aMSC_24.get_symbol_count(i);
+  aMSC_24.pre_count = aMSC_24.get_total_count();
+  for (int i = 0; i < aMSC_25.model_symbols(); i++)
+    aMSC_25.distribution_forbidden[i] = aMSC_25.get_symbol_count(i);
+  aMSC_25.pre_count = aMSC_25.get_total_count();
+  for (int i = 0; i < aMSC_26.model_symbols(); i++)
+    aMSC_26.distribution_forbidden[i] = aMSC_26.get_symbol_count(i);
+  aMSC_26.pre_count = aMSC_26.get_total_count();
+  for (int i = 0; i < aMSC_27.model_symbols(); i++)
+    aMSC_27.distribution_forbidden[i] = aMSC_27.get_symbol_count(i);
+  aMSC_27.pre_count = aMSC_27.get_total_count();
+  for (int i = 0; i < aMSC_28.model_symbols(); i++)
+    aMSC_28.distribution_forbidden[i] = aMSC_28.get_symbol_count(i);
+  aMSC_28.pre_count = aMSC_28.get_total_count();
+  for (int i = 0; i < aMSC_29.model_symbols(); i++)
+    aMSC_29.distribution_forbidden[i] = aMSC_29.get_symbol_count(i);
+  aMSC_29.pre_count = aMSC_29.get_total_count();
+  for (int i = 0; i < aMSC_210.model_symbols(); i++)
+    aMSC_210.distribution_forbidden[i] = aMSC_210.get_symbol_count(i);
+  aMSC_210.pre_count = aMSC_210.get_total_count();
+  for (int i = 0; i < aMSC_211.model_symbols(); i++)
+    aMSC_211.distribution_forbidden[i] = aMSC_211.get_symbol_count(i);
+  aMSC_211.pre_count = aMSC_211.get_total_count();
+  for (int i = 0; i < aMSC_212.model_symbols(); i++)
+    aMSC_212.distribution_forbidden[i] = aMSC_212.get_symbol_count(i);
+  aMSC_212.pre_count = aMSC_212.get_total_count();
+  for (int i = 0; i < aMSC_213.model_symbols(); i++)
+    aMSC_213.distribution_forbidden[i] = aMSC_213.get_symbol_count(i);
+  aMSC_213.pre_count = aMSC_213.get_total_count();
+  for (int i = 0; i < aMSC_214.model_symbols(); i++)
+    aMSC_214.distribution_forbidden[i] = aMSC_214.get_symbol_count(i);
+  aMSC_214.pre_count = aMSC_214.get_total_count();
+  for (int i = 0; i < aMSC_215.model_symbols(); i++)
+    aMSC_215.distribution_forbidden[i] = aMSC_215.get_symbol_count(i);
+  aMSC_215.pre_count = aMSC_215.get_total_count();
+  for (int i = 0; i < aMSC_216.model_symbols(); i++)
+    aMSC_216.distribution_forbidden[i] = aMSC_216.get_symbol_count(i);
+  aMSC_216.pre_count = aMSC_216.get_total_count();
+  for (int i = 0; i < aMSC_217.model_symbols(); i++)
+    aMSC_217.distribution_forbidden[i] = aMSC_217.get_symbol_count(i);
+  aMSC_217.pre_count = aMSC_217.get_total_count();
+  for (int i = 0; i < aMSC_218.model_symbols(); i++)
+    aMSC_218.distribution_forbidden[i] = aMSC_218.get_symbol_count(i);
+  aMSC_218.pre_count = aMSC_218.get_total_count();
+  for (int i = 0; i < aMSC_219.model_symbols(); i++)
+    aMSC_219.distribution_forbidden[i] = aMSC_219.get_symbol_count(i);
+  aMSC_219.pre_count = aMSC_219.get_total_count();
+  for (int i = 0; i < aMSC_220.model_symbols(); i++)
+    aMSC_220.distribution_forbidden[i] = aMSC_220.get_symbol_count(i);
+  aMSC_220.pre_count = aMSC_220.get_total_count();
+  for (int i = 0; i < aMSC_221.model_symbols(); i++)
+    aMSC_221.distribution_forbidden[i] = aMSC_221.get_symbol_count(i);
+  aMSC_221.pre_count = aMSC_221.get_total_count();
+  for (int i = 0; i < aMSC_222.model_symbols(); i++)
+    aMSC_222.distribution_forbidden[i] = aMSC_222.get_symbol_count(i);
+  aMSC_222.pre_count = aMSC_222.get_total_count();
+  for (int i = 0; i < aMSC_223.model_symbols(); i++)
+    aMSC_223.distribution_forbidden[i] = aMSC_223.get_symbol_count(i);
+  aMSC_223.pre_count = aMSC_223.get_total_count();
+  for (int i = 0; i < aMSC_224.model_symbols(); i++)
+    aMSC_224.distribution_forbidden[i] = aMSC_224.get_symbol_count(i);
+  aMSC_224.pre_count = aMSC_224.get_total_count();
+  for (int i = 0; i < aMSC_225.model_symbols(); i++)
+    aMSC_225.distribution_forbidden[i] = aMSC_225.get_symbol_count(i);
+  aMSC_225.pre_count = aMSC_225.get_total_count();
+  for (int i = 0; i < aMSC_226.model_symbols(); i++)
+    aMSC_226.distribution_forbidden[i] = aMSC_226.get_symbol_count(i);
+  aMSC_226.pre_count = aMSC_226.get_total_count();
+  for (int i = 0; i < aMSC_30.model_symbols(); i++)
+    aMSC_30.distribution_forbidden[i] = aMSC_30.get_symbol_count(i);
+  aMSC_30.pre_count = aMSC_30.get_total_count();
+  for (int i = 0; i < aMSC_31.model_symbols(); i++)
+    aMSC_31.distribution_forbidden[i] = aMSC_31.get_symbol_count(i);
+  aMSC_31.pre_count = aMSC_31.get_total_count();
+  for (int i = 0; i < aMSC_32.model_symbols(); i++)
+    aMSC_32.distribution_forbidden[i] = aMSC_32.get_symbol_count(i);
+  aMSC_32.pre_count = aMSC_32.get_total_count();
+  for (int i = 0; i < aMSC_33.model_symbols(); i++)
+    aMSC_33.distribution_forbidden[i] = aMSC_33.get_symbol_count(i);
+  aMSC_33.pre_count = aMSC_33.get_total_count();
+  for (int i = 0; i < aMSC_34.model_symbols(); i++)
+    aMSC_34.distribution_forbidden[i] = aMSC_34.get_symbol_count(i);
+  aMSC_34.pre_count = aMSC_34.get_total_count();
+  for (int i = 0; i < aMSC_35.model_symbols(); i++)
+    aMSC_35.distribution_forbidden[i] = aMSC_35.get_symbol_count(i);
+  aMSC_35.pre_count = aMSC_35.get_total_count();
+  for (int i = 0; i < aMSC_36.model_symbols(); i++)
+    aMSC_36.distribution_forbidden[i] = aMSC_36.get_symbol_count(i);
+  aMSC_36.pre_count = aMSC_36.get_total_count();
+  for (int i = 0; i < aMSC_37.model_symbols(); i++)
+    aMSC_37.distribution_forbidden[i] = aMSC_37.get_symbol_count(i);
+  aMSC_37.pre_count = aMSC_37.get_total_count();
+  for (int i = 0; i < aMSC_38.model_symbols(); i++)
+    aMSC_38.distribution_forbidden[i] = aMSC_38.get_symbol_count(i);
+  aMSC_38.pre_count = aMSC_38.get_total_count();
+  for (int i = 0; i < aMSC_39.model_symbols(); i++)
+    aMSC_39.distribution_forbidden[i] = aMSC_39.get_symbol_count(i);
+  aMSC_39.pre_count = aMSC_39.get_total_count();
+  for (int i = 0; i < aMSC_310.model_symbols(); i++)
+    aMSC_310.distribution_forbidden[i] = aMSC_310.get_symbol_count(i);
+  aMSC_310.pre_count = aMSC_310.get_total_count();
+  for (int i = 0; i < aMSC_311.model_symbols(); i++)
+    aMSC_311.distribution_forbidden[i] = aMSC_311.get_symbol_count(i);
+  aMSC_311.pre_count = aMSC_311.get_total_count();
+  for (int i = 0; i < aMSC_312.model_symbols(); i++)
+    aMSC_312.distribution_forbidden[i] = aMSC_312.get_symbol_count(i);
+  aMSC_312.pre_count = aMSC_312.get_total_count();
+  for (int i = 0; i < aMSC_313.model_symbols(); i++)
+    aMSC_313.distribution_forbidden[i] = aMSC_313.get_symbol_count(i);
+  aMSC_313.pre_count = aMSC_313.get_total_count();
+  for (int i = 0; i < aMSC_314.model_symbols(); i++)
+    aMSC_314.distribution_forbidden[i] = aMSC_314.get_symbol_count(i);
+  aMSC_314.pre_count = aMSC_314.get_total_count();
+  for (int i = 0; i < aMSC_315.model_symbols(); i++)
+    aMSC_315.distribution_forbidden[i] = aMSC_315.get_symbol_count(i);
+  aMSC_315.pre_count = aMSC_315.get_total_count();
+  for (int i = 0; i < aMSC_316.model_symbols(); i++)
+    aMSC_316.distribution_forbidden[i] = aMSC_316.get_symbol_count(i);
+  aMSC_316.pre_count = aMSC_316.get_total_count();
+  for (int i = 0; i < aMSC_317.model_symbols(); i++)
+    aMSC_317.distribution_forbidden[i] = aMSC_317.get_symbol_count(i);
+  aMSC_317.pre_count = aMSC_317.get_total_count();
+  for (int i = 0; i < aMSC_318.model_symbols(); i++)
+    aMSC_318.distribution_forbidden[i] = aMSC_318.get_symbol_count(i);
+  aMSC_318.pre_count = aMSC_318.get_total_count();
+  for (int i = 0; i < aMSC_319.model_symbols(); i++)
+    aMSC_319.distribution_forbidden[i] = aMSC_319.get_symbol_count(i);
+  aMSC_319.pre_count = aMSC_319.get_total_count();
+  for (int i = 0; i < aMSC_320.model_symbols(); i++)
+    aMSC_320.distribution_forbidden[i] = aMSC_320.get_symbol_count(i);
+  aMSC_320.pre_count = aMSC_320.get_total_count();
+  for (int i = 0; i < aMSC_321.model_symbols(); i++)
+    aMSC_321.distribution_forbidden[i] = aMSC_321.get_symbol_count(i);
+  aMSC_321.pre_count = aMSC_321.get_total_count();
+  for (int i = 0; i < aMSC_322.model_symbols(); i++)
+    aMSC_322.distribution_forbidden[i] = aMSC_322.get_symbol_count(i);
+  aMSC_322.pre_count = aMSC_322.get_total_count();
+  for (int i = 0; i < aMSC_323.model_symbols(); i++)
+    aMSC_323.distribution_forbidden[i] = aMSC_323.get_symbol_count(i);
+  aMSC_323.pre_count = aMSC_323.get_total_count();
+  for (int i = 0; i < aMSC_324.model_symbols(); i++)
+    aMSC_324.distribution_forbidden[i] = aMSC_324.get_symbol_count(i);
+  aMSC_324.pre_count = aMSC_324.get_total_count();
+  for (int i = 0; i < aMSC_325.model_symbols(); i++)
+    aMSC_325.distribution_forbidden[i] = aMSC_325.get_symbol_count(i);
+  aMSC_325.pre_count = aMSC_325.get_total_count();
+  for (int i = 0; i < aMSC_326.model_symbols(); i++)
+    aMSC_326.distribution_forbidden[i] = aMSC_326.get_symbol_count(i);
+  aMSC_326.pre_count = aMSC_326.get_total_count();
+  for (int i = 0; i < aMSC_40.model_symbols(); i++)
+    aMSC_40.distribution_forbidden[i] = aMSC_40.get_symbol_count(i);
+  aMSC_40.pre_count = aMSC_40.get_total_count();
+  for (int i = 0; i < aMSC_41.model_symbols(); i++)
+    aMSC_41.distribution_forbidden[i] = aMSC_41.get_symbol_count(i);
+  aMSC_41.pre_count = aMSC_41.get_total_count();
+  for (int i = 0; i < aMSC_42.model_symbols(); i++)
+    aMSC_42.distribution_forbidden[i] = aMSC_42.get_symbol_count(i);
+  aMSC_42.pre_count = aMSC_42.get_total_count();
+  for (int i = 0; i < aMSC_43.model_symbols(); i++)
+    aMSC_43.distribution_forbidden[i] = aMSC_43.get_symbol_count(i);
+  aMSC_43.pre_count = aMSC_43.get_total_count();
+  for (int i = 0; i < aMSC_44.model_symbols(); i++)
+    aMSC_44.distribution_forbidden[i] = aMSC_44.get_symbol_count(i);
+  aMSC_44.pre_count = aMSC_44.get_total_count();
+  for (int i = 0; i < aMSC_45.model_symbols(); i++)
+    aMSC_45.distribution_forbidden[i] = aMSC_45.get_symbol_count(i);
+  aMSC_45.pre_count = aMSC_45.get_total_count();
+  for (int i = 0; i < aMSC_46.model_symbols(); i++)
+    aMSC_46.distribution_forbidden[i] = aMSC_46.get_symbol_count(i);
+  aMSC_46.pre_count = aMSC_46.get_total_count();
+  for (int i = 0; i < aMSC_47.model_symbols(); i++)
+    aMSC_47.distribution_forbidden[i] = aMSC_47.get_symbol_count(i);
+  aMSC_47.pre_count = aMSC_47.get_total_count();
+  for (int i = 0; i < aMSC_48.model_symbols(); i++)
+    aMSC_48.distribution_forbidden[i] = aMSC_48.get_symbol_count(i);
+  aMSC_48.pre_count = aMSC_48.get_total_count();
+  for (int i = 0; i < aMSC_49.model_symbols(); i++)
+    aMSC_49.distribution_forbidden[i] = aMSC_49.get_symbol_count(i);
+  aMSC_49.pre_count = aMSC_49.get_total_count();
+  for (int i = 0; i < aMSC_410.model_symbols(); i++)
+    aMSC_410.distribution_forbidden[i] = aMSC_410.get_symbol_count(i);
+  aMSC_410.pre_count = aMSC_410.get_total_count();
+  for (int i = 0; i < aMSC_411.model_symbols(); i++)
+    aMSC_411.distribution_forbidden[i] = aMSC_411.get_symbol_count(i);
+  aMSC_411.pre_count = aMSC_411.get_total_count();
+  for (int i = 0; i < aMSC_412.model_symbols(); i++)
+    aMSC_412.distribution_forbidden[i] = aMSC_412.get_symbol_count(i);
+  aMSC_412.pre_count = aMSC_412.get_total_count();
+  for (int i = 0; i < aMSC_413.model_symbols(); i++)
+    aMSC_413.distribution_forbidden[i] = aMSC_413.get_symbol_count(i);
+  aMSC_413.pre_count = aMSC_413.get_total_count();
+  for (int i = 0; i < aMSC_414.model_symbols(); i++)
+    aMSC_414.distribution_forbidden[i] = aMSC_414.get_symbol_count(i);
+  aMSC_414.pre_count = aMSC_414.get_total_count();
+  for (int i = 0; i < aMSC_415.model_symbols(); i++)
+    aMSC_415.distribution_forbidden[i] = aMSC_415.get_symbol_count(i);
+  aMSC_415.pre_count = aMSC_415.get_total_count();
+  for (int i = 0; i < aMSC_416.model_symbols(); i++)
+    aMSC_416.distribution_forbidden[i] = aMSC_416.get_symbol_count(i);
+  aMSC_416.pre_count = aMSC_416.get_total_count();
+  for (int i = 0; i < aMSC_417.model_symbols(); i++)
+    aMSC_417.distribution_forbidden[i] = aMSC_417.get_symbol_count(i);
+  aMSC_417.pre_count = aMSC_417.get_total_count();
+  for (int i = 0; i < aMSC_418.model_symbols(); i++)
+    aMSC_418.distribution_forbidden[i] = aMSC_418.get_symbol_count(i);
+  aMSC_418.pre_count = aMSC_418.get_total_count();
+  for (int i = 0; i < aMSC_419.model_symbols(); i++)
+    aMSC_419.distribution_forbidden[i] = aMSC_419.get_symbol_count(i);
+  aMSC_419.pre_count = aMSC_419.get_total_count();
+  for (int i = 0; i < aMSC_420.model_symbols(); i++)
+    aMSC_420.distribution_forbidden[i] = aMSC_420.get_symbol_count(i);
+  aMSC_420.pre_count = aMSC_420.get_total_count();
+  for (int i = 0; i < aMSC_421.model_symbols(); i++)
+    aMSC_421.distribution_forbidden[i] = aMSC_421.get_symbol_count(i);
+  aMSC_421.pre_count = aMSC_421.get_total_count();
+  for (int i = 0; i < aMSC_422.model_symbols(); i++)
+    aMSC_422.distribution_forbidden[i] = aMSC_422.get_symbol_count(i);
+  aMSC_422.pre_count = aMSC_422.get_total_count();
+  for (int i = 0; i < aMSC_423.model_symbols(); i++)
+    aMSC_423.distribution_forbidden[i] = aMSC_423.get_symbol_count(i);
+  aMSC_423.pre_count = aMSC_423.get_total_count();
+  for (int i = 0; i < aMSC_424.model_symbols(); i++)
+    aMSC_424.distribution_forbidden[i] = aMSC_424.get_symbol_count(i);
+  aMSC_424.pre_count = aMSC_424.get_total_count();
+  for (int i = 0; i < aMSC_425.model_symbols(); i++)
+    aMSC_425.distribution_forbidden[i] = aMSC_425.get_symbol_count(i);
+  aMSC_425.pre_count = aMSC_425.get_total_count();
+  for (int i = 0; i < aMSC_426.model_symbols(); i++)
+    aMSC_426.distribution_forbidden[i] = aMSC_426.get_symbol_count(i);
+  aMSC_426.pre_count = aMSC_426.get_total_count();
+  for (int i = 0; i < aMSC_50.model_symbols(); i++)
+    aMSC_50.distribution_forbidden[i] = aMSC_50.get_symbol_count(i);
+  aMSC_50.pre_count = aMSC_50.get_total_count();
+  for (int i = 0; i < aMSC_51.model_symbols(); i++)
+    aMSC_51.distribution_forbidden[i] = aMSC_51.get_symbol_count(i);
+  aMSC_51.pre_count = aMSC_51.get_total_count();
+  for (int i = 0; i < aMSC_52.model_symbols(); i++)
+    aMSC_52.distribution_forbidden[i] = aMSC_52.get_symbol_count(i);
+  aMSC_52.pre_count = aMSC_52.get_total_count();
+  for (int i = 0; i < aMSC_53.model_symbols(); i++)
+    aMSC_53.distribution_forbidden[i] = aMSC_53.get_symbol_count(i);
+  aMSC_53.pre_count = aMSC_53.get_total_count();
+  for (int i = 0; i < aMSC_54.model_symbols(); i++)
+    aMSC_54.distribution_forbidden[i] = aMSC_54.get_symbol_count(i);
+  aMSC_54.pre_count = aMSC_54.get_total_count();
+  for (int i = 0; i < aMSC_55.model_symbols(); i++)
+    aMSC_55.distribution_forbidden[i] = aMSC_55.get_symbol_count(i);
+  aMSC_55.pre_count = aMSC_55.get_total_count();
+  for (int i = 0; i < aMSC_56.model_symbols(); i++)
+    aMSC_56.distribution_forbidden[i] = aMSC_56.get_symbol_count(i);
+  aMSC_56.pre_count = aMSC_56.get_total_count();
+  for (int i = 0; i < aMSC_57.model_symbols(); i++)
+    aMSC_57.distribution_forbidden[i] = aMSC_57.get_symbol_count(i);
+  aMSC_57.pre_count = aMSC_57.get_total_count();
+  for (int i = 0; i < aMSC_58.model_symbols(); i++)
+    aMSC_58.distribution_forbidden[i] = aMSC_58.get_symbol_count(i);
+  aMSC_58.pre_count = aMSC_58.get_total_count();
+  for (int i = 0; i < aMSC_59.model_symbols(); i++)
+    aMSC_59.distribution_forbidden[i] = aMSC_59.get_symbol_count(i);
+  aMSC_59.pre_count = aMSC_59.get_total_count();
+  for (int i = 0; i < aMSC_510.model_symbols(); i++)
+    aMSC_510.distribution_forbidden[i] = aMSC_510.get_symbol_count(i);
+  aMSC_510.pre_count = aMSC_510.get_total_count();
+  for (int i = 0; i < aMSC_511.model_symbols(); i++)
+    aMSC_511.distribution_forbidden[i] = aMSC_511.get_symbol_count(i);
+  aMSC_511.pre_count = aMSC_511.get_total_count();
+  for (int i = 0; i < aMSC_512.model_symbols(); i++)
+    aMSC_512.distribution_forbidden[i] = aMSC_512.get_symbol_count(i);
+  aMSC_512.pre_count = aMSC_512.get_total_count();
+  for (int i = 0; i < aMSC_513.model_symbols(); i++)
+    aMSC_513.distribution_forbidden[i] = aMSC_513.get_symbol_count(i);
+  aMSC_513.pre_count = aMSC_513.get_total_count();
+  for (int i = 0; i < aMSC_514.model_symbols(); i++)
+    aMSC_514.distribution_forbidden[i] = aMSC_514.get_symbol_count(i);
+  aMSC_514.pre_count = aMSC_514.get_total_count();
+  for (int i = 0; i < aMSC_515.model_symbols(); i++)
+    aMSC_515.distribution_forbidden[i] = aMSC_515.get_symbol_count(i);
+  aMSC_515.pre_count = aMSC_515.get_total_count();
+  for (int i = 0; i < aMSC_516.model_symbols(); i++)
+    aMSC_516.distribution_forbidden[i] = aMSC_516.get_symbol_count(i);
+  aMSC_516.pre_count = aMSC_516.get_total_count();
+  for (int i = 0; i < aMSC_517.model_symbols(); i++)
+    aMSC_517.distribution_forbidden[i] = aMSC_517.get_symbol_count(i);
+  aMSC_517.pre_count = aMSC_517.get_total_count();
+  for (int i = 0; i < aMSC_518.model_symbols(); i++)
+    aMSC_518.distribution_forbidden[i] = aMSC_518.get_symbol_count(i);
+  aMSC_518.pre_count = aMSC_518.get_total_count();
+  for (int i = 0; i < aMSC_519.model_symbols(); i++)
+    aMSC_519.distribution_forbidden[i] = aMSC_519.get_symbol_count(i);
+  aMSC_519.pre_count = aMSC_519.get_total_count();
+  for (int i = 0; i < aMSC_520.model_symbols(); i++)
+    aMSC_520.distribution_forbidden[i] = aMSC_520.get_symbol_count(i);
+  aMSC_520.pre_count = aMSC_520.get_total_count();
+  for (int i = 0; i < aMSC_521.model_symbols(); i++)
+    aMSC_521.distribution_forbidden[i] = aMSC_521.get_symbol_count(i);
+  aMSC_521.pre_count = aMSC_521.get_total_count();
+  for (int i = 0; i < aMSC_522.model_symbols(); i++)
+    aMSC_522.distribution_forbidden[i] = aMSC_522.get_symbol_count(i);
+  aMSC_522.pre_count = aMSC_522.get_total_count();
+  for (int i = 0; i < aMSC_523.model_symbols(); i++)
+    aMSC_523.distribution_forbidden[i] = aMSC_523.get_symbol_count(i);
+  aMSC_523.pre_count = aMSC_523.get_total_count();
+  for (int i = 0; i < aMSC_524.model_symbols(); i++)
+    aMSC_524.distribution_forbidden[i] = aMSC_524.get_symbol_count(i);
+  aMSC_524.pre_count = aMSC_524.get_total_count();
+  for (int i = 0; i < aMSC_525.model_symbols(); i++)
+    aMSC_525.distribution_forbidden[i] = aMSC_525.get_symbol_count(i);
+  aMSC_525.pre_count = aMSC_525.get_total_count();
+  for (int i = 0; i < aMSC_526.model_symbols(); i++)
+    aMSC_526.distribution_forbidden[i] = aMSC_526.get_symbol_count(i);
+  aMSC_526.pre_count = aMSC_526.get_total_count();
+  for (int i = 0; i < aMSC_60.model_symbols(); i++)
+    aMSC_60.distribution_forbidden[i] = aMSC_60.get_symbol_count(i);
+  aMSC_60.pre_count = aMSC_60.get_total_count();
+  for (int i = 0; i < aMSC_61.model_symbols(); i++)
+    aMSC_61.distribution_forbidden[i] = aMSC_61.get_symbol_count(i);
+  aMSC_61.pre_count = aMSC_61.get_total_count();
+  for (int i = 0; i < aMSC_62.model_symbols(); i++)
+    aMSC_62.distribution_forbidden[i] = aMSC_62.get_symbol_count(i);
+  aMSC_62.pre_count = aMSC_62.get_total_count();
+  for (int i = 0; i < aMSC_63.model_symbols(); i++)
+    aMSC_63.distribution_forbidden[i] = aMSC_63.get_symbol_count(i);
+  aMSC_63.pre_count = aMSC_63.get_total_count();
+  for (int i = 0; i < aMSC_64.model_symbols(); i++)
+    aMSC_64.distribution_forbidden[i] = aMSC_64.get_symbol_count(i);
+  aMSC_64.pre_count = aMSC_64.get_total_count();
+  for (int i = 0; i < aMSC_65.model_symbols(); i++)
+    aMSC_65.distribution_forbidden[i] = aMSC_65.get_symbol_count(i);
+  aMSC_65.pre_count = aMSC_65.get_total_count();
+  for (int i = 0; i < aMSC_66.model_symbols(); i++)
+    aMSC_66.distribution_forbidden[i] = aMSC_66.get_symbol_count(i);
+  aMSC_66.pre_count = aMSC_66.get_total_count();
+  for (int i = 0; i < aMSC_67.model_symbols(); i++)
+    aMSC_67.distribution_forbidden[i] = aMSC_67.get_symbol_count(i);
+  aMSC_67.pre_count = aMSC_67.get_total_count();
+  for (int i = 0; i < aMSC_68.model_symbols(); i++)
+    aMSC_68.distribution_forbidden[i] = aMSC_68.get_symbol_count(i);
+  aMSC_68.pre_count = aMSC_68.get_total_count();
+  for (int i = 0; i < aMSC_69.model_symbols(); i++)
+    aMSC_69.distribution_forbidden[i] = aMSC_69.get_symbol_count(i);
+  aMSC_69.pre_count = aMSC_69.get_total_count();
+  for (int i = 0; i < aMSC_610.model_symbols(); i++)
+    aMSC_610.distribution_forbidden[i] = aMSC_610.get_symbol_count(i);
+  aMSC_610.pre_count = aMSC_610.get_total_count();
+  for (int i = 0; i < aMSC_611.model_symbols(); i++)
+    aMSC_611.distribution_forbidden[i] = aMSC_611.get_symbol_count(i);
+  aMSC_611.pre_count = aMSC_611.get_total_count();
+  for (int i = 0; i < aMSC_612.model_symbols(); i++)
+    aMSC_612.distribution_forbidden[i] = aMSC_612.get_symbol_count(i);
+  aMSC_612.pre_count = aMSC_612.get_total_count();
+  for (int i = 0; i < aMSC_613.model_symbols(); i++)
+    aMSC_613.distribution_forbidden[i] = aMSC_613.get_symbol_count(i);
+  aMSC_613.pre_count = aMSC_613.get_total_count();
+  for (int i = 0; i < aMSC_614.model_symbols(); i++)
+    aMSC_614.distribution_forbidden[i] = aMSC_614.get_symbol_count(i);
+  aMSC_614.pre_count = aMSC_614.get_total_count();
+  for (int i = 0; i < aMSC_615.model_symbols(); i++)
+    aMSC_615.distribution_forbidden[i] = aMSC_615.get_symbol_count(i);
+  aMSC_615.pre_count = aMSC_615.get_total_count();
+  for (int i = 0; i < aMSC_616.model_symbols(); i++)
+    aMSC_616.distribution_forbidden[i] = aMSC_616.get_symbol_count(i);
+  aMSC_616.pre_count = aMSC_616.get_total_count();
+  for (int i = 0; i < aMSC_617.model_symbols(); i++)
+    aMSC_617.distribution_forbidden[i] = aMSC_617.get_symbol_count(i);
+  aMSC_617.pre_count = aMSC_617.get_total_count();
+  for (int i = 0; i < aMSC_618.model_symbols(); i++)
+    aMSC_618.distribution_forbidden[i] = aMSC_618.get_symbol_count(i);
+  aMSC_618.pre_count = aMSC_618.get_total_count();
+  for (int i = 0; i < aMSC_619.model_symbols(); i++)
+    aMSC_619.distribution_forbidden[i] = aMSC_619.get_symbol_count(i);
+  aMSC_619.pre_count = aMSC_619.get_total_count();
+  for (int i = 0; i < aMSC_620.model_symbols(); i++)
+    aMSC_620.distribution_forbidden[i] = aMSC_620.get_symbol_count(i);
+  aMSC_620.pre_count = aMSC_620.get_total_count();
+  for (int i = 0; i < aMSC_621.model_symbols(); i++)
+    aMSC_621.distribution_forbidden[i] = aMSC_621.get_symbol_count(i);
+  aMSC_621.pre_count = aMSC_621.get_total_count();
+  for (int i = 0; i < aMSC_622.model_symbols(); i++)
+    aMSC_622.distribution_forbidden[i] = aMSC_622.get_symbol_count(i);
+  aMSC_622.pre_count = aMSC_622.get_total_count();
+  for (int i = 0; i < aMSC_623.model_symbols(); i++)
+    aMSC_623.distribution_forbidden[i] = aMSC_623.get_symbol_count(i);
+  aMSC_623.pre_count = aMSC_623.get_total_count();
+  for (int i = 0; i < aMSC_624.model_symbols(); i++)
+    aMSC_624.distribution_forbidden[i] = aMSC_624.get_symbol_count(i);
+  aMSC_624.pre_count = aMSC_624.get_total_count();
+  for (int i = 0; i < aMSC_625.model_symbols(); i++)
+    aMSC_625.distribution_forbidden[i] = aMSC_625.get_symbol_count(i);
+  aMSC_625.pre_count = aMSC_625.get_total_count();
+  for (int i = 0; i < aMSC_626.model_symbols(); i++)
+    aMSC_626.distribution_forbidden[i] = aMSC_626.get_symbol_count(i);
+  aMSC_626.pre_count = aMSC_626.get_total_count();
+  for (int i = 0; i < aMSC_70.model_symbols(); i++)
+    aMSC_70.distribution_forbidden[i] = aMSC_70.get_symbol_count(i);
+  aMSC_70.pre_count = aMSC_70.get_total_count();
+  for (int i = 0; i < aMSC_71.model_symbols(); i++)
+    aMSC_71.distribution_forbidden[i] = aMSC_71.get_symbol_count(i);
+  aMSC_71.pre_count = aMSC_71.get_total_count();
+  for (int i = 0; i < aMSC_72.model_symbols(); i++)
+    aMSC_72.distribution_forbidden[i] = aMSC_72.get_symbol_count(i);
+  aMSC_72.pre_count = aMSC_72.get_total_count();
+  for (int i = 0; i < aMSC_73.model_symbols(); i++)
+    aMSC_73.distribution_forbidden[i] = aMSC_73.get_symbol_count(i);
+  aMSC_73.pre_count = aMSC_73.get_total_count();
+  for (int i = 0; i < aMSC_74.model_symbols(); i++)
+    aMSC_74.distribution_forbidden[i] = aMSC_74.get_symbol_count(i);
+  aMSC_74.pre_count = aMSC_74.get_total_count();
+  for (int i = 0; i < aMSC_75.model_symbols(); i++)
+    aMSC_75.distribution_forbidden[i] = aMSC_75.get_symbol_count(i);
+  aMSC_75.pre_count = aMSC_75.get_total_count();
+  for (int i = 0; i < aMSC_76.model_symbols(); i++)
+    aMSC_76.distribution_forbidden[i] = aMSC_76.get_symbol_count(i);
+  aMSC_76.pre_count = aMSC_76.get_total_count();
+  for (int i = 0; i < aMSC_77.model_symbols(); i++)
+    aMSC_77.distribution_forbidden[i] = aMSC_77.get_symbol_count(i);
+  aMSC_77.pre_count = aMSC_77.get_total_count();
+  for (int i = 0; i < aMSC_78.model_symbols(); i++)
+    aMSC_78.distribution_forbidden[i] = aMSC_78.get_symbol_count(i);
+  aMSC_78.pre_count = aMSC_78.get_total_count();
+  for (int i = 0; i < aMSC_79.model_symbols(); i++)
+    aMSC_79.distribution_forbidden[i] = aMSC_79.get_symbol_count(i);
+  aMSC_79.pre_count = aMSC_79.get_total_count();
+  for (int i = 0; i < aMSC_710.model_symbols(); i++)
+    aMSC_710.distribution_forbidden[i] = aMSC_710.get_symbol_count(i);
+  aMSC_710.pre_count = aMSC_710.get_total_count();
+  for (int i = 0; i < aMSC_711.model_symbols(); i++)
+    aMSC_711.distribution_forbidden[i] = aMSC_711.get_symbol_count(i);
+  aMSC_711.pre_count = aMSC_711.get_total_count();
+  for (int i = 0; i < aMSC_712.model_symbols(); i++)
+    aMSC_712.distribution_forbidden[i] = aMSC_712.get_symbol_count(i);
+  aMSC_712.pre_count = aMSC_712.get_total_count();
+  for (int i = 0; i < aMSC_713.model_symbols(); i++)
+    aMSC_713.distribution_forbidden[i] = aMSC_713.get_symbol_count(i);
+  aMSC_713.pre_count = aMSC_713.get_total_count();
+  for (int i = 0; i < aMSC_714.model_symbols(); i++)
+    aMSC_714.distribution_forbidden[i] = aMSC_714.get_symbol_count(i);
+  aMSC_714.pre_count = aMSC_714.get_total_count();
+  for (int i = 0; i < aMSC_715.model_symbols(); i++)
+    aMSC_715.distribution_forbidden[i] = aMSC_715.get_symbol_count(i);
+  aMSC_715.pre_count = aMSC_715.get_total_count();
+  for (int i = 0; i < aMSC_716.model_symbols(); i++)
+    aMSC_716.distribution_forbidden[i] = aMSC_716.get_symbol_count(i);
+  aMSC_716.pre_count = aMSC_716.get_total_count();
+  for (int i = 0; i < aMSC_717.model_symbols(); i++)
+    aMSC_717.distribution_forbidden[i] = aMSC_717.get_symbol_count(i);
+  aMSC_717.pre_count = aMSC_717.get_total_count();
+  for (int i = 0; i < aMSC_718.model_symbols(); i++)
+    aMSC_718.distribution_forbidden[i] = aMSC_718.get_symbol_count(i);
+  aMSC_718.pre_count = aMSC_718.get_total_count();
+  for (int i = 0; i < aMSC_719.model_symbols(); i++)
+    aMSC_719.distribution_forbidden[i] = aMSC_719.get_symbol_count(i);
+  aMSC_719.pre_count = aMSC_719.get_total_count();
+  for (int i = 0; i < aMSC_720.model_symbols(); i++)
+    aMSC_720.distribution_forbidden[i] = aMSC_720.get_symbol_count(i);
+  aMSC_720.pre_count = aMSC_720.get_total_count();
+  for (int i = 0; i < aMSC_721.model_symbols(); i++)
+    aMSC_721.distribution_forbidden[i] = aMSC_721.get_symbol_count(i);
+  aMSC_721.pre_count = aMSC_721.get_total_count();
+  for (int i = 0; i < aMSC_722.model_symbols(); i++)
+    aMSC_722.distribution_forbidden[i] = aMSC_722.get_symbol_count(i);
+  aMSC_722.pre_count = aMSC_722.get_total_count();
+  for (int i = 0; i < aMSC_723.model_symbols(); i++)
+    aMSC_723.distribution_forbidden[i] = aMSC_723.get_symbol_count(i);
+  aMSC_723.pre_count = aMSC_723.get_total_count();
+  for (int i = 0; i < aMSC_724.model_symbols(); i++)
+    aMSC_724.distribution_forbidden[i] = aMSC_724.get_symbol_count(i);
+  aMSC_724.pre_count = aMSC_724.get_total_count();
+  for (int i = 0; i < aMSC_725.model_symbols(); i++)
+    aMSC_725.distribution_forbidden[i] = aMSC_725.get_symbol_count(i);
+  aMSC_725.pre_count = aMSC_725.get_total_count();
+  for (int i = 0; i < aMSC_726.model_symbols(); i++)
+    aMSC_726.distribution_forbidden[i] = aMSC_726.get_symbol_count(i);
+  aMSC_726.pre_count = aMSC_726.get_total_count();
+  for (int i = 0; i < aMSC_80.model_symbols(); i++)
+    aMSC_80.distribution_forbidden[i] = aMSC_80.get_symbol_count(i);
+  aMSC_80.pre_count = aMSC_80.get_total_count();
+  for (int i = 0; i < aMSC_81.model_symbols(); i++)
+    aMSC_81.distribution_forbidden[i] = aMSC_81.get_symbol_count(i);
+  aMSC_81.pre_count = aMSC_81.get_total_count();
+  for (int i = 0; i < aMSC_82.model_symbols(); i++)
+    aMSC_82.distribution_forbidden[i] = aMSC_82.get_symbol_count(i);
+  aMSC_82.pre_count = aMSC_82.get_total_count();
+  for (int i = 0; i < aMSC_83.model_symbols(); i++)
+    aMSC_83.distribution_forbidden[i] = aMSC_83.get_symbol_count(i);
+  aMSC_83.pre_count = aMSC_83.get_total_count();
+  for (int i = 0; i < aMSC_84.model_symbols(); i++)
+    aMSC_84.distribution_forbidden[i] = aMSC_84.get_symbol_count(i);
+  aMSC_84.pre_count = aMSC_84.get_total_count();
+  for (int i = 0; i < aMSC_85.model_symbols(); i++)
+    aMSC_85.distribution_forbidden[i] = aMSC_85.get_symbol_count(i);
+  aMSC_85.pre_count = aMSC_85.get_total_count();
+  for (int i = 0; i < aMSC_86.model_symbols(); i++)
+    aMSC_86.distribution_forbidden[i] = aMSC_86.get_symbol_count(i);
+  aMSC_86.pre_count = aMSC_86.get_total_count();
+  for (int i = 0; i < aMSC_87.model_symbols(); i++)
+    aMSC_87.distribution_forbidden[i] = aMSC_87.get_symbol_count(i);
+  aMSC_87.pre_count = aMSC_87.get_total_count();
+  for (int i = 0; i < aMSC_88.model_symbols(); i++)
+    aMSC_88.distribution_forbidden[i] = aMSC_88.get_symbol_count(i);
+  aMSC_88.pre_count = aMSC_88.get_total_count();
+  for (int i = 0; i < aMSC_89.model_symbols(); i++)
+    aMSC_89.distribution_forbidden[i] = aMSC_89.get_symbol_count(i);
+  aMSC_89.pre_count = aMSC_89.get_total_count();
+  for (int i = 0; i < aMSC_810.model_symbols(); i++)
+    aMSC_810.distribution_forbidden[i] = aMSC_810.get_symbol_count(i);
+  aMSC_810.pre_count = aMSC_810.get_total_count();
+  for (int i = 0; i < aMSC_811.model_symbols(); i++)
+    aMSC_811.distribution_forbidden[i] = aMSC_811.get_symbol_count(i);
+  aMSC_811.pre_count = aMSC_811.get_total_count();
+  for (int i = 0; i < aMSC_812.model_symbols(); i++)
+    aMSC_812.distribution_forbidden[i] = aMSC_812.get_symbol_count(i);
+  aMSC_812.pre_count = aMSC_812.get_total_count();
+  for (int i = 0; i < aMSC_813.model_symbols(); i++)
+    aMSC_813.distribution_forbidden[i] = aMSC_813.get_symbol_count(i);
+  aMSC_813.pre_count = aMSC_813.get_total_count();
+  for (int i = 0; i < aMSC_814.model_symbols(); i++)
+    aMSC_814.distribution_forbidden[i] = aMSC_814.get_symbol_count(i);
+  aMSC_814.pre_count = aMSC_814.get_total_count();
+  for (int i = 0; i < aMSC_815.model_symbols(); i++)
+    aMSC_815.distribution_forbidden[i] = aMSC_815.get_symbol_count(i);
+  aMSC_815.pre_count = aMSC_815.get_total_count();
+  for (int i = 0; i < aMSC_816.model_symbols(); i++)
+    aMSC_816.distribution_forbidden[i] = aMSC_816.get_symbol_count(i);
+  aMSC_816.pre_count = aMSC_816.get_total_count();
+  for (int i = 0; i < aMSC_817.model_symbols(); i++)
+    aMSC_817.distribution_forbidden[i] = aMSC_817.get_symbol_count(i);
+  aMSC_817.pre_count = aMSC_817.get_total_count();
+  for (int i = 0; i < aMSC_818.model_symbols(); i++)
+    aMSC_818.distribution_forbidden[i] = aMSC_818.get_symbol_count(i);
+  aMSC_818.pre_count = aMSC_818.get_total_count();
+  for (int i = 0; i < aMSC_819.model_symbols(); i++)
+    aMSC_819.distribution_forbidden[i] = aMSC_819.get_symbol_count(i);
+  aMSC_819.pre_count = aMSC_819.get_total_count();
+  for (int i = 0; i < aMSC_820.model_symbols(); i++)
+    aMSC_820.distribution_forbidden[i] = aMSC_820.get_symbol_count(i);
+  aMSC_820.pre_count = aMSC_820.get_total_count();
+  for (int i = 0; i < aMSC_821.model_symbols(); i++)
+    aMSC_821.distribution_forbidden[i] = aMSC_821.get_symbol_count(i);
+  aMSC_821.pre_count = aMSC_821.get_total_count();
+  for (int i = 0; i < aMSC_822.model_symbols(); i++)
+    aMSC_822.distribution_forbidden[i] = aMSC_822.get_symbol_count(i);
+  aMSC_822.pre_count = aMSC_822.get_total_count();
+  for (int i = 0; i < aMSC_823.model_symbols(); i++)
+    aMSC_823.distribution_forbidden[i] = aMSC_823.get_symbol_count(i);
+  aMSC_823.pre_count = aMSC_823.get_total_count();
+  for (int i = 0; i < aMSC_824.model_symbols(); i++)
+    aMSC_824.distribution_forbidden[i] = aMSC_824.get_symbol_count(i);
+  aMSC_824.pre_count = aMSC_824.get_total_count();
+  for (int i = 0; i < aMSC_825.model_symbols(); i++)
+    aMSC_825.distribution_forbidden[i] = aMSC_825.get_symbol_count(i);
+  aMSC_825.pre_count = aMSC_825.get_total_count();
+  for (int i = 0; i < aMSC_826.model_symbols(); i++)
+    aMSC_826.distribution_forbidden[i] = aMSC_826.get_symbol_count(i);
+  aMSC_826.pre_count = aMSC_826.get_total_count();
 }
 
-void restore_MSC()
-{
-  for (int i = 0; i < aMSC_L.data_symbols; i++)
-    aMSC_L.symbol_count[i] = aMSC_L.distribution_forbidden[i];
-  aMSC_L.total_count = aMSC_L.pre_count;
-  for (int i = 0; i < aMSC_A.data_symbols; i++)
-    aMSC_A.symbol_count[i] = aMSC_A.distribution_forbidden[i];
-  aMSC_A.total_count = aMSC_A.pre_count;
-  for (int i = 0; i < aMSC_B.data_symbols; i++)
-    aMSC_B.symbol_count[i] = aMSC_B.distribution_forbidden[i];
-  aMSC_B.total_count = aMSC_B.pre_count;
-  for (int i = 0; i < aMSC_R.data_symbols; i++)
-    aMSC_R.symbol_count[i] = aMSC_R.distribution_forbidden[i];
-  aMSC_R.total_count = aMSC_R.pre_count;
-  for (int i = 0; i < aMSC_I.data_symbols; i++)
-    aMSC_I.symbol_count[i] = aMSC_I.distribution_forbidden[i];
-  aMSC_I.total_count = aMSC_I.pre_count;
-  for (int i = 0; i < aMSC_0.data_symbols; i++)
-    aMSC_0.symbol_count[i] = aMSC_0.distribution_forbidden[i];
-  aMSC_0.total_count = aMSC_0.pre_count;
-  for (int i = 0; i < aMSC_1.data_symbols; i++)
-    aMSC_1.symbol_count[i] = aMSC_1.distribution_forbidden[i];
-  aMSC_1.total_count = aMSC_1.pre_count;
-  for (int i = 0; i < aMSC_2.data_symbols; i++)
-    aMSC_2.symbol_count[i] = aMSC_2.distribution_forbidden[i];
-  aMSC_2.total_count = aMSC_2.pre_count;
-  for (int i = 0; i < aMSC_3.data_symbols; i++)
-    aMSC_3.symbol_count[i] = aMSC_3.distribution_forbidden[i];
-  aMSC_3.total_count = aMSC_3.pre_count;
-  for (int i = 0; i < aMSC_4.data_symbols; i++)
-    aMSC_4.symbol_count[i] = aMSC_4.distribution_forbidden[i];
-  aMSC_4.total_count = aMSC_4.pre_count;
-  for (int i = 0; i < aMSC_5.data_symbols; i++)
-    aMSC_5.symbol_count[i] = aMSC_5.distribution_forbidden[i];
-  aMSC_5.total_count = aMSC_5.pre_count;
-  for (int i = 0; i < aMSC_6.data_symbols; i++)
-    aMSC_6.symbol_count[i] = aMSC_6.distribution_forbidden[i];
-  aMSC_6.total_count = aMSC_6.pre_count;
-  for (int i = 0; i < aMSC_7.data_symbols; i++)
-    aMSC_7.symbol_count[i] = aMSC_7.distribution_forbidden[i];
-  aMSC_7.total_count = aMSC_7.pre_count;
-  for (int i = 0; i < aMSC_8.data_symbols; i++)
-    aMSC_8.symbol_count[i] = aMSC_8.distribution_forbidden[i];
-  aMSC_8.total_count = aMSC_8.pre_count;
-  for (int i = 0; i < aMSC_00.data_symbols; i++)
-    aMSC_00.symbol_count[i] = aMSC_00.distribution_forbidden[i];
-  aMSC_00.total_count = aMSC_00.pre_count;
-  for (int i = 0; i < aMSC_01.data_symbols; i++)
-    aMSC_01.symbol_count[i] = aMSC_01.distribution_forbidden[i];
-  aMSC_01.total_count = aMSC_01.pre_count;
-  for (int i = 0; i < aMSC_02.data_symbols; i++)
-    aMSC_02.symbol_count[i] = aMSC_02.distribution_forbidden[i];
-  aMSC_02.total_count = aMSC_02.pre_count;
-  for (int i = 0; i < aMSC_03.data_symbols; i++)
-    aMSC_03.symbol_count[i] = aMSC_03.distribution_forbidden[i];
-  aMSC_03.total_count = aMSC_03.pre_count;
-  for (int i = 0; i < aMSC_04.data_symbols; i++)
-    aMSC_04.symbol_count[i] = aMSC_04.distribution_forbidden[i];
-  aMSC_04.total_count = aMSC_04.pre_count;
-  for (int i = 0; i < aMSC_05.data_symbols; i++)
-    aMSC_05.symbol_count[i] = aMSC_05.distribution_forbidden[i];
-  aMSC_05.total_count = aMSC_05.pre_count;
-  for (int i = 0; i < aMSC_06.data_symbols; i++)
-    aMSC_06.symbol_count[i] = aMSC_06.distribution_forbidden[i];
-  aMSC_06.total_count = aMSC_06.pre_count;
-  for (int i = 0; i < aMSC_07.data_symbols; i++)
-    aMSC_07.symbol_count[i] = aMSC_07.distribution_forbidden[i];
-  aMSC_07.total_count = aMSC_07.pre_count;
-  for (int i = 0; i < aMSC_08.data_symbols; i++)
-    aMSC_08.symbol_count[i] = aMSC_08.distribution_forbidden[i];
-  aMSC_08.total_count = aMSC_08.pre_count;
-  for (int i = 0; i < aMSC_09.data_symbols; i++)
-    aMSC_09.symbol_count[i] = aMSC_09.distribution_forbidden[i];
-  aMSC_09.total_count = aMSC_09.pre_count;
-  for (int i = 0; i < aMSC_010.data_symbols; i++)
-    aMSC_010.symbol_count[i] = aMSC_010.distribution_forbidden[i];
-  aMSC_010.total_count = aMSC_010.pre_count;
-  for (int i = 0; i < aMSC_011.data_symbols; i++)
-    aMSC_011.symbol_count[i] = aMSC_011.distribution_forbidden[i];
-  aMSC_011.total_count = aMSC_011.pre_count;
-  for (int i = 0; i < aMSC_012.data_symbols; i++)
-    aMSC_012.symbol_count[i] = aMSC_012.distribution_forbidden[i];
-  aMSC_012.total_count = aMSC_012.pre_count;
-  for (int i = 0; i < aMSC_013.data_symbols; i++)
-    aMSC_013.symbol_count[i] = aMSC_013.distribution_forbidden[i];
-  aMSC_013.total_count = aMSC_013.pre_count;
-  for (int i = 0; i < aMSC_014.data_symbols; i++)
-    aMSC_014.symbol_count[i] = aMSC_014.distribution_forbidden[i];
-  aMSC_014.total_count = aMSC_014.pre_count;
-  for (int i = 0; i < aMSC_015.data_symbols; i++)
-    aMSC_015.symbol_count[i] = aMSC_015.distribution_forbidden[i];
-  aMSC_015.total_count = aMSC_015.pre_count;
-  for (int i = 0; i < aMSC_016.data_symbols; i++)
-    aMSC_016.symbol_count[i] = aMSC_016.distribution_forbidden[i];
-  aMSC_016.total_count = aMSC_016.pre_count;
-  for (int i = 0; i < aMSC_017.data_symbols; i++)
-    aMSC_017.symbol_count[i] = aMSC_017.distribution_forbidden[i];
-  aMSC_017.total_count = aMSC_017.pre_count;
-  for (int i = 0; i < aMSC_018.data_symbols; i++)
-    aMSC_018.symbol_count[i] = aMSC_018.distribution_forbidden[i];
-  aMSC_018.total_count = aMSC_018.pre_count;
-  for (int i = 0; i < aMSC_019.data_symbols; i++)
-    aMSC_019.symbol_count[i] = aMSC_019.distribution_forbidden[i];
-  aMSC_019.total_count = aMSC_019.pre_count;
-  for (int i = 0; i < aMSC_020.data_symbols; i++)
-    aMSC_020.symbol_count[i] = aMSC_020.distribution_forbidden[i];
-  aMSC_020.total_count = aMSC_020.pre_count;
-  for (int i = 0; i < aMSC_021.data_symbols; i++)
-    aMSC_021.symbol_count[i] = aMSC_021.distribution_forbidden[i];
-  aMSC_021.total_count = aMSC_021.pre_count;
-  for (int i = 0; i < aMSC_022.data_symbols; i++)
-    aMSC_022.symbol_count[i] = aMSC_022.distribution_forbidden[i];
-  aMSC_022.total_count = aMSC_022.pre_count;
-  for (int i = 0; i < aMSC_023.data_symbols; i++)
-    aMSC_023.symbol_count[i] = aMSC_023.distribution_forbidden[i];
-  aMSC_023.total_count = aMSC_023.pre_count;
-  for (int i = 0; i < aMSC_024.data_symbols; i++)
-    aMSC_024.symbol_count[i] = aMSC_024.distribution_forbidden[i];
-  aMSC_024.total_count = aMSC_024.pre_count;
-  for (int i = 0; i < aMSC_025.data_symbols; i++)
-    aMSC_025.symbol_count[i] = aMSC_025.distribution_forbidden[i];
-  aMSC_025.total_count = aMSC_025.pre_count;
-  for (int i = 0; i < aMSC_026.data_symbols; i++)
-    aMSC_026.symbol_count[i] = aMSC_026.distribution_forbidden[i];
-  aMSC_026.total_count = aMSC_026.pre_count;
-  for (int i = 0; i < aMSC_10.data_symbols; i++)
-    aMSC_10.symbol_count[i] = aMSC_10.distribution_forbidden[i];
-  aMSC_10.total_count = aMSC_10.pre_count;
-  for (int i = 0; i < aMSC_11.data_symbols; i++)
-    aMSC_11.symbol_count[i] = aMSC_11.distribution_forbidden[i];
-  aMSC_11.total_count = aMSC_11.pre_count;
-  for (int i = 0; i < aMSC_12.data_symbols; i++)
-    aMSC_12.symbol_count[i] = aMSC_12.distribution_forbidden[i];
-  aMSC_12.total_count = aMSC_12.pre_count;
-  for (int i = 0; i < aMSC_13.data_symbols; i++)
-    aMSC_13.symbol_count[i] = aMSC_13.distribution_forbidden[i];
-  aMSC_13.total_count = aMSC_13.pre_count;
-  for (int i = 0; i < aMSC_14.data_symbols; i++)
-    aMSC_14.symbol_count[i] = aMSC_14.distribution_forbidden[i];
-  aMSC_14.total_count = aMSC_14.pre_count;
-  for (int i = 0; i < aMSC_15.data_symbols; i++)
-    aMSC_15.symbol_count[i] = aMSC_15.distribution_forbidden[i];
-  aMSC_15.total_count = aMSC_15.pre_count;
-  for (int i = 0; i < aMSC_16.data_symbols; i++)
-    aMSC_16.symbol_count[i] = aMSC_16.distribution_forbidden[i];
-  aMSC_16.total_count = aMSC_16.pre_count;
-  for (int i = 0; i < aMSC_17.data_symbols; i++)
-    aMSC_17.symbol_count[i] = aMSC_17.distribution_forbidden[i];
-  aMSC_17.total_count = aMSC_17.pre_count;
-  for (int i = 0; i < aMSC_18.data_symbols; i++)
-    aMSC_18.symbol_count[i] = aMSC_18.distribution_forbidden[i];
-  aMSC_18.total_count = aMSC_18.pre_count;
-  for (int i = 0; i < aMSC_19.data_symbols; i++)
-    aMSC_19.symbol_count[i] = aMSC_19.distribution_forbidden[i];
-  aMSC_19.total_count = aMSC_19.pre_count;
-  for (int i = 0; i < aMSC_110.data_symbols; i++)
-    aMSC_110.symbol_count[i] = aMSC_110.distribution_forbidden[i];
-  aMSC_110.total_count = aMSC_110.pre_count;
-  for (int i = 0; i < aMSC_111.data_symbols; i++)
-    aMSC_111.symbol_count[i] = aMSC_111.distribution_forbidden[i];
-  aMSC_111.total_count = aMSC_111.pre_count;
-  for (int i = 0; i < aMSC_112.data_symbols; i++)
-    aMSC_112.symbol_count[i] = aMSC_112.distribution_forbidden[i];
-  aMSC_112.total_count = aMSC_112.pre_count;
-  for (int i = 0; i < aMSC_113.data_symbols; i++)
-    aMSC_113.symbol_count[i] = aMSC_113.distribution_forbidden[i];
-  aMSC_113.total_count = aMSC_113.pre_count;
-  for (int i = 0; i < aMSC_114.data_symbols; i++)
-    aMSC_114.symbol_count[i] = aMSC_114.distribution_forbidden[i];
-  aMSC_114.total_count = aMSC_114.pre_count;
-  for (int i = 0; i < aMSC_115.data_symbols; i++)
-    aMSC_115.symbol_count[i] = aMSC_115.distribution_forbidden[i];
-  aMSC_115.total_count = aMSC_115.pre_count;
-  for (int i = 0; i < aMSC_116.data_symbols; i++)
-    aMSC_116.symbol_count[i] = aMSC_116.distribution_forbidden[i];
-  aMSC_116.total_count = aMSC_116.pre_count;
-  for (int i = 0; i < aMSC_117.data_symbols; i++)
-    aMSC_117.symbol_count[i] = aMSC_117.distribution_forbidden[i];
-  aMSC_117.total_count = aMSC_117.pre_count;
-  for (int i = 0; i < aMSC_118.data_symbols; i++)
-    aMSC_118.symbol_count[i] = aMSC_118.distribution_forbidden[i];
-  aMSC_118.total_count = aMSC_118.pre_count;
-  for (int i = 0; i < aMSC_119.data_symbols; i++)
-    aMSC_119.symbol_count[i] = aMSC_119.distribution_forbidden[i];
-  aMSC_119.total_count = aMSC_119.pre_count;
-  for (int i = 0; i < aMSC_120.data_symbols; i++)
-    aMSC_120.symbol_count[i] = aMSC_120.distribution_forbidden[i];
-  aMSC_120.total_count = aMSC_120.pre_count;
-  for (int i = 0; i < aMSC_121.data_symbols; i++)
-    aMSC_121.symbol_count[i] = aMSC_121.distribution_forbidden[i];
-  aMSC_121.total_count = aMSC_121.pre_count;
-  for (int i = 0; i < aMSC_122.data_symbols; i++)
-    aMSC_122.symbol_count[i] = aMSC_122.distribution_forbidden[i];
-  aMSC_122.total_count = aMSC_122.pre_count;
-  for (int i = 0; i < aMSC_123.data_symbols; i++)
-    aMSC_123.symbol_count[i] = aMSC_123.distribution_forbidden[i];
-  aMSC_123.total_count = aMSC_123.pre_count;
-  for (int i = 0; i < aMSC_124.data_symbols; i++)
-    aMSC_124.symbol_count[i] = aMSC_124.distribution_forbidden[i];
-  aMSC_124.total_count = aMSC_124.pre_count;
-  for (int i = 0; i < aMSC_125.data_symbols; i++)
-    aMSC_125.symbol_count[i] = aMSC_125.distribution_forbidden[i];
-  aMSC_125.total_count = aMSC_125.pre_count;
-  for (int i = 0; i < aMSC_126.data_symbols; i++)
-    aMSC_126.symbol_count[i] = aMSC_126.distribution_forbidden[i];
-  aMSC_126.total_count = aMSC_126.pre_count;
-  for (int i = 0; i < aMSC_20.data_symbols; i++)
-    aMSC_20.symbol_count[i] = aMSC_20.distribution_forbidden[i];
-  aMSC_20.total_count = aMSC_20.pre_count;
-  for (int i = 0; i < aMSC_21.data_symbols; i++)
-    aMSC_21.symbol_count[i] = aMSC_21.distribution_forbidden[i];
-  aMSC_21.total_count = aMSC_21.pre_count;
-  for (int i = 0; i < aMSC_22.data_symbols; i++)
-    aMSC_22.symbol_count[i] = aMSC_22.distribution_forbidden[i];
-  aMSC_22.total_count = aMSC_22.pre_count;
-  for (int i = 0; i < aMSC_23.data_symbols; i++)
-    aMSC_23.symbol_count[i] = aMSC_23.distribution_forbidden[i];
-  aMSC_23.total_count = aMSC_23.pre_count;
-  for (int i = 0; i < aMSC_24.data_symbols; i++)
-    aMSC_24.symbol_count[i] = aMSC_24.distribution_forbidden[i];
-  aMSC_24.total_count = aMSC_24.pre_count;
-  for (int i = 0; i < aMSC_25.data_symbols; i++)
-    aMSC_25.symbol_count[i] = aMSC_25.distribution_forbidden[i];
-  aMSC_25.total_count = aMSC_25.pre_count;
-  for (int i = 0; i < aMSC_26.data_symbols; i++)
-    aMSC_26.symbol_count[i] = aMSC_26.distribution_forbidden[i];
-  aMSC_26.total_count = aMSC_26.pre_count;
-  for (int i = 0; i < aMSC_27.data_symbols; i++)
-    aMSC_27.symbol_count[i] = aMSC_27.distribution_forbidden[i];
-  aMSC_27.total_count = aMSC_27.pre_count;
-  for (int i = 0; i < aMSC_28.data_symbols; i++)
-    aMSC_28.symbol_count[i] = aMSC_28.distribution_forbidden[i];
-  aMSC_28.total_count = aMSC_28.pre_count;
-  for (int i = 0; i < aMSC_29.data_symbols; i++)
-    aMSC_29.symbol_count[i] = aMSC_29.distribution_forbidden[i];
-  aMSC_29.total_count = aMSC_29.pre_count;
-  for (int i = 0; i < aMSC_210.data_symbols; i++)
-    aMSC_210.symbol_count[i] = aMSC_210.distribution_forbidden[i];
-  aMSC_210.total_count = aMSC_210.pre_count;
-  for (int i = 0; i < aMSC_211.data_symbols; i++)
-    aMSC_211.symbol_count[i] = aMSC_211.distribution_forbidden[i];
-  aMSC_211.total_count = aMSC_211.pre_count;
-  for (int i = 0; i < aMSC_212.data_symbols; i++)
-    aMSC_212.symbol_count[i] = aMSC_212.distribution_forbidden[i];
-  aMSC_212.total_count = aMSC_212.pre_count;
-  for (int i = 0; i < aMSC_213.data_symbols; i++)
-    aMSC_213.symbol_count[i] = aMSC_213.distribution_forbidden[i];
-  aMSC_213.total_count = aMSC_213.pre_count;
-  for (int i = 0; i < aMSC_214.data_symbols; i++)
-    aMSC_214.symbol_count[i] = aMSC_214.distribution_forbidden[i];
-  aMSC_214.total_count = aMSC_214.pre_count;
-  for (int i = 0; i < aMSC_215.data_symbols; i++)
-    aMSC_215.symbol_count[i] = aMSC_215.distribution_forbidden[i];
-  aMSC_215.total_count = aMSC_215.pre_count;
-  for (int i = 0; i < aMSC_216.data_symbols; i++)
-    aMSC_216.symbol_count[i] = aMSC_216.distribution_forbidden[i];
-  aMSC_216.total_count = aMSC_216.pre_count;
-  for (int i = 0; i < aMSC_217.data_symbols; i++)
-    aMSC_217.symbol_count[i] = aMSC_217.distribution_forbidden[i];
-  aMSC_217.total_count = aMSC_217.pre_count;
-  for (int i = 0; i < aMSC_218.data_symbols; i++)
-    aMSC_218.symbol_count[i] = aMSC_218.distribution_forbidden[i];
-  aMSC_218.total_count = aMSC_218.pre_count;
-  for (int i = 0; i < aMSC_219.data_symbols; i++)
-    aMSC_219.symbol_count[i] = aMSC_219.distribution_forbidden[i];
-  aMSC_219.total_count = aMSC_219.pre_count;
-  for (int i = 0; i < aMSC_220.data_symbols; i++)
-    aMSC_220.symbol_count[i] = aMSC_220.distribution_forbidden[i];
-  aMSC_220.total_count = aMSC_220.pre_count;
-  for (int i = 0; i < aMSC_221.data_symbols; i++)
-    aMSC_221.symbol_count[i] = aMSC_221.distribution_forbidden[i];
-  aMSC_221.total_count = aMSC_221.pre_count;
-  for (int i = 0; i < aMSC_222.data_symbols; i++)
-    aMSC_222.symbol_count[i] = aMSC_222.distribution_forbidden[i];
-  aMSC_222.total_count = aMSC_222.pre_count;
-  for (int i = 0; i < aMSC_223.data_symbols; i++)
-    aMSC_223.symbol_count[i] = aMSC_223.distribution_forbidden[i];
-  aMSC_223.total_count = aMSC_223.pre_count;
-  for (int i = 0; i < aMSC_224.data_symbols; i++)
-    aMSC_224.symbol_count[i] = aMSC_224.distribution_forbidden[i];
-  aMSC_224.total_count = aMSC_224.pre_count;
-  for (int i = 0; i < aMSC_225.data_symbols; i++)
-    aMSC_225.symbol_count[i] = aMSC_225.distribution_forbidden[i];
-  aMSC_225.total_count = aMSC_225.pre_count;
-  for (int i = 0; i < aMSC_226.data_symbols; i++)
-    aMSC_226.symbol_count[i] = aMSC_226.distribution_forbidden[i];
-  aMSC_226.total_count = aMSC_226.pre_count;
-  for (int i = 0; i < aMSC_30.data_symbols; i++)
-    aMSC_30.symbol_count[i] = aMSC_30.distribution_forbidden[i];
-  aMSC_30.total_count = aMSC_30.pre_count;
-  for (int i = 0; i < aMSC_31.data_symbols; i++)
-    aMSC_31.symbol_count[i] = aMSC_31.distribution_forbidden[i];
-  aMSC_31.total_count = aMSC_31.pre_count;
-  for (int i = 0; i < aMSC_32.data_symbols; i++)
-    aMSC_32.symbol_count[i] = aMSC_32.distribution_forbidden[i];
-  aMSC_32.total_count = aMSC_32.pre_count;
-  for (int i = 0; i < aMSC_33.data_symbols; i++)
-    aMSC_33.symbol_count[i] = aMSC_33.distribution_forbidden[i];
-  aMSC_33.total_count = aMSC_33.pre_count;
-  for (int i = 0; i < aMSC_34.data_symbols; i++)
-    aMSC_34.symbol_count[i] = aMSC_34.distribution_forbidden[i];
-  aMSC_34.total_count = aMSC_34.pre_count;
-  for (int i = 0; i < aMSC_35.data_symbols; i++)
-    aMSC_35.symbol_count[i] = aMSC_35.distribution_forbidden[i];
-  aMSC_35.total_count = aMSC_35.pre_count;
-  for (int i = 0; i < aMSC_36.data_symbols; i++)
-    aMSC_36.symbol_count[i] = aMSC_36.distribution_forbidden[i];
-  aMSC_36.total_count = aMSC_36.pre_count;
-  for (int i = 0; i < aMSC_37.data_symbols; i++)
-    aMSC_37.symbol_count[i] = aMSC_37.distribution_forbidden[i];
-  aMSC_37.total_count = aMSC_37.pre_count;
-  for (int i = 0; i < aMSC_38.data_symbols; i++)
-    aMSC_38.symbol_count[i] = aMSC_38.distribution_forbidden[i];
-  aMSC_38.total_count = aMSC_38.pre_count;
-  for (int i = 0; i < aMSC_39.data_symbols; i++)
-    aMSC_39.symbol_count[i] = aMSC_39.distribution_forbidden[i];
-  aMSC_39.total_count = aMSC_39.pre_count;
-  for (int i = 0; i < aMSC_310.data_symbols; i++)
-    aMSC_310.symbol_count[i] = aMSC_310.distribution_forbidden[i];
-  aMSC_310.total_count = aMSC_310.pre_count;
-  for (int i = 0; i < aMSC_311.data_symbols; i++)
-    aMSC_311.symbol_count[i] = aMSC_311.distribution_forbidden[i];
-  aMSC_311.total_count = aMSC_311.pre_count;
-  for (int i = 0; i < aMSC_312.data_symbols; i++)
-    aMSC_312.symbol_count[i] = aMSC_312.distribution_forbidden[i];
-  aMSC_312.total_count = aMSC_312.pre_count;
-  for (int i = 0; i < aMSC_313.data_symbols; i++)
-    aMSC_313.symbol_count[i] = aMSC_313.distribution_forbidden[i];
-  aMSC_313.total_count = aMSC_313.pre_count;
-  for (int i = 0; i < aMSC_314.data_symbols; i++)
-    aMSC_314.symbol_count[i] = aMSC_314.distribution_forbidden[i];
-  aMSC_314.total_count = aMSC_314.pre_count;
-  for (int i = 0; i < aMSC_315.data_symbols; i++)
-    aMSC_315.symbol_count[i] = aMSC_315.distribution_forbidden[i];
-  aMSC_315.total_count = aMSC_315.pre_count;
-  for (int i = 0; i < aMSC_316.data_symbols; i++)
-    aMSC_316.symbol_count[i] = aMSC_316.distribution_forbidden[i];
-  aMSC_316.total_count = aMSC_316.pre_count;
-  for (int i = 0; i < aMSC_317.data_symbols; i++)
-    aMSC_317.symbol_count[i] = aMSC_317.distribution_forbidden[i];
-  aMSC_317.total_count = aMSC_317.pre_count;
-  for (int i = 0; i < aMSC_318.data_symbols; i++)
-    aMSC_318.symbol_count[i] = aMSC_318.distribution_forbidden[i];
-  aMSC_318.total_count = aMSC_318.pre_count;
-  for (int i = 0; i < aMSC_319.data_symbols; i++)
-    aMSC_319.symbol_count[i] = aMSC_319.distribution_forbidden[i];
-  aMSC_319.total_count = aMSC_319.pre_count;
-  for (int i = 0; i < aMSC_320.data_symbols; i++)
-    aMSC_320.symbol_count[i] = aMSC_320.distribution_forbidden[i];
-  aMSC_320.total_count = aMSC_320.pre_count;
-  for (int i = 0; i < aMSC_321.data_symbols; i++)
-    aMSC_321.symbol_count[i] = aMSC_321.distribution_forbidden[i];
-  aMSC_321.total_count = aMSC_321.pre_count;
-  for (int i = 0; i < aMSC_322.data_symbols; i++)
-    aMSC_322.symbol_count[i] = aMSC_322.distribution_forbidden[i];
-  aMSC_322.total_count = aMSC_322.pre_count;
-  for (int i = 0; i < aMSC_323.data_symbols; i++)
-    aMSC_323.symbol_count[i] = aMSC_323.distribution_forbidden[i];
-  aMSC_323.total_count = aMSC_323.pre_count;
-  for (int i = 0; i < aMSC_324.data_symbols; i++)
-    aMSC_324.symbol_count[i] = aMSC_324.distribution_forbidden[i];
-  aMSC_324.total_count = aMSC_324.pre_count;
-  for (int i = 0; i < aMSC_325.data_symbols; i++)
-    aMSC_325.symbol_count[i] = aMSC_325.distribution_forbidden[i];
-  aMSC_325.total_count = aMSC_325.pre_count;
-  for (int i = 0; i < aMSC_326.data_symbols; i++)
-    aMSC_326.symbol_count[i] = aMSC_326.distribution_forbidden[i];
-  aMSC_326.total_count = aMSC_326.pre_count;
-  for (int i = 0; i < aMSC_40.data_symbols; i++)
-    aMSC_40.symbol_count[i] = aMSC_40.distribution_forbidden[i];
-  aMSC_40.total_count = aMSC_40.pre_count;
-  for (int i = 0; i < aMSC_41.data_symbols; i++)
-    aMSC_41.symbol_count[i] = aMSC_41.distribution_forbidden[i];
-  aMSC_41.total_count = aMSC_41.pre_count;
-  for (int i = 0; i < aMSC_42.data_symbols; i++)
-    aMSC_42.symbol_count[i] = aMSC_42.distribution_forbidden[i];
-  aMSC_42.total_count = aMSC_42.pre_count;
-  for (int i = 0; i < aMSC_43.data_symbols; i++)
-    aMSC_43.symbol_count[i] = aMSC_43.distribution_forbidden[i];
-  aMSC_43.total_count = aMSC_43.pre_count;
-  for (int i = 0; i < aMSC_44.data_symbols; i++)
-    aMSC_44.symbol_count[i] = aMSC_44.distribution_forbidden[i];
-  aMSC_44.total_count = aMSC_44.pre_count;
-  for (int i = 0; i < aMSC_45.data_symbols; i++)
-    aMSC_45.symbol_count[i] = aMSC_45.distribution_forbidden[i];
-  aMSC_45.total_count = aMSC_45.pre_count;
-  for (int i = 0; i < aMSC_46.data_symbols; i++)
-    aMSC_46.symbol_count[i] = aMSC_46.distribution_forbidden[i];
-  aMSC_46.total_count = aMSC_46.pre_count;
-  for (int i = 0; i < aMSC_47.data_symbols; i++)
-    aMSC_47.symbol_count[i] = aMSC_47.distribution_forbidden[i];
-  aMSC_47.total_count = aMSC_47.pre_count;
-  for (int i = 0; i < aMSC_48.data_symbols; i++)
-    aMSC_48.symbol_count[i] = aMSC_48.distribution_forbidden[i];
-  aMSC_48.total_count = aMSC_48.pre_count;
-  for (int i = 0; i < aMSC_49.data_symbols; i++)
-    aMSC_49.symbol_count[i] = aMSC_49.distribution_forbidden[i];
-  aMSC_49.total_count = aMSC_49.pre_count;
-  for (int i = 0; i < aMSC_410.data_symbols; i++)
-    aMSC_410.symbol_count[i] = aMSC_410.distribution_forbidden[i];
-  aMSC_410.total_count = aMSC_410.pre_count;
-  for (int i = 0; i < aMSC_411.data_symbols; i++)
-    aMSC_411.symbol_count[i] = aMSC_411.distribution_forbidden[i];
-  aMSC_411.total_count = aMSC_411.pre_count;
-  for (int i = 0; i < aMSC_412.data_symbols; i++)
-    aMSC_412.symbol_count[i] = aMSC_412.distribution_forbidden[i];
-  aMSC_412.total_count = aMSC_412.pre_count;
-  for (int i = 0; i < aMSC_413.data_symbols; i++)
-    aMSC_413.symbol_count[i] = aMSC_413.distribution_forbidden[i];
-  aMSC_413.total_count = aMSC_413.pre_count;
-  for (int i = 0; i < aMSC_414.data_symbols; i++)
-    aMSC_414.symbol_count[i] = aMSC_414.distribution_forbidden[i];
-  aMSC_414.total_count = aMSC_414.pre_count;
-  for (int i = 0; i < aMSC_415.data_symbols; i++)
-    aMSC_415.symbol_count[i] = aMSC_415.distribution_forbidden[i];
-  aMSC_415.total_count = aMSC_415.pre_count;
-  for (int i = 0; i < aMSC_416.data_symbols; i++)
-    aMSC_416.symbol_count[i] = aMSC_416.distribution_forbidden[i];
-  aMSC_416.total_count = aMSC_416.pre_count;
-  for (int i = 0; i < aMSC_417.data_symbols; i++)
-    aMSC_417.symbol_count[i] = aMSC_417.distribution_forbidden[i];
-  aMSC_417.total_count = aMSC_417.pre_count;
-  for (int i = 0; i < aMSC_418.data_symbols; i++)
-    aMSC_418.symbol_count[i] = aMSC_418.distribution_forbidden[i];
-  aMSC_418.total_count = aMSC_418.pre_count;
-  for (int i = 0; i < aMSC_419.data_symbols; i++)
-    aMSC_419.symbol_count[i] = aMSC_419.distribution_forbidden[i];
-  aMSC_419.total_count = aMSC_419.pre_count;
-  for (int i = 0; i < aMSC_420.data_symbols; i++)
-    aMSC_420.symbol_count[i] = aMSC_420.distribution_forbidden[i];
-  aMSC_420.total_count = aMSC_420.pre_count;
-  for (int i = 0; i < aMSC_421.data_symbols; i++)
-    aMSC_421.symbol_count[i] = aMSC_421.distribution_forbidden[i];
-  aMSC_421.total_count = aMSC_421.pre_count;
-  for (int i = 0; i < aMSC_422.data_symbols; i++)
-    aMSC_422.symbol_count[i] = aMSC_422.distribution_forbidden[i];
-  aMSC_422.total_count = aMSC_422.pre_count;
-  for (int i = 0; i < aMSC_423.data_symbols; i++)
-    aMSC_423.symbol_count[i] = aMSC_423.distribution_forbidden[i];
-  aMSC_423.total_count = aMSC_423.pre_count;
-  for (int i = 0; i < aMSC_424.data_symbols; i++)
-    aMSC_424.symbol_count[i] = aMSC_424.distribution_forbidden[i];
-  aMSC_424.total_count = aMSC_424.pre_count;
-  for (int i = 0; i < aMSC_425.data_symbols; i++)
-    aMSC_425.symbol_count[i] = aMSC_425.distribution_forbidden[i];
-  aMSC_425.total_count = aMSC_425.pre_count;
-  for (int i = 0; i < aMSC_426.data_symbols; i++)
-    aMSC_426.symbol_count[i] = aMSC_426.distribution_forbidden[i];
-  aMSC_426.total_count = aMSC_426.pre_count;
-  for (int i = 0; i < aMSC_50.data_symbols; i++)
-    aMSC_50.symbol_count[i] = aMSC_50.distribution_forbidden[i];
-  aMSC_50.total_count = aMSC_50.pre_count;
-  for (int i = 0; i < aMSC_51.data_symbols; i++)
-    aMSC_51.symbol_count[i] = aMSC_51.distribution_forbidden[i];
-  aMSC_51.total_count = aMSC_51.pre_count;
-  for (int i = 0; i < aMSC_52.data_symbols; i++)
-    aMSC_52.symbol_count[i] = aMSC_52.distribution_forbidden[i];
-  aMSC_52.total_count = aMSC_52.pre_count;
-  for (int i = 0; i < aMSC_53.data_symbols; i++)
-    aMSC_53.symbol_count[i] = aMSC_53.distribution_forbidden[i];
-  aMSC_53.total_count = aMSC_53.pre_count;
-  for (int i = 0; i < aMSC_54.data_symbols; i++)
-    aMSC_54.symbol_count[i] = aMSC_54.distribution_forbidden[i];
-  aMSC_54.total_count = aMSC_54.pre_count;
-  for (int i = 0; i < aMSC_55.data_symbols; i++)
-    aMSC_55.symbol_count[i] = aMSC_55.distribution_forbidden[i];
-  aMSC_55.total_count = aMSC_55.pre_count;
-  for (int i = 0; i < aMSC_56.data_symbols; i++)
-    aMSC_56.symbol_count[i] = aMSC_56.distribution_forbidden[i];
-  aMSC_56.total_count = aMSC_56.pre_count;
-  for (int i = 0; i < aMSC_57.data_symbols; i++)
-    aMSC_57.symbol_count[i] = aMSC_57.distribution_forbidden[i];
-  aMSC_57.total_count = aMSC_57.pre_count;
-  for (int i = 0; i < aMSC_58.data_symbols; i++)
-    aMSC_58.symbol_count[i] = aMSC_58.distribution_forbidden[i];
-  aMSC_58.total_count = aMSC_58.pre_count;
-  for (int i = 0; i < aMSC_59.data_symbols; i++)
-    aMSC_59.symbol_count[i] = aMSC_59.distribution_forbidden[i];
-  aMSC_59.total_count = aMSC_59.pre_count;
-  for (int i = 0; i < aMSC_510.data_symbols; i++)
-    aMSC_510.symbol_count[i] = aMSC_510.distribution_forbidden[i];
-  aMSC_510.total_count = aMSC_510.pre_count;
-  for (int i = 0; i < aMSC_511.data_symbols; i++)
-    aMSC_511.symbol_count[i] = aMSC_511.distribution_forbidden[i];
-  aMSC_511.total_count = aMSC_511.pre_count;
-  for (int i = 0; i < aMSC_512.data_symbols; i++)
-    aMSC_512.symbol_count[i] = aMSC_512.distribution_forbidden[i];
-  aMSC_512.total_count = aMSC_512.pre_count;
-  for (int i = 0; i < aMSC_513.data_symbols; i++)
-    aMSC_513.symbol_count[i] = aMSC_513.distribution_forbidden[i];
-  aMSC_513.total_count = aMSC_513.pre_count;
-  for (int i = 0; i < aMSC_514.data_symbols; i++)
-    aMSC_514.symbol_count[i] = aMSC_514.distribution_forbidden[i];
-  aMSC_514.total_count = aMSC_514.pre_count;
-  for (int i = 0; i < aMSC_515.data_symbols; i++)
-    aMSC_515.symbol_count[i] = aMSC_515.distribution_forbidden[i];
-  aMSC_515.total_count = aMSC_515.pre_count;
-  for (int i = 0; i < aMSC_516.data_symbols; i++)
-    aMSC_516.symbol_count[i] = aMSC_516.distribution_forbidden[i];
-  aMSC_516.total_count = aMSC_516.pre_count;
-  for (int i = 0; i < aMSC_517.data_symbols; i++)
-    aMSC_517.symbol_count[i] = aMSC_517.distribution_forbidden[i];
-  aMSC_517.total_count = aMSC_517.pre_count;
-  for (int i = 0; i < aMSC_518.data_symbols; i++)
-    aMSC_518.symbol_count[i] = aMSC_518.distribution_forbidden[i];
-  aMSC_518.total_count = aMSC_518.pre_count;
-  for (int i = 0; i < aMSC_519.data_symbols; i++)
-    aMSC_519.symbol_count[i] = aMSC_519.distribution_forbidden[i];
-  aMSC_519.total_count = aMSC_519.pre_count;
-  for (int i = 0; i < aMSC_520.data_symbols; i++)
-    aMSC_520.symbol_count[i] = aMSC_520.distribution_forbidden[i];
-  aMSC_520.total_count = aMSC_520.pre_count;
-  for (int i = 0; i < aMSC_521.data_symbols; i++)
-    aMSC_521.symbol_count[i] = aMSC_521.distribution_forbidden[i];
-  aMSC_521.total_count = aMSC_521.pre_count;
-  for (int i = 0; i < aMSC_522.data_symbols; i++)
-    aMSC_522.symbol_count[i] = aMSC_522.distribution_forbidden[i];
-  aMSC_522.total_count = aMSC_522.pre_count;
-  for (int i = 0; i < aMSC_523.data_symbols; i++)
-    aMSC_523.symbol_count[i] = aMSC_523.distribution_forbidden[i];
-  aMSC_523.total_count = aMSC_523.pre_count;
-  for (int i = 0; i < aMSC_524.data_symbols; i++)
-    aMSC_524.symbol_count[i] = aMSC_524.distribution_forbidden[i];
-  aMSC_524.total_count = aMSC_524.pre_count;
-  for (int i = 0; i < aMSC_525.data_symbols; i++)
-    aMSC_525.symbol_count[i] = aMSC_525.distribution_forbidden[i];
-  aMSC_525.total_count = aMSC_525.pre_count;
-  for (int i = 0; i < aMSC_526.data_symbols; i++)
-    aMSC_526.symbol_count[i] = aMSC_526.distribution_forbidden[i];
-  aMSC_526.total_count = aMSC_526.pre_count;
-  for (int i = 0; i < aMSC_60.data_symbols; i++)
-    aMSC_60.symbol_count[i] = aMSC_60.distribution_forbidden[i];
-  aMSC_60.total_count = aMSC_60.pre_count;
-  for (int i = 0; i < aMSC_61.data_symbols; i++)
-    aMSC_61.symbol_count[i] = aMSC_61.distribution_forbidden[i];
-  aMSC_61.total_count = aMSC_61.pre_count;
-  for (int i = 0; i < aMSC_62.data_symbols; i++)
-    aMSC_62.symbol_count[i] = aMSC_62.distribution_forbidden[i];
-  aMSC_62.total_count = aMSC_62.pre_count;
-  for (int i = 0; i < aMSC_63.data_symbols; i++)
-    aMSC_63.symbol_count[i] = aMSC_63.distribution_forbidden[i];
-  aMSC_63.total_count = aMSC_63.pre_count;
-  for (int i = 0; i < aMSC_64.data_symbols; i++)
-    aMSC_64.symbol_count[i] = aMSC_64.distribution_forbidden[i];
-  aMSC_64.total_count = aMSC_64.pre_count;
-  for (int i = 0; i < aMSC_65.data_symbols; i++)
-    aMSC_65.symbol_count[i] = aMSC_65.distribution_forbidden[i];
-  aMSC_65.total_count = aMSC_65.pre_count;
-  for (int i = 0; i < aMSC_66.data_symbols; i++)
-    aMSC_66.symbol_count[i] = aMSC_66.distribution_forbidden[i];
-  aMSC_66.total_count = aMSC_66.pre_count;
-  for (int i = 0; i < aMSC_67.data_symbols; i++)
-    aMSC_67.symbol_count[i] = aMSC_67.distribution_forbidden[i];
-  aMSC_67.total_count = aMSC_67.pre_count;
-  for (int i = 0; i < aMSC_68.data_symbols; i++)
-    aMSC_68.symbol_count[i] = aMSC_68.distribution_forbidden[i];
-  aMSC_68.total_count = aMSC_68.pre_count;
-  for (int i = 0; i < aMSC_69.data_symbols; i++)
-    aMSC_69.symbol_count[i] = aMSC_69.distribution_forbidden[i];
-  aMSC_69.total_count = aMSC_69.pre_count;
-  for (int i = 0; i < aMSC_610.data_symbols; i++)
-    aMSC_610.symbol_count[i] = aMSC_610.distribution_forbidden[i];
-  aMSC_610.total_count = aMSC_610.pre_count;
-  for (int i = 0; i < aMSC_611.data_symbols; i++)
-    aMSC_611.symbol_count[i] = aMSC_611.distribution_forbidden[i];
-  aMSC_611.total_count = aMSC_611.pre_count;
-  for (int i = 0; i < aMSC_612.data_symbols; i++)
-    aMSC_612.symbol_count[i] = aMSC_612.distribution_forbidden[i];
-  aMSC_612.total_count = aMSC_612.pre_count;
-  for (int i = 0; i < aMSC_613.data_symbols; i++)
-    aMSC_613.symbol_count[i] = aMSC_613.distribution_forbidden[i];
-  aMSC_613.total_count = aMSC_613.pre_count;
-  for (int i = 0; i < aMSC_614.data_symbols; i++)
-    aMSC_614.symbol_count[i] = aMSC_614.distribution_forbidden[i];
-  aMSC_614.total_count = aMSC_614.pre_count;
-  for (int i = 0; i < aMSC_615.data_symbols; i++)
-    aMSC_615.symbol_count[i] = aMSC_615.distribution_forbidden[i];
-  aMSC_615.total_count = aMSC_615.pre_count;
-  for (int i = 0; i < aMSC_616.data_symbols; i++)
-    aMSC_616.symbol_count[i] = aMSC_616.distribution_forbidden[i];
-  aMSC_616.total_count = aMSC_616.pre_count;
-  for (int i = 0; i < aMSC_617.data_symbols; i++)
-    aMSC_617.symbol_count[i] = aMSC_617.distribution_forbidden[i];
-  aMSC_617.total_count = aMSC_617.pre_count;
-  for (int i = 0; i < aMSC_618.data_symbols; i++)
-    aMSC_618.symbol_count[i] = aMSC_618.distribution_forbidden[i];
-  aMSC_618.total_count = aMSC_618.pre_count;
-  for (int i = 0; i < aMSC_619.data_symbols; i++)
-    aMSC_619.symbol_count[i] = aMSC_619.distribution_forbidden[i];
-  aMSC_619.total_count = aMSC_619.pre_count;
-  for (int i = 0; i < aMSC_620.data_symbols; i++)
-    aMSC_620.symbol_count[i] = aMSC_620.distribution_forbidden[i];
-  aMSC_620.total_count = aMSC_620.pre_count;
-  for (int i = 0; i < aMSC_621.data_symbols; i++)
-    aMSC_621.symbol_count[i] = aMSC_621.distribution_forbidden[i];
-  aMSC_621.total_count = aMSC_621.pre_count;
-  for (int i = 0; i < aMSC_622.data_symbols; i++)
-    aMSC_622.symbol_count[i] = aMSC_622.distribution_forbidden[i];
-  aMSC_622.total_count = aMSC_622.pre_count;
-  for (int i = 0; i < aMSC_623.data_symbols; i++)
-    aMSC_623.symbol_count[i] = aMSC_623.distribution_forbidden[i];
-  aMSC_623.total_count = aMSC_623.pre_count;
-  for (int i = 0; i < aMSC_624.data_symbols; i++)
-    aMSC_624.symbol_count[i] = aMSC_624.distribution_forbidden[i];
-  aMSC_624.total_count = aMSC_624.pre_count;
-  for (int i = 0; i < aMSC_625.data_symbols; i++)
-    aMSC_625.symbol_count[i] = aMSC_625.distribution_forbidden[i];
-  aMSC_625.total_count = aMSC_625.pre_count;
-  for (int i = 0; i < aMSC_626.data_symbols; i++)
-    aMSC_626.symbol_count[i] = aMSC_626.distribution_forbidden[i];
-  aMSC_626.total_count = aMSC_626.pre_count;
-  for (int i = 0; i < aMSC_70.data_symbols; i++)
-    aMSC_70.symbol_count[i] = aMSC_70.distribution_forbidden[i];
-  aMSC_70.total_count = aMSC_70.pre_count;
-  for (int i = 0; i < aMSC_71.data_symbols; i++)
-    aMSC_71.symbol_count[i] = aMSC_71.distribution_forbidden[i];
-  aMSC_71.total_count = aMSC_71.pre_count;
-  for (int i = 0; i < aMSC_72.data_symbols; i++)
-    aMSC_72.symbol_count[i] = aMSC_72.distribution_forbidden[i];
-  aMSC_72.total_count = aMSC_72.pre_count;
-  for (int i = 0; i < aMSC_73.data_symbols; i++)
-    aMSC_73.symbol_count[i] = aMSC_73.distribution_forbidden[i];
-  aMSC_73.total_count = aMSC_73.pre_count;
-  for (int i = 0; i < aMSC_74.data_symbols; i++)
-    aMSC_74.symbol_count[i] = aMSC_74.distribution_forbidden[i];
-  aMSC_74.total_count = aMSC_74.pre_count;
-  for (int i = 0; i < aMSC_75.data_symbols; i++)
-    aMSC_75.symbol_count[i] = aMSC_75.distribution_forbidden[i];
-  aMSC_75.total_count = aMSC_75.pre_count;
-  for (int i = 0; i < aMSC_76.data_symbols; i++)
-    aMSC_76.symbol_count[i] = aMSC_76.distribution_forbidden[i];
-  aMSC_76.total_count = aMSC_76.pre_count;
-  for (int i = 0; i < aMSC_77.data_symbols; i++)
-    aMSC_77.symbol_count[i] = aMSC_77.distribution_forbidden[i];
-  aMSC_77.total_count = aMSC_77.pre_count;
-  for (int i = 0; i < aMSC_78.data_symbols; i++)
-    aMSC_78.symbol_count[i] = aMSC_78.distribution_forbidden[i];
-  aMSC_78.total_count = aMSC_78.pre_count;
-  for (int i = 0; i < aMSC_79.data_symbols; i++)
-    aMSC_79.symbol_count[i] = aMSC_79.distribution_forbidden[i];
-  aMSC_79.total_count = aMSC_79.pre_count;
-  for (int i = 0; i < aMSC_710.data_symbols; i++)
-    aMSC_710.symbol_count[i] = aMSC_710.distribution_forbidden[i];
-  aMSC_710.total_count = aMSC_710.pre_count;
-  for (int i = 0; i < aMSC_711.data_symbols; i++)
-    aMSC_711.symbol_count[i] = aMSC_711.distribution_forbidden[i];
-  aMSC_711.total_count = aMSC_711.pre_count;
-  for (int i = 0; i < aMSC_712.data_symbols; i++)
-    aMSC_712.symbol_count[i] = aMSC_712.distribution_forbidden[i];
-  aMSC_712.total_count = aMSC_712.pre_count;
-  for (int i = 0; i < aMSC_713.data_symbols; i++)
-    aMSC_713.symbol_count[i] = aMSC_713.distribution_forbidden[i];
-  aMSC_713.total_count = aMSC_713.pre_count;
-  for (int i = 0; i < aMSC_714.data_symbols; i++)
-    aMSC_714.symbol_count[i] = aMSC_714.distribution_forbidden[i];
-  aMSC_714.total_count = aMSC_714.pre_count;
-  for (int i = 0; i < aMSC_715.data_symbols; i++)
-    aMSC_715.symbol_count[i] = aMSC_715.distribution_forbidden[i];
-  aMSC_715.total_count = aMSC_715.pre_count;
-  for (int i = 0; i < aMSC_716.data_symbols; i++)
-    aMSC_716.symbol_count[i] = aMSC_716.distribution_forbidden[i];
-  aMSC_716.total_count = aMSC_716.pre_count;
-  for (int i = 0; i < aMSC_717.data_symbols; i++)
-    aMSC_717.symbol_count[i] = aMSC_717.distribution_forbidden[i];
-  aMSC_717.total_count = aMSC_717.pre_count;
-  for (int i = 0; i < aMSC_718.data_symbols; i++)
-    aMSC_718.symbol_count[i] = aMSC_718.distribution_forbidden[i];
-  aMSC_718.total_count = aMSC_718.pre_count;
-  for (int i = 0; i < aMSC_719.data_symbols; i++)
-    aMSC_719.symbol_count[i] = aMSC_719.distribution_forbidden[i];
-  aMSC_719.total_count = aMSC_719.pre_count;
-  for (int i = 0; i < aMSC_720.data_symbols; i++)
-    aMSC_720.symbol_count[i] = aMSC_720.distribution_forbidden[i];
-  aMSC_720.total_count = aMSC_720.pre_count;
-  for (int i = 0; i < aMSC_721.data_symbols; i++)
-    aMSC_721.symbol_count[i] = aMSC_721.distribution_forbidden[i];
-  aMSC_721.total_count = aMSC_721.pre_count;
-  for (int i = 0; i < aMSC_722.data_symbols; i++)
-    aMSC_722.symbol_count[i] = aMSC_722.distribution_forbidden[i];
-  aMSC_722.total_count = aMSC_722.pre_count;
-  for (int i = 0; i < aMSC_723.data_symbols; i++)
-    aMSC_723.symbol_count[i] = aMSC_723.distribution_forbidden[i];
-  aMSC_723.total_count = aMSC_723.pre_count;
-  for (int i = 0; i < aMSC_724.data_symbols; i++)
-    aMSC_724.symbol_count[i] = aMSC_724.distribution_forbidden[i];
-  aMSC_724.total_count = aMSC_724.pre_count;
-  for (int i = 0; i < aMSC_725.data_symbols; i++)
-    aMSC_725.symbol_count[i] = aMSC_725.distribution_forbidden[i];
-  aMSC_725.total_count = aMSC_725.pre_count;
-  for (int i = 0; i < aMSC_726.data_symbols; i++)
-    aMSC_726.symbol_count[i] = aMSC_726.distribution_forbidden[i];
-  aMSC_726.total_count = aMSC_726.pre_count;
-  for (int i = 0; i < aMSC_80.data_symbols; i++)
-    aMSC_80.symbol_count[i] = aMSC_80.distribution_forbidden[i];
-  aMSC_80.total_count = aMSC_80.pre_count;
-  for (int i = 0; i < aMSC_81.data_symbols; i++)
-    aMSC_81.symbol_count[i] = aMSC_81.distribution_forbidden[i];
-  aMSC_81.total_count = aMSC_81.pre_count;
-  for (int i = 0; i < aMSC_82.data_symbols; i++)
-    aMSC_82.symbol_count[i] = aMSC_82.distribution_forbidden[i];
-  aMSC_82.total_count = aMSC_82.pre_count;
-  for (int i = 0; i < aMSC_83.data_symbols; i++)
-    aMSC_83.symbol_count[i] = aMSC_83.distribution_forbidden[i];
-  aMSC_83.total_count = aMSC_83.pre_count;
-  for (int i = 0; i < aMSC_84.data_symbols; i++)
-    aMSC_84.symbol_count[i] = aMSC_84.distribution_forbidden[i];
-  aMSC_84.total_count = aMSC_84.pre_count;
-  for (int i = 0; i < aMSC_85.data_symbols; i++)
-    aMSC_85.symbol_count[i] = aMSC_85.distribution_forbidden[i];
-  aMSC_85.total_count = aMSC_85.pre_count;
-  for (int i = 0; i < aMSC_86.data_symbols; i++)
-    aMSC_86.symbol_count[i] = aMSC_86.distribution_forbidden[i];
-  aMSC_86.total_count = aMSC_86.pre_count;
-  for (int i = 0; i < aMSC_87.data_symbols; i++)
-    aMSC_87.symbol_count[i] = aMSC_87.distribution_forbidden[i];
-  aMSC_87.total_count = aMSC_87.pre_count;
-  for (int i = 0; i < aMSC_88.data_symbols; i++)
-    aMSC_88.symbol_count[i] = aMSC_88.distribution_forbidden[i];
-  aMSC_88.total_count = aMSC_88.pre_count;
-  for (int i = 0; i < aMSC_89.data_symbols; i++)
-    aMSC_89.symbol_count[i] = aMSC_89.distribution_forbidden[i];
-  aMSC_89.total_count = aMSC_89.pre_count;
-  for (int i = 0; i < aMSC_810.data_symbols; i++)
-    aMSC_810.symbol_count[i] = aMSC_810.distribution_forbidden[i];
-  aMSC_810.total_count = aMSC_810.pre_count;
-  for (int i = 0; i < aMSC_811.data_symbols; i++)
-    aMSC_811.symbol_count[i] = aMSC_811.distribution_forbidden[i];
-  aMSC_811.total_count = aMSC_811.pre_count;
-  for (int i = 0; i < aMSC_812.data_symbols; i++)
-    aMSC_812.symbol_count[i] = aMSC_812.distribution_forbidden[i];
-  aMSC_812.total_count = aMSC_812.pre_count;
-  for (int i = 0; i < aMSC_813.data_symbols; i++)
-    aMSC_813.symbol_count[i] = aMSC_813.distribution_forbidden[i];
-  aMSC_813.total_count = aMSC_813.pre_count;
-  for (int i = 0; i < aMSC_814.data_symbols; i++)
-    aMSC_814.symbol_count[i] = aMSC_814.distribution_forbidden[i];
-  aMSC_814.total_count = aMSC_814.pre_count;
-  for (int i = 0; i < aMSC_815.data_symbols; i++)
-    aMSC_815.symbol_count[i] = aMSC_815.distribution_forbidden[i];
-  aMSC_815.total_count = aMSC_815.pre_count;
-  for (int i = 0; i < aMSC_816.data_symbols; i++)
-    aMSC_816.symbol_count[i] = aMSC_816.distribution_forbidden[i];
-  aMSC_816.total_count = aMSC_816.pre_count;
-  for (int i = 0; i < aMSC_817.data_symbols; i++)
-    aMSC_817.symbol_count[i] = aMSC_817.distribution_forbidden[i];
-  aMSC_817.total_count = aMSC_817.pre_count;
-  for (int i = 0; i < aMSC_818.data_symbols; i++)
-    aMSC_818.symbol_count[i] = aMSC_818.distribution_forbidden[i];
-  aMSC_818.total_count = aMSC_818.pre_count;
-  for (int i = 0; i < aMSC_819.data_symbols; i++)
-    aMSC_819.symbol_count[i] = aMSC_819.distribution_forbidden[i];
-  aMSC_819.total_count = aMSC_819.pre_count;
-  for (int i = 0; i < aMSC_820.data_symbols; i++)
-    aMSC_820.symbol_count[i] = aMSC_820.distribution_forbidden[i];
-  aMSC_820.total_count = aMSC_820.pre_count;
-  for (int i = 0; i < aMSC_821.data_symbols; i++)
-    aMSC_821.symbol_count[i] = aMSC_821.distribution_forbidden[i];
-  aMSC_821.total_count = aMSC_821.pre_count;
-  for (int i = 0; i < aMSC_822.data_symbols; i++)
-    aMSC_822.symbol_count[i] = aMSC_822.distribution_forbidden[i];
-  aMSC_822.total_count = aMSC_822.pre_count;
-  for (int i = 0; i < aMSC_823.data_symbols; i++)
-    aMSC_823.symbol_count[i] = aMSC_823.distribution_forbidden[i];
-  aMSC_823.total_count = aMSC_823.pre_count;
-  for (int i = 0; i < aMSC_824.data_symbols; i++)
-    aMSC_824.symbol_count[i] = aMSC_824.distribution_forbidden[i];
-  aMSC_824.total_count = aMSC_824.pre_count;
-  for (int i = 0; i < aMSC_825.data_symbols; i++)
-    aMSC_825.symbol_count[i] = aMSC_825.distribution_forbidden[i];
-  aMSC_825.total_count = aMSC_825.pre_count;
-  for (int i = 0; i < aMSC_826.data_symbols; i++)
-    aMSC_826.symbol_count[i] = aMSC_826.distribution_forbidden[i];
-  aMSC_826.total_count = aMSC_826.pre_count;
+void restore_MSC() {
+  for (int i = 0; i < aMSC_L.model_symbols(); i++)
+    aMSC_L.get_arr_symbol_count()[i] = aMSC_L.distribution_forbidden[i];
+  aMSC_L.set_total_count(aMSC_L.pre_count);
+  for (int i = 0; i < aMSC_A.model_symbols(); i++)
+    aMSC_A.get_arr_symbol_count()[i] = aMSC_A.distribution_forbidden[i];
+  aMSC_A.set_total_count(aMSC_A.pre_count);
+  for (int i = 0; i < aMSC_B.model_symbols(); i++)
+    aMSC_B.get_arr_symbol_count()[i] = aMSC_B.distribution_forbidden[i];
+  aMSC_B.set_total_count(aMSC_B.pre_count);
+  for (int i = 0; i < aMSC_R.model_symbols(); i++)
+    aMSC_R.get_arr_symbol_count()[i] = aMSC_R.distribution_forbidden[i];
+  aMSC_R.set_total_count(aMSC_R.pre_count);
+  for (int i = 0; i < aMSC_I.model_symbols(); i++)
+    aMSC_I.get_arr_symbol_count()[i] = aMSC_I.distribution_forbidden[i];
+  aMSC_I.set_total_count(aMSC_I.pre_count);
+  for (int i = 0; i < aMSC_0.model_symbols(); i++)
+    aMSC_0.get_arr_symbol_count()[i] = aMSC_0.distribution_forbidden[i];
+  aMSC_0.set_total_count(aMSC_0.pre_count);
+  for (int i = 0; i < aMSC_1.model_symbols(); i++)
+    aMSC_1.get_arr_symbol_count()[i] = aMSC_1.distribution_forbidden[i];
+  aMSC_1.set_total_count(aMSC_1.pre_count);
+  for (int i = 0; i < aMSC_2.model_symbols(); i++)
+    aMSC_2.get_arr_symbol_count()[i] = aMSC_2.distribution_forbidden[i];
+  aMSC_2.set_total_count(aMSC_2.pre_count);
+  for (int i = 0; i < aMSC_3.model_symbols(); i++)
+    aMSC_3.get_arr_symbol_count()[i] = aMSC_3.distribution_forbidden[i];
+  aMSC_3.set_total_count(aMSC_3.pre_count);
+  for (int i = 0; i < aMSC_4.model_symbols(); i++)
+    aMSC_4.get_arr_symbol_count()[i] = aMSC_4.distribution_forbidden[i];
+  aMSC_4.set_total_count(aMSC_4.pre_count);
+  for (int i = 0; i < aMSC_5.model_symbols(); i++)
+    aMSC_5.get_arr_symbol_count()[i] = aMSC_5.distribution_forbidden[i];
+  aMSC_5.set_total_count(aMSC_5.pre_count);
+  for (int i = 0; i < aMSC_6.model_symbols(); i++)
+    aMSC_6.get_arr_symbol_count()[i] = aMSC_6.distribution_forbidden[i];
+  aMSC_6.set_total_count(aMSC_6.pre_count);
+  for (int i = 0; i < aMSC_7.model_symbols(); i++)
+    aMSC_7.get_arr_symbol_count()[i] = aMSC_7.distribution_forbidden[i];
+  aMSC_7.set_total_count(aMSC_7.pre_count);
+  for (int i = 0; i < aMSC_8.model_symbols(); i++)
+    aMSC_8.get_arr_symbol_count()[i] = aMSC_8.distribution_forbidden[i];
+  aMSC_8.set_total_count(aMSC_8.pre_count);
+  for (int i = 0; i < aMSC_00.model_symbols(); i++)
+    aMSC_00.get_arr_symbol_count()[i] = aMSC_00.distribution_forbidden[i];
+  aMSC_00.set_total_count(aMSC_00.pre_count);
+  for (int i = 0; i < aMSC_01.model_symbols(); i++)
+    aMSC_01.get_arr_symbol_count()[i] = aMSC_01.distribution_forbidden[i];
+  aMSC_01.set_total_count(aMSC_01.pre_count);
+  for (int i = 0; i < aMSC_02.model_symbols(); i++)
+    aMSC_02.get_arr_symbol_count()[i] = aMSC_02.distribution_forbidden[i];
+  aMSC_02.set_total_count(aMSC_02.pre_count);
+  for (int i = 0; i < aMSC_03.model_symbols(); i++)
+    aMSC_03.get_arr_symbol_count()[i] = aMSC_03.distribution_forbidden[i];
+  aMSC_03.set_total_count(aMSC_03.pre_count);
+  for (int i = 0; i < aMSC_04.model_symbols(); i++)
+    aMSC_04.get_arr_symbol_count()[i] = aMSC_04.distribution_forbidden[i];
+  aMSC_04.set_total_count(aMSC_04.pre_count);
+  for (int i = 0; i < aMSC_05.model_symbols(); i++)
+    aMSC_05.get_arr_symbol_count()[i] = aMSC_05.distribution_forbidden[i];
+  aMSC_05.set_total_count(aMSC_05.pre_count);
+  for (int i = 0; i < aMSC_06.model_symbols(); i++)
+    aMSC_06.get_arr_symbol_count()[i] = aMSC_06.distribution_forbidden[i];
+  aMSC_06.set_total_count(aMSC_06.pre_count);
+  for (int i = 0; i < aMSC_07.model_symbols(); i++)
+    aMSC_07.get_arr_symbol_count()[i] = aMSC_07.distribution_forbidden[i];
+  aMSC_07.set_total_count(aMSC_07.pre_count);
+  for (int i = 0; i < aMSC_08.model_symbols(); i++)
+    aMSC_08.get_arr_symbol_count()[i] = aMSC_08.distribution_forbidden[i];
+  aMSC_08.set_total_count(aMSC_08.pre_count);
+  for (int i = 0; i < aMSC_09.model_symbols(); i++)
+    aMSC_09.get_arr_symbol_count()[i] = aMSC_09.distribution_forbidden[i];
+  aMSC_09.set_total_count(aMSC_09.pre_count);
+  for (int i = 0; i < aMSC_010.model_symbols(); i++)
+    aMSC_010.get_arr_symbol_count()[i] = aMSC_010.distribution_forbidden[i];
+  aMSC_010.set_total_count(aMSC_010.pre_count);
+  for (int i = 0; i < aMSC_011.model_symbols(); i++)
+    aMSC_011.get_arr_symbol_count()[i] = aMSC_011.distribution_forbidden[i];
+  aMSC_011.set_total_count(aMSC_011.pre_count);
+  for (int i = 0; i < aMSC_012.model_symbols(); i++)
+    aMSC_012.get_arr_symbol_count()[i] = aMSC_012.distribution_forbidden[i];
+  aMSC_012.set_total_count(aMSC_012.pre_count);
+  for (int i = 0; i < aMSC_013.model_symbols(); i++)
+    aMSC_013.get_arr_symbol_count()[i] = aMSC_013.distribution_forbidden[i];
+  aMSC_013.set_total_count(aMSC_013.pre_count);
+  for (int i = 0; i < aMSC_014.model_symbols(); i++)
+    aMSC_014.get_arr_symbol_count()[i] = aMSC_014.distribution_forbidden[i];
+  aMSC_014.set_total_count(aMSC_014.pre_count);
+  for (int i = 0; i < aMSC_015.model_symbols(); i++)
+    aMSC_015.get_arr_symbol_count()[i] = aMSC_015.distribution_forbidden[i];
+  aMSC_015.set_total_count(aMSC_015.pre_count);
+  for (int i = 0; i < aMSC_016.model_symbols(); i++)
+    aMSC_016.get_arr_symbol_count()[i] = aMSC_016.distribution_forbidden[i];
+  aMSC_016.set_total_count(aMSC_016.pre_count);
+  for (int i = 0; i < aMSC_017.model_symbols(); i++)
+    aMSC_017.get_arr_symbol_count()[i] = aMSC_017.distribution_forbidden[i];
+  aMSC_017.set_total_count(aMSC_017.pre_count);
+  for (int i = 0; i < aMSC_018.model_symbols(); i++)
+    aMSC_018.get_arr_symbol_count()[i] = aMSC_018.distribution_forbidden[i];
+  aMSC_018.set_total_count(aMSC_018.pre_count);
+  for (int i = 0; i < aMSC_019.model_symbols(); i++)
+    aMSC_019.get_arr_symbol_count()[i] = aMSC_019.distribution_forbidden[i];
+  aMSC_019.set_total_count(aMSC_019.pre_count);
+  for (int i = 0; i < aMSC_020.model_symbols(); i++)
+    aMSC_020.get_arr_symbol_count()[i] = aMSC_020.distribution_forbidden[i];
+  aMSC_020.set_total_count(aMSC_020.pre_count);
+  for (int i = 0; i < aMSC_021.model_symbols(); i++)
+    aMSC_021.get_arr_symbol_count()[i] = aMSC_021.distribution_forbidden[i];
+  aMSC_021.set_total_count(aMSC_021.pre_count);
+  for (int i = 0; i < aMSC_022.model_symbols(); i++)
+    aMSC_022.get_arr_symbol_count()[i] = aMSC_022.distribution_forbidden[i];
+  aMSC_022.set_total_count(aMSC_022.pre_count);
+  for (int i = 0; i < aMSC_023.model_symbols(); i++)
+    aMSC_023.get_arr_symbol_count()[i] = aMSC_023.distribution_forbidden[i];
+  aMSC_023.set_total_count(aMSC_023.pre_count);
+  for (int i = 0; i < aMSC_024.model_symbols(); i++)
+    aMSC_024.get_arr_symbol_count()[i] = aMSC_024.distribution_forbidden[i];
+  aMSC_024.set_total_count(aMSC_024.pre_count);
+  for (int i = 0; i < aMSC_025.model_symbols(); i++)
+    aMSC_025.get_arr_symbol_count()[i] = aMSC_025.distribution_forbidden[i];
+  aMSC_025.set_total_count(aMSC_025.pre_count);
+  for (int i = 0; i < aMSC_026.model_symbols(); i++)
+    aMSC_026.get_arr_symbol_count()[i] = aMSC_026.distribution_forbidden[i];
+  aMSC_026.set_total_count(aMSC_026.pre_count);
+  for (int i = 0; i < aMSC_10.model_symbols(); i++)
+    aMSC_10.get_arr_symbol_count()[i] = aMSC_10.distribution_forbidden[i];
+  aMSC_10.set_total_count(aMSC_10.pre_count);
+  for (int i = 0; i < aMSC_11.model_symbols(); i++)
+    aMSC_11.get_arr_symbol_count()[i] = aMSC_11.distribution_forbidden[i];
+  aMSC_11.set_total_count(aMSC_11.pre_count);
+  for (int i = 0; i < aMSC_12.model_symbols(); i++)
+    aMSC_12.get_arr_symbol_count()[i] = aMSC_12.distribution_forbidden[i];
+  aMSC_12.set_total_count(aMSC_12.pre_count);
+  for (int i = 0; i < aMSC_13.model_symbols(); i++)
+    aMSC_13.get_arr_symbol_count()[i] = aMSC_13.distribution_forbidden[i];
+  aMSC_13.set_total_count(aMSC_13.pre_count);
+  for (int i = 0; i < aMSC_14.model_symbols(); i++)
+    aMSC_14.get_arr_symbol_count()[i] = aMSC_14.distribution_forbidden[i];
+  aMSC_14.set_total_count(aMSC_14.pre_count);
+  for (int i = 0; i < aMSC_15.model_symbols(); i++)
+    aMSC_15.get_arr_symbol_count()[i] = aMSC_15.distribution_forbidden[i];
+  aMSC_15.set_total_count(aMSC_15.pre_count);
+  for (int i = 0; i < aMSC_16.model_symbols(); i++)
+    aMSC_16.get_arr_symbol_count()[i] = aMSC_16.distribution_forbidden[i];
+  aMSC_16.set_total_count(aMSC_16.pre_count);
+  for (int i = 0; i < aMSC_17.model_symbols(); i++)
+    aMSC_17.get_arr_symbol_count()[i] = aMSC_17.distribution_forbidden[i];
+  aMSC_17.set_total_count(aMSC_17.pre_count);
+  for (int i = 0; i < aMSC_18.model_symbols(); i++)
+    aMSC_18.get_arr_symbol_count()[i] = aMSC_18.distribution_forbidden[i];
+  aMSC_18.set_total_count(aMSC_18.pre_count);
+  for (int i = 0; i < aMSC_19.model_symbols(); i++)
+    aMSC_19.get_arr_symbol_count()[i] = aMSC_19.distribution_forbidden[i];
+  aMSC_19.set_total_count(aMSC_19.pre_count);
+  for (int i = 0; i < aMSC_110.model_symbols(); i++)
+    aMSC_110.get_arr_symbol_count()[i] = aMSC_110.distribution_forbidden[i];
+  aMSC_110.set_total_count(aMSC_110.pre_count);
+  for (int i = 0; i < aMSC_111.model_symbols(); i++)
+    aMSC_111.get_arr_symbol_count()[i] = aMSC_111.distribution_forbidden[i];
+  aMSC_111.set_total_count(aMSC_111.pre_count);
+  for (int i = 0; i < aMSC_112.model_symbols(); i++)
+    aMSC_112.get_arr_symbol_count()[i] = aMSC_112.distribution_forbidden[i];
+  aMSC_112.set_total_count(aMSC_112.pre_count);
+  for (int i = 0; i < aMSC_113.model_symbols(); i++)
+    aMSC_113.get_arr_symbol_count()[i] = aMSC_113.distribution_forbidden[i];
+  aMSC_113.set_total_count(aMSC_113.pre_count);
+  for (int i = 0; i < aMSC_114.model_symbols(); i++)
+    aMSC_114.get_arr_symbol_count()[i] = aMSC_114.distribution_forbidden[i];
+  aMSC_114.set_total_count(aMSC_114.pre_count);
+  for (int i = 0; i < aMSC_115.model_symbols(); i++)
+    aMSC_115.get_arr_symbol_count()[i] = aMSC_115.distribution_forbidden[i];
+  aMSC_115.set_total_count(aMSC_115.pre_count);
+  for (int i = 0; i < aMSC_116.model_symbols(); i++)
+    aMSC_116.get_arr_symbol_count()[i] = aMSC_116.distribution_forbidden[i];
+  aMSC_116.set_total_count(aMSC_116.pre_count);
+  for (int i = 0; i < aMSC_117.model_symbols(); i++)
+    aMSC_117.get_arr_symbol_count()[i] = aMSC_117.distribution_forbidden[i];
+  aMSC_117.set_total_count(aMSC_117.pre_count);
+  for (int i = 0; i < aMSC_118.model_symbols(); i++)
+    aMSC_118.get_arr_symbol_count()[i] = aMSC_118.distribution_forbidden[i];
+  aMSC_118.set_total_count(aMSC_118.pre_count);
+  for (int i = 0; i < aMSC_119.model_symbols(); i++)
+    aMSC_119.get_arr_symbol_count()[i] = aMSC_119.distribution_forbidden[i];
+  aMSC_119.set_total_count(aMSC_119.pre_count);
+  for (int i = 0; i < aMSC_120.model_symbols(); i++)
+    aMSC_120.get_arr_symbol_count()[i] = aMSC_120.distribution_forbidden[i];
+  aMSC_120.set_total_count(aMSC_120.pre_count);
+  for (int i = 0; i < aMSC_121.model_symbols(); i++)
+    aMSC_121.get_arr_symbol_count()[i] = aMSC_121.distribution_forbidden[i];
+  aMSC_121.set_total_count(aMSC_121.pre_count);
+  for (int i = 0; i < aMSC_122.model_symbols(); i++)
+    aMSC_122.get_arr_symbol_count()[i] = aMSC_122.distribution_forbidden[i];
+  aMSC_122.set_total_count(aMSC_122.pre_count);
+  for (int i = 0; i < aMSC_123.model_symbols(); i++)
+    aMSC_123.get_arr_symbol_count()[i] = aMSC_123.distribution_forbidden[i];
+  aMSC_123.set_total_count(aMSC_123.pre_count);
+  for (int i = 0; i < aMSC_124.model_symbols(); i++)
+    aMSC_124.get_arr_symbol_count()[i] = aMSC_124.distribution_forbidden[i];
+  aMSC_124.set_total_count(aMSC_124.pre_count);
+  for (int i = 0; i < aMSC_125.model_symbols(); i++)
+    aMSC_125.get_arr_symbol_count()[i] = aMSC_125.distribution_forbidden[i];
+  aMSC_125.set_total_count(aMSC_125.pre_count);
+  for (int i = 0; i < aMSC_126.model_symbols(); i++)
+    aMSC_126.get_arr_symbol_count()[i] = aMSC_126.distribution_forbidden[i];
+  aMSC_126.set_total_count(aMSC_126.pre_count);
+  for (int i = 0; i < aMSC_20.model_symbols(); i++)
+    aMSC_20.get_arr_symbol_count()[i] = aMSC_20.distribution_forbidden[i];
+  aMSC_20.set_total_count(aMSC_20.pre_count);
+  for (int i = 0; i < aMSC_21.model_symbols(); i++)
+    aMSC_21.get_arr_symbol_count()[i] = aMSC_21.distribution_forbidden[i];
+  aMSC_21.set_total_count(aMSC_21.pre_count);
+  for (int i = 0; i < aMSC_22.model_symbols(); i++)
+    aMSC_22.get_arr_symbol_count()[i] = aMSC_22.distribution_forbidden[i];
+  aMSC_22.set_total_count(aMSC_22.pre_count);
+  for (int i = 0; i < aMSC_23.model_symbols(); i++)
+    aMSC_23.get_arr_symbol_count()[i] = aMSC_23.distribution_forbidden[i];
+  aMSC_23.set_total_count(aMSC_23.pre_count);
+  for (int i = 0; i < aMSC_24.model_symbols(); i++)
+    aMSC_24.get_arr_symbol_count()[i] = aMSC_24.distribution_forbidden[i];
+  aMSC_24.set_total_count(aMSC_24.pre_count);
+  for (int i = 0; i < aMSC_25.model_symbols(); i++)
+    aMSC_25.get_arr_symbol_count()[i] = aMSC_25.distribution_forbidden[i];
+  aMSC_25.set_total_count(aMSC_25.pre_count);
+  for (int i = 0; i < aMSC_26.model_symbols(); i++)
+    aMSC_26.get_arr_symbol_count()[i] = aMSC_26.distribution_forbidden[i];
+  aMSC_26.set_total_count(aMSC_26.pre_count);
+  for (int i = 0; i < aMSC_27.model_symbols(); i++)
+    aMSC_27.get_arr_symbol_count()[i] = aMSC_27.distribution_forbidden[i];
+  aMSC_27.set_total_count(aMSC_27.pre_count);
+  for (int i = 0; i < aMSC_28.model_symbols(); i++)
+    aMSC_28.get_arr_symbol_count()[i] = aMSC_28.distribution_forbidden[i];
+  aMSC_28.set_total_count(aMSC_28.pre_count);
+  for (int i = 0; i < aMSC_29.model_symbols(); i++)
+    aMSC_29.get_arr_symbol_count()[i] = aMSC_29.distribution_forbidden[i];
+  aMSC_29.set_total_count(aMSC_29.pre_count);
+  for (int i = 0; i < aMSC_210.model_symbols(); i++)
+    aMSC_210.get_arr_symbol_count()[i] = aMSC_210.distribution_forbidden[i];
+  aMSC_210.set_total_count(aMSC_210.pre_count);
+  for (int i = 0; i < aMSC_211.model_symbols(); i++)
+    aMSC_211.get_arr_symbol_count()[i] = aMSC_211.distribution_forbidden[i];
+  aMSC_211.set_total_count(aMSC_211.pre_count);
+  for (int i = 0; i < aMSC_212.model_symbols(); i++)
+    aMSC_212.get_arr_symbol_count()[i] = aMSC_212.distribution_forbidden[i];
+  aMSC_212.set_total_count(aMSC_212.pre_count);
+  for (int i = 0; i < aMSC_213.model_symbols(); i++)
+    aMSC_213.get_arr_symbol_count()[i] = aMSC_213.distribution_forbidden[i];
+  aMSC_213.set_total_count(aMSC_213.pre_count);
+  for (int i = 0; i < aMSC_214.model_symbols(); i++)
+    aMSC_214.get_arr_symbol_count()[i] = aMSC_214.distribution_forbidden[i];
+  aMSC_214.set_total_count(aMSC_214.pre_count);
+  for (int i = 0; i < aMSC_215.model_symbols(); i++)
+    aMSC_215.get_arr_symbol_count()[i] = aMSC_215.distribution_forbidden[i];
+  aMSC_215.set_total_count(aMSC_215.pre_count);
+  for (int i = 0; i < aMSC_216.model_symbols(); i++)
+    aMSC_216.get_arr_symbol_count()[i] = aMSC_216.distribution_forbidden[i];
+  aMSC_216.set_total_count(aMSC_216.pre_count);
+  for (int i = 0; i < aMSC_217.model_symbols(); i++)
+    aMSC_217.get_arr_symbol_count()[i] = aMSC_217.distribution_forbidden[i];
+  aMSC_217.set_total_count(aMSC_217.pre_count);
+  for (int i = 0; i < aMSC_218.model_symbols(); i++)
+    aMSC_218.get_arr_symbol_count()[i] = aMSC_218.distribution_forbidden[i];
+  aMSC_218.set_total_count(aMSC_218.pre_count);
+  for (int i = 0; i < aMSC_219.model_symbols(); i++)
+    aMSC_219.get_arr_symbol_count()[i] = aMSC_219.distribution_forbidden[i];
+  aMSC_219.set_total_count(aMSC_219.pre_count);
+  for (int i = 0; i < aMSC_220.model_symbols(); i++)
+    aMSC_220.get_arr_symbol_count()[i] = aMSC_220.distribution_forbidden[i];
+  aMSC_220.set_total_count(aMSC_220.pre_count);
+  for (int i = 0; i < aMSC_221.model_symbols(); i++)
+    aMSC_221.get_arr_symbol_count()[i] = aMSC_221.distribution_forbidden[i];
+  aMSC_221.set_total_count(aMSC_221.pre_count);
+  for (int i = 0; i < aMSC_222.model_symbols(); i++)
+    aMSC_222.get_arr_symbol_count()[i] = aMSC_222.distribution_forbidden[i];
+  aMSC_222.set_total_count(aMSC_222.pre_count);
+  for (int i = 0; i < aMSC_223.model_symbols(); i++)
+    aMSC_223.get_arr_symbol_count()[i] = aMSC_223.distribution_forbidden[i];
+  aMSC_223.set_total_count(aMSC_223.pre_count);
+  for (int i = 0; i < aMSC_224.model_symbols(); i++)
+    aMSC_224.get_arr_symbol_count()[i] = aMSC_224.distribution_forbidden[i];
+  aMSC_224.set_total_count(aMSC_224.pre_count);
+  for (int i = 0; i < aMSC_225.model_symbols(); i++)
+    aMSC_225.get_arr_symbol_count()[i] = aMSC_225.distribution_forbidden[i];
+  aMSC_225.set_total_count(aMSC_225.pre_count);
+  for (int i = 0; i < aMSC_226.model_symbols(); i++)
+    aMSC_226.get_arr_symbol_count()[i] = aMSC_226.distribution_forbidden[i];
+  aMSC_226.set_total_count(aMSC_226.pre_count);
+  for (int i = 0; i < aMSC_30.model_symbols(); i++)
+    aMSC_30.get_arr_symbol_count()[i] = aMSC_30.distribution_forbidden[i];
+  aMSC_30.set_total_count(aMSC_30.pre_count);
+  for (int i = 0; i < aMSC_31.model_symbols(); i++)
+    aMSC_31.get_arr_symbol_count()[i] = aMSC_31.distribution_forbidden[i];
+  aMSC_31.set_total_count(aMSC_31.pre_count);
+  for (int i = 0; i < aMSC_32.model_symbols(); i++)
+    aMSC_32.get_arr_symbol_count()[i] = aMSC_32.distribution_forbidden[i];
+  aMSC_32.set_total_count(aMSC_32.pre_count);
+  for (int i = 0; i < aMSC_33.model_symbols(); i++)
+    aMSC_33.get_arr_symbol_count()[i] = aMSC_33.distribution_forbidden[i];
+  aMSC_33.set_total_count(aMSC_33.pre_count);
+  for (int i = 0; i < aMSC_34.model_symbols(); i++)
+    aMSC_34.get_arr_symbol_count()[i] = aMSC_34.distribution_forbidden[i];
+  aMSC_34.set_total_count(aMSC_34.pre_count);
+  for (int i = 0; i < aMSC_35.model_symbols(); i++)
+    aMSC_35.get_arr_symbol_count()[i] = aMSC_35.distribution_forbidden[i];
+  aMSC_35.set_total_count(aMSC_35.pre_count);
+  for (int i = 0; i < aMSC_36.model_symbols(); i++)
+    aMSC_36.get_arr_symbol_count()[i] = aMSC_36.distribution_forbidden[i];
+  aMSC_36.set_total_count(aMSC_36.pre_count);
+  for (int i = 0; i < aMSC_37.model_symbols(); i++)
+    aMSC_37.get_arr_symbol_count()[i] = aMSC_37.distribution_forbidden[i];
+  aMSC_37.set_total_count(aMSC_37.pre_count);
+  for (int i = 0; i < aMSC_38.model_symbols(); i++)
+    aMSC_38.get_arr_symbol_count()[i] = aMSC_38.distribution_forbidden[i];
+  aMSC_38.set_total_count(aMSC_38.pre_count);
+  for (int i = 0; i < aMSC_39.model_symbols(); i++)
+    aMSC_39.get_arr_symbol_count()[i] = aMSC_39.distribution_forbidden[i];
+  aMSC_39.set_total_count(aMSC_39.pre_count);
+  for (int i = 0; i < aMSC_310.model_symbols(); i++)
+    aMSC_310.get_arr_symbol_count()[i] = aMSC_310.distribution_forbidden[i];
+  aMSC_310.set_total_count(aMSC_310.pre_count);
+  for (int i = 0; i < aMSC_311.model_symbols(); i++)
+    aMSC_311.get_arr_symbol_count()[i] = aMSC_311.distribution_forbidden[i];
+  aMSC_311.set_total_count(aMSC_311.pre_count);
+  for (int i = 0; i < aMSC_312.model_symbols(); i++)
+    aMSC_312.get_arr_symbol_count()[i] = aMSC_312.distribution_forbidden[i];
+  aMSC_312.set_total_count(aMSC_312.pre_count);
+  for (int i = 0; i < aMSC_313.model_symbols(); i++)
+    aMSC_313.get_arr_symbol_count()[i] = aMSC_313.distribution_forbidden[i];
+  aMSC_313.set_total_count(aMSC_313.pre_count);
+  for (int i = 0; i < aMSC_314.model_symbols(); i++)
+    aMSC_314.get_arr_symbol_count()[i] = aMSC_314.distribution_forbidden[i];
+  aMSC_314.set_total_count(aMSC_314.pre_count);
+  for (int i = 0; i < aMSC_315.model_symbols(); i++)
+    aMSC_315.get_arr_symbol_count()[i] = aMSC_315.distribution_forbidden[i];
+  aMSC_315.set_total_count(aMSC_315.pre_count);
+  for (int i = 0; i < aMSC_316.model_symbols(); i++)
+    aMSC_316.get_arr_symbol_count()[i] = aMSC_316.distribution_forbidden[i];
+  aMSC_316.set_total_count(aMSC_316.pre_count);
+  for (int i = 0; i < aMSC_317.model_symbols(); i++)
+    aMSC_317.get_arr_symbol_count()[i] = aMSC_317.distribution_forbidden[i];
+  aMSC_317.set_total_count(aMSC_317.pre_count);
+  for (int i = 0; i < aMSC_318.model_symbols(); i++)
+    aMSC_318.get_arr_symbol_count()[i] = aMSC_318.distribution_forbidden[i];
+  aMSC_318.set_total_count(aMSC_318.pre_count);
+  for (int i = 0; i < aMSC_319.model_symbols(); i++)
+    aMSC_319.get_arr_symbol_count()[i] = aMSC_319.distribution_forbidden[i];
+  aMSC_319.set_total_count(aMSC_319.pre_count);
+  for (int i = 0; i < aMSC_320.model_symbols(); i++)
+    aMSC_320.get_arr_symbol_count()[i] = aMSC_320.distribution_forbidden[i];
+  aMSC_320.set_total_count(aMSC_320.pre_count);
+  for (int i = 0; i < aMSC_321.model_symbols(); i++)
+    aMSC_321.get_arr_symbol_count()[i] = aMSC_321.distribution_forbidden[i];
+  aMSC_321.set_total_count(aMSC_321.pre_count);
+  for (int i = 0; i < aMSC_322.model_symbols(); i++)
+    aMSC_322.get_arr_symbol_count()[i] = aMSC_322.distribution_forbidden[i];
+  aMSC_322.set_total_count(aMSC_322.pre_count);
+  for (int i = 0; i < aMSC_323.model_symbols(); i++)
+    aMSC_323.get_arr_symbol_count()[i] = aMSC_323.distribution_forbidden[i];
+  aMSC_323.set_total_count(aMSC_323.pre_count);
+  for (int i = 0; i < aMSC_324.model_symbols(); i++)
+    aMSC_324.get_arr_symbol_count()[i] = aMSC_324.distribution_forbidden[i];
+  aMSC_324.set_total_count(aMSC_324.pre_count);
+  for (int i = 0; i < aMSC_325.model_symbols(); i++)
+    aMSC_325.get_arr_symbol_count()[i] = aMSC_325.distribution_forbidden[i];
+  aMSC_325.set_total_count(aMSC_325.pre_count);
+  for (int i = 0; i < aMSC_326.model_symbols(); i++)
+    aMSC_326.get_arr_symbol_count()[i] = aMSC_326.distribution_forbidden[i];
+  aMSC_326.set_total_count(aMSC_326.pre_count);
+  for (int i = 0; i < aMSC_40.model_symbols(); i++)
+    aMSC_40.get_arr_symbol_count()[i] = aMSC_40.distribution_forbidden[i];
+  aMSC_40.set_total_count(aMSC_40.pre_count);
+  for (int i = 0; i < aMSC_41.model_symbols(); i++)
+    aMSC_41.get_arr_symbol_count()[i] = aMSC_41.distribution_forbidden[i];
+  aMSC_41.set_total_count(aMSC_41.pre_count);
+  for (int i = 0; i < aMSC_42.model_symbols(); i++)
+    aMSC_42.get_arr_symbol_count()[i] = aMSC_42.distribution_forbidden[i];
+  aMSC_42.set_total_count(aMSC_42.pre_count);
+  for (int i = 0; i < aMSC_43.model_symbols(); i++)
+    aMSC_43.get_arr_symbol_count()[i] = aMSC_43.distribution_forbidden[i];
+  aMSC_43.set_total_count(aMSC_43.pre_count);
+  for (int i = 0; i < aMSC_44.model_symbols(); i++)
+    aMSC_44.get_arr_symbol_count()[i] = aMSC_44.distribution_forbidden[i];
+  aMSC_44.set_total_count(aMSC_44.pre_count);
+  for (int i = 0; i < aMSC_45.model_symbols(); i++)
+    aMSC_45.get_arr_symbol_count()[i] = aMSC_45.distribution_forbidden[i];
+  aMSC_45.set_total_count(aMSC_45.pre_count);
+  for (int i = 0; i < aMSC_46.model_symbols(); i++)
+    aMSC_46.get_arr_symbol_count()[i] = aMSC_46.distribution_forbidden[i];
+  aMSC_46.set_total_count(aMSC_46.pre_count);
+  for (int i = 0; i < aMSC_47.model_symbols(); i++)
+    aMSC_47.get_arr_symbol_count()[i] = aMSC_47.distribution_forbidden[i];
+  aMSC_47.set_total_count(aMSC_47.pre_count);
+  for (int i = 0; i < aMSC_48.model_symbols(); i++)
+    aMSC_48.get_arr_symbol_count()[i] = aMSC_48.distribution_forbidden[i];
+  aMSC_48.set_total_count(aMSC_48.pre_count);
+  for (int i = 0; i < aMSC_49.model_symbols(); i++)
+    aMSC_49.get_arr_symbol_count()[i] = aMSC_49.distribution_forbidden[i];
+  aMSC_49.set_total_count(aMSC_49.pre_count);
+  for (int i = 0; i < aMSC_410.model_symbols(); i++)
+    aMSC_410.get_arr_symbol_count()[i] = aMSC_410.distribution_forbidden[i];
+  aMSC_410.set_total_count(aMSC_410.pre_count);
+  for (int i = 0; i < aMSC_411.model_symbols(); i++)
+    aMSC_411.get_arr_symbol_count()[i] = aMSC_411.distribution_forbidden[i];
+  aMSC_411.set_total_count(aMSC_411.pre_count);
+  for (int i = 0; i < aMSC_412.model_symbols(); i++)
+    aMSC_412.get_arr_symbol_count()[i] = aMSC_412.distribution_forbidden[i];
+  aMSC_412.set_total_count(aMSC_412.pre_count);
+  for (int i = 0; i < aMSC_413.model_symbols(); i++)
+    aMSC_413.get_arr_symbol_count()[i] = aMSC_413.distribution_forbidden[i];
+  aMSC_413.set_total_count(aMSC_413.pre_count);
+  for (int i = 0; i < aMSC_414.model_symbols(); i++)
+    aMSC_414.get_arr_symbol_count()[i] = aMSC_414.distribution_forbidden[i];
+  aMSC_414.set_total_count(aMSC_414.pre_count);
+  for (int i = 0; i < aMSC_415.model_symbols(); i++)
+    aMSC_415.get_arr_symbol_count()[i] = aMSC_415.distribution_forbidden[i];
+  aMSC_415.set_total_count(aMSC_415.pre_count);
+  for (int i = 0; i < aMSC_416.model_symbols(); i++)
+    aMSC_416.get_arr_symbol_count()[i] = aMSC_416.distribution_forbidden[i];
+  aMSC_416.set_total_count(aMSC_416.pre_count);
+  for (int i = 0; i < aMSC_417.model_symbols(); i++)
+    aMSC_417.get_arr_symbol_count()[i] = aMSC_417.distribution_forbidden[i];
+  aMSC_417.set_total_count(aMSC_417.pre_count);
+  for (int i = 0; i < aMSC_418.model_symbols(); i++)
+    aMSC_418.get_arr_symbol_count()[i] = aMSC_418.distribution_forbidden[i];
+  aMSC_418.set_total_count(aMSC_418.pre_count);
+  for (int i = 0; i < aMSC_419.model_symbols(); i++)
+    aMSC_419.get_arr_symbol_count()[i] = aMSC_419.distribution_forbidden[i];
+  aMSC_419.set_total_count(aMSC_419.pre_count);
+  for (int i = 0; i < aMSC_420.model_symbols(); i++)
+    aMSC_420.get_arr_symbol_count()[i] = aMSC_420.distribution_forbidden[i];
+  aMSC_420.set_total_count(aMSC_420.pre_count);
+  for (int i = 0; i < aMSC_421.model_symbols(); i++)
+    aMSC_421.get_arr_symbol_count()[i] = aMSC_421.distribution_forbidden[i];
+  aMSC_421.set_total_count(aMSC_421.pre_count);
+  for (int i = 0; i < aMSC_422.model_symbols(); i++)
+    aMSC_422.get_arr_symbol_count()[i] = aMSC_422.distribution_forbidden[i];
+  aMSC_422.set_total_count(aMSC_422.pre_count);
+  for (int i = 0; i < aMSC_423.model_symbols(); i++)
+    aMSC_423.get_arr_symbol_count()[i] = aMSC_423.distribution_forbidden[i];
+  aMSC_423.set_total_count(aMSC_423.pre_count);
+  for (int i = 0; i < aMSC_424.model_symbols(); i++)
+    aMSC_424.get_arr_symbol_count()[i] = aMSC_424.distribution_forbidden[i];
+  aMSC_424.set_total_count(aMSC_424.pre_count);
+  for (int i = 0; i < aMSC_425.model_symbols(); i++)
+    aMSC_425.get_arr_symbol_count()[i] = aMSC_425.distribution_forbidden[i];
+  aMSC_425.set_total_count(aMSC_425.pre_count);
+  for (int i = 0; i < aMSC_426.model_symbols(); i++)
+    aMSC_426.get_arr_symbol_count()[i] = aMSC_426.distribution_forbidden[i];
+  aMSC_426.set_total_count(aMSC_426.pre_count);
+  for (int i = 0; i < aMSC_50.model_symbols(); i++)
+    aMSC_50.get_arr_symbol_count()[i] = aMSC_50.distribution_forbidden[i];
+  aMSC_50.set_total_count(aMSC_50.pre_count);
+  for (int i = 0; i < aMSC_51.model_symbols(); i++)
+    aMSC_51.get_arr_symbol_count()[i] = aMSC_51.distribution_forbidden[i];
+  aMSC_51.set_total_count(aMSC_51.pre_count);
+  for (int i = 0; i < aMSC_52.model_symbols(); i++)
+    aMSC_52.get_arr_symbol_count()[i] = aMSC_52.distribution_forbidden[i];
+  aMSC_52.set_total_count(aMSC_52.pre_count);
+  for (int i = 0; i < aMSC_53.model_symbols(); i++)
+    aMSC_53.get_arr_symbol_count()[i] = aMSC_53.distribution_forbidden[i];
+  aMSC_53.set_total_count(aMSC_53.pre_count);
+  for (int i = 0; i < aMSC_54.model_symbols(); i++)
+    aMSC_54.get_arr_symbol_count()[i] = aMSC_54.distribution_forbidden[i];
+  aMSC_54.set_total_count(aMSC_54.pre_count);
+  for (int i = 0; i < aMSC_55.model_symbols(); i++)
+    aMSC_55.get_arr_symbol_count()[i] = aMSC_55.distribution_forbidden[i];
+  aMSC_55.set_total_count(aMSC_55.pre_count);
+  for (int i = 0; i < aMSC_56.model_symbols(); i++)
+    aMSC_56.get_arr_symbol_count()[i] = aMSC_56.distribution_forbidden[i];
+  aMSC_56.set_total_count(aMSC_56.pre_count);
+  for (int i = 0; i < aMSC_57.model_symbols(); i++)
+    aMSC_57.get_arr_symbol_count()[i] = aMSC_57.distribution_forbidden[i];
+  aMSC_57.set_total_count(aMSC_57.pre_count);
+  for (int i = 0; i < aMSC_58.model_symbols(); i++)
+    aMSC_58.get_arr_symbol_count()[i] = aMSC_58.distribution_forbidden[i];
+  aMSC_58.set_total_count(aMSC_58.pre_count);
+  for (int i = 0; i < aMSC_59.model_symbols(); i++)
+    aMSC_59.get_arr_symbol_count()[i] = aMSC_59.distribution_forbidden[i];
+  aMSC_59.set_total_count(aMSC_59.pre_count);
+  for (int i = 0; i < aMSC_510.model_symbols(); i++)
+    aMSC_510.get_arr_symbol_count()[i] = aMSC_510.distribution_forbidden[i];
+  aMSC_510.set_total_count(aMSC_510.pre_count);
+  for (int i = 0; i < aMSC_511.model_symbols(); i++)
+    aMSC_511.get_arr_symbol_count()[i] = aMSC_511.distribution_forbidden[i];
+  aMSC_511.set_total_count(aMSC_511.pre_count);
+  for (int i = 0; i < aMSC_512.model_symbols(); i++)
+    aMSC_512.get_arr_symbol_count()[i] = aMSC_512.distribution_forbidden[i];
+  aMSC_512.set_total_count(aMSC_512.pre_count);
+  for (int i = 0; i < aMSC_513.model_symbols(); i++)
+    aMSC_513.get_arr_symbol_count()[i] = aMSC_513.distribution_forbidden[i];
+  aMSC_513.set_total_count(aMSC_513.pre_count);
+  for (int i = 0; i < aMSC_514.model_symbols(); i++)
+    aMSC_514.get_arr_symbol_count()[i] = aMSC_514.distribution_forbidden[i];
+  aMSC_514.set_total_count(aMSC_514.pre_count);
+  for (int i = 0; i < aMSC_515.model_symbols(); i++)
+    aMSC_515.get_arr_symbol_count()[i] = aMSC_515.distribution_forbidden[i];
+  aMSC_515.set_total_count(aMSC_515.pre_count);
+  for (int i = 0; i < aMSC_516.model_symbols(); i++)
+    aMSC_516.get_arr_symbol_count()[i] = aMSC_516.distribution_forbidden[i];
+  aMSC_516.set_total_count(aMSC_516.pre_count);
+  for (int i = 0; i < aMSC_517.model_symbols(); i++)
+    aMSC_517.get_arr_symbol_count()[i] = aMSC_517.distribution_forbidden[i];
+  aMSC_517.set_total_count(aMSC_517.pre_count);
+  for (int i = 0; i < aMSC_518.model_symbols(); i++)
+    aMSC_518.get_arr_symbol_count()[i] = aMSC_518.distribution_forbidden[i];
+  aMSC_518.set_total_count(aMSC_518.pre_count);
+  for (int i = 0; i < aMSC_519.model_symbols(); i++)
+    aMSC_519.get_arr_symbol_count()[i] = aMSC_519.distribution_forbidden[i];
+  aMSC_519.set_total_count(aMSC_519.pre_count);
+  for (int i = 0; i < aMSC_520.model_symbols(); i++)
+    aMSC_520.get_arr_symbol_count()[i] = aMSC_520.distribution_forbidden[i];
+  aMSC_520.set_total_count(aMSC_520.pre_count);
+  for (int i = 0; i < aMSC_521.model_symbols(); i++)
+    aMSC_521.get_arr_symbol_count()[i] = aMSC_521.distribution_forbidden[i];
+  aMSC_521.set_total_count(aMSC_521.pre_count);
+  for (int i = 0; i < aMSC_522.model_symbols(); i++)
+    aMSC_522.get_arr_symbol_count()[i] = aMSC_522.distribution_forbidden[i];
+  aMSC_522.set_total_count(aMSC_522.pre_count);
+  for (int i = 0; i < aMSC_523.model_symbols(); i++)
+    aMSC_523.get_arr_symbol_count()[i] = aMSC_523.distribution_forbidden[i];
+  aMSC_523.set_total_count(aMSC_523.pre_count);
+  for (int i = 0; i < aMSC_524.model_symbols(); i++)
+    aMSC_524.get_arr_symbol_count()[i] = aMSC_524.distribution_forbidden[i];
+  aMSC_524.set_total_count(aMSC_524.pre_count);
+  for (int i = 0; i < aMSC_525.model_symbols(); i++)
+    aMSC_525.get_arr_symbol_count()[i] = aMSC_525.distribution_forbidden[i];
+  aMSC_525.set_total_count(aMSC_525.pre_count);
+  for (int i = 0; i < aMSC_526.model_symbols(); i++)
+    aMSC_526.get_arr_symbol_count()[i] = aMSC_526.distribution_forbidden[i];
+  aMSC_526.set_total_count(aMSC_526.pre_count);
+  for (int i = 0; i < aMSC_60.model_symbols(); i++)
+    aMSC_60.get_arr_symbol_count()[i] = aMSC_60.distribution_forbidden[i];
+  aMSC_60.set_total_count(aMSC_60.pre_count);
+  for (int i = 0; i < aMSC_61.model_symbols(); i++)
+    aMSC_61.get_arr_symbol_count()[i] = aMSC_61.distribution_forbidden[i];
+  aMSC_61.set_total_count(aMSC_61.pre_count);
+  for (int i = 0; i < aMSC_62.model_symbols(); i++)
+    aMSC_62.get_arr_symbol_count()[i] = aMSC_62.distribution_forbidden[i];
+  aMSC_62.set_total_count(aMSC_62.pre_count);
+  for (int i = 0; i < aMSC_63.model_symbols(); i++)
+    aMSC_63.get_arr_symbol_count()[i] = aMSC_63.distribution_forbidden[i];
+  aMSC_63.set_total_count(aMSC_63.pre_count);
+  for (int i = 0; i < aMSC_64.model_symbols(); i++)
+    aMSC_64.get_arr_symbol_count()[i] = aMSC_64.distribution_forbidden[i];
+  aMSC_64.set_total_count(aMSC_64.pre_count);
+  for (int i = 0; i < aMSC_65.model_symbols(); i++)
+    aMSC_65.get_arr_symbol_count()[i] = aMSC_65.distribution_forbidden[i];
+  aMSC_65.set_total_count(aMSC_65.pre_count);
+  for (int i = 0; i < aMSC_66.model_symbols(); i++)
+    aMSC_66.get_arr_symbol_count()[i] = aMSC_66.distribution_forbidden[i];
+  aMSC_66.set_total_count(aMSC_66.pre_count);
+  for (int i = 0; i < aMSC_67.model_symbols(); i++)
+    aMSC_67.get_arr_symbol_count()[i] = aMSC_67.distribution_forbidden[i];
+  aMSC_67.set_total_count(aMSC_67.pre_count);
+  for (int i = 0; i < aMSC_68.model_symbols(); i++)
+    aMSC_68.get_arr_symbol_count()[i] = aMSC_68.distribution_forbidden[i];
+  aMSC_68.set_total_count(aMSC_68.pre_count);
+  for (int i = 0; i < aMSC_69.model_symbols(); i++)
+    aMSC_69.get_arr_symbol_count()[i] = aMSC_69.distribution_forbidden[i];
+  aMSC_69.set_total_count(aMSC_69.pre_count);
+  for (int i = 0; i < aMSC_610.model_symbols(); i++)
+    aMSC_610.get_arr_symbol_count()[i] = aMSC_610.distribution_forbidden[i];
+  aMSC_610.set_total_count(aMSC_610.pre_count);
+  for (int i = 0; i < aMSC_611.model_symbols(); i++)
+    aMSC_611.get_arr_symbol_count()[i] = aMSC_611.distribution_forbidden[i];
+  aMSC_611.set_total_count(aMSC_611.pre_count);
+  for (int i = 0; i < aMSC_612.model_symbols(); i++)
+    aMSC_612.get_arr_symbol_count()[i] = aMSC_612.distribution_forbidden[i];
+  aMSC_612.set_total_count(aMSC_612.pre_count);
+  for (int i = 0; i < aMSC_613.model_symbols(); i++)
+    aMSC_613.get_arr_symbol_count()[i] = aMSC_613.distribution_forbidden[i];
+  aMSC_613.set_total_count(aMSC_613.pre_count);
+  for (int i = 0; i < aMSC_614.model_symbols(); i++)
+    aMSC_614.get_arr_symbol_count()[i] = aMSC_614.distribution_forbidden[i];
+  aMSC_614.set_total_count(aMSC_614.pre_count);
+  for (int i = 0; i < aMSC_615.model_symbols(); i++)
+    aMSC_615.get_arr_symbol_count()[i] = aMSC_615.distribution_forbidden[i];
+  aMSC_615.set_total_count(aMSC_615.pre_count);
+  for (int i = 0; i < aMSC_616.model_symbols(); i++)
+    aMSC_616.get_arr_symbol_count()[i] = aMSC_616.distribution_forbidden[i];
+  aMSC_616.set_total_count(aMSC_616.pre_count);
+  for (int i = 0; i < aMSC_617.model_symbols(); i++)
+    aMSC_617.get_arr_symbol_count()[i] = aMSC_617.distribution_forbidden[i];
+  aMSC_617.set_total_count(aMSC_617.pre_count);
+  for (int i = 0; i < aMSC_618.model_symbols(); i++)
+    aMSC_618.get_arr_symbol_count()[i] = aMSC_618.distribution_forbidden[i];
+  aMSC_618.set_total_count(aMSC_618.pre_count);
+  for (int i = 0; i < aMSC_619.model_symbols(); i++)
+    aMSC_619.get_arr_symbol_count()[i] = aMSC_619.distribution_forbidden[i];
+  aMSC_619.set_total_count(aMSC_619.pre_count);
+  for (int i = 0; i < aMSC_620.model_symbols(); i++)
+    aMSC_620.get_arr_symbol_count()[i] = aMSC_620.distribution_forbidden[i];
+  aMSC_620.set_total_count(aMSC_620.pre_count);
+  for (int i = 0; i < aMSC_621.model_symbols(); i++)
+    aMSC_621.get_arr_symbol_count()[i] = aMSC_621.distribution_forbidden[i];
+  aMSC_621.set_total_count(aMSC_621.pre_count);
+  for (int i = 0; i < aMSC_622.model_symbols(); i++)
+    aMSC_622.get_arr_symbol_count()[i] = aMSC_622.distribution_forbidden[i];
+  aMSC_622.set_total_count(aMSC_622.pre_count);
+  for (int i = 0; i < aMSC_623.model_symbols(); i++)
+    aMSC_623.get_arr_symbol_count()[i] = aMSC_623.distribution_forbidden[i];
+  aMSC_623.set_total_count(aMSC_623.pre_count);
+  for (int i = 0; i < aMSC_624.model_symbols(); i++)
+    aMSC_624.get_arr_symbol_count()[i] = aMSC_624.distribution_forbidden[i];
+  aMSC_624.set_total_count(aMSC_624.pre_count);
+  for (int i = 0; i < aMSC_625.model_symbols(); i++)
+    aMSC_625.get_arr_symbol_count()[i] = aMSC_625.distribution_forbidden[i];
+  aMSC_625.set_total_count(aMSC_625.pre_count);
+  for (int i = 0; i < aMSC_626.model_symbols(); i++)
+    aMSC_626.get_arr_symbol_count()[i] = aMSC_626.distribution_forbidden[i];
+  aMSC_626.set_total_count(aMSC_626.pre_count);
+  for (int i = 0; i < aMSC_70.model_symbols(); i++)
+    aMSC_70.get_arr_symbol_count()[i] = aMSC_70.distribution_forbidden[i];
+  aMSC_70.set_total_count(aMSC_70.pre_count);
+  for (int i = 0; i < aMSC_71.model_symbols(); i++)
+    aMSC_71.get_arr_symbol_count()[i] = aMSC_71.distribution_forbidden[i];
+  aMSC_71.set_total_count(aMSC_71.pre_count);
+  for (int i = 0; i < aMSC_72.model_symbols(); i++)
+    aMSC_72.get_arr_symbol_count()[i] = aMSC_72.distribution_forbidden[i];
+  aMSC_72.set_total_count(aMSC_72.pre_count);
+  for (int i = 0; i < aMSC_73.model_symbols(); i++)
+    aMSC_73.get_arr_symbol_count()[i] = aMSC_73.distribution_forbidden[i];
+  aMSC_73.set_total_count(aMSC_73.pre_count);
+  for (int i = 0; i < aMSC_74.model_symbols(); i++)
+    aMSC_74.get_arr_symbol_count()[i] = aMSC_74.distribution_forbidden[i];
+  aMSC_74.set_total_count(aMSC_74.pre_count);
+  for (int i = 0; i < aMSC_75.model_symbols(); i++)
+    aMSC_75.get_arr_symbol_count()[i] = aMSC_75.distribution_forbidden[i];
+  aMSC_75.set_total_count(aMSC_75.pre_count);
+  for (int i = 0; i < aMSC_76.model_symbols(); i++)
+    aMSC_76.get_arr_symbol_count()[i] = aMSC_76.distribution_forbidden[i];
+  aMSC_76.set_total_count(aMSC_76.pre_count);
+  for (int i = 0; i < aMSC_77.model_symbols(); i++)
+    aMSC_77.get_arr_symbol_count()[i] = aMSC_77.distribution_forbidden[i];
+  aMSC_77.set_total_count(aMSC_77.pre_count);
+  for (int i = 0; i < aMSC_78.model_symbols(); i++)
+    aMSC_78.get_arr_symbol_count()[i] = aMSC_78.distribution_forbidden[i];
+  aMSC_78.set_total_count(aMSC_78.pre_count);
+  for (int i = 0; i < aMSC_79.model_symbols(); i++)
+    aMSC_79.get_arr_symbol_count()[i] = aMSC_79.distribution_forbidden[i];
+  aMSC_79.set_total_count(aMSC_79.pre_count);
+  for (int i = 0; i < aMSC_710.model_symbols(); i++)
+    aMSC_710.get_arr_symbol_count()[i] = aMSC_710.distribution_forbidden[i];
+  aMSC_710.set_total_count(aMSC_710.pre_count);
+  for (int i = 0; i < aMSC_711.model_symbols(); i++)
+    aMSC_711.get_arr_symbol_count()[i] = aMSC_711.distribution_forbidden[i];
+  aMSC_711.set_total_count(aMSC_711.pre_count);
+  for (int i = 0; i < aMSC_712.model_symbols(); i++)
+    aMSC_712.get_arr_symbol_count()[i] = aMSC_712.distribution_forbidden[i];
+  aMSC_712.set_total_count(aMSC_712.pre_count);
+  for (int i = 0; i < aMSC_713.model_symbols(); i++)
+    aMSC_713.get_arr_symbol_count()[i] = aMSC_713.distribution_forbidden[i];
+  aMSC_713.set_total_count(aMSC_713.pre_count);
+  for (int i = 0; i < aMSC_714.model_symbols(); i++)
+    aMSC_714.get_arr_symbol_count()[i] = aMSC_714.distribution_forbidden[i];
+  aMSC_714.set_total_count(aMSC_714.pre_count);
+  for (int i = 0; i < aMSC_715.model_symbols(); i++)
+    aMSC_715.get_arr_symbol_count()[i] = aMSC_715.distribution_forbidden[i];
+  aMSC_715.set_total_count(aMSC_715.pre_count);
+  for (int i = 0; i < aMSC_716.model_symbols(); i++)
+    aMSC_716.get_arr_symbol_count()[i] = aMSC_716.distribution_forbidden[i];
+  aMSC_716.set_total_count(aMSC_716.pre_count);
+  for (int i = 0; i < aMSC_717.model_symbols(); i++)
+    aMSC_717.get_arr_symbol_count()[i] = aMSC_717.distribution_forbidden[i];
+  aMSC_717.set_total_count(aMSC_717.pre_count);
+  for (int i = 0; i < aMSC_718.model_symbols(); i++)
+    aMSC_718.get_arr_symbol_count()[i] = aMSC_718.distribution_forbidden[i];
+  aMSC_718.set_total_count(aMSC_718.pre_count);
+  for (int i = 0; i < aMSC_719.model_symbols(); i++)
+    aMSC_719.get_arr_symbol_count()[i] = aMSC_719.distribution_forbidden[i];
+  aMSC_719.set_total_count(aMSC_719.pre_count);
+  for (int i = 0; i < aMSC_720.model_symbols(); i++)
+    aMSC_720.get_arr_symbol_count()[i] = aMSC_720.distribution_forbidden[i];
+  aMSC_720.set_total_count(aMSC_720.pre_count);
+  for (int i = 0; i < aMSC_721.model_symbols(); i++)
+    aMSC_721.get_arr_symbol_count()[i] = aMSC_721.distribution_forbidden[i];
+  aMSC_721.set_total_count(aMSC_721.pre_count);
+  for (int i = 0; i < aMSC_722.model_symbols(); i++)
+    aMSC_722.get_arr_symbol_count()[i] = aMSC_722.distribution_forbidden[i];
+  aMSC_722.set_total_count(aMSC_722.pre_count);
+  for (int i = 0; i < aMSC_723.model_symbols(); i++)
+    aMSC_723.get_arr_symbol_count()[i] = aMSC_723.distribution_forbidden[i];
+  aMSC_723.set_total_count(aMSC_723.pre_count);
+  for (int i = 0; i < aMSC_724.model_symbols(); i++)
+    aMSC_724.get_arr_symbol_count()[i] = aMSC_724.distribution_forbidden[i];
+  aMSC_724.set_total_count(aMSC_724.pre_count);
+  for (int i = 0; i < aMSC_725.model_symbols(); i++)
+    aMSC_725.get_arr_symbol_count()[i] = aMSC_725.distribution_forbidden[i];
+  aMSC_725.set_total_count(aMSC_725.pre_count);
+  for (int i = 0; i < aMSC_726.model_symbols(); i++)
+    aMSC_726.get_arr_symbol_count()[i] = aMSC_726.distribution_forbidden[i];
+  aMSC_726.set_total_count(aMSC_726.pre_count);
+  for (int i = 0; i < aMSC_80.model_symbols(); i++)
+    aMSC_80.get_arr_symbol_count()[i] = aMSC_80.distribution_forbidden[i];
+  aMSC_80.set_total_count(aMSC_80.pre_count);
+  for (int i = 0; i < aMSC_81.model_symbols(); i++)
+    aMSC_81.get_arr_symbol_count()[i] = aMSC_81.distribution_forbidden[i];
+  aMSC_81.set_total_count(aMSC_81.pre_count);
+  for (int i = 0; i < aMSC_82.model_symbols(); i++)
+    aMSC_82.get_arr_symbol_count()[i] = aMSC_82.distribution_forbidden[i];
+  aMSC_82.set_total_count(aMSC_82.pre_count);
+  for (int i = 0; i < aMSC_83.model_symbols(); i++)
+    aMSC_83.get_arr_symbol_count()[i] = aMSC_83.distribution_forbidden[i];
+  aMSC_83.set_total_count(aMSC_83.pre_count);
+  for (int i = 0; i < aMSC_84.model_symbols(); i++)
+    aMSC_84.get_arr_symbol_count()[i] = aMSC_84.distribution_forbidden[i];
+  aMSC_84.set_total_count(aMSC_84.pre_count);
+  for (int i = 0; i < aMSC_85.model_symbols(); i++)
+    aMSC_85.get_arr_symbol_count()[i] = aMSC_85.distribution_forbidden[i];
+  aMSC_85.set_total_count(aMSC_85.pre_count);
+  for (int i = 0; i < aMSC_86.model_symbols(); i++)
+    aMSC_86.get_arr_symbol_count()[i] = aMSC_86.distribution_forbidden[i];
+  aMSC_86.set_total_count(aMSC_86.pre_count);
+  for (int i = 0; i < aMSC_87.model_symbols(); i++)
+    aMSC_87.get_arr_symbol_count()[i] = aMSC_87.distribution_forbidden[i];
+  aMSC_87.set_total_count(aMSC_87.pre_count);
+  for (int i = 0; i < aMSC_88.model_symbols(); i++)
+    aMSC_88.get_arr_symbol_count()[i] = aMSC_88.distribution_forbidden[i];
+  aMSC_88.set_total_count(aMSC_88.pre_count);
+  for (int i = 0; i < aMSC_89.model_symbols(); i++)
+    aMSC_89.get_arr_symbol_count()[i] = aMSC_89.distribution_forbidden[i];
+  aMSC_89.set_total_count(aMSC_89.pre_count);
+  for (int i = 0; i < aMSC_810.model_symbols(); i++)
+    aMSC_810.get_arr_symbol_count()[i] = aMSC_810.distribution_forbidden[i];
+  aMSC_810.set_total_count(aMSC_810.pre_count);
+  for (int i = 0; i < aMSC_811.model_symbols(); i++)
+    aMSC_811.get_arr_symbol_count()[i] = aMSC_811.distribution_forbidden[i];
+  aMSC_811.set_total_count(aMSC_811.pre_count);
+  for (int i = 0; i < aMSC_812.model_symbols(); i++)
+    aMSC_812.get_arr_symbol_count()[i] = aMSC_812.distribution_forbidden[i];
+  aMSC_812.set_total_count(aMSC_812.pre_count);
+  for (int i = 0; i < aMSC_813.model_symbols(); i++)
+    aMSC_813.get_arr_symbol_count()[i] = aMSC_813.distribution_forbidden[i];
+  aMSC_813.set_total_count(aMSC_813.pre_count);
+  for (int i = 0; i < aMSC_814.model_symbols(); i++)
+    aMSC_814.get_arr_symbol_count()[i] = aMSC_814.distribution_forbidden[i];
+  aMSC_814.set_total_count(aMSC_814.pre_count);
+  for (int i = 0; i < aMSC_815.model_symbols(); i++)
+    aMSC_815.get_arr_symbol_count()[i] = aMSC_815.distribution_forbidden[i];
+  aMSC_815.set_total_count(aMSC_815.pre_count);
+  for (int i = 0; i < aMSC_816.model_symbols(); i++)
+    aMSC_816.get_arr_symbol_count()[i] = aMSC_816.distribution_forbidden[i];
+  aMSC_816.set_total_count(aMSC_816.pre_count);
+  for (int i = 0; i < aMSC_817.model_symbols(); i++)
+    aMSC_817.get_arr_symbol_count()[i] = aMSC_817.distribution_forbidden[i];
+  aMSC_817.set_total_count(aMSC_817.pre_count);
+  for (int i = 0; i < aMSC_818.model_symbols(); i++)
+    aMSC_818.get_arr_symbol_count()[i] = aMSC_818.distribution_forbidden[i];
+  aMSC_818.set_total_count(aMSC_818.pre_count);
+  for (int i = 0; i < aMSC_819.model_symbols(); i++)
+    aMSC_819.get_arr_symbol_count()[i] = aMSC_819.distribution_forbidden[i];
+  aMSC_819.set_total_count(aMSC_819.pre_count);
+  for (int i = 0; i < aMSC_820.model_symbols(); i++)
+    aMSC_820.get_arr_symbol_count()[i] = aMSC_820.distribution_forbidden[i];
+  aMSC_820.set_total_count(aMSC_820.pre_count);
+  for (int i = 0; i < aMSC_821.model_symbols(); i++)
+    aMSC_821.get_arr_symbol_count()[i] = aMSC_821.distribution_forbidden[i];
+  aMSC_821.set_total_count(aMSC_821.pre_count);
+  for (int i = 0; i < aMSC_822.model_symbols(); i++)
+    aMSC_822.get_arr_symbol_count()[i] = aMSC_822.distribution_forbidden[i];
+  aMSC_822.set_total_count(aMSC_822.pre_count);
+  for (int i = 0; i < aMSC_823.model_symbols(); i++)
+    aMSC_823.get_arr_symbol_count()[i] = aMSC_823.distribution_forbidden[i];
+  aMSC_823.set_total_count(aMSC_823.pre_count);
+  for (int i = 0; i < aMSC_824.model_symbols(); i++)
+    aMSC_824.get_arr_symbol_count()[i] = aMSC_824.distribution_forbidden[i];
+  aMSC_824.set_total_count(aMSC_824.pre_count);
+  for (int i = 0; i < aMSC_825.model_symbols(); i++)
+    aMSC_825.get_arr_symbol_count()[i] = aMSC_825.distribution_forbidden[i];
+  aMSC_825.set_total_count(aMSC_825.pre_count);
+  for (int i = 0; i < aMSC_826.model_symbols(); i++)
+    aMSC_826.get_arr_symbol_count()[i] = aMSC_826.distribution_forbidden[i];
+  aMSC_826.set_total_count(aMSC_826.pre_count);
 }
