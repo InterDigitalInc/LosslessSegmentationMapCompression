@@ -124,8 +124,16 @@ Reference implementation files:
 If you use this repository in academic work, please cite both this project and
 the original arithmetic coding reference.
 
-### Project Citation (TBD)
-
+### Project Citation (Submitted to *IEEE Transactions on CSVT* for peer review)
+```bibtex
+@article{yang2026context,
+  title={Context Adaptive Extended Chain Coding for Semantic Map Compression},
+  author={Yang, Runyu and Liao, Junqi and Choi, Hyomin and Racapé, Fabien and Bajić, Ivan V.},
+  journal={arXiv preprint arXiv:2603.03073},
+  year={2026},
+  url={https://arxiv.org/pdf/2603.03073}
+}
+```
 
 ### Arithmetic Coding Reference
 
